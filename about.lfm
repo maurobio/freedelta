@@ -1,0 +1,208 @@
+object AboutBox: TAboutBox
+  Left = 459
+  Height = 312
+  Top = 228
+  Width = 448
+  BorderStyle = bsDialog
+  Caption = 'About'
+  ClientHeight = 312
+  ClientWidth = 448
+  Color = clBtnFace
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  OnShow = FormShow
+  Position = poMainFormCenter
+  LCLVersion = '2.0.8.0'
+  object Panel1: TPanel
+    Left = 8
+    Height = 264
+    Top = 8
+    Width = 433
+    BevelOuter = bvNone
+    ClientHeight = 264
+    ClientWidth = 433
+    TabOrder = 0
+    object ProgramIcon: TImage
+      Left = 0
+      Height = 40
+      Top = 0
+      Width = 40
+      Picture.Data = {
+        1754506F727461626C654E6574776F726B47726170686963F200000089504E47
+        0D0A1A0A0000000D4948445200000020000000200806000000737A7AF4000000
+        B94944415458C3DD94BD0EC2300C84130F1D112B12EFFF6A5D3B23A4634108DA
+        A0383DFF142C756CEEEE937DA57083E7B77BA4244F25D3D36FFD2C0158BD4713
+        00F9BF309A30F063B203082400852852AE000104302086BFEB01EC2C807A7802
+        629DFE7C9B8776C185C0CA04658049AFA2E0B6035A0AE29CBE4BC1F50A3414AA
+        67FA65BA74F50ED9845EE99B9A21044EF7ABFA0ACCD337C491B203DF284870FA
+        8D44E815B40C4942FA0FA9F01E581B93A4F42FC994267C37F800D356531AA4EE
+        2DE70000000049454E44AE426082
+      }
+      Transparent = True
+    end
+    object ProductName: TLabel
+      Left = 48
+      Height = 13
+      Top = 0
+      Width = 86
+      Caption = 'Free Delta Editor'
+      Font.Height = -11
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object Copyright: TLabel
+      Left = 48
+      Height = 13
+      Top = 31
+      Width = 221
+      Caption = 'Copyright © 2000-2021 Mauro J. Cavalcanti'
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+    end
+    object VersionNumber: TLabel
+      Left = 152
+      Height = 13
+      Top = 0
+      Width = 32
+      Caption = 'v 0.0.0'
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+    end
+    object OperatingSystem: TLabel
+      Left = 48
+      Height = 13
+      Top = 208
+      Width = 18
+      Caption = 'OS:'
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+    end
+    object SystemInformation: TLabel
+      Left = 48
+      Height = 13
+      Top = 137
+      Width = 102
+      Caption = 'System Information:'
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+    end
+    object Website: TLabel
+      Cursor = crHandPoint
+      Left = 48
+      Height = 13
+      Top = 247
+      Width = 92
+      Caption = 'FreeDelta website'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsUnderline]
+      ParentColor = False
+      ParentFont = False
+      OnClick = WebsiteClick
+    end
+    object Compiler: TLabel
+      Left = 48
+      Height = 13
+      Top = 160
+      Width = 49
+      Caption = 'Compiler:'
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+    end
+    object IDE: TLabel
+      Left = 48
+      Height = 13
+      Top = 175
+      Width = 20
+      Caption = 'IDE:'
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+    end
+    object Platform: TLabel
+      Left = 48
+      Height = 13
+      Top = 192
+      Width = 46
+      Caption = 'Platform:'
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+    end
+    object Comments: TLabel
+      Left = 48
+      Height = 73
+      Top = 56
+      Width = 352
+      AutoSize = False
+      Caption = 'Comments'
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+      WordWrap = True
+    end
+    object Donation: TImage
+      Cursor = crHandPoint
+      Left = 177
+      Height = 26
+      Top = 240
+      Width = 92
+      AutoSize = True
+      OnClick = DonationClick
+      Picture.Data = {
+        1754506F727461626C654E6574776F726B477261706869638803000089504E47
+        0D0A1A0A0000000D494844520000005C0000001A0802000000B58CAC7E000003
+        4F49444154789CED584D6B1441109D3FE15FF0E46D4541C49B227A11C54B0E5E
+        447314C483889E97205E04A309641121B062C0A02B8A42C8C1CBE66860C921AC
+        1AFC4008BB82207A70C657F3666A6A7A6674B78D083B2E8FA5ABBABABAEA7575
+        CF4C079F2B7ED15C63E251957B5049C7DAE568AB137DD98C7E7C9B406C77A3DE
+        6C15352E29300A5F35858BEF835AE0CD729197C06144AAE3EBFB7A011590E725
+        C83182A282450D315CB7BC04D9AEE9B7A4AFCE48794948099F1E9632A937061B
+        ED8C141EAEE1A7553FDCBA7D33689C57EC3A307DA53933DC7CECED7014F4BAED
+        CED29D1D77CB6289497974100FE0F0E3733F800270B1EFE4A563E7AE02200522
+        1ADE0E7F0B2C036679F9E2EE8E7B0615428A9409F6CECA54F8E1891F903F5890
+        10631135425EB0986A03250CD4A60818A357EACB28AB46D1BF35E6703BA307F0
+        E62254CC35125204D841EF963DC05D830DA91AD60ED6D38ABAB9548F34586267
+        2E36B557122B1B453DFEED56852BCCABC359A13692B12095E192021954BD6D8F
+        054DCC2A990FFED166C430C011B0B870838BDC5F5B40971E46C804BDB0D15110
+        7514BDC97E8CF52C4C74418FFC296216F520A48F990520070849704849EA651C
+        5F4C0C31959282E4B9CEB27AA68B71932F66AB228873A680C69A59C69D252195
+        6A392AF02E12D7488E1439682D60016A5EDF1B05CC4492ECB754C91543C41965
+        695796526A260F91FC28B4F1AF6736C121CE28FA87198F79760947A3052F74C4
+        05924BBF9C9418C9E90B7600245C812CC454C34025B27E2BA320ED65B563F107
+        EBF3CC967A2BA24D3A3010EC385350940D98FAE7565248AD55072C47043EEEF0
+        B9BB32559A784ACAC3BDDE60266C0F171B33178E53F3ECFA21681E5C3B82F6D1
+        53A769B031BF9F0B0B4B18D82E2BDA362C4910C65A0F1C45FFD3674FA8139AFD
+        11125296F6F881D117815869A029216E806DF6923EC927B6B42233A7C8BA10DE
+        CD8CF0037B98C13F0DE89F5503A577460290927C0AFA9282F5B460ACD60622F4
+        4C0C114B05A52C402FE2FDDDA5A2DAD3B33A546F9CC8FA072FCEEC1E8C64AFF9
+        12CA7F004A4AC24BE9A9532B385FC9FAB25F6B38A424C58207556D51BC64CA5D
+        D0F6666B87AAEBC81C2F5B9D9A405EE77E7D719DED2352B3DDFDF757847F0FF1
+        3D3E9E3845064A48B1D44C36AA72FF09D599E0692FC742950000000049454E44
+        AE426082
+      }
+    end
+  end
+  object OKButton: TButton
+    Left = 360
+    Height = 26
+    Top = 272
+    Width = 72
+    Cancel = True
+    Caption = 'OK'
+    Default = True
+    ModalResult = 1
+    TabOrder = 1
+  end
+end

@@ -1,0 +1,23 @@
+*COMMENT English vocabulary. This English vocabulary is built into
+the program, but is supplied separately here so that you can alter it
+to your requirements, for example, by deleting the word '(variant)'.
+
+*VOCABULARY
+#1. or
+#2. to
+#3. and
+#4. variable
+#5. unknown
+#6. not applicable
+#7. (variant)
+#8. not coded
+#9. never
+#10. minimum
+#11. maximum
+#12. up to
+#13. or more
+#14. .
+#15. ,
+#16. , <alternate comma>
+#17. ;
+#18. .

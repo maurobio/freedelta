@@ -1,0 +1,5026 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Project-Id-Version: Free Delta Editor\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Mauro J. Cavalcanti <maurobio@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: about.strcomments
+msgid "This application is an open-source, cross platform desktop tool for building taxonomic descriptive databases, natural-language descriptions, identification keys, and numerical classifications, based on the DELTA (DEscription Language for TAxonomy) format."
+msgstr "This application is an open-source, cross platform desktop tool for building taxonomic descriptive databases, natural-language descriptions, identification keys, and numerical classifications, based on the DELTA (DEscription Language for TAxonomy) format."
+
+#: about.strcompiler
+msgctxt "about.strcompiler"
+msgid "Compiler:"
+msgstr "Compiler:"
+
+#: about.strplatform
+msgid "Plataform:"
+msgstr "Plataform:"
+
+#: about.strwebsite
+msgctxt "about.strwebsite"
+msgid "FreeDelta website"
+msgstr "FreeDelta website"
+
+#: chars.straddcharacter
+msgctxt "chars.straddcharacter"
+msgid "Add Character"
+msgstr "Add Character"
+
+#: chars.stradditemcaption
+msgctxt "chars.stradditemcaption"
+msgid "Add Item"
+msgstr "Add Item"
+
+#: chars.stradditemprompt
+msgctxt "chars.stradditemprompt"
+msgid "Enter item name:"
+msgstr "Enter item name:"
+
+#: chars.straddstatecaption
+msgctxt "chars.straddstatecaption"
+msgid "Add State"
+msgstr "Add State"
+
+#: chars.straddstateprompt
+msgctxt "chars.straddstateprompt"
+msgid "Enter state description:"
+msgstr "Enter state description:"
+
+#: chars.straxis
+msgctxt "chars.straxis"
+msgid "Axis"
+msgstr "Axis"
+
+#: chars.strcentroid
+msgctxt "chars.strcentroid"
+msgid "Centroid (UPGMC)"
+msgstr "Centroid (UPGMC)"
+
+#: chars.strcharacters
+msgctxt "chars.strcharacters"
+msgid "characters"
+msgstr "characters"
+
+#: chars.strcharlistempty
+msgctxt "chars.strcharlistempty"
+msgid "Character list empty. Enter at least one character description."
+msgstr "Character list empty. Enter at least one character description."
+
+#: chars.strclass
+msgctxt "chars.strclass"
+msgid " Class "
+msgstr ""
+
+#: chars.strclm
+msgctxt "chars.strclm"
+msgid "Complete linkage (CLM)"
+msgstr "Complete linkage (CLM)"
+
+#: chars.strcloneitem
+msgctxt "chars.strcloneitem"
+msgid "Clone of"
+msgstr ""
+
+#: chars.strconfirmation
+msgctxt "chars.strconfirmation"
+msgid "Confirmation"
+msgstr "Confirmation"
+
+#: chars.strcontrol
+msgctxt "chars.strcontrol"
+msgid "Controls character: %s, by state: %s"
+msgstr ""
+
+#: chars.strcopyimage
+msgctxt "chars.strcopyimage"
+msgid "Image copied to the Clipboard"
+msgstr ""
+
+#: chars.strcopytext
+msgctxt "chars.strcopytext"
+msgid "Text copied to the Clipboard"
+msgstr "Text copied to the Clipboard"
+
+#: chars.strcsvfilter
+msgctxt "chars.strcsvfilter"
+msgid "Comma delimited files|*.csv"
+msgstr "Comma delimited files|*.csv"
+
+#: chars.strdatadirectory
+msgctxt "chars.strdatadirectory"
+msgid "Select data directory"
+msgstr "Select data directory"
+
+#: chars.strdeltadirectory
+msgctxt "chars.strdeltadirectory"
+msgid "Select DELTA directory"
+msgstr ""
+
+#: chars.strdendrogram
+msgctxt "chars.strdendrogram"
+msgid "Dendrogram"
+msgstr "Dendrogram"
+
+#: chars.strdependent
+msgctxt "chars.strdependent"
+msgid "Dependent upon character: %s, state: %s"
+msgstr ""
+
+#: chars.strdistance
+msgctxt "chars.strdistance"
+msgid "Distance"
+msgstr "Distance"
+
+#: chars.strdtzfilter
+msgctxt "chars.strdtzfilter"
+msgid "FreeDelta project|*.dtz"
+msgstr "FreeDelta project|*.dtz"
+
+#: chars.streditcaption
+msgctxt "chars.streditcaption"
+msgid "Database Title"
+msgstr "Database Title"
+
+#: chars.streditcharacter
+msgctxt "chars.streditcharacter"
+msgid "Edit Character"
+msgstr "Edit Character"
+
+#: chars.stredititemcaption
+msgctxt "chars.stredititemcaption"
+msgid "Edit Item"
+msgstr "Edit Item"
+
+#: chars.stredititemprompt
+msgctxt "chars.stredititemprompt"
+msgid "Edit item name:"
+msgstr "Edit item name:"
+
+#: chars.streditprompt
+msgctxt "chars.streditprompt"
+msgid "Edit database title:"
+msgstr "Edit database title:"
+
+#: chars.streditstatecaption
+msgctxt "chars.streditstatecaption"
+msgid "Edit State"
+msgstr "Edit State"
+
+#: chars.streditstateprompt
+msgctxt "chars.streditstateprompt"
+msgid "Edit state description:"
+msgstr "Edit state description:"
+
+#: chars.strentercharacternumber
+msgctxt "chars.strentercharacternumber"
+msgid "Enter character number:"
+msgstr ""
+
+#: chars.strerror
+msgctxt "chars.strerror"
+msgid "Error"
+msgstr "Error"
+
+#: chars.strexists
+msgctxt "chars.strexists"
+msgid "File %s already exists. Overwrite?"
+msgstr "File %s already exists. Overwrite?"
+
+#: chars.strexport
+msgctxt "chars.strexport"
+msgid "Data exported successfully to directory %s."
+msgstr "Data exported successfully to directory %s."
+
+#: chars.strexportfile
+msgctxt "chars.strexportfile"
+msgid "Data exported successfully to file %s."
+msgstr ""
+
+#: chars.strfindcharactercaption
+msgctxt "chars.strfindcharactercaption"
+msgid "Find Character"
+msgstr "Find Character"
+
+#: chars.strfindcharacterprompt
+msgctxt "chars.strfindcharacterprompt"
+msgid "Enter character description:"
+msgstr "Enter character description:"
+
+#: chars.strfinditemcaption
+msgctxt "chars.strfinditemcaption"
+msgid "Find Item"
+msgstr "Find Item"
+
+#: chars.strfinditemprompt
+msgctxt "chars.strfinditemprompt"
+msgid "Enter item name:"
+msgstr "Enter item name:"
+
+#: chars.strfindtextcaption
+msgctxt "chars.strfindtextcaption"
+msgid "Find Text"
+msgstr "Find Text"
+
+#: chars.strfindtextprompt
+msgctxt "chars.strfindtextprompt"
+msgid "Enter search text:"
+msgstr "Enter search text:"
+
+#: chars.strfrequency
+msgctxt "chars.strfrequency"
+msgid " Freq "
+msgstr ""
+
+#: chars.strgotocharacter
+msgctxt "chars.strgotocharacter"
+msgid "Go to character"
+msgstr ""
+
+#: chars.strgotoline
+msgctxt "chars.strgotoline"
+msgid "Go to"
+msgstr ""
+
+#: chars.strgotolinecaption
+msgctxt "chars.strgotolinecaption"
+msgid "Enter item/character number:"
+msgstr ""
+
+#: chars.strhistogram
+msgctxt "chars.strhistogram"
+msgid " Histogram "
+msgstr ""
+
+#: chars.strimport
+msgctxt "chars.strimport"
+msgid "Data imported successfully to file %s."
+msgstr "Data imported successfully to file %s."
+
+#: chars.strinformation
+msgctxt "chars.strinformation"
+msgid "Information"
+msgstr "Information"
+
+#: chars.strinputinteger
+msgctxt "chars.strinputinteger"
+msgid "Enter an integer value between 1 and %d"
+msgstr ""
+
+#: chars.strinterval
+msgctxt "chars.strinterval"
+msgid " Class Interval "
+msgstr ""
+
+#: chars.strinvalidsymbol
+msgctxt "chars.strinvalidsymbol"
+msgid "Invalid symbol ('/') in character or state name"
+msgstr ""
+
+#: chars.stritemlistempty
+msgctxt "chars.stritemlistempty"
+msgid "Item list empty. Enter at least one item name."
+msgstr "Item list empty. Enter at least one item name."
+
+#: chars.stritems
+msgctxt "chars.stritems"
+msgid "items"
+msgstr "items"
+
+#: chars.stritemstatus
+msgctxt "chars.stritemstatus"
+msgid "Item name, followed by author name and/or comment between <angle brackets>"
+msgstr ""
+
+#: chars.strlinux64only
+msgctxt "chars.strlinux64only"
+msgid "This option is not available under GNU/Linux 32-bit."
+msgstr ""
+
+#: chars.strmark
+msgctxt "chars.strmark"
+msgid " Class Mark "
+msgstr ""
+
+#: chars.strmedian
+msgctxt "chars.strmedian"
+msgid "Median (WPGMC)"
+msgstr "Median (WPGMC)"
+
+#: chars.strmerge
+msgctxt "chars.strmerge"
+msgid "All characters will be treated as unordered multistate"
+msgstr ""
+
+#: chars.strmissingbrackets
+msgctxt "chars.strmissingbrackets"
+msgid "Missing opening or closing angle brackets ('<>')"
+msgstr ""
+
+#: chars.strnewcaption
+msgctxt "chars.strnewcaption"
+msgid "New Database"
+msgstr "New Database"
+
+#: chars.strnewprompt
+msgctxt "chars.strnewprompt"
+msgid "Enter database title:"
+msgstr "Enter database title:"
+
+#: chars.strnexusfilter
+msgctxt "chars.strnexusfilter"
+msgid "Nexus data files|*.nex"
+msgstr ""
+
+#: chars.strnotexecute
+msgctxt "chars.strnotexecute"
+msgid "Couldn't start %s program."
+msgstr "Couldn't start %s program."
+
+#: chars.strnotfound
+msgctxt "chars.strnotfound"
+msgid "File %s not found."
+msgstr "File %s not found."
+
+#: chars.strnotfounddir
+msgctxt "chars.strnotfounddir"
+msgid "File %s not found in %s."
+msgstr "File %s not found in %s."
+
+#: chars.stropenfile
+msgctxt "chars.stropenfile"
+msgid "Open file"
+msgstr "Open file"
+
+#: chars.stroutofrange
+msgctxt "chars.stroutofrange"
+msgid "Value out of range"
+msgstr ""
+
+#: chars.strpaupdirectory
+msgctxt "chars.strpaupdirectory"
+msgid "Select PAUP directory"
+msgstr ""
+
+#: chars.strpaupnotfound
+msgctxt "chars.strpaupnotfound"
+msgid "PAUP not installed or not found in path."
+msgstr ""
+
+#: chars.strquit
+msgctxt "chars.strquit"
+msgid "Do you want to exit the program?"
+msgstr "Do you want to exit the program?"
+
+#: chars.strrdirectory
+msgctxt "chars.strrdirectory"
+msgid "Select R directory"
+msgstr ""
+
+#: chars.strreaderror
+msgctxt "chars.strreaderror"
+msgid "Error reading file %s."
+msgstr ""
+
+#: chars.strready
+msgctxt "chars.strready"
+msgid "Ready"
+msgstr ""
+
+#: chars.strrnotfound
+msgctxt "chars.strrnotfound"
+msgid "R not installed or not found in path."
+msgstr ""
+
+#: chars.strsave
+msgctxt "chars.strsave"
+msgid "Dataset has been modified. Save?"
+msgstr "Dataset has been modified. Save?"
+
+#: chars.strsavechanges
+msgctxt "chars.strsavechanges"
+msgid "Save changes?"
+msgstr ""
+
+#: chars.strsaveerror
+msgctxt "chars.strsaveerror"
+msgid "Failed to save file %s."
+msgstr "Failed to save file %s."
+
+#: chars.strsavefile
+msgctxt "chars.strsavefile"
+msgid "Save file as"
+msgstr "Save file as"
+
+#: chars.strscatterplot
+msgctxt "chars.strscatterplot"
+msgid "Scatterplot"
+msgstr "Scatterplot"
+
+#: chars.strslm
+msgctxt "chars.strslm"
+msgid "Single linkage (SLM)"
+msgstr "Single linkage (SLM)"
+
+#: chars.strstatelistempty
+#, fuzzy
+#| msgid "State list empty. Enter at least one state description."
+msgctxt "chars.strstatelistempty"
+msgid "State list empty or incomplete. Enter at least two state descriptions."
+msgstr "State list empty. Enter at least one state description."
+
+#: chars.strstates
+msgctxt "chars.strstates"
+msgid "States:"
+msgstr "States:"
+
+#: chars.strtextnotfound
+msgctxt "chars.strtextnotfound"
+msgid "Text not found!"
+msgstr "Text not found!"
+
+#: chars.strtntdirectory
+msgctxt "chars.strtntdirectory"
+msgid "Select TNT directory"
+msgstr ""
+
+#: chars.strtntfilter
+msgctxt "chars.strtntfilter"
+msgid "TNT data files|*.tnt"
+msgstr ""
+
+#: chars.strtntnotfound
+msgctxt "chars.strtntnotfound"
+msgid "TNT not installed or not found in path."
+msgstr ""
+
+#: chars.strtxtfilter
+msgctxt "chars.strtxtfilter"
+msgid "Text files|*.txt"
+msgstr "Text files|*.txt"
+
+#: chars.strunit
+msgctxt "chars.strunit"
+msgid "Unit:"
+msgstr "Unit:"
+
+#: chars.strunitempty
+msgctxt "chars.strunitempty"
+msgid "Measurement unit not defined for real numeric character."
+msgstr "Measurement unit not defined for real numeric character."
+
+#: chars.struntitled
+msgctxt "chars.struntitled"
+msgid "Untitled"
+msgstr ""
+
+#: chars.strupgma
+msgctxt "chars.strupgma"
+msgid "Average linkage (UPGMA)"
+msgstr "Average linkage (UPGMA)"
+
+#: chars.strvalidnumber
+msgctxt "chars.strvalidnumber"
+msgid "Enter numbers only (an integer value between 1 and %d)"
+msgstr ""
+
+#: chars.strward
+msgctxt "chars.strward"
+msgid "Ward's Method"
+msgstr "Ward's Method"
+
+#: chars.strwarning
+msgctxt "chars.strwarning"
+msgid "Warning"
+msgstr "Warning"
+
+#: chars.strwindowsonly
+msgctxt "chars.strwindowsonly"
+msgid "This option is available only under MS-Windows."
+msgstr "This option is available only under MS-Windows."
+
+#: chars.strwpgma
+msgctxt "chars.strwpgma"
+msgid "Weighted linkage (WPGMA)"
+msgstr "Weighted linkage (WPGMA)"
+
+#: chars.strxmlfilter
+msgctxt "chars.strxmlfilter"
+msgid "XML files|*.xml"
+msgstr ""
+
+#: cluster.straddcharacter
+msgctxt "cluster.straddcharacter"
+msgid "Add Character"
+msgstr "Add Character"
+
+#: cluster.stradditemcaption
+msgctxt "cluster.stradditemcaption"
+msgid "Add Item"
+msgstr "Add Item"
+
+#: cluster.stradditemprompt
+msgctxt "cluster.stradditemprompt"
+msgid "Enter item name:"
+msgstr "Enter item name:"
+
+#: cluster.straddstatecaption
+msgctxt "cluster.straddstatecaption"
+msgid "Add State"
+msgstr "Add State"
+
+#: cluster.straddstateprompt
+msgctxt "cluster.straddstateprompt"
+msgid "Enter state description:"
+msgstr "Enter state description:"
+
+#: cluster.straxis
+msgctxt "cluster.straxis"
+msgid "Axis"
+msgstr "Axis"
+
+#: cluster.strcentroid
+msgctxt "cluster.strcentroid"
+msgid "Centroid (UPGMC)"
+msgstr "Centroid (UPGMC)"
+
+#: cluster.strcharacters
+msgctxt "cluster.strcharacters"
+msgid "characters"
+msgstr "characters"
+
+#: cluster.strcharlistempty
+msgctxt "cluster.strcharlistempty"
+msgid "Character list empty. Enter at least one character description."
+msgstr "Character list empty. Enter at least one character description."
+
+#: cluster.strclass
+msgctxt "cluster.strclass"
+msgid " Class "
+msgstr ""
+
+#: cluster.strclm
+msgctxt "cluster.strclm"
+msgid "Complete linkage (CLM)"
+msgstr "Complete linkage (CLM)"
+
+#: cluster.strcloneitem
+msgctxt "cluster.strcloneitem"
+msgid "Clone of"
+msgstr ""
+
+#: cluster.strconfirmation
+msgctxt "cluster.strconfirmation"
+msgid "Confirmation"
+msgstr "Confirmation"
+
+#: cluster.strcontrol
+msgctxt "cluster.strcontrol"
+msgid "Controls character: %s, by state: %s"
+msgstr ""
+
+#: cluster.strcopyimage
+msgctxt "cluster.strcopyimage"
+msgid "Image copied to the Clipboard"
+msgstr ""
+
+#: cluster.strcopytext
+msgctxt "cluster.strcopytext"
+msgid "Text copied to the Clipboard"
+msgstr "Text copied to the Clipboard"
+
+#: cluster.strcsvfilter
+msgctxt "cluster.strcsvfilter"
+msgid "Comma delimited files|*.csv"
+msgstr "Comma delimited files|*.csv"
+
+#: cluster.strdatadirectory
+msgctxt "cluster.strdatadirectory"
+msgid "Select data directory"
+msgstr "Select data directory"
+
+#: cluster.strdeltadirectory
+msgctxt "cluster.strdeltadirectory"
+msgid "Select DELTA directory"
+msgstr ""
+
+#: cluster.strdendrogram
+msgctxt "cluster.strdendrogram"
+msgid "Dendrogram"
+msgstr "Dendrogram"
+
+#: cluster.strdependent
+msgctxt "cluster.strdependent"
+msgid "Dependent upon character: %s, state: %s"
+msgstr ""
+
+#: cluster.strdistance
+msgctxt "cluster.strdistance"
+msgid "Distance"
+msgstr "Distance"
+
+#: cluster.strdtzfilter
+msgctxt "cluster.strdtzfilter"
+msgid "FreeDelta project|*.dtz"
+msgstr "FreeDelta project|*.dtz"
+
+#: cluster.streditcaption
+msgctxt "cluster.streditcaption"
+msgid "Database Title"
+msgstr "Database Title"
+
+#: cluster.streditcharacter
+msgctxt "cluster.streditcharacter"
+msgid "Edit Character"
+msgstr "Edit Character"
+
+#: cluster.stredititemcaption
+msgctxt "cluster.stredititemcaption"
+msgid "Edit Item"
+msgstr "Edit Item"
+
+#: cluster.stredititemprompt
+msgctxt "cluster.stredititemprompt"
+msgid "Edit item name:"
+msgstr "Edit item name:"
+
+#: cluster.streditprompt
+msgctxt "cluster.streditprompt"
+msgid "Edit database title:"
+msgstr "Edit database title:"
+
+#: cluster.streditstatecaption
+msgctxt "cluster.streditstatecaption"
+msgid "Edit State"
+msgstr "Edit State"
+
+#: cluster.streditstateprompt
+msgctxt "cluster.streditstateprompt"
+msgid "Edit state description:"
+msgstr "Edit state description:"
+
+#: cluster.strentercharacternumber
+msgctxt "cluster.strentercharacternumber"
+msgid "Enter character number:"
+msgstr ""
+
+#: cluster.strerror
+msgctxt "cluster.strerror"
+msgid "Error"
+msgstr "Error"
+
+#: cluster.strexists
+msgctxt "cluster.strexists"
+msgid "File %s already exists. Overwrite?"
+msgstr "File %s already exists. Overwrite?"
+
+#: cluster.strexport
+msgctxt "cluster.strexport"
+msgid "Data exported successfully to directory %s."
+msgstr "Data exported successfully to directory %s."
+
+#: cluster.strexportfile
+msgctxt "cluster.strexportfile"
+msgid "Data exported successfully to file %s."
+msgstr ""
+
+#: cluster.strfindcharactercaption
+msgctxt "cluster.strfindcharactercaption"
+msgid "Find Character"
+msgstr "Find Character"
+
+#: cluster.strfindcharacterprompt
+msgctxt "cluster.strfindcharacterprompt"
+msgid "Enter character description:"
+msgstr "Enter character description:"
+
+#: cluster.strfinditemcaption
+msgctxt "cluster.strfinditemcaption"
+msgid "Find Item"
+msgstr "Find Item"
+
+#: cluster.strfinditemprompt
+msgctxt "cluster.strfinditemprompt"
+msgid "Enter item name:"
+msgstr "Enter item name:"
+
+#: cluster.strfindtextcaption
+msgctxt "cluster.strfindtextcaption"
+msgid "Find Text"
+msgstr "Find Text"
+
+#: cluster.strfindtextprompt
+msgctxt "cluster.strfindtextprompt"
+msgid "Enter search text:"
+msgstr "Enter search text:"
+
+#: cluster.strfrequency
+msgctxt "cluster.strfrequency"
+msgid " Freq "
+msgstr ""
+
+#: cluster.strgotocharacter
+msgctxt "cluster.strgotocharacter"
+msgid "Go to character"
+msgstr ""
+
+#: cluster.strgotoline
+msgctxt "cluster.strgotoline"
+msgid "Go to"
+msgstr ""
+
+#: cluster.strgotolinecaption
+msgctxt "cluster.strgotolinecaption"
+msgid "Enter item/character number:"
+msgstr ""
+
+#: cluster.strhistogram
+msgctxt "cluster.strhistogram"
+msgid " Histogram "
+msgstr ""
+
+#: cluster.strimport
+msgctxt "cluster.strimport"
+msgid "Data imported successfully to file %s."
+msgstr "Data imported successfully to file %s."
+
+#: cluster.strinformation
+msgctxt "cluster.strinformation"
+msgid "Information"
+msgstr "Information"
+
+#: cluster.strinputinteger
+msgctxt "cluster.strinputinteger"
+msgid "Enter an integer value between 1 and %d"
+msgstr ""
+
+#: cluster.strinterval
+msgctxt "cluster.strinterval"
+msgid " Class Interval "
+msgstr ""
+
+#: cluster.strinvalidsymbol
+msgctxt "cluster.strinvalidsymbol"
+msgid "Invalid symbol ('/') in character or state name"
+msgstr ""
+
+#: cluster.stritemlistempty
+msgctxt "cluster.stritemlistempty"
+msgid "Item list empty. Enter at least one item name."
+msgstr "Item list empty. Enter at least one item name."
+
+#: cluster.stritems
+msgctxt "cluster.stritems"
+msgid "items"
+msgstr "items"
+
+#: cluster.stritemstatus
+msgctxt "cluster.stritemstatus"
+msgid "Item name, followed by author name and/or comment between <angle brackets>"
+msgstr ""
+
+#: cluster.strlinux64only
+msgctxt "cluster.strlinux64only"
+msgid "This option is not available under GNU/Linux 32-bit."
+msgstr ""
+
+#: cluster.strmark
+msgctxt "cluster.strmark"
+msgid " Class Mark "
+msgstr ""
+
+#: cluster.strmedian
+msgctxt "cluster.strmedian"
+msgid "Median (WPGMC)"
+msgstr "Median (WPGMC)"
+
+#: cluster.strmerge
+msgctxt "cluster.strmerge"
+msgid "All characters will be treated as unordered multistate"
+msgstr ""
+
+#: cluster.strmissingbrackets
+msgctxt "cluster.strmissingbrackets"
+msgid "Missing opening or closing angle brackets ('<>')"
+msgstr ""
+
+#: cluster.strnewcaption
+msgctxt "cluster.strnewcaption"
+msgid "New Database"
+msgstr "New Database"
+
+#: cluster.strnewprompt
+msgctxt "cluster.strnewprompt"
+msgid "Enter database title:"
+msgstr "Enter database title:"
+
+#: cluster.strnexusfilter
+msgctxt "cluster.strnexusfilter"
+msgid "Nexus data files|*.nex"
+msgstr ""
+
+#: cluster.strnotexecute
+msgctxt "cluster.strnotexecute"
+msgid "Couldn't start %s program."
+msgstr "Couldn't start %s program."
+
+#: cluster.strnotfound
+msgctxt "cluster.strnotfound"
+msgid "File %s not found."
+msgstr "File %s not found."
+
+#: cluster.strnotfounddir
+msgctxt "cluster.strnotfounddir"
+msgid "File %s not found in %s."
+msgstr "File %s not found in %s."
+
+#: cluster.stropenfile
+msgctxt "cluster.stropenfile"
+msgid "Open file"
+msgstr "Open file"
+
+#: cluster.stroutofrange
+msgctxt "cluster.stroutofrange"
+msgid "Value out of range"
+msgstr ""
+
+#: cluster.strpaupdirectory
+msgctxt "cluster.strpaupdirectory"
+msgid "Select PAUP directory"
+msgstr ""
+
+#: cluster.strpaupnotfound
+msgctxt "cluster.strpaupnotfound"
+msgid "PAUP not installed or not found in path."
+msgstr ""
+
+#: cluster.strquit
+msgctxt "cluster.strquit"
+msgid "Do you want to exit the program?"
+msgstr "Do you want to exit the program?"
+
+#: cluster.strrdirectory
+msgctxt "cluster.strrdirectory"
+msgid "Select R directory"
+msgstr ""
+
+#: cluster.strreaderror
+msgctxt "cluster.strreaderror"
+msgid "Error reading file %s."
+msgstr ""
+
+#: cluster.strready
+msgctxt "cluster.strready"
+msgid "Ready"
+msgstr ""
+
+#: cluster.strrnotfound
+msgctxt "cluster.strrnotfound"
+msgid "R not installed or not found in path."
+msgstr ""
+
+#: cluster.strsave
+msgctxt "cluster.strsave"
+msgid "Dataset has been modified. Save?"
+msgstr "Dataset has been modified. Save?"
+
+#: cluster.strsavechanges
+msgctxt "cluster.strsavechanges"
+msgid "Save changes?"
+msgstr ""
+
+#: cluster.strsaveerror
+msgctxt "cluster.strsaveerror"
+msgid "Failed to save file %s."
+msgstr "Failed to save file %s."
+
+#: cluster.strsavefile
+msgctxt "cluster.strsavefile"
+msgid "Save file as"
+msgstr "Save file as"
+
+#: cluster.strscatterplot
+msgctxt "cluster.strscatterplot"
+msgid "Scatterplot"
+msgstr "Scatterplot"
+
+#: cluster.strslm
+msgctxt "cluster.strslm"
+msgid "Single linkage (SLM)"
+msgstr "Single linkage (SLM)"
+
+#: cluster.strstatelistempty
+#, fuzzy
+#| msgid "State list empty. Enter at least one state description."
+msgctxt "cluster.strstatelistempty"
+msgid "State list empty or incomplete. Enter at least two state descriptions."
+msgstr "State list empty. Enter at least one state description."
+
+#: cluster.strstates
+msgctxt "cluster.strstates"
+msgid "States:"
+msgstr "States:"
+
+#: cluster.strtextnotfound
+msgctxt "cluster.strtextnotfound"
+msgid "Text not found!"
+msgstr "Text not found!"
+
+#: cluster.strtntdirectory
+msgctxt "cluster.strtntdirectory"
+msgid "Select TNT directory"
+msgstr ""
+
+#: cluster.strtntfilter
+msgctxt "cluster.strtntfilter"
+msgid "TNT data files|*.tnt"
+msgstr ""
+
+#: cluster.strtntnotfound
+msgctxt "cluster.strtntnotfound"
+msgid "TNT not installed or not found in path."
+msgstr ""
+
+#: cluster.strtxtfilter
+msgctxt "cluster.strtxtfilter"
+msgid "Text files|*.txt"
+msgstr "Text files|*.txt"
+
+#: cluster.strunit
+msgctxt "cluster.strunit"
+msgid "Unit:"
+msgstr "Unit:"
+
+#: cluster.strunitempty
+msgctxt "cluster.strunitempty"
+msgid "Measurement unit not defined for real numeric character."
+msgstr "Measurement unit not defined for real numeric character."
+
+#: cluster.struntitled
+msgctxt "cluster.struntitled"
+msgid "Untitled"
+msgstr ""
+
+#: cluster.strupgma
+msgctxt "cluster.strupgma"
+msgid "Average linkage (UPGMA)"
+msgstr "Average linkage (UPGMA)"
+
+#: cluster.strvalidnumber
+msgctxt "cluster.strvalidnumber"
+msgid "Enter numbers only (an integer value between 1 and %d)"
+msgstr ""
+
+#: cluster.strward
+msgctxt "cluster.strward"
+msgid "Ward's Method"
+msgstr "Ward's Method"
+
+#: cluster.strwarning
+msgctxt "cluster.strwarning"
+msgid "Warning"
+msgstr "Warning"
+
+#: cluster.strwindowsonly
+msgctxt "cluster.strwindowsonly"
+msgid "This option is available only under MS-Windows."
+msgstr "This option is available only under MS-Windows."
+
+#: cluster.strwpgma
+msgctxt "cluster.strwpgma"
+msgid "Weighted linkage (WPGMA)"
+msgstr "Weighted linkage (WPGMA)"
+
+#: cluster.strxmlfilter
+msgctxt "cluster.strxmlfilter"
+msgid "XML files|*.xml"
+msgstr ""
+
+#: kstates.straddcharacter
+#, fuzzy
+msgctxt "kstates.straddcharacter"
+msgid "Add Character"
+msgstr "Add Character"
+
+#: kstates.stradditemcaption
+#, fuzzy
+msgctxt "kstates.stradditemcaption"
+msgid "Add Item"
+msgstr "Add Item"
+
+#: kstates.stradditemprompt
+#, fuzzy
+msgctxt "kstates.stradditemprompt"
+msgid "Enter item name:"
+msgstr "Enter item name:"
+
+#: kstates.straddstatecaption
+#, fuzzy
+msgctxt "kstates.straddstatecaption"
+msgid "Add State"
+msgstr "Add State"
+
+#: kstates.straddstateprompt
+#, fuzzy
+msgctxt "kstates.straddstateprompt"
+msgid "Enter state description:"
+msgstr "Enter state description:"
+
+#: kstates.straxis
+#, fuzzy
+msgctxt "kstates.straxis"
+msgid "Axis"
+msgstr "Axis"
+
+#: kstates.strcentroid
+#, fuzzy
+msgctxt "kstates.strcentroid"
+msgid "Centroid (UPGMC)"
+msgstr "Centroid (UPGMC)"
+
+#: kstates.strcharacters
+#, fuzzy
+msgctxt "kstates.strcharacters"
+msgid "characters"
+msgstr "characters"
+
+#: kstates.strcharlistempty
+#, fuzzy
+msgctxt "kstates.strcharlistempty"
+msgid "Character list empty. Enter at least one character description."
+msgstr "Character list empty. Enter at least one character description."
+
+#: kstates.strclass
+msgctxt "kstates.strclass"
+msgid " Class "
+msgstr ""
+
+#: kstates.strclm
+#, fuzzy
+msgctxt "kstates.strclm"
+msgid "Complete linkage (CLM)"
+msgstr "Complete linkage (CLM)"
+
+#: kstates.strcloneitem
+msgctxt "kstates.strcloneitem"
+msgid "Clone of"
+msgstr ""
+
+#: kstates.strconfirmation
+#, fuzzy
+msgctxt "kstates.strconfirmation"
+msgid "Confirmation"
+msgstr "Confirmation"
+
+#: kstates.strcontrol
+msgctxt "kstates.strcontrol"
+msgid "Controls character: %s, by state: %s"
+msgstr ""
+
+#: kstates.strcopyimage
+msgctxt "kstates.strcopyimage"
+msgid "Image copied to the Clipboard"
+msgstr ""
+
+#: kstates.strcopytext
+#, fuzzy
+msgctxt "kstates.strcopytext"
+msgid "Text copied to the Clipboard"
+msgstr "Text copied to the Clipboard"
+
+#: kstates.strcsvfilter
+#, fuzzy
+msgctxt "kstates.strcsvfilter"
+msgid "Comma delimited files|*.csv"
+msgstr "Comma delimited files|*.csv"
+
+#: kstates.strdatadirectory
+#, fuzzy
+msgctxt "kstates.strdatadirectory"
+msgid "Select data directory"
+msgstr "Select data directory"
+
+#: kstates.strdeltadirectory
+msgctxt "kstates.strdeltadirectory"
+msgid "Select DELTA directory"
+msgstr ""
+
+#: kstates.strdendrogram
+#, fuzzy
+msgctxt "kstates.strdendrogram"
+msgid "Dendrogram"
+msgstr "Dendrogram"
+
+#: kstates.strdependent
+msgctxt "kstates.strdependent"
+msgid "Dependent upon character: %s, state: %s"
+msgstr ""
+
+#: kstates.strdistance
+#, fuzzy
+msgctxt "kstates.strdistance"
+msgid "Distance"
+msgstr "Distance"
+
+#: kstates.strdtzfilter
+#, fuzzy
+msgctxt "kstates.strdtzfilter"
+msgid "FreeDelta project|*.dtz"
+msgstr "FreeDelta project|*.dtz"
+
+#: kstates.streditcaption
+#, fuzzy
+msgctxt "kstates.streditcaption"
+msgid "Database Title"
+msgstr "Database Title"
+
+#: kstates.streditcharacter
+#, fuzzy
+msgctxt "kstates.streditcharacter"
+msgid "Edit Character"
+msgstr "Edit Character"
+
+#: kstates.stredititemcaption
+#, fuzzy
+msgctxt "kstates.stredititemcaption"
+msgid "Edit Item"
+msgstr "Edit Item"
+
+#: kstates.stredititemprompt
+#, fuzzy
+msgctxt "kstates.stredititemprompt"
+msgid "Edit item name:"
+msgstr "Edit item name:"
+
+#: kstates.streditprompt
+#, fuzzy
+msgctxt "kstates.streditprompt"
+msgid "Edit database title:"
+msgstr "Edit database title:"
+
+#: kstates.streditstatecaption
+#, fuzzy
+msgctxt "kstates.streditstatecaption"
+msgid "Edit State"
+msgstr "Edit State"
+
+#: kstates.streditstateprompt
+#, fuzzy
+msgctxt "kstates.streditstateprompt"
+msgid "Edit state description:"
+msgstr "Edit state description:"
+
+#: kstates.strentercharacternumber
+msgctxt "kstates.strentercharacternumber"
+msgid "Enter character number:"
+msgstr ""
+
+#: kstates.strerror
+#, fuzzy
+msgctxt "kstates.strerror"
+msgid "Error"
+msgstr "Error"
+
+#: kstates.strexists
+#, fuzzy
+msgctxt "kstates.strexists"
+msgid "File %s already exists. Overwrite?"
+msgstr "File %s already exists. Overwrite?"
+
+#: kstates.strexport
+#, fuzzy
+msgctxt "kstates.strexport"
+msgid "Data exported successfully to directory %s."
+msgstr "Data exported successfully to directory %s."
+
+#: kstates.strexportfile
+msgctxt "kstates.strexportfile"
+msgid "Data exported successfully to file %s."
+msgstr ""
+
+#: kstates.strfindcharactercaption
+#, fuzzy
+msgctxt "kstates.strfindcharactercaption"
+msgid "Find Character"
+msgstr "Find Character"
+
+#: kstates.strfindcharacterprompt
+#, fuzzy
+msgctxt "kstates.strfindcharacterprompt"
+msgid "Enter character description:"
+msgstr "Enter character description:"
+
+#: kstates.strfinditemcaption
+#, fuzzy
+msgctxt "kstates.strfinditemcaption"
+msgid "Find Item"
+msgstr "Find Item"
+
+#: kstates.strfinditemprompt
+#, fuzzy
+msgctxt "kstates.strfinditemprompt"
+msgid "Enter item name:"
+msgstr "Enter item name:"
+
+#: kstates.strfindtextcaption
+#, fuzzy
+msgctxt "kstates.strfindtextcaption"
+msgid "Find Text"
+msgstr "Find Text"
+
+#: kstates.strfindtextprompt
+#, fuzzy
+msgctxt "kstates.strfindtextprompt"
+msgid "Enter search text:"
+msgstr "Enter search text:"
+
+#: kstates.strfrequency
+msgctxt "kstates.strfrequency"
+msgid " Freq "
+msgstr ""
+
+#: kstates.strgotocharacter
+msgctxt "kstates.strgotocharacter"
+msgid "Go to character"
+msgstr ""
+
+#: kstates.strgotoline
+msgctxt "kstates.strgotoline"
+msgid "Go to"
+msgstr ""
+
+#: kstates.strgotolinecaption
+msgctxt "kstates.strgotolinecaption"
+msgid "Enter item/character number:"
+msgstr ""
+
+#: kstates.strhistogram
+msgctxt "kstates.strhistogram"
+msgid " Histogram "
+msgstr ""
+
+#: kstates.strimport
+#, fuzzy
+msgctxt "kstates.strimport"
+msgid "Data imported successfully to file %s."
+msgstr "Data imported successfully to file %s."
+
+#: kstates.strinformation
+#, fuzzy
+msgctxt "kstates.strinformation"
+msgid "Information"
+msgstr "Information"
+
+#: kstates.strinputinteger
+msgctxt "kstates.strinputinteger"
+msgid "Enter an integer value between 1 and %d"
+msgstr ""
+
+#: kstates.strinterval
+msgctxt "kstates.strinterval"
+msgid " Class Interval "
+msgstr ""
+
+#: kstates.strinvalidsymbol
+msgctxt "kstates.strinvalidsymbol"
+msgid "Invalid symbol ('/') in character or state name"
+msgstr ""
+
+#: kstates.stritemlistempty
+#, fuzzy
+msgctxt "kstates.stritemlistempty"
+msgid "Item list empty. Enter at least one item name."
+msgstr "Item list empty. Enter at least one item name."
+
+#: kstates.stritems
+#, fuzzy
+msgctxt "kstates.stritems"
+msgid "items"
+msgstr "items"
+
+#: kstates.stritemstatus
+msgctxt "kstates.stritemstatus"
+msgid "Item name, followed by author name and/or comment between <angle brackets>"
+msgstr ""
+
+#: kstates.strlinux64only
+msgctxt "kstates.strlinux64only"
+msgid "This option is not available under GNU/Linux 32-bit."
+msgstr ""
+
+#: kstates.strmark
+msgctxt "kstates.strmark"
+msgid " Class Mark "
+msgstr ""
+
+#: kstates.strmedian
+#, fuzzy
+msgctxt "kstates.strmedian"
+msgid "Median (WPGMC)"
+msgstr "Median (WPGMC)"
+
+#: kstates.strmerge
+msgctxt "kstates.strmerge"
+msgid "All characters will be treated as unordered multistate"
+msgstr ""
+
+#: kstates.strmissingbrackets
+msgctxt "kstates.strmissingbrackets"
+msgid "Missing opening or closing angle brackets ('<>')"
+msgstr ""
+
+#: kstates.strnewcaption
+#, fuzzy
+msgctxt "kstates.strnewcaption"
+msgid "New Database"
+msgstr "New Database"
+
+#: kstates.strnewprompt
+#, fuzzy
+msgctxt "kstates.strnewprompt"
+msgid "Enter database title:"
+msgstr "Enter database title:"
+
+#: kstates.strnexusfilter
+msgctxt "kstates.strnexusfilter"
+msgid "Nexus data files|*.nex"
+msgstr ""
+
+#: kstates.strnotexecute
+#, fuzzy
+msgctxt "kstates.strnotexecute"
+msgid "Couldn't start %s program."
+msgstr "Couldn't start %s program."
+
+#: kstates.strnotfound
+#, fuzzy
+msgctxt "kstates.strnotfound"
+msgid "File %s not found."
+msgstr "File %s not found."
+
+#: kstates.strnotfounddir
+#, fuzzy
+msgctxt "kstates.strnotfounddir"
+msgid "File %s not found in %s."
+msgstr "File %s not found in %s."
+
+#: kstates.stropenfile
+#, fuzzy
+msgctxt "kstates.stropenfile"
+msgid "Open file"
+msgstr "Open file"
+
+#: kstates.stroutofrange
+msgctxt "kstates.stroutofrange"
+msgid "Value out of range"
+msgstr ""
+
+#: kstates.strpaupdirectory
+msgctxt "kstates.strpaupdirectory"
+msgid "Select PAUP directory"
+msgstr ""
+
+#: kstates.strpaupnotfound
+msgctxt "kstates.strpaupnotfound"
+msgid "PAUP not installed or not found in path."
+msgstr ""
+
+#: kstates.strquit
+#, fuzzy
+msgctxt "kstates.strquit"
+msgid "Do you want to exit the program?"
+msgstr "Do you want to exit the program?"
+
+#: kstates.strrdirectory
+msgctxt "kstates.strrdirectory"
+msgid "Select R directory"
+msgstr ""
+
+#: kstates.strreaderror
+msgctxt "kstates.strreaderror"
+msgid "Error reading file %s."
+msgstr ""
+
+#: kstates.strready
+msgctxt "kstates.strready"
+msgid "Ready"
+msgstr ""
+
+#: kstates.strrnotfound
+msgctxt "kstates.strrnotfound"
+msgid "R not installed or not found in path."
+msgstr ""
+
+#: kstates.strsave
+#, fuzzy
+msgctxt "kstates.strsave"
+msgid "Dataset has been modified. Save?"
+msgstr "Dataset has been modified. Save?"
+
+#: kstates.strsavechanges
+msgctxt "kstates.strsavechanges"
+msgid "Save changes?"
+msgstr ""
+
+#: kstates.strsaveerror
+#, fuzzy
+msgctxt "kstates.strsaveerror"
+msgid "Failed to save file %s."
+msgstr "Failed to save file %s."
+
+#: kstates.strsavefile
+#, fuzzy
+msgctxt "kstates.strsavefile"
+msgid "Save file as"
+msgstr "Save file as"
+
+#: kstates.strscatterplot
+#, fuzzy
+msgctxt "kstates.strscatterplot"
+msgid "Scatterplot"
+msgstr "Scatterplot"
+
+#: kstates.strslm
+#, fuzzy
+msgctxt "kstates.strslm"
+msgid "Single linkage (SLM)"
+msgstr "Single linkage (SLM)"
+
+#: kstates.strstatelistempty
+#, fuzzy
+#| msgid "State list empty. Enter at least one state description."
+msgctxt "kstates.strstatelistempty"
+msgid "State list empty or incomplete. Enter at least two state descriptions."
+msgstr "State list empty. Enter at least one state description."
+
+#: kstates.strstates
+#, fuzzy
+msgctxt "kstates.strstates"
+msgid "States:"
+msgstr "States:"
+
+#: kstates.strtextnotfound
+#, fuzzy
+msgctxt "kstates.strtextnotfound"
+msgid "Text not found!"
+msgstr "Text not found!"
+
+#: kstates.strtntdirectory
+msgctxt "kstates.strtntdirectory"
+msgid "Select TNT directory"
+msgstr ""
+
+#: kstates.strtntfilter
+msgctxt "kstates.strtntfilter"
+msgid "TNT data files|*.tnt"
+msgstr ""
+
+#: kstates.strtntnotfound
+msgctxt "kstates.strtntnotfound"
+msgid "TNT not installed or not found in path."
+msgstr ""
+
+#: kstates.strtxtfilter
+#, fuzzy
+msgctxt "kstates.strtxtfilter"
+msgid "Text files|*.txt"
+msgstr "Text files|*.txt"
+
+#: kstates.strunit
+#, fuzzy
+msgctxt "kstates.strunit"
+msgid "Unit:"
+msgstr "Unit:"
+
+#: kstates.strunitempty
+#, fuzzy
+msgctxt "kstates.strunitempty"
+msgid "Measurement unit not defined for real numeric character."
+msgstr "Measurement unit not defined for real numeric character."
+
+#: kstates.struntitled
+msgctxt "kstates.struntitled"
+msgid "Untitled"
+msgstr ""
+
+#: kstates.strupgma
+#, fuzzy
+msgctxt "kstates.strupgma"
+msgid "Average linkage (UPGMA)"
+msgstr "Average linkage (UPGMA)"
+
+#: kstates.strvalidnumber
+msgctxt "kstates.strvalidnumber"
+msgid "Enter numbers only (an integer value between 1 and %d)"
+msgstr ""
+
+#: kstates.strward
+#, fuzzy
+msgctxt "kstates.strward"
+msgid "Ward's Method"
+msgstr "Ward's Method"
+
+#: kstates.strwarning
+#, fuzzy
+msgctxt "kstates.strwarning"
+msgid "Warning"
+msgstr "Warning"
+
+#: kstates.strwindowsonly
+#, fuzzy
+msgctxt "kstates.strwindowsonly"
+msgid "This option is available only under MS-Windows."
+msgstr "This option is available only under MS-Windows."
+
+#: kstates.strwpgma
+#, fuzzy
+msgctxt "kstates.strwpgma"
+msgid "Weighted linkage (WPGMA)"
+msgstr "Weighted linkage (WPGMA)"
+
+#: kstates.strxmlfilter
+msgctxt "kstates.strxmlfilter"
+msgid "XML files|*.xml"
+msgstr ""
+
+#: main.straddcharacter
+msgctxt "main.straddcharacter"
+msgid "Add Character"
+msgstr "Add Character"
+
+#: main.stradditemcaption
+msgctxt "main.stradditemcaption"
+msgid "Add Item"
+msgstr "Add Item"
+
+#: main.stradditemprompt
+msgctxt "main.stradditemprompt"
+msgid "Enter item name:"
+msgstr "Enter item name:"
+
+#: main.straddstatecaption
+msgctxt "main.straddstatecaption"
+msgid "Add State"
+msgstr "Add State"
+
+#: main.straddstateprompt
+msgctxt "main.straddstateprompt"
+msgid "Enter state description:"
+msgstr "Enter state description:"
+
+#: main.straxis
+msgctxt "main.straxis"
+msgid "Axis"
+msgstr "Axis"
+
+#: main.strcentroid
+msgctxt "main.strcentroid"
+msgid "Centroid (UPGMC)"
+msgstr "Centroid (UPGMC)"
+
+#: main.strcharacters
+msgctxt "main.strcharacters"
+msgid "characters"
+msgstr "characters"
+
+#: main.strcharlistempty
+msgctxt "main.strcharlistempty"
+msgid "Character list empty. Enter at least one character description."
+msgstr "Character list empty. Enter at least one character description."
+
+#: main.strclass
+msgctxt "main.strclass"
+msgid " Class "
+msgstr ""
+
+#: main.strclm
+msgctxt "main.strclm"
+msgid "Complete linkage (CLM)"
+msgstr "Complete linkage (CLM)"
+
+#: main.strcloneitem
+msgctxt "main.strcloneitem"
+msgid "Clone of"
+msgstr ""
+
+#: main.strconfirmation
+msgctxt "main.strconfirmation"
+msgid "Confirmation"
+msgstr "Confirmation"
+
+#: main.strcontrol
+msgctxt "main.strcontrol"
+msgid "Controls character: %s, by state: %s"
+msgstr ""
+
+#: main.strcopyimage
+msgctxt "main.strcopyimage"
+msgid "Image copied to the Clipboard"
+msgstr ""
+
+#: main.strcopytext
+msgctxt "main.strcopytext"
+msgid "Text copied to the Clipboard"
+msgstr "Text copied to the Clipboard"
+
+#: main.strcsvfilter
+msgctxt "main.strcsvfilter"
+msgid "Comma delimited files|*.csv"
+msgstr "Comma delimited files|*.csv"
+
+#: main.strdatadirectory
+msgctxt "main.strdatadirectory"
+msgid "Select data directory"
+msgstr "Select data directory"
+
+#: main.strdeltadirectory
+msgctxt "main.strdeltadirectory"
+msgid "Select DELTA directory"
+msgstr ""
+
+#: main.strdendrogram
+msgctxt "main.strdendrogram"
+msgid "Dendrogram"
+msgstr "Dendrogram"
+
+#: main.strdependent
+msgctxt "main.strdependent"
+msgid "Dependent upon character: %s, state: %s"
+msgstr ""
+
+#: main.strdistance
+msgctxt "main.strdistance"
+msgid "Distance"
+msgstr "Distance"
+
+#: main.strdtzfilter
+msgctxt "main.strdtzfilter"
+msgid "FreeDelta project|*.dtz"
+msgstr "FreeDelta project|*.dtz"
+
+#: main.streditcaption
+msgctxt "main.streditcaption"
+msgid "Database Title"
+msgstr "Database Title"
+
+#: main.streditcharacter
+msgctxt "main.streditcharacter"
+msgid "Edit Character"
+msgstr "Edit Character"
+
+#: main.stredititemcaption
+msgctxt "main.stredititemcaption"
+msgid "Edit Item"
+msgstr "Edit Item"
+
+#: main.stredititemprompt
+msgctxt "main.stredititemprompt"
+msgid "Edit item name:"
+msgstr "Edit item name:"
+
+#: main.streditprompt
+msgctxt "main.streditprompt"
+msgid "Edit database title:"
+msgstr "Edit database title:"
+
+#: main.streditstatecaption
+msgctxt "main.streditstatecaption"
+msgid "Edit State"
+msgstr "Edit State"
+
+#: main.streditstateprompt
+msgctxt "main.streditstateprompt"
+msgid "Edit state description:"
+msgstr "Edit state description:"
+
+#: main.strentercharacternumber
+msgctxt "main.strentercharacternumber"
+msgid "Enter character number:"
+msgstr ""
+
+#: main.strerror
+msgctxt "main.strerror"
+msgid "Error"
+msgstr "Error"
+
+#: main.strexists
+msgctxt "main.strexists"
+msgid "File %s already exists. Overwrite?"
+msgstr "File %s already exists. Overwrite?"
+
+#: main.strexport
+msgctxt "main.strexport"
+msgid "Data exported successfully to directory %s."
+msgstr "Data exported successfully to directory %s."
+
+#: main.strexportfile
+msgctxt "main.strexportfile"
+msgid "Data exported successfully to file %s."
+msgstr ""
+
+#: main.strfindcharactercaption
+msgctxt "main.strfindcharactercaption"
+msgid "Find Character"
+msgstr "Find Character"
+
+#: main.strfindcharacterprompt
+msgctxt "main.strfindcharacterprompt"
+msgid "Enter character description:"
+msgstr "Enter character description:"
+
+#: main.strfinditemcaption
+msgctxt "main.strfinditemcaption"
+msgid "Find Item"
+msgstr "Find Item"
+
+#: main.strfinditemprompt
+msgctxt "main.strfinditemprompt"
+msgid "Enter item name:"
+msgstr "Enter item name:"
+
+#: main.strfindtextcaption
+msgctxt "main.strfindtextcaption"
+msgid "Find Text"
+msgstr "Find Text"
+
+#: main.strfindtextprompt
+msgctxt "main.strfindtextprompt"
+msgid "Enter search text:"
+msgstr "Enter search text:"
+
+#: main.strfrequency
+msgctxt "main.strfrequency"
+msgid " Freq "
+msgstr ""
+
+#: main.strgotocharacter
+msgctxt "main.strgotocharacter"
+msgid "Go to character"
+msgstr ""
+
+#: main.strgotoline
+msgctxt "main.strgotoline"
+msgid "Go to"
+msgstr ""
+
+#: main.strgotolinecaption
+msgctxt "main.strgotolinecaption"
+msgid "Enter item/character number:"
+msgstr ""
+
+#: main.strhistogram
+msgctxt "main.strhistogram"
+msgid " Histogram "
+msgstr ""
+
+#: main.strimport
+msgctxt "main.strimport"
+msgid "Data imported successfully to file %s."
+msgstr "Data imported successfully to file %s."
+
+#: main.strinformation
+msgctxt "main.strinformation"
+msgid "Information"
+msgstr "Information"
+
+#: main.strinputinteger
+msgctxt "main.strinputinteger"
+msgid "Enter an integer value between 1 and %d"
+msgstr ""
+
+#: main.strinterval
+msgctxt "main.strinterval"
+msgid " Class Interval "
+msgstr ""
+
+#: main.strinvalidsymbol
+msgctxt "main.strinvalidsymbol"
+msgid "Invalid symbol ('/') in character or state name"
+msgstr ""
+
+#: main.stritemlistempty
+msgctxt "main.stritemlistempty"
+msgid "Item list empty. Enter at least one item name."
+msgstr "Item list empty. Enter at least one item name."
+
+#: main.stritems
+msgctxt "main.stritems"
+msgid "items"
+msgstr "items"
+
+#: main.stritemstatus
+msgctxt "main.stritemstatus"
+msgid "Item name, followed by author name and/or comment between <angle brackets>"
+msgstr ""
+
+#: main.strlinux64only
+msgctxt "main.strlinux64only"
+msgid "This option is not available under GNU/Linux 32-bit."
+msgstr ""
+
+#: main.strmark
+msgctxt "main.strmark"
+msgid " Class Mark "
+msgstr ""
+
+#: main.strmedian
+msgctxt "main.strmedian"
+msgid "Median (WPGMC)"
+msgstr "Median (WPGMC)"
+
+#: main.strmerge
+msgctxt "main.strmerge"
+msgid "All characters will be treated as unordered multistate"
+msgstr ""
+
+#: main.strmissingbrackets
+msgctxt "main.strmissingbrackets"
+msgid "Missing opening or closing angle brackets ('<>')"
+msgstr ""
+
+#: main.strnewcaption
+msgctxt "main.strnewcaption"
+msgid "New Database"
+msgstr "New Database"
+
+#: main.strnewprompt
+msgctxt "main.strnewprompt"
+msgid "Enter database title:"
+msgstr "Enter database title:"
+
+#: main.strnexusfilter
+msgctxt "main.strnexusfilter"
+msgid "Nexus data files|*.nex"
+msgstr ""
+
+#: main.strnotexecute
+msgctxt "main.strnotexecute"
+msgid "Couldn't start %s program."
+msgstr "Couldn't start %s program."
+
+#: main.strnotfound
+msgctxt "main.strnotfound"
+msgid "File %s not found."
+msgstr "File %s not found."
+
+#: main.strnotfounddir
+msgctxt "main.strnotfounddir"
+msgid "File %s not found in %s."
+msgstr "File %s not found in %s."
+
+#: main.stropenfile
+msgctxt "main.stropenfile"
+msgid "Open file"
+msgstr "Open file"
+
+#: main.stroutofrange
+msgctxt "main.stroutofrange"
+msgid "Value out of range"
+msgstr ""
+
+#: main.strpaupdirectory
+msgctxt "main.strpaupdirectory"
+msgid "Select PAUP directory"
+msgstr ""
+
+#: main.strpaupnotfound
+msgctxt "main.strpaupnotfound"
+msgid "PAUP not installed or not found in path."
+msgstr ""
+
+#: main.strquit
+msgctxt "main.strquit"
+msgid "Do you want to exit the program?"
+msgstr "Do you want to exit the program?"
+
+#: main.strrdirectory
+msgctxt "main.strrdirectory"
+msgid "Select R directory"
+msgstr ""
+
+#: main.strreaderror
+msgctxt "main.strreaderror"
+msgid "Error reading file %s."
+msgstr ""
+
+#: main.strready
+msgctxt "main.strready"
+msgid "Ready"
+msgstr ""
+
+#: main.strrnotfound
+msgctxt "main.strrnotfound"
+msgid "R not installed or not found in path."
+msgstr ""
+
+#: main.strsave
+msgctxt "main.strsave"
+msgid "Dataset has been modified. Save?"
+msgstr "Dataset has been modified. Save?"
+
+#: main.strsavechanges
+msgctxt "main.strsavechanges"
+msgid "Save changes?"
+msgstr ""
+
+#: main.strsaveerror
+msgctxt "main.strsaveerror"
+msgid "Failed to save file %s."
+msgstr "Failed to save file %s."
+
+#: main.strsavefile
+#, fuzzy,badformat
+#| msgid "Failed to save file %s."
+msgctxt "main.strsavefile"
+msgid "Save file as"
+msgstr "Failed to save file %s."
+
+#: main.strscatterplot
+msgctxt "main.strscatterplot"
+msgid "Scatterplot"
+msgstr "Scatterplot"
+
+#: main.strslm
+msgctxt "main.strslm"
+msgid "Single linkage (SLM)"
+msgstr "Single linkage (SLM)"
+
+#: main.strstatelistempty
+#, fuzzy
+#| msgid "State list empty. Enter at least one state description."
+msgctxt "main.strstatelistempty"
+msgid "State list empty or incomplete. Enter at least two state descriptions."
+msgstr "State list empty. Enter at least one state description."
+
+#: main.strstates
+msgctxt "main.strstates"
+msgid "States:"
+msgstr "States:"
+
+#: main.strtextnotfound
+msgctxt "main.strtextnotfound"
+msgid "Text not found!"
+msgstr "Text not found!"
+
+#: main.strtntdirectory
+msgctxt "main.strtntdirectory"
+msgid "Select TNT directory"
+msgstr ""
+
+#: main.strtntfilter
+msgctxt "main.strtntfilter"
+msgid "TNT data files|*.tnt"
+msgstr ""
+
+#: main.strtntnotfound
+msgctxt "main.strtntnotfound"
+msgid "TNT not installed or not found in path."
+msgstr ""
+
+#: main.strtxtfilter
+msgctxt "main.strtxtfilter"
+msgid "Text files|*.txt"
+msgstr "Text files|*.txt"
+
+#: main.strunit
+msgctxt "main.strunit"
+msgid "Unit:"
+msgstr "Unit:"
+
+#: main.strunitempty
+msgctxt "main.strunitempty"
+msgid "Measurement unit not defined for real numeric character."
+msgstr "Measurement unit not defined for real numeric character."
+
+#: main.struntitled
+msgctxt "main.struntitled"
+msgid "Untitled"
+msgstr ""
+
+#: main.strupgma
+msgctxt "main.strupgma"
+msgid "Average linkage (UPGMA)"
+msgstr "Average linkage (UPGMA)"
+
+#: main.strvalidnumber
+msgctxt "main.strvalidnumber"
+msgid "Enter numbers only (an integer value between 1 and %d)"
+msgstr ""
+
+#: main.strward
+msgctxt "main.strward"
+msgid "Ward's Method"
+msgstr "Ward's Method"
+
+#: main.strwarning
+msgctxt "main.strwarning"
+msgid "Warning"
+msgstr "Warning"
+
+#: main.strwindowsonly
+msgctxt "main.strwindowsonly"
+msgid "This option is available only under MS-Windows."
+msgstr "This option is available only under MS-Windows."
+
+#: main.strwpgma
+msgctxt "main.strwpgma"
+msgid "Weighted linkage (WPGMA)"
+msgstr "Weighted linkage (WPGMA)"
+
+#: main.strxmlfilter
+msgctxt "main.strxmlfilter"
+msgid "XML files|*.xml"
+msgstr ""
+
+#: prepare.straddcharacter
+msgctxt "prepare.straddcharacter"
+msgid "Add Character"
+msgstr "Add Character"
+
+#: prepare.stradditemcaption
+msgctxt "prepare.stradditemcaption"
+msgid "Add Item"
+msgstr "Add Item"
+
+#: prepare.stradditemprompt
+msgctxt "prepare.stradditemprompt"
+msgid "Enter item name:"
+msgstr "Enter item name:"
+
+#: prepare.straddstatecaption
+msgctxt "prepare.straddstatecaption"
+msgid "Add State"
+msgstr "Add State"
+
+#: prepare.straddstateprompt
+msgctxt "prepare.straddstateprompt"
+msgid "Enter state description:"
+msgstr "Enter state description:"
+
+#: prepare.straxis
+msgctxt "prepare.straxis"
+msgid "Axis"
+msgstr "Axis"
+
+#: prepare.strcentroid
+msgctxt "prepare.strcentroid"
+msgid "Centroid (UPGMC)"
+msgstr "Centroid (UPGMC)"
+
+#: prepare.strcharacters
+msgctxt "prepare.strcharacters"
+msgid "characters"
+msgstr "characters"
+
+#: prepare.strcharlistempty
+msgctxt "prepare.strcharlistempty"
+msgid "Character list empty. Enter at least one character description."
+msgstr "Character list empty. Enter at least one character description."
+
+#: prepare.strclass
+msgctxt "prepare.strclass"
+msgid " Class "
+msgstr ""
+
+#: prepare.strclm
+msgctxt "prepare.strclm"
+msgid "Complete linkage (CLM)"
+msgstr "Complete linkage (CLM)"
+
+#: prepare.strcloneitem
+msgctxt "prepare.strcloneitem"
+msgid "Clone of"
+msgstr ""
+
+#: prepare.strconfirmation
+msgctxt "prepare.strconfirmation"
+msgid "Confirmation"
+msgstr "Confirmation"
+
+#: prepare.strcontrol
+msgctxt "prepare.strcontrol"
+msgid "Controls character: %s, by state: %s"
+msgstr ""
+
+#: prepare.strcopyimage
+msgctxt "prepare.strcopyimage"
+msgid "Image copied to the Clipboard"
+msgstr ""
+
+#: prepare.strcopytext
+msgctxt "prepare.strcopytext"
+msgid "Text copied to the Clipboard"
+msgstr "Text copied to the Clipboard"
+
+#: prepare.strcsvfilter
+msgctxt "prepare.strcsvfilter"
+msgid "Comma delimited files|*.csv"
+msgstr "Comma delimited files|*.csv"
+
+#: prepare.strdatadirectory
+msgctxt "prepare.strdatadirectory"
+msgid "Select data directory"
+msgstr "Select data directory"
+
+#: prepare.strdeltadirectory
+msgctxt "prepare.strdeltadirectory"
+msgid "Select DELTA directory"
+msgstr ""
+
+#: prepare.strdendrogram
+msgctxt "prepare.strdendrogram"
+msgid "Dendrogram"
+msgstr "Dendrogram"
+
+#: prepare.strdependent
+msgctxt "prepare.strdependent"
+msgid "Dependent upon character: %s, state: %s"
+msgstr ""
+
+#: prepare.strdistance
+msgctxt "prepare.strdistance"
+msgid "Distance"
+msgstr "Distance"
+
+#: prepare.strdtzfilter
+msgctxt "prepare.strdtzfilter"
+msgid "FreeDelta project|*.dtz"
+msgstr "FreeDelta project|*.dtz"
+
+#: prepare.streditcaption
+msgctxt "prepare.streditcaption"
+msgid "Database Title"
+msgstr "Database Title"
+
+#: prepare.streditcharacter
+msgctxt "prepare.streditcharacter"
+msgid "Edit Character"
+msgstr "Edit Character"
+
+#: prepare.stredititemcaption
+msgctxt "prepare.stredititemcaption"
+msgid "Edit Item"
+msgstr "Edit Item"
+
+#: prepare.stredititemprompt
+msgctxt "prepare.stredititemprompt"
+msgid "Edit item name:"
+msgstr "Edit item name:"
+
+#: prepare.streditprompt
+msgctxt "prepare.streditprompt"
+msgid "Edit database title:"
+msgstr "Edit database title:"
+
+#: prepare.streditstatecaption
+msgctxt "prepare.streditstatecaption"
+msgid "Edit State"
+msgstr "Edit State"
+
+#: prepare.streditstateprompt
+msgctxt "prepare.streditstateprompt"
+msgid "Edit state description:"
+msgstr "Edit state description:"
+
+#: prepare.strentercharacternumber
+msgctxt "prepare.strentercharacternumber"
+msgid "Enter character number:"
+msgstr ""
+
+#: prepare.strerror
+msgctxt "prepare.strerror"
+msgid "Error"
+msgstr "Error"
+
+#: prepare.strexists
+msgctxt "prepare.strexists"
+msgid "File %s already exists. Overwrite?"
+msgstr "File %s already exists. Overwrite?"
+
+#: prepare.strexport
+msgctxt "prepare.strexport"
+msgid "Data exported successfully to directory %s."
+msgstr "Data exported successfully to directory %s."
+
+#: prepare.strexportfile
+msgctxt "prepare.strexportfile"
+msgid "Data exported successfully to file %s."
+msgstr ""
+
+#: prepare.strfindcharactercaption
+msgctxt "prepare.strfindcharactercaption"
+msgid "Find Character"
+msgstr "Find Character"
+
+#: prepare.strfindcharacterprompt
+msgctxt "prepare.strfindcharacterprompt"
+msgid "Enter character description:"
+msgstr "Enter character description:"
+
+#: prepare.strfinditemcaption
+msgctxt "prepare.strfinditemcaption"
+msgid "Find Item"
+msgstr "Find Item"
+
+#: prepare.strfinditemprompt
+msgctxt "prepare.strfinditemprompt"
+msgid "Enter item name:"
+msgstr "Enter item name:"
+
+#: prepare.strfindtextcaption
+msgctxt "prepare.strfindtextcaption"
+msgid "Find Text"
+msgstr "Find Text"
+
+#: prepare.strfindtextprompt
+msgctxt "prepare.strfindtextprompt"
+msgid "Enter search text:"
+msgstr "Enter search text:"
+
+#: prepare.strfrequency
+msgctxt "prepare.strfrequency"
+msgid " Freq "
+msgstr ""
+
+#: prepare.strgotocharacter
+msgctxt "prepare.strgotocharacter"
+msgid "Go to character"
+msgstr ""
+
+#: prepare.strgotoline
+msgctxt "prepare.strgotoline"
+msgid "Go to"
+msgstr ""
+
+#: prepare.strgotolinecaption
+msgctxt "prepare.strgotolinecaption"
+msgid "Enter item/character number:"
+msgstr ""
+
+#: prepare.strhistogram
+msgctxt "prepare.strhistogram"
+msgid " Histogram "
+msgstr ""
+
+#: prepare.strimport
+msgctxt "prepare.strimport"
+msgid "Data imported successfully to file %s."
+msgstr "Data imported successfully to file %s."
+
+#: prepare.strinformation
+msgctxt "prepare.strinformation"
+msgid "Information"
+msgstr "Information"
+
+#: prepare.strinputinteger
+msgctxt "prepare.strinputinteger"
+msgid "Enter an integer value between 1 and %d"
+msgstr ""
+
+#: prepare.strinterval
+msgctxt "prepare.strinterval"
+msgid " Class Interval "
+msgstr ""
+
+#: prepare.strinvalidsymbol
+msgctxt "prepare.strinvalidsymbol"
+msgid "Invalid symbol ('/') in character or state name"
+msgstr ""
+
+#: prepare.stritemlistempty
+msgctxt "prepare.stritemlistempty"
+msgid "Item list empty. Enter at least one item name."
+msgstr "Item list empty. Enter at least one item name."
+
+#: prepare.stritems
+msgctxt "prepare.stritems"
+msgid "items"
+msgstr "items"
+
+#: prepare.stritemstatus
+msgctxt "prepare.stritemstatus"
+msgid "Item name, followed by author name and/or comment between <angle brackets>"
+msgstr ""
+
+#: prepare.strlinux64only
+msgctxt "prepare.strlinux64only"
+msgid "This option is not available under GNU/Linux 32-bit."
+msgstr ""
+
+#: prepare.strmark
+msgctxt "prepare.strmark"
+msgid " Class Mark "
+msgstr ""
+
+#: prepare.strmedian
+msgctxt "prepare.strmedian"
+msgid "Median (WPGMC)"
+msgstr "Median (WPGMC)"
+
+#: prepare.strmerge
+msgctxt "prepare.strmerge"
+msgid "All characters will be treated as unordered multistate"
+msgstr ""
+
+#: prepare.strmissingbrackets
+msgctxt "prepare.strmissingbrackets"
+msgid "Missing opening or closing angle brackets ('<>')"
+msgstr ""
+
+#: prepare.strnewcaption
+msgctxt "prepare.strnewcaption"
+msgid "New Database"
+msgstr "New Database"
+
+#: prepare.strnewprompt
+msgctxt "prepare.strnewprompt"
+msgid "Enter database title:"
+msgstr "Enter database title:"
+
+#: prepare.strnexusfilter
+msgctxt "prepare.strnexusfilter"
+msgid "Nexus data files|*.nex"
+msgstr ""
+
+#: prepare.strnotexecute
+msgctxt "prepare.strnotexecute"
+msgid "Couldn't start %s program."
+msgstr "Couldn't start %s program."
+
+#: prepare.strnotfound
+msgctxt "prepare.strnotfound"
+msgid "File %s not found."
+msgstr "File %s not found."
+
+#: prepare.strnotfounddir
+msgctxt "prepare.strnotfounddir"
+msgid "File %s not found in %s."
+msgstr "File %s not found in %s."
+
+#: prepare.stropenfile
+msgctxt "prepare.stropenfile"
+msgid "Open file"
+msgstr "Open file"
+
+#: prepare.stroutofrange
+msgctxt "prepare.stroutofrange"
+msgid "Value out of range"
+msgstr ""
+
+#: prepare.strpaupdirectory
+msgctxt "prepare.strpaupdirectory"
+msgid "Select PAUP directory"
+msgstr ""
+
+#: prepare.strpaupnotfound
+msgctxt "prepare.strpaupnotfound"
+msgid "PAUP not installed or not found in path."
+msgstr ""
+
+#: prepare.strquit
+msgctxt "prepare.strquit"
+msgid "Do you want to exit the program?"
+msgstr "Do you want to exit the program?"
+
+#: prepare.strrdirectory
+msgctxt "prepare.strrdirectory"
+msgid "Select R directory"
+msgstr ""
+
+#: prepare.strreaderror
+msgctxt "prepare.strreaderror"
+msgid "Error reading file %s."
+msgstr ""
+
+#: prepare.strready
+msgctxt "prepare.strready"
+msgid "Ready"
+msgstr ""
+
+#: prepare.strrnotfound
+msgctxt "prepare.strrnotfound"
+msgid "R not installed or not found in path."
+msgstr ""
+
+#: prepare.strsave
+msgctxt "prepare.strsave"
+msgid "Dataset has been modified. Save?"
+msgstr "Dataset has been modified. Save?"
+
+#: prepare.strsavechanges
+msgctxt "prepare.strsavechanges"
+msgid "Save changes?"
+msgstr ""
+
+#: prepare.strsaveerror
+msgctxt "prepare.strsaveerror"
+msgid "Failed to save file %s."
+msgstr "Failed to save file %s."
+
+#: prepare.strsavefile
+msgctxt "prepare.strsavefile"
+msgid "Save file as"
+msgstr "Save file as"
+
+#: prepare.strscatterplot
+msgctxt "prepare.strscatterplot"
+msgid "Scatterplot"
+msgstr "Scatterplot"
+
+#: prepare.strslm
+msgctxt "prepare.strslm"
+msgid "Single linkage (SLM)"
+msgstr "Single linkage (SLM)"
+
+#: prepare.strstatelistempty
+#, fuzzy
+#| msgid "State list empty. Enter at least one state description."
+msgctxt "prepare.strstatelistempty"
+msgid "State list empty or incomplete. Enter at least two state descriptions."
+msgstr "State list empty. Enter at least one state description."
+
+#: prepare.strstates
+msgctxt "prepare.strstates"
+msgid "States:"
+msgstr "States:"
+
+#: prepare.strtextnotfound
+msgctxt "prepare.strtextnotfound"
+msgid "Text not found!"
+msgstr "Text not found!"
+
+#: prepare.strtntdirectory
+msgctxt "prepare.strtntdirectory"
+msgid "Select TNT directory"
+msgstr ""
+
+#: prepare.strtntfilter
+msgctxt "prepare.strtntfilter"
+msgid "TNT data files|*.tnt"
+msgstr ""
+
+#: prepare.strtntnotfound
+msgctxt "prepare.strtntnotfound"
+msgid "TNT not installed or not found in path."
+msgstr ""
+
+#: prepare.strtxtfilter
+msgctxt "prepare.strtxtfilter"
+msgid "Text files|*.txt"
+msgstr "Text files|*.txt"
+
+#: prepare.strunit
+msgctxt "prepare.strunit"
+msgid "Unit:"
+msgstr "Unit:"
+
+#: prepare.strunitempty
+msgctxt "prepare.strunitempty"
+msgid "Measurement unit not defined for real numeric character."
+msgstr "Measurement unit not defined for real numeric character."
+
+#: prepare.struntitled
+msgctxt "prepare.struntitled"
+msgid "Untitled"
+msgstr ""
+
+#: prepare.strupgma
+msgctxt "prepare.strupgma"
+msgid "Average linkage (UPGMA)"
+msgstr "Average linkage (UPGMA)"
+
+#: prepare.strvalidnumber
+msgctxt "prepare.strvalidnumber"
+msgid "Enter numbers only (an integer value between 1 and %d)"
+msgstr ""
+
+#: prepare.strward
+msgctxt "prepare.strward"
+msgid "Ward's Method"
+msgstr "Ward's Method"
+
+#: prepare.strwarning
+msgctxt "prepare.strwarning"
+msgid "Warning"
+msgstr "Warning"
+
+#: prepare.strwindowsonly
+msgctxt "prepare.strwindowsonly"
+msgid "This option is available only under MS-Windows."
+msgstr "This option is available only under MS-Windows."
+
+#: prepare.strwpgma
+msgctxt "prepare.strwpgma"
+msgid "Weighted linkage (WPGMA)"
+msgstr "Weighted linkage (WPGMA)"
+
+#: prepare.strxmlfilter
+msgctxt "prepare.strxmlfilter"
+msgid "XML files|*.xml"
+msgstr ""
+
+#: script.straddcharacter
+#, fuzzy
+msgctxt "script.straddcharacter"
+msgid "Add Character"
+msgstr "Add Character"
+
+#: script.stradditemcaption
+#, fuzzy
+msgctxt "script.stradditemcaption"
+msgid "Add Item"
+msgstr "Add Item"
+
+#: script.stradditemprompt
+#, fuzzy
+msgctxt "script.stradditemprompt"
+msgid "Enter item name:"
+msgstr "Enter item name:"
+
+#: script.straddstatecaption
+#, fuzzy
+msgctxt "script.straddstatecaption"
+msgid "Add State"
+msgstr "Add State"
+
+#: script.straddstateprompt
+#, fuzzy
+msgctxt "script.straddstateprompt"
+msgid "Enter state description:"
+msgstr "Enter state description:"
+
+#: script.straxis
+#, fuzzy
+msgctxt "script.straxis"
+msgid "Axis"
+msgstr "Axis"
+
+#: script.strcentroid
+#, fuzzy
+msgctxt "script.strcentroid"
+msgid "Centroid (UPGMC)"
+msgstr "Centroid (UPGMC)"
+
+#: script.strcharacters
+#, fuzzy
+msgctxt "script.strcharacters"
+msgid "characters"
+msgstr "characters"
+
+#: script.strcharlistempty
+#, fuzzy
+msgctxt "script.strcharlistempty"
+msgid "Character list empty. Enter at least one character description."
+msgstr "Character list empty. Enter at least one character description."
+
+#: script.strclass
+msgctxt "script.strclass"
+msgid " Class "
+msgstr ""
+
+#: script.strclm
+#, fuzzy
+msgctxt "script.strclm"
+msgid "Complete linkage (CLM)"
+msgstr "Complete linkage (CLM)"
+
+#: script.strcloneitem
+msgctxt "script.strcloneitem"
+msgid "Clone of"
+msgstr ""
+
+#: script.strconfirmation
+#, fuzzy
+msgctxt "script.strconfirmation"
+msgid "Confirmation"
+msgstr "Confirmation"
+
+#: script.strcontrol
+msgctxt "script.strcontrol"
+msgid "Controls character: %s, by state: %s"
+msgstr ""
+
+#: script.strcopyimage
+msgctxt "script.strcopyimage"
+msgid "Image copied to the Clipboard"
+msgstr ""
+
+#: script.strcopytext
+#, fuzzy
+msgctxt "script.strcopytext"
+msgid "Text copied to the Clipboard"
+msgstr "Text copied to the Clipboard"
+
+#: script.strcsvfilter
+#, fuzzy
+msgctxt "script.strcsvfilter"
+msgid "Comma delimited files|*.csv"
+msgstr "Comma delimited files|*.csv"
+
+#: script.strdatadirectory
+#, fuzzy
+msgctxt "script.strdatadirectory"
+msgid "Select data directory"
+msgstr "Select data directory"
+
+#: script.strdeltadirectory
+msgctxt "script.strdeltadirectory"
+msgid "Select DELTA directory"
+msgstr ""
+
+#: script.strdendrogram
+#, fuzzy
+msgctxt "script.strdendrogram"
+msgid "Dendrogram"
+msgstr "Dendrogram"
+
+#: script.strdependent
+msgctxt "script.strdependent"
+msgid "Dependent upon character: %s, state: %s"
+msgstr ""
+
+#: script.strdistance
+#, fuzzy
+msgctxt "script.strdistance"
+msgid "Distance"
+msgstr "Distance"
+
+#: script.strdtzfilter
+#, fuzzy
+msgctxt "script.strdtzfilter"
+msgid "FreeDelta project|*.dtz"
+msgstr "FreeDelta project|*.dtz"
+
+#: script.streditcaption
+#, fuzzy
+msgctxt "script.streditcaption"
+msgid "Database Title"
+msgstr "Database Title"
+
+#: script.streditcharacter
+#, fuzzy
+msgctxt "script.streditcharacter"
+msgid "Edit Character"
+msgstr "Edit Character"
+
+#: script.stredititemcaption
+#, fuzzy
+msgctxt "script.stredititemcaption"
+msgid "Edit Item"
+msgstr "Edit Item"
+
+#: script.stredititemprompt
+#, fuzzy
+msgctxt "script.stredititemprompt"
+msgid "Edit item name:"
+msgstr "Edit item name:"
+
+#: script.streditprompt
+#, fuzzy
+msgctxt "script.streditprompt"
+msgid "Edit database title:"
+msgstr "Edit database title:"
+
+#: script.streditstatecaption
+#, fuzzy
+msgctxt "script.streditstatecaption"
+msgid "Edit State"
+msgstr "Edit State"
+
+#: script.streditstateprompt
+#, fuzzy
+msgctxt "script.streditstateprompt"
+msgid "Edit state description:"
+msgstr "Edit state description:"
+
+#: script.strentercharacternumber
+msgctxt "script.strentercharacternumber"
+msgid "Enter character number:"
+msgstr ""
+
+#: script.strerror
+#, fuzzy
+msgctxt "script.strerror"
+msgid "Error"
+msgstr "Error"
+
+#: script.strexists
+#, fuzzy
+msgctxt "script.strexists"
+msgid "File %s already exists. Overwrite?"
+msgstr "File %s already exists. Overwrite?"
+
+#: script.strexport
+#, fuzzy
+msgctxt "script.strexport"
+msgid "Data exported successfully to directory %s."
+msgstr "Data exported successfully to directory %s."
+
+#: script.strexportfile
+msgctxt "script.strexportfile"
+msgid "Data exported successfully to file %s."
+msgstr ""
+
+#: script.strfindcharactercaption
+#, fuzzy
+msgctxt "script.strfindcharactercaption"
+msgid "Find Character"
+msgstr "Find Character"
+
+#: script.strfindcharacterprompt
+#, fuzzy
+msgctxt "script.strfindcharacterprompt"
+msgid "Enter character description:"
+msgstr "Enter character description:"
+
+#: script.strfinditemcaption
+#, fuzzy
+msgctxt "script.strfinditemcaption"
+msgid "Find Item"
+msgstr "Find Item"
+
+#: script.strfinditemprompt
+#, fuzzy
+msgctxt "script.strfinditemprompt"
+msgid "Enter item name:"
+msgstr "Enter item name:"
+
+#: script.strfindtextcaption
+#, fuzzy
+msgctxt "script.strfindtextcaption"
+msgid "Find Text"
+msgstr "Find Text"
+
+#: script.strfindtextprompt
+#, fuzzy
+msgctxt "script.strfindtextprompt"
+msgid "Enter search text:"
+msgstr "Enter search text:"
+
+#: script.strfrequency
+msgctxt "script.strfrequency"
+msgid " Freq "
+msgstr ""
+
+#: script.strgotocharacter
+msgctxt "script.strgotocharacter"
+msgid "Go to character"
+msgstr ""
+
+#: script.strgotoline
+msgctxt "script.strgotoline"
+msgid "Go to"
+msgstr ""
+
+#: script.strgotolinecaption
+msgctxt "script.strgotolinecaption"
+msgid "Enter item/character number:"
+msgstr ""
+
+#: script.strhistogram
+msgctxt "script.strhistogram"
+msgid " Histogram "
+msgstr ""
+
+#: script.strimport
+#, fuzzy
+msgctxt "script.strimport"
+msgid "Data imported successfully to file %s."
+msgstr "Data imported successfully to file %s."
+
+#: script.strinformation
+#, fuzzy
+msgctxt "script.strinformation"
+msgid "Information"
+msgstr "Information"
+
+#: script.strinputinteger
+msgctxt "script.strinputinteger"
+msgid "Enter an integer value between 1 and %d"
+msgstr ""
+
+#: script.strinterval
+msgctxt "script.strinterval"
+msgid " Class Interval "
+msgstr ""
+
+#: script.strinvalidsymbol
+msgctxt "script.strinvalidsymbol"
+msgid "Invalid symbol ('/') in character or state name"
+msgstr ""
+
+#: script.stritemlistempty
+#, fuzzy
+msgctxt "script.stritemlistempty"
+msgid "Item list empty. Enter at least one item name."
+msgstr "Item list empty. Enter at least one item name."
+
+#: script.stritems
+#, fuzzy
+msgctxt "script.stritems"
+msgid "items"
+msgstr "items"
+
+#: script.stritemstatus
+msgctxt "script.stritemstatus"
+msgid "Item name, followed by author name and/or comment between <angle brackets>"
+msgstr ""
+
+#: script.strlinux64only
+msgctxt "script.strlinux64only"
+msgid "This option is not available under GNU/Linux 32-bit."
+msgstr ""
+
+#: script.strmark
+msgctxt "script.strmark"
+msgid " Class Mark "
+msgstr ""
+
+#: script.strmedian
+#, fuzzy
+msgctxt "script.strmedian"
+msgid "Median (WPGMC)"
+msgstr "Median (WPGMC)"
+
+#: script.strmerge
+msgctxt "script.strmerge"
+msgid "All characters will be treated as unordered multistate"
+msgstr ""
+
+#: script.strmissingbrackets
+msgctxt "script.strmissingbrackets"
+msgid "Missing opening or closing angle brackets ('<>')"
+msgstr ""
+
+#: script.strnewcaption
+#, fuzzy
+msgctxt "script.strnewcaption"
+msgid "New Database"
+msgstr "New Database"
+
+#: script.strnewprompt
+#, fuzzy
+msgctxt "script.strnewprompt"
+msgid "Enter database title:"
+msgstr "Enter database title:"
+
+#: script.strnexusfilter
+msgctxt "script.strnexusfilter"
+msgid "Nexus data files|*.nex"
+msgstr ""
+
+#: script.strnotexecute
+#, fuzzy
+msgctxt "script.strnotexecute"
+msgid "Couldn't start %s program."
+msgstr "Couldn't start %s program."
+
+#: script.strnotfound
+#, fuzzy
+msgctxt "script.strnotfound"
+msgid "File %s not found."
+msgstr "File %s not found."
+
+#: script.strnotfounddir
+#, fuzzy
+msgctxt "script.strnotfounddir"
+msgid "File %s not found in %s."
+msgstr "File %s not found in %s."
+
+#: script.stropenfile
+#, fuzzy
+msgctxt "script.stropenfile"
+msgid "Open file"
+msgstr "Open file"
+
+#: script.stroutofrange
+msgctxt "script.stroutofrange"
+msgid "Value out of range"
+msgstr ""
+
+#: script.strpaupdirectory
+msgctxt "script.strpaupdirectory"
+msgid "Select PAUP directory"
+msgstr ""
+
+#: script.strpaupnotfound
+msgctxt "script.strpaupnotfound"
+msgid "PAUP not installed or not found in path."
+msgstr ""
+
+#: script.strquit
+#, fuzzy
+msgctxt "script.strquit"
+msgid "Do you want to exit the program?"
+msgstr "Do you want to exit the program?"
+
+#: script.strrdirectory
+msgctxt "script.strrdirectory"
+msgid "Select R directory"
+msgstr ""
+
+#: script.strreaderror
+msgctxt "script.strreaderror"
+msgid "Error reading file %s."
+msgstr ""
+
+#: script.strready
+msgctxt "script.strready"
+msgid "Ready"
+msgstr ""
+
+#: script.strrnotfound
+msgctxt "script.strrnotfound"
+msgid "R not installed or not found in path."
+msgstr ""
+
+#: script.strsave
+#, fuzzy
+msgctxt "script.strsave"
+msgid "Dataset has been modified. Save?"
+msgstr "Dataset has been modified. Save?"
+
+#: script.strsavechanges
+msgctxt "script.strsavechanges"
+msgid "Save changes?"
+msgstr ""
+
+#: script.strsaveerror
+#, fuzzy
+msgctxt "script.strsaveerror"
+msgid "Failed to save file %s."
+msgstr "Failed to save file %s."
+
+#: script.strsavefile
+#, fuzzy
+msgctxt "script.strsavefile"
+msgid "Save file as"
+msgstr "Save file as"
+
+#: script.strscatterplot
+#, fuzzy
+msgctxt "script.strscatterplot"
+msgid "Scatterplot"
+msgstr "Scatterplot"
+
+#: script.strslm
+#, fuzzy
+msgctxt "script.strslm"
+msgid "Single linkage (SLM)"
+msgstr "Single linkage (SLM)"
+
+#: script.strstatelistempty
+msgctxt "script.strstatelistempty"
+msgid "State list empty or incomplete. Enter at least two state descriptions."
+msgstr ""
+
+#: script.strstates
+#, fuzzy
+msgctxt "script.strstates"
+msgid "States:"
+msgstr "States:"
+
+#: script.strtextnotfound
+#, fuzzy
+msgctxt "script.strtextnotfound"
+msgid "Text not found!"
+msgstr "Text not found!"
+
+#: script.strtntdirectory
+msgctxt "script.strtntdirectory"
+msgid "Select TNT directory"
+msgstr ""
+
+#: script.strtntfilter
+msgctxt "script.strtntfilter"
+msgid "TNT data files|*.tnt"
+msgstr ""
+
+#: script.strtntnotfound
+msgctxt "script.strtntnotfound"
+msgid "TNT not installed or not found in path."
+msgstr ""
+
+#: script.strtxtfilter
+#, fuzzy
+msgctxt "script.strtxtfilter"
+msgid "Text files|*.txt"
+msgstr "Text files|*.txt"
+
+#: script.strunit
+#, fuzzy
+msgctxt "script.strunit"
+msgid "Unit:"
+msgstr "Unit:"
+
+#: script.strunitempty
+#, fuzzy
+msgctxt "script.strunitempty"
+msgid "Measurement unit not defined for real numeric character."
+msgstr "Measurement unit not defined for real numeric character."
+
+#: script.struntitled
+msgctxt "script.struntitled"
+msgid "Untitled"
+msgstr ""
+
+#: script.strupgma
+#, fuzzy
+msgctxt "script.strupgma"
+msgid "Average linkage (UPGMA)"
+msgstr "Average linkage (UPGMA)"
+
+#: script.strvalidnumber
+msgctxt "script.strvalidnumber"
+msgid "Enter numbers only (an integer value between 1 and %d)"
+msgstr ""
+
+#: script.strward
+#, fuzzy
+msgctxt "script.strward"
+msgid "Ward's Method"
+msgstr "Ward's Method"
+
+#: script.strwarning
+#, fuzzy
+msgctxt "script.strwarning"
+msgid "Warning"
+msgstr "Warning"
+
+#: script.strwindowsonly
+#, fuzzy
+msgctxt "script.strwindowsonly"
+msgid "This option is available only under MS-Windows."
+msgstr "This option is available only under MS-Windows."
+
+#: script.strwpgma
+#, fuzzy
+msgctxt "script.strwpgma"
+msgid "Weighted linkage (WPGMA)"
+msgstr "Weighted linkage (WPGMA)"
+
+#: script.strxmlfilter
+msgctxt "script.strxmlfilter"
+msgid "XML files|*.xml"
+msgstr ""
+
+#: taboutbox.caption
+msgid "About"
+msgstr "About"
+
+#: taboutbox.comments.caption
+msgid "Comments"
+msgstr "Comments"
+
+#: taboutbox.compiler.caption
+msgctxt "taboutbox.compiler.caption"
+msgid "Compiler:"
+msgstr "Compiler:"
+
+#: taboutbox.copyright.caption
+#, fuzzy
+#| msgid "Copyright © 2000-2020 Mauro J. Cavalcanti"
+msgid "Copyright © 2000-2021 Mauro J. Cavalcanti"
+msgstr "Copyright © 2000-2020 Mauro J. Cavalcanti"
+
+#: taboutbox.ide.caption
+msgid "IDE:"
+msgstr "IDE:"
+
+#: taboutbox.okbutton.caption
+msgctxt "taboutbox.okbutton.caption"
+msgid "OK"
+msgstr "OK"
+
+#: taboutbox.operatingsystem.caption
+msgid "OS:"
+msgstr "OS:"
+
+#: taboutbox.platform.caption
+msgid "Platform:"
+msgstr "Platform:"
+
+#: taboutbox.productname.caption
+msgctxt "taboutbox.productname.caption"
+msgid "Free Delta Editor"
+msgstr "Free Delta Editor"
+
+#: taboutbox.systeminformation.caption
+msgid "System Information:"
+msgstr "System Information:"
+
+#: taboutbox.versionnumber.caption
+msgid "v 0.0.0"
+msgstr "v 0.0.0"
+
+#: taboutbox.website.caption
+msgctxt "taboutbox.website.caption"
+msgid "FreeDelta website"
+msgstr "FreeDelta website"
+
+#: tcharacterform.cancelbutton.caption
+msgctxt "tcharacterform.cancelbutton.caption"
+msgid "Cancel"
+msgstr "Cancel"
+
+#: tcharacterform.caption
+msgctxt "tcharacterform.caption"
+msgid "Edit Character"
+msgstr "Edit Character"
+
+#: tcharacterform.checkimplicit.caption
+msgid "Implicit"
+msgstr "Implicit"
+
+#: tcharacterform.clearbtn.hint
+msgid "Clear state list"
+msgstr "Clear state list"
+
+#: tcharacterform.downbtn.hint
+msgid "Move a state down"
+msgstr "Move a state down"
+
+#: tcharacterform.editbtn.hint
+msgid "Edit a state name"
+msgstr "Edit a state name"
+
+#: tcharacterform.editchar.editlabel.caption
+msgid "Character Description:"
+msgstr "Character Description:"
+
+#: tcharacterform.editunit.editlabel.caption
+msgctxt "tcharacterform.editunit.editlabel.caption"
+msgid "Unit:"
+msgstr "Unit:"
+
+#: tcharacterform.excludebtn.hint
+msgid "Delete a state"
+msgstr "Delete a state"
+
+#: tcharacterform.includebtn.hint
+msgid "Add a state"
+msgstr "Add a state"
+
+#: tcharacterform.label1.caption
+msgctxt "tcharacterform.label1.caption"
+msgid "Dependent Characters:"
+msgstr ""
+
+#: tcharacterform.labelattributes.caption
+msgid "Controlling Attributes:"
+msgstr ""
+
+#: tcharacterform.labelstates.caption
+msgctxt "tcharacterform.labelstates.caption"
+msgid "States:"
+msgstr "States:"
+
+#: tcharacterform.okbutton.caption
+msgctxt "tcharacterform.okbutton.caption"
+msgid "OK"
+msgstr "OK"
+
+#: tcharacterform.rbin.caption
+msgid "Integer"
+msgstr "Integer"
+
+#: tcharacterform.rbom.caption
+msgid "Ordered"
+msgstr "Ordered"
+
+#: tcharacterform.rbrn.caption
+msgid "Real"
+msgstr "Real"
+
+#: tcharacterform.rbte.caption
+msgctxt "tcharacterform.rbte.caption"
+msgid "Text"
+msgstr "Text"
+
+#: tcharacterform.rbum.caption
+msgid "Unordered"
+msgstr "Unordered"
+
+#: tcharacterform.tabsheetcharacter.caption
+msgid "Character"
+msgstr "Character"
+
+#: tcharacterform.tabsheetdepend.caption
+msgid "Dependencies"
+msgstr ""
+
+#: tcharacterform.tabsheetnote.caption
+msgid "Note"
+msgstr "Note"
+
+#: tcharacterform.upbtn.hint
+msgid "Move a state up"
+msgstr "Move a state up"
+
+#: tchecklistform.cancelbutton.caption
+msgctxt "tchecklistform.cancelbutton.caption"
+msgid "Cancel"
+msgstr "Cancel"
+
+#: tchecklistform.okbutton.caption
+msgctxt "tchecklistform.okbutton.caption"
+msgid "OK"
+msgstr "OK"
+
+#: tclusterform.cancelbutton.caption
+msgctxt "tclusterform.cancelbutton.caption"
+msgid "Cancel"
+msgstr "Cancel"
+
+#: tclusterform.caption
+msgid "Clustering"
+msgstr "Clustering"
+
+#: tclusterform.comboboxmethod.text
+msgctxt "tclusterform.comboboxmethod.text"
+msgid "Average linkage (UPGMA)"
+msgstr "Average linkage (UPGMA)"
+
+#: tclusterform.labelmethod.caption
+msgid "Method:"
+msgstr "Method:"
+
+#: tclusterform.okbutton.caption
+msgctxt "tclusterform.okbutton.caption"
+msgid "OK"
+msgstr "OK"
+
+#: tdistform.cancelbutton.caption
+msgctxt "tdistform.cancelbutton.caption"
+msgid "Cancel"
+msgstr "Cancel"
+
+#: tdistform.caption
+msgid "DIST Directives"
+msgstr "DIST Directives"
+
+#: tdistform.checkboxmatchoverlap.caption
+msgid "Match Overlap"
+msgstr "Match Overlap"
+
+#: tdistform.checkboxphylipformat.caption
+msgid "PHYLIP Format:"
+msgstr "PHYLIP Format:"
+
+#: tdistform.labelexcludecharacters.caption
+msgctxt "tdistform.labelexcludecharacters.caption"
+msgid "Exclude Characters:"
+msgstr "Exclude Characters:"
+
+#: tdistform.labelexcludeitems.caption
+msgctxt "tdistform.labelexcludeitems.caption"
+msgid "Exclude Items:"
+msgstr "Exclude Items:"
+
+#: tdistform.labelminimumnumberofcomparisons.caption
+msgid "Minimum Number of Comparisons:"
+msgstr "Minimum Number of Comparisons:"
+
+#: tdistform.okbutton.caption
+msgctxt "tdistform.okbutton.caption"
+msgid "OK"
+msgstr "OK"
+
+#: tkeyform.cancelbutton.caption
+msgctxt "tkeyform.cancelbutton.caption"
+msgid "Cancel"
+msgstr "Cancel"
+
+#: tkeyform.caption
+msgid "KEY Directives"
+msgstr "KEY Directives"
+
+#: tkeyform.checkboxaddcharacternumbers.caption
+msgid "Add Character Numbers:"
+msgstr "Add Character Numbers:"
+
+#: tkeyform.checkboxnobrackettedkey.caption
+#, fuzzy
+#| msgid "No Bracketted Key"
+msgid "No Bracketted Key:"
+msgstr "No Bracketted Key"
+
+#: tkeyform.checkboxnotabularkey.caption
+msgid "No Tabular Key:"
+msgstr "No Tabular Key:"
+
+#: tkeyform.comboboxoutputformat.text
+#, fuzzy
+msgctxt "tkeyform.comboboxoutputformat.text"
+msgid "Text"
+msgstr "Text"
+
+#: tkeyform.labelabase.caption
+msgid "ABASE:"
+msgstr "ABASE:"
+
+#: tkeyform.labelcharacterreliabilities.caption
+msgid "Character Reliabilities:"
+msgstr "Character Reliabilities:"
+
+#: tkeyform.labelheading.caption
+msgctxt "tkeyform.labelheading.caption"
+msgid "Heading:"
+msgstr "Heading:"
+
+#: tkeyform.labelincludecharacters.caption
+msgctxt "tkeyform.labelincludecharacters.caption"
+msgid "Include Characters:"
+msgstr ""
+
+#: tkeyform.labelincludeitems.caption
+msgid "Include Items:"
+msgstr ""
+
+#: tkeyform.labelkeystates.caption
+msgctxt "tkeyform.labelkeystates.caption"
+msgid "Key States:"
+msgstr "Key States:"
+
+#: tkeyform.labelnumberofconfirmatorycharacters.caption
+msgid "Number of Confirmatory Characters:"
+msgstr "Number of Confirmatory Characters:"
+
+#: tkeyform.labeloutputformat.caption
+msgctxt "tkeyform.labeloutputformat.caption"
+msgid "Output Format:"
+msgstr ""
+
+#: tkeyform.labelrbase.caption
+msgid "RBASE:"
+msgstr "RBASE:"
+
+#: tkeyform.labelreuse.caption
+msgid "REUSE:"
+msgstr "REUSE:"
+
+#: tkeyform.labeltreatcharactersasvariable.caption
+msgid "Treat Characters as Variable:"
+msgstr "Treat Characters as Variable:"
+
+#: tkeyform.labelusenormalvalues.caption
+msgid "Use Normal Values:"
+msgstr "Use Normal Values:"
+
+#: tkeyform.labelvarywt.caption
+msgid "VARYWT:"
+msgstr "VARYWT:"
+
+#: tkeyform.okbutton.caption
+msgctxt "tkeyform.okbutton.caption"
+msgid "OK"
+msgstr "OK"
+
+#: tkeyform.printwidthlabel.caption
+msgctxt "tkeyform.printwidthlabel.caption"
+msgid "Print Width:"
+msgstr ""
+
+#: tkeystatesform.cancelbutton.caption
+#, fuzzy
+msgctxt "tkeystatesform.cancelbutton.caption"
+msgid "Cancel"
+msgstr "Cancel"
+
+#: tkeystatesform.caption
+msgid "Key States"
+msgstr ""
+
+#: tkeystatesform.labelcharacters.caption
+msgctxt "tkeystatesform.labelcharacters.caption"
+msgid "Characters:"
+msgstr ""
+
+#: tkeystatesform.labelclasses.caption
+msgid "Number of Classes:"
+msgstr ""
+
+#: tkeystatesform.labelededitkeystates.editlabel.caption
+#, fuzzy
+msgctxt "tkeystatesform.labelededitkeystates.editlabel.caption"
+msgid "Key States:"
+msgstr "Key States:"
+
+#: tkeystatesform.labelfrequencytable.caption
+msgid "Frequency Table:"
+msgstr ""
+
+#: tkeystatesform.okbutton.caption
+#, fuzzy
+msgctxt "tkeystatesform.okbutton.caption"
+msgid "OK"
+msgstr "OK"
+
+#: tkeystatesform.radiobuttonsquareroot.caption
+msgid "Square Root of N"
+msgstr ""
+
+#: tkeystatesform.radiobuttonsturgesrule.caption
+msgid "Sturges' Rule"
+msgstr ""
+
+#: tmainform.addcharacter.caption
+msgid "Add character..."
+msgstr "Add character..."
+
+#: tmainform.addcharacter.hint
+#, fuzzy
+#| msgid "Create new character"
+msgctxt "tmainform.addcharacter.hint"
+msgid "Append new character at the end of list"
+msgstr "Create new character"
+
+#: tmainform.additem.caption
+msgid "Add item..."
+msgstr "Add item..."
+
+#: tmainform.additem.hint
+#, fuzzy
+msgctxt "tmainform.additem.hint"
+msgid "Create new item"
+msgstr "Create new item"
+
+#: tmainform.attrlabel.caption
+#, fuzzy
+#| msgid "Attribute:"
+msgid "Value:"
+msgstr "Attribute:"
+
+#: tmainform.caption
+#, fuzzy
+#| msgid "FreeDelta"
+msgctxt "tmainform.caption"
+msgid "Free Delta Editor"
+msgstr "FreeDelta"
+
+#: tmainform.cloneitem.caption
+msgctxt "tmainform.cloneitem.caption"
+msgid "Clone Item..."
+msgstr ""
+
+#: tmainform.cloneitem.hint
+msgctxt "tmainform.cloneitem.hint"
+msgid "Clone selected item"
+msgstr ""
+
+#: tmainform.clusterbtn.caption
+#, fuzzy
+msgctxt "tmainform.clusterbtn.caption"
+msgid "Cluster Analysis"
+msgstr "Cluster Analysis"
+
+#: tmainform.clusterbtn.hint
+#, fuzzy
+#| msgid "Cluster Analysis|Agglomerative clustering by combinatorial strategies"
+msgctxt "tmainform.clusterbtn.hint"
+msgid "Agglomerative clustering by combinatorial strategies"
+msgstr "Cluster Analysis|Agglomerative clustering by combinatorial strategies"
+
+#: tmainform.collapseall.caption
+msgid "Collapse all"
+msgstr "Collapse all"
+
+#: tmainform.collapseall.hint
+msgid "Hide all nodes of character tree"
+msgstr ""
+
+#: tmainform.deletecharacter.caption
+msgid "Delete character"
+msgstr "Delete character"
+
+#: tmainform.deletecharacter.hint
+#, fuzzy
+#| msgid "Delete existing character"
+msgctxt "tmainform.deletecharacter.hint"
+msgid "Delete selected character"
+msgstr "Delete existing character"
+
+#: tmainform.deleteitem.caption
+msgid "Delete item"
+msgstr "Delete item"
+
+#: tmainform.deleteitem.hint
+#, fuzzy
+msgctxt "tmainform.deleteitem.hint"
+msgid "Delete existing item"
+msgstr "Delete existing item"
+
+#: tmainform.describeitem.caption
+#, fuzzy
+#| msgid "Item Description..."
+msgctxt "tmainform.describeitem.caption"
+msgid "Item description..."
+msgstr "Item Description..."
+
+#: tmainform.describeitem.hint
+msgid "Describe item for all characters"
+msgstr ""
+
+#: tmainform.editaddcharacteritem.caption
+msgid "Add Character..."
+msgstr "Add Character..."
+
+#: tmainform.editaddcharacteritem.hint
+#, fuzzy
+#| msgid "Create new character"
+msgctxt "tmainform.editaddcharacteritem.hint"
+msgid "Append new character at the end of list"
+msgstr "Create new character"
+
+#: tmainform.editadditem.caption
+msgid "Add Item..."
+msgstr "Add Item..."
+
+#: tmainform.editadditem.hint
+#, fuzzy
+#| msgid "Create new item"
+msgctxt "tmainform.editadditem.hint"
+msgid "Append new item at the end of list"
+msgstr "Create new item"
+
+#: tmainform.editchangecharacteritem.caption
+msgid "Edit Character..."
+msgstr "Edit Character..."
+
+#: tmainform.editchangecharacteritem.hint
+#, fuzzy
+#| msgid "Edit existing character"
+msgctxt "tmainform.editchangecharacteritem.hint"
+msgid "Edit selected character"
+msgstr "Edit existing character"
+
+#: tmainform.editchangeitem.caption
+msgid "Edit Item..."
+msgstr "Edit Item..."
+
+#: tmainform.editchangeitem.hint
+#, fuzzy
+#| msgid "Edit existing item"
+msgid "Edit selected item"
+msgstr "Edit existing item"
+
+#: tmainform.editcharacter.caption
+msgid "Edit character..."
+msgstr "Edit character..."
+
+#: tmainform.editcharacter.hint
+#, fuzzy
+#| msgid "Edit existing character"
+msgctxt "tmainform.editcharacter.hint"
+msgid "Edit selected character"
+msgstr "Edit existing character"
+
+#: tmainform.editcloneitem.caption
+msgctxt "tmainform.editcloneitem.caption"
+msgid "Clone Item..."
+msgstr ""
+
+#: tmainform.editcloneitem.hint
+msgctxt "tmainform.editcloneitem.hint"
+msgid "Clone selected item"
+msgstr ""
+
+#: tmainform.editdeletecharacteritem.caption
+msgid "Delete Character"
+msgstr "Delete Character"
+
+#: tmainform.editdeletecharacteritem.hint
+#, fuzzy
+#| msgid "Delete existing character"
+msgctxt "tmainform.editdeletecharacteritem.hint"
+msgid "Delete selected character"
+msgstr "Delete existing character"
+
+#: tmainform.editdeleteitem.caption
+msgid "Delete Item"
+msgstr "Delete Item"
+
+#: tmainform.editdeleteitem.hint
+#, fuzzy
+#| msgid "Delete existing item"
+msgctxt "tmainform.editdeleteitem.hint"
+msgid "Delete selected item"
+msgstr "Delete existing item"
+
+#: tmainform.editimagesitem.caption
+msgid "Images"
+msgstr ""
+
+#: tmainform.editimagesitem.hint
+msgid "Display images of characters or taxa"
+msgstr ""
+
+#: tmainform.editinsertcharacteritem.caption
+msgctxt "tmainform.editinsertcharacteritem.caption"
+msgid "Insert Character..."
+msgstr ""
+
+#: tmainform.editinsertcharacteritem.hint
+msgctxt "tmainform.editinsertcharacteritem.hint"
+msgid "Insert new character at the current position"
+msgstr ""
+
+#: tmainform.editinsertitem.caption
+msgctxt "tmainform.editinsertitem.caption"
+msgid "Insert Item..."
+msgstr ""
+
+#: tmainform.editinsertitem.hint
+msgctxt "tmainform.editinsertitem.hint"
+msgid "Insert new item at the current position"
+msgstr ""
+
+#: tmainform.edititem.caption
+msgid "Edit item..."
+msgstr "Edit item..."
+
+#: tmainform.edititem.hint
+msgid "Edit existing item name"
+msgstr ""
+
+#: tmainform.editmenu.caption
+msgid "&Edit"
+msgstr "&Edit"
+
+#: tmainform.editmergecharacteritem.caption
+msgctxt "tmainform.editmergecharacteritem.caption"
+msgid "Merge Character Lists..."
+msgstr ""
+
+#: tmainform.editmergecharacteritem.hint
+msgctxt "tmainform.editmergecharacteritem.hint"
+msgid "Merge another list of characters with the current one"
+msgstr ""
+
+#: tmainform.editscriptitem.caption
+msgctxt "tmainform.editscriptitem.caption"
+msgid "Script"
+msgstr ""
+
+#: tmainform.editscriptitem.hint
+msgctxt "tmainform.editscriptitem.hint"
+msgid "Edit/Run CONFOR/KEY/DIST directives file"
+msgstr ""
+
+#: tmainform.edittitleitem.caption
+msgid "Database Title..."
+msgstr "Database Title..."
+
+#: tmainform.edittitleitem.hint
+msgid "Change database title"
+msgstr "Change database title"
+
+#: tmainform.exitbtn.caption
+#, fuzzy
+msgctxt "tmainform.exitbtn.caption"
+msgid "&Quit"
+msgstr "&Quit"
+
+#: tmainform.exitbtn.hint
+#, fuzzy
+#| msgid "Exit|Exit from program"
+msgctxt "tmainform.exitbtn.hint"
+msgid "Exit from program"
+msgstr "Exit|Exit from program"
+
+#: tmainform.expandall.caption
+msgid "Expand all"
+msgstr "Expand all"
+
+#: tmainform.expandall.hint
+msgid "Show all nodes of character tree"
+msgstr ""
+
+#: tmainform.exportdeltaitem.caption
+msgctxt "tmainform.exportdeltaitem.caption"
+msgid "DELTA..."
+msgstr "DELTA..."
+
+#: tmainform.exportdeltaitem.hint
+msgid "Save data in DELTA format"
+msgstr "Save data in DELTA format"
+
+#: tmainform.exportxdeltaitem.caption
+msgid "XDELTA..."
+msgstr ""
+
+#: tmainform.exportxdeltaitem.hint
+msgid "Save data in XDELTA XML format"
+msgstr ""
+
+#: tmainform.featurelabel.caption
+msgid "FeatureLabel"
+msgstr ""
+
+#: tmainform.fileclearmruitem.caption
+msgid "C&lear Recent Files List"
+msgstr "C&lear Recent Files List"
+
+#: tmainform.fileclearmruitem.hint
+msgid "Clear list of most recently used files"
+msgstr "Clear list of most recently used files"
+
+#: tmainform.filecloseitem.caption
+msgid "&Close"
+msgstr "&Close"
+
+#: tmainform.filecloseitem.hint
+msgid "Close current file"
+msgstr "Close current file"
+
+#: tmainform.fileexititem.caption
+msgctxt "tmainform.fileexititem.caption"
+msgid "&Quit"
+msgstr "&Quit"
+
+#: tmainform.fileexititem.hint
+msgctxt "tmainform.fileexititem.hint"
+msgid "Exit from program"
+msgstr "Exit from program"
+
+#: tmainform.fileexportitem.caption
+msgid "&Export"
+msgstr "&Export"
+
+#: tmainform.fileexportitem.hint
+msgid "Export data"
+msgstr "Export data"
+
+#: tmainform.fileimportitem.caption
+msgid "&Import"
+msgstr "&Import"
+
+#: tmainform.fileimportitem.hint
+msgid "Import data"
+msgstr "Import data"
+
+#: tmainform.filemenu.caption
+msgid "&File"
+msgstr "&File"
+
+#: tmainform.filenewitem.caption
+msgctxt "tmainform.filenewitem.caption"
+msgid "&New"
+msgstr "&New"
+
+#: tmainform.filenewitem.hint
+msgctxt "tmainform.filenewitem.hint"
+msgid "Create new file"
+msgstr "Create new file"
+
+#: tmainform.fileopenitem.caption
+msgctxt "tmainform.fileopenitem.caption"
+msgid "&Open..."
+msgstr "&Open..."
+
+#: tmainform.fileopenitem.hint
+msgctxt "tmainform.fileopenitem.hint"
+msgid "Load existing file"
+msgstr "Load existing file"
+
+#: tmainform.fileprintitem.caption
+msgctxt "tmainform.fileprintitem.caption"
+msgid "Print"
+msgstr ""
+
+#: tmainform.filesaveasitem.caption
+msgid "Save &As..."
+msgstr "Save &As..."
+
+#: tmainform.filesaveasitem.hint
+msgid "Save current file with a new name"
+msgstr "Save current file with a new name"
+
+#: tmainform.filesaveitem.caption
+msgctxt "tmainform.filesaveitem.caption"
+msgid "&Save"
+msgstr "&Save"
+
+#: tmainform.filesaveitem.hint
+msgctxt "tmainform.filesaveitem.hint"
+msgid "Save current file and continue editing"
+msgstr "Save current file and continue editing"
+
+#: tmainform.findbtn.caption
+#, fuzzy
+msgctxt "tmainform.findbtn.caption"
+msgid "&Find..."
+msgstr "&Find..."
+
+#: tmainform.findbtn.hint
+#, fuzzy
+#| msgid "Find|Find specified text"
+msgctxt "tmainform.findbtn.hint"
+msgid "Find specified text"
+msgstr "Find|Find specified text"
+
+#: tmainform.headertreeview.sections[0].text
+msgid "Characters"
+msgstr "Characters"
+
+#: tmainform.helpaboutitem.caption
+msgid "A&bout"
+msgstr "A&bout"
+
+#: tmainform.helpaboutitem.hint
+msgid "Show version and system information"
+msgstr "Show version and system information"
+
+#: tmainform.helpmenu.caption
+msgid "&Help"
+msgstr "&Help"
+
+#: tmainform.helpmenuitem.caption
+msgid "Index"
+msgstr ""
+
+#: tmainform.helpmenuitem.hint
+msgid "Display the index of help topics"
+msgstr ""
+
+#: tmainform.importdeltaitem.caption
+msgctxt "tmainform.importdeltaitem.caption"
+msgid "DELTA..."
+msgstr "DELTA..."
+
+#: tmainform.importdeltaitem.hint
+msgid "Import data from DELTA files"
+msgstr "Import data from DELTA files"
+
+#: tmainform.importtextitem.caption
+msgid "Text..."
+msgstr "Text..."
+
+#: tmainform.importtextitem.hint
+msgid "Import data from delimited text file"
+msgstr "Import data from delimited text file"
+
+#: tmainform.insertcharacter.caption
+msgctxt "tmainform.insertcharacter.caption"
+msgid "Insert character..."
+msgstr ""
+
+#: tmainform.insertcharacter.hint
+msgctxt "tmainform.insertcharacter.hint"
+msgid "Insert new character at the current position"
+msgstr ""
+
+#: tmainform.insertitem.caption
+msgctxt "tmainform.insertitem.caption"
+msgid "Insert Item..."
+msgstr ""
+
+#: tmainform.insertitem.hint
+msgctxt "tmainform.insertitem.hint"
+msgid "Insert new item at the current position"
+msgstr ""
+
+#: tmainform.intkeybtn.caption
+#, fuzzy
+msgctxt "tmainform.intkeybtn.caption"
+msgid "Interactive Key"
+msgstr "Interactive Key"
+
+#: tmainform.intkeybtn.hint
+#, fuzzy
+#| msgid "Interactive Key|Interactive identification and information retrieval"
+msgctxt "tmainform.intkeybtn.hint"
+msgid "Interactive identification and information retrieval"
+msgstr "Interactive Key|Interactive identification and information retrieval"
+
+#: tmainform.itemlistview.columns[0].caption
+msgid "Items"
+msgstr "Items"
+
+#: tmainform.keybtn.caption
+#, fuzzy
+msgctxt "tmainform.keybtn.caption"
+msgid "Conventional Key"
+msgstr "Conventional Key"
+
+#: tmainform.keybtn.hint
+#, fuzzy
+#| msgid "Conventional Key|Generate bracketed and tabular keys"
+msgctxt "tmainform.keybtn.hint"
+msgid "Generated bracketed and tabular keys"
+msgstr "Conventional Key|Generate bracketed and tabular keys"
+
+#: tmainform.keyconventionalitem.caption
+msgctxt "tmainform.keyconventionalitem.caption"
+msgid "Conventional Key"
+msgstr "Conventional Key"
+
+#: tmainform.keyconventionalitem.hint
+msgctxt "tmainform.keyconventionalitem.hint"
+msgid "Generated bracketed and tabular keys"
+msgstr "Generated bracketed and tabular keys"
+
+#: tmainform.keyinteractiveitem.caption
+msgctxt "tmainform.keyinteractiveitem.caption"
+msgid "Interactive Key"
+msgstr "Interactive Key"
+
+#: tmainform.keyinteractiveitem.hint
+msgctxt "tmainform.keyinteractiveitem.hint"
+msgid "Interactive identification and information retrieval"
+msgstr "Interactive identification and information retrieval"
+
+#: tmainform.keymenu.caption
+msgid "&Keys"
+msgstr "&Keys"
+
+#: tmainform.languageenglishitem.caption
+msgid "English"
+msgstr "English"
+
+#: tmainform.languageenglishitem.hint
+msgid "Show the interface in English"
+msgstr "Show the interface in English"
+
+#: tmainform.languagefrenchitem.caption
+msgid "Français"
+msgstr ""
+
+#: tmainform.languagefrenchitem.hint
+msgid "Afficher l'interface en Français"
+msgstr ""
+
+#: tmainform.languagemenu.caption
+msgid "&Language"
+msgstr "&Language"
+
+#: tmainform.languageportugueseitem.caption
+msgid "Português"
+msgstr ""
+
+#: tmainform.languageportugueseitem.hint
+msgid "Exibir a interface em português"
+msgstr ""
+
+#: tmainform.listtab.caption
+msgid "List View"
+msgstr "List View"
+
+#: tmainform.matrixbtn.caption
+#, fuzzy
+msgctxt "tmainform.matrixbtn.caption"
+msgid "Distance Matrix"
+msgstr "Distance Matrix"
+
+#: tmainform.matrixbtn.hint
+#, fuzzy
+#| msgid "Distance Matrix|Generate distance matrix"
+msgctxt "tmainform.matrixbtn.hint"
+msgid "Generate distance matrix"
+msgstr "Distance Matrix|Generate distance matrix"
+
+#: tmainform.matrixclusteritem.caption
+msgctxt "tmainform.matrixclusteritem.caption"
+msgid "Cluster Analysis"
+msgstr "Cluster Analysis"
+
+#: tmainform.matrixclusteritem.hint
+msgctxt "tmainform.matrixclusteritem.hint"
+msgid "Agglomerative clustering by combinatorial strategies"
+msgstr "Agglomerative clustering by combinatorial strategies"
+
+#: tmainform.matrixdistanceitem.caption
+msgctxt "tmainform.matrixdistanceitem.caption"
+msgid "Distance Matrix"
+msgstr "Distance Matrix"
+
+#: tmainform.matrixdistanceitem.hint
+msgctxt "tmainform.matrixdistanceitem.hint"
+msgid "Generate distance matrix"
+msgstr "Generate distance matrix"
+
+#: tmainform.matrixmenu.caption
+msgid "&Matrix"
+msgstr "&Matrix"
+
+#: tmainform.matrixordinationitem.caption
+msgctxt "tmainform.matrixordinationitem.caption"
+msgid "Principal Coordinates Analysis"
+msgstr "Principal Coordinates Analysis"
+
+#: tmainform.matrixordinationitem.hint
+msgctxt "tmainform.matrixordinationitem.hint"
+msgid "Principal coordinates analysis"
+msgstr "Principal coordinates analysis"
+
+#: tmainform.matrixparsimonyitem.caption
+msgid "Parsimony Analysis"
+msgstr ""
+
+#: tmainform.matrixparsimonyitem.hint
+msgid "Parsimony analysis"
+msgstr ""
+
+#: tmainform.matrixparsimonyitempaup.caption
+msgid "PAUP"
+msgstr ""
+
+#: tmainform.matrixparsimonyitempaup.hint
+msgid "Phylogenetic Analysis Using Parsimony"
+msgstr ""
+
+#: tmainform.matrixparsimonyitemtnt.caption
+msgid "TNT"
+msgstr ""
+
+#: tmainform.matrixparsimonyitemtnt.hint
+msgid "Tree analysis using New Technology"
+msgstr ""
+
+#: tmainform.matrixtab.caption
+msgid "MatrixView"
+msgstr ""
+
+#: tmainform.mergecharacter.caption
+msgctxt "tmainform.mergecharacter.caption"
+msgid "Merge character lists..."
+msgstr ""
+
+#: tmainform.mergecharacter.hint
+msgctxt "tmainform.mergecharacter.hint"
+msgid "Merge another list of characters with the current one"
+msgstr ""
+
+#: tmainform.movecharacterdown.caption
+msgctxt "tmainform.movecharacterdown.caption"
+msgid "Move character down"
+msgstr ""
+
+#: tmainform.movecharacterdown.hint
+msgctxt "tmainform.movecharacterdown.hint"
+msgid "Move character down"
+msgstr ""
+
+#: tmainform.movecharacterup.caption
+msgctxt "tmainform.movecharacterup.caption"
+msgid "Move character up"
+msgstr ""
+
+#: tmainform.movecharacterup.hint
+msgctxt "tmainform.movecharacterup.hint"
+msgid "Move character up"
+msgstr ""
+
+#: tmainform.moveitemdown.caption
+msgctxt "tmainform.moveitemdown.caption"
+msgid "Move item down"
+msgstr ""
+
+#: tmainform.moveitemdown.hint
+msgctxt "tmainform.moveitemdown.hint"
+msgid "Move item down"
+msgstr ""
+
+#: tmainform.moveitemup.caption
+msgctxt "tmainform.moveitemup.caption"
+msgid "Move item up"
+msgstr ""
+
+#: tmainform.moveitemup.hint
+msgctxt "tmainform.moveitemup.hint"
+msgid "Move item up"
+msgstr ""
+
+#: tmainform.newbtn.caption
+#, fuzzy
+msgctxt "tmainform.newbtn.caption"
+msgid "&New"
+msgstr "&New"
+
+#: tmainform.newbtn.hint
+#, fuzzy
+#| msgid "New|Create new file"
+msgctxt "tmainform.newbtn.hint"
+msgid "Create new file"
+msgstr "New|Create new file"
+
+#: tmainform.openbtn.caption
+#, fuzzy
+msgctxt "tmainform.openbtn.caption"
+msgid "&Open..."
+msgstr "&Open..."
+
+#: tmainform.openbtn.hint
+#, fuzzy
+#| msgid "Open|Load existing file"
+msgctxt "tmainform.openbtn.hint"
+msgid "Load existing file"
+msgstr "Open|Load existing file"
+
+#: tmainform.opendialog.title
+msgid "Open existing file"
+msgstr "Open existing file"
+
+#: tmainform.ordinationbtn.caption
+#, fuzzy
+msgctxt "tmainform.ordinationbtn.caption"
+msgid "Principal Coordinates Analysis"
+msgstr "Principal Coordinates Analysis"
+
+#: tmainform.ordinationbtn.hint
+#, fuzzy
+#| msgid "Principal Coordinates Analysis|Principal coordinates analysis"
+msgctxt "tmainform.ordinationbtn.hint"
+msgid "Principal coordinates analysis"
+msgstr "Principal Coordinates Analysis|Principal coordinates analysis"
+
+#: tmainform.panel1.caption
+msgid "Panel1"
+msgstr ""
+
+#: tmainform.panel3.caption
+msgid "Panel3"
+msgstr ""
+
+#: tmainform.panel4.caption
+msgid "Panel4"
+msgstr ""
+
+#: tmainform.panel5.caption
+msgid "Panel5"
+msgstr ""
+
+#: tmainform.preparemenu.caption
+msgid "&Descriptions"
+msgstr "&Descriptions"
+
+#: tmainform.preparesummaryitem.caption
+msgctxt "tmainform.preparesummaryitem.caption"
+msgid "Character Summary"
+msgstr "Character Summary"
+
+#: tmainform.preparesummaryitem.hint
+msgctxt "tmainform.preparesummaryitem.hint"
+msgid "Display a summary of the data"
+msgstr "Display a summary of the data"
+
+#: tmainform.preparetonatitem.caption
+msgctxt "tmainform.preparetonatitem.caption"
+msgid "Natural Language"
+msgstr "Natural Language"
+
+#: tmainform.preparetonatitem.hint
+msgctxt "tmainform.preparetonatitem.hint"
+msgid "Translate into natural language"
+msgstr "Translate into natural language"
+
+#: tmainform.prepareuncodeditem.caption
+#| msgid "Uncoded Character"
+msgctxt "tmainform.prepareuncodeditem.caption"
+msgid "Uncoded Characters"
+msgstr "Uncoded Characters"
+
+#: tmainform.prepareuncodeditem.hint
+msgctxt "tmainform.prepareuncodeditem.hint"
+msgid "Report on missing data"
+msgstr "Report on missing data"
+
+#: tmainform.printcharactersitem.caption
+msgid "Characters..."
+msgstr ""
+
+#: tmainform.printcharactersitem.hint
+msgid "Print the characters"
+msgstr ""
+
+#: tmainform.printitemsitem.caption
+msgid "Items..."
+msgstr ""
+
+#: tmainform.printitemsitem.hint
+msgid "Print the items"
+msgstr ""
+
+#: tmainform.printnamesitem.caption
+msgid "Item Names..."
+msgstr ""
+
+#: tmainform.printnamesitem.hint
+msgid "Print the item names"
+msgstr ""
+
+#: tmainform.s6.caption
+msgid "S6"
+msgstr ""
+
+#: tmainform.savebtn.caption
+#, fuzzy
+msgctxt "tmainform.savebtn.caption"
+msgid "&Save"
+msgstr "&Save"
+
+#: tmainform.savebtn.hint
+#, fuzzy
+#| msgid "Save|Save current file and continue editing"
+msgctxt "tmainform.savebtn.hint"
+msgid "Save current file and continue editing"
+msgstr "Save|Save current file and continue editing"
+
+#: tmainform.savedialog.title
+msgid "Save as"
+msgstr "Save as"
+
+#: tmainform.scriptbtn.caption
+msgctxt "tmainform.scriptbtn.caption"
+msgid "Script"
+msgstr ""
+
+#: tmainform.scriptbtn.hint
+msgctxt "tmainform.scriptbtn.hint"
+msgid "Edit/Run CONFOR/KEY/DIST directives file"
+msgstr ""
+
+#: tmainform.searchfinditem.caption
+msgctxt "tmainform.searchfinditem.caption"
+msgid "&Find..."
+msgstr "&Find..."
+
+#: tmainform.searchfinditem.hint
+msgctxt "tmainform.searchfinditem.hint"
+msgid "Find specified text"
+msgstr "Find specified text"
+
+#: tmainform.searchfindnextitem.caption
+msgid "Find &Next"
+msgstr ""
+
+#: tmainform.searchfindnextitem.hint
+msgid "Repeat last search operation"
+msgstr ""
+
+#: tmainform.searchgotoline.caption
+msgid "Go To Line..."
+msgstr ""
+
+#: tmainform.searchgotoline.hint
+msgid "Move the cursor to a specified item/character number"
+msgstr ""
+
+#: tmainform.searchmenu.caption
+msgid "&Search"
+msgstr "&Search"
+
+#: tmainform.selectdirectorydialog.title
+msgctxt "tmainform.selectdirectorydialog.title"
+msgid "Select data directory"
+msgstr "Select data directory"
+
+#: tmainform.statusline.simpletext
+msgctxt "tmainform.statusline.simpletext"
+msgid "Ready"
+msgstr ""
+
+#: tmainform.summarybtn.caption
+#, fuzzy
+msgctxt "tmainform.summarybtn.caption"
+msgid "Character Summary"
+msgstr "Character Summary"
+
+#: tmainform.summarybtn.hint
+#, fuzzy
+#| msgid "Character Summary|Display a summary of the data"
+msgctxt "tmainform.summarybtn.hint"
+msgid "Display a summary of the data"
+msgstr "Character Summary|Display a summary of the data"
+
+#: tmainform.tonatbtn.caption
+#, fuzzy
+msgctxt "tmainform.tonatbtn.caption"
+msgid "Natural Language"
+msgstr "Natural Language"
+
+#: tmainform.tonatbtn.hint
+#, fuzzy
+#| msgid "Natural Language|Translate into natural language"
+msgctxt "tmainform.tonatbtn.hint"
+msgid "Translate into natural language"
+msgstr "Natural Language|Translate into natural language"
+
+#: tmainform.uncodedbtn.caption
+#, fuzzy
+msgctxt "tmainform.uncodedbtn.caption"
+msgid "Uncoded Characters"
+msgstr "Uncoded Characters"
+
+#: tmainform.uncodedbtn.hint
+#, fuzzy
+#| msgid "Uncoded Characters|Report on missing data"
+msgctxt "tmainform.uncodedbtn.hint"
+msgid "Report on missing data"
+msgstr "Uncoded Characters|Report on missing data"
+
+#: tphyloform.cancelbutton.caption
+#, fuzzy
+msgctxt "tphyloform.cancelbutton.caption"
+msgid "Cancel"
+msgstr "Cancel"
+
+#: tphyloform.caption
+msgid "Parsimony"
+msgstr ""
+
+#: tphyloform.labelexcludecharacters.caption
+#, fuzzy
+msgctxt "tphyloform.labelexcludecharacters.caption"
+msgid "Exclude Characters:"
+msgstr "Exclude Characters:"
+
+#: tphyloform.labelexcludeitems.caption
+#, fuzzy
+msgctxt "tphyloform.labelexcludeitems.caption"
+msgid "Exclude Items:"
+msgstr "Exclude Items:"
+
+#: tphyloform.labelkeystates.caption
+#, fuzzy
+msgctxt "tphyloform.labelkeystates.caption"
+msgid "Key States:"
+msgstr "Key States:"
+
+#: tphyloform.okbutton.caption
+#, fuzzy
+msgctxt "tphyloform.okbutton.caption"
+msgid "OK"
+msgstr "OK"
+
+#: tscriptform.caption
+msgid "Script Editor"
+msgstr ""
+
+#: tscriptform.copybutton.hint
+msgid "Copy text"
+msgstr ""
+
+#: tscriptform.newbutton.hint
+msgid "New script"
+msgstr ""
+
+#: tscriptform.openbutton.hint
+msgid "Open script"
+msgstr ""
+
+#: tscriptform.returnbutton.hint
+msgid "Close script"
+msgstr ""
+
+#: tscriptform.runbutton.hint
+msgid "Run script"
+msgstr ""
+
+#: tscriptform.runmenuitemconfor.caption
+msgid "CONFOR"
+msgstr ""
+
+#: tscriptform.runmenuitemconfor.hint
+msgid "Run the CONFOR program"
+msgstr ""
+
+#: tscriptform.runmenuitemdist.caption
+msgid "DIST"
+msgstr ""
+
+#: tscriptform.runmenuitemdist.hint
+msgid "Run the DIST program"
+msgstr ""
+
+#: tscriptform.runmenuitemkey.caption
+msgid "KEY"
+msgstr ""
+
+#: tscriptform.runmenuitemkey.hint
+msgid "Run the KEY program"
+msgstr ""
+
+#: tscriptform.savebutton.hint
+msgid "Save script"
+msgstr ""
+
+#: tscriptform.savedialog.title
+msgid "Save As"
+msgstr ""
+
+#: ttonatform.cancelbutton.caption
+msgctxt "ttonatform.cancelbutton.caption"
+msgid "Cancel"
+msgstr "Cancel"
+
+#: ttonatform.caption
+msgid "CONFOR Directives"
+msgstr "CONFOR Directives"
+
+#: ttonatform.checkboxomitcharacternumbers.caption
+msgid "Omit Character Numbers:"
+msgstr "Omit Character Numbers:"
+
+#: ttonatform.checkboxomitcomments.caption
+msgid "Omit Comments:"
+msgstr ""
+
+#: ttonatform.checkboxomitfinalcomma.caption
+msgid "Omit Final Comma:"
+msgstr ""
+
+#: ttonatform.checkboxomitinapplicables.caption
+msgid "Omit Inapplicables:"
+msgstr "Omit Inapplicables:"
+
+#: ttonatform.checkboxomitinnercomments.caption
+#, fuzzy
+#| msgid "Omit Inner Comments"
+msgid "Omit Inner Comments:"
+msgstr "Omit Inner Comments"
+
+#: ttonatform.checkboxomittypesettingmarks.caption
+msgid "Omit Typesetting Marks:"
+msgstr "Omit Typesetting Marks:"
+
+#: ttonatform.checkboxreplaceanglebrackets.caption
+msgid "Replace Angle Brackets:"
+msgstr ""
+
+#: ttonatform.checkboxtranslateimplicitvalues.caption
+msgid "Translate Implicit Values:"
+msgstr "Translate Implicit Values:"
+
+#: ttonatform.comboboxoutputformat.text
+#, fuzzy
+msgctxt "ttonatform.comboboxoutputformat.text"
+msgid "Text"
+msgstr "Text"
+
+#: ttonatform.labelemphasizefeatures.caption
+msgid "Emphasize Features:"
+msgstr "Emphasize Features:"
+
+#: ttonatform.labelexcludecharacters.caption
+msgctxt "ttonatform.labelexcludecharacters.caption"
+msgid "Exclude Characters:"
+msgstr "Exclude Characters:"
+
+#: ttonatform.labelexcludeitems.caption
+msgctxt "ttonatform.labelexcludeitems.caption"
+msgid "Exclude Items:"
+msgstr "Exclude Items:"
+
+#: ttonatform.labelheading.caption
+msgctxt "ttonatform.labelheading.caption"
+msgid "Heading:"
+msgstr "Heading:"
+
+#: ttonatform.labelitemsubheadings.caption
+msgid "Item Subheadings:"
+msgstr "Item Subheadings:"
+
+#: ttonatform.labellinkcharacters.caption
+msgid "Link Characters:"
+msgstr "Link Characters:"
+
+#: ttonatform.labelnewparagraphsatcharacters.caption
+msgid "New Paragraphs At Characters:"
+msgstr "New Paragraphs At Characters:"
+
+#: ttonatform.labelomitlowerforcharacters.caption
+msgid "Omit Lower for Characters:"
+msgstr ""
+
+#: ttonatform.labelomitorforcharacters.caption
+msgid "Omit Or For Characters:"
+msgstr "Omit Or For Characters:"
+
+#: ttonatform.labelomitperiodforcharacters.caption
+msgid "Omit Period for Characters:"
+msgstr "Omit Period for Characters:"
+
+#: ttonatform.labeloutputformat.caption
+msgctxt "ttonatform.labeloutputformat.caption"
+msgid "Output Format:"
+msgstr ""
+
+#: ttonatform.labelprintwidth.caption
+msgctxt "ttonatform.labelprintwidth.caption"
+msgid "Print Width:"
+msgstr ""
+
+#: ttonatform.labelreplacesemicolonbycomma.caption
+msgid "Replace Semicolon by Comma:"
+msgstr ""
+
+#: ttonatform.okbutton.caption
+msgctxt "ttonatform.okbutton.caption"
+msgid "OK"
+msgstr "OK"
+
+#: tviewerform.closebtn.caption
+msgid "Close"
+msgstr "Close"
+
+#: tviewerform.copybtn.caption
+msgid "Copy"
+msgstr "Copy"
+
+#: viewer.straddcharacter
+msgctxt "viewer.straddcharacter"
+msgid "Add Character"
+msgstr "Add Character"
+
+#: viewer.stradditemcaption
+msgctxt "viewer.stradditemcaption"
+msgid "Add Item"
+msgstr "Add Item"
+
+#: viewer.stradditemprompt
+msgctxt "viewer.stradditemprompt"
+msgid "Enter item name:"
+msgstr "Enter item name:"
+
+#: viewer.straddstatecaption
+msgctxt "viewer.straddstatecaption"
+msgid "Add State"
+msgstr "Add State"
+
+#: viewer.straddstateprompt
+msgctxt "viewer.straddstateprompt"
+msgid "Enter state description:"
+msgstr "Enter state description:"
+
+#: viewer.straxis
+msgctxt "viewer.straxis"
+msgid "Axis"
+msgstr "Axis"
+
+#: viewer.strcentroid
+msgctxt "viewer.strcentroid"
+msgid "Centroid (UPGMC)"
+msgstr "Centroid (UPGMC)"
+
+#: viewer.strcharacters
+msgctxt "viewer.strcharacters"
+msgid "characters"
+msgstr "characters"
+
+#: viewer.strcharlistempty
+msgctxt "viewer.strcharlistempty"
+msgid "Character list empty. Enter at least one character description."
+msgstr "Character list empty. Enter at least one character description."
+
+#: viewer.strclass
+msgctxt "viewer.strclass"
+msgid " Class "
+msgstr ""
+
+#: viewer.strclm
+msgctxt "viewer.strclm"
+msgid "Complete linkage (CLM)"
+msgstr "Complete linkage (CLM)"
+
+#: viewer.strcloneitem
+msgctxt "viewer.strcloneitem"
+msgid "Clone of"
+msgstr ""
+
+#: viewer.strconfirmation
+msgctxt "viewer.strconfirmation"
+msgid "Confirmation"
+msgstr "Confirmation"
+
+#: viewer.strcontrol
+msgctxt "viewer.strcontrol"
+msgid "Controls character: %s, by state: %s"
+msgstr ""
+
+#: viewer.strcopyimage
+msgctxt "viewer.strcopyimage"
+msgid "Image copied to the Clipboard"
+msgstr ""
+
+#: viewer.strcopytext
+msgctxt "viewer.strcopytext"
+msgid "Text copied to the Clipboard"
+msgstr "Text copied to the Clipboard"
+
+#: viewer.strcsvfilter
+msgctxt "viewer.strcsvfilter"
+msgid "Comma delimited files|*.csv"
+msgstr "Comma delimited files|*.csv"
+
+#: viewer.strdatadirectory
+msgctxt "viewer.strdatadirectory"
+msgid "Select data directory"
+msgstr "Select data directory"
+
+#: viewer.strdeltadirectory
+msgctxt "viewer.strdeltadirectory"
+msgid "Select DELTA directory"
+msgstr ""
+
+#: viewer.strdendrogram
+msgctxt "viewer.strdendrogram"
+msgid "Dendrogram"
+msgstr "Dendrogram"
+
+#: viewer.strdependent
+msgctxt "viewer.strdependent"
+msgid "Dependent upon character: %s, state: %s"
+msgstr ""
+
+#: viewer.strdistance
+msgctxt "viewer.strdistance"
+msgid "Distance"
+msgstr "Distance"
+
+#: viewer.strdtzfilter
+msgctxt "viewer.strdtzfilter"
+msgid "FreeDelta project|*.dtz"
+msgstr "FreeDelta project|*.dtz"
+
+#: viewer.streditcaption
+msgctxt "viewer.streditcaption"
+msgid "Database Title"
+msgstr "Database Title"
+
+#: viewer.streditcharacter
+msgctxt "viewer.streditcharacter"
+msgid "Edit Character"
+msgstr "Edit Character"
+
+#: viewer.stredititemcaption
+msgctxt "viewer.stredititemcaption"
+msgid "Edit Item"
+msgstr "Edit Item"
+
+#: viewer.stredititemprompt
+msgctxt "viewer.stredititemprompt"
+msgid "Edit item name:"
+msgstr "Edit item name:"
+
+#: viewer.streditprompt
+msgctxt "viewer.streditprompt"
+msgid "Edit database title:"
+msgstr "Edit database title:"
+
+#: viewer.streditstatecaption
+msgctxt "viewer.streditstatecaption"
+msgid "Edit State"
+msgstr "Edit State"
+
+#: viewer.streditstateprompt
+msgctxt "viewer.streditstateprompt"
+msgid "Edit state description:"
+msgstr "Edit state description:"
+
+#: viewer.strentercharacternumber
+msgctxt "viewer.strentercharacternumber"
+msgid "Enter character number:"
+msgstr ""
+
+#: viewer.strerror
+msgctxt "viewer.strerror"
+msgid "Error"
+msgstr "Error"
+
+#: viewer.strexists
+msgctxt "viewer.strexists"
+msgid "File %s already exists. Overwrite?"
+msgstr "File %s already exists. Overwrite?"
+
+#: viewer.strexport
+msgctxt "viewer.strexport"
+msgid "Data exported successfully to directory %s."
+msgstr "Data exported successfully to directory %s."
+
+#: viewer.strexportfile
+msgctxt "viewer.strexportfile"
+msgid "Data exported successfully to file %s."
+msgstr ""
+
+#: viewer.strfindcharactercaption
+msgctxt "viewer.strfindcharactercaption"
+msgid "Find Character"
+msgstr "Find Character"
+
+#: viewer.strfindcharacterprompt
+msgctxt "viewer.strfindcharacterprompt"
+msgid "Enter character description:"
+msgstr "Enter character description:"
+
+#: viewer.strfinditemcaption
+msgctxt "viewer.strfinditemcaption"
+msgid "Find Item"
+msgstr "Find Item"
+
+#: viewer.strfinditemprompt
+msgctxt "viewer.strfinditemprompt"
+msgid "Enter item name:"
+msgstr "Enter item name:"
+
+#: viewer.strfindtextcaption
+msgctxt "viewer.strfindtextcaption"
+msgid "Find Text"
+msgstr "Find Text"
+
+#: viewer.strfindtextprompt
+msgctxt "viewer.strfindtextprompt"
+msgid "Enter search text:"
+msgstr "Enter search text:"
+
+#: viewer.strfrequency
+msgctxt "viewer.strfrequency"
+msgid " Freq "
+msgstr ""
+
+#: viewer.strgotocharacter
+msgctxt "viewer.strgotocharacter"
+msgid "Go to character"
+msgstr ""
+
+#: viewer.strgotoline
+msgctxt "viewer.strgotoline"
+msgid "Go to"
+msgstr ""
+
+#: viewer.strgotolinecaption
+msgctxt "viewer.strgotolinecaption"
+msgid "Enter item/character number:"
+msgstr ""
+
+#: viewer.strhistogram
+msgctxt "viewer.strhistogram"
+msgid " Histogram "
+msgstr ""
+
+#: viewer.strimport
+msgctxt "viewer.strimport"
+msgid "Data imported successfully to file %s."
+msgstr "Data imported successfully to file %s."
+
+#: viewer.strinformation
+msgctxt "viewer.strinformation"
+msgid "Information"
+msgstr "Information"
+
+#: viewer.strinputinteger
+msgctxt "viewer.strinputinteger"
+msgid "Enter an integer value between 1 and %d"
+msgstr ""
+
+#: viewer.strinterval
+msgctxt "viewer.strinterval"
+msgid " Class Interval "
+msgstr ""
+
+#: viewer.strinvalidsymbol
+msgctxt "viewer.strinvalidsymbol"
+msgid "Invalid symbol ('/') in character or state name"
+msgstr ""
+
+#: viewer.stritemlistempty
+msgctxt "viewer.stritemlistempty"
+msgid "Item list empty. Enter at least one item name."
+msgstr "Item list empty. Enter at least one item name."
+
+#: viewer.stritems
+msgctxt "viewer.stritems"
+msgid "items"
+msgstr "items"
+
+#: viewer.stritemstatus
+msgctxt "viewer.stritemstatus"
+msgid "Item name, followed by author name and/or comment between <angle brackets>"
+msgstr ""
+
+#: viewer.strlinux64only
+msgctxt "viewer.strlinux64only"
+msgid "This option is not available under GNU/Linux 32-bit."
+msgstr ""
+
+#: viewer.strmark
+msgctxt "viewer.strmark"
+msgid " Class Mark "
+msgstr ""
+
+#: viewer.strmedian
+msgctxt "viewer.strmedian"
+msgid "Median (WPGMC)"
+msgstr "Median (WPGMC)"
+
+#: viewer.strmerge
+msgctxt "viewer.strmerge"
+msgid "All characters will be treated as unordered multistate"
+msgstr ""
+
+#: viewer.strmissingbrackets
+msgctxt "viewer.strmissingbrackets"
+msgid "Missing opening or closing angle brackets ('<>')"
+msgstr ""
+
+#: viewer.strnewcaption
+msgctxt "viewer.strnewcaption"
+msgid "New Database"
+msgstr "New Database"
+
+#: viewer.strnewprompt
+msgctxt "viewer.strnewprompt"
+msgid "Enter database title:"
+msgstr "Enter database title:"
+
+#: viewer.strnexusfilter
+msgctxt "viewer.strnexusfilter"
+msgid "Nexus data files|*.nex"
+msgstr ""
+
+#: viewer.strnotexecute
+msgctxt "viewer.strnotexecute"
+msgid "Couldn't start %s program."
+msgstr "Couldn't start %s program."
+
+#: viewer.strnotfound
+msgctxt "viewer.strnotfound"
+msgid "File %s not found."
+msgstr "File %s not found."
+
+#: viewer.strnotfounddir
+msgctxt "viewer.strnotfounddir"
+msgid "File %s not found in %s."
+msgstr "File %s not found in %s."
+
+#: viewer.stropenfile
+msgctxt "viewer.stropenfile"
+msgid "Open file"
+msgstr "Open file"
+
+#: viewer.stroutofrange
+msgctxt "viewer.stroutofrange"
+msgid "Value out of range"
+msgstr ""
+
+#: viewer.strpaupdirectory
+msgctxt "viewer.strpaupdirectory"
+msgid "Select PAUP directory"
+msgstr ""
+
+#: viewer.strpaupnotfound
+msgctxt "viewer.strpaupnotfound"
+msgid "PAUP not installed or not found in path."
+msgstr ""
+
+#: viewer.strquit
+msgctxt "viewer.strquit"
+msgid "Do you want to exit the program?"
+msgstr "Do you want to exit the program?"
+
+#: viewer.strrdirectory
+msgctxt "viewer.strrdirectory"
+msgid "Select R directory"
+msgstr ""
+
+#: viewer.strreaderror
+msgctxt "viewer.strreaderror"
+msgid "Error reading file %s."
+msgstr ""
+
+#: viewer.strready
+msgctxt "viewer.strready"
+msgid "Ready"
+msgstr ""
+
+#: viewer.strrnotfound
+msgctxt "viewer.strrnotfound"
+msgid "R not installed or not found in path."
+msgstr ""
+
+#: viewer.strsave
+msgctxt "viewer.strsave"
+msgid "Dataset has been modified. Save?"
+msgstr "Dataset has been modified. Save?"
+
+#: viewer.strsavechanges
+msgctxt "viewer.strsavechanges"
+msgid "Save changes?"
+msgstr ""
+
+#: viewer.strsaveerror
+msgctxt "viewer.strsaveerror"
+msgid "Failed to save file %s."
+msgstr "Failed to save file %s."
+
+#: viewer.strsavefile
+msgctxt "viewer.strsavefile"
+msgid "Save file as"
+msgstr "Save file as"
+
+#: viewer.strscatterplot
+msgctxt "viewer.strscatterplot"
+msgid "Scatterplot"
+msgstr "Scatterplot"
+
+#: viewer.strslm
+msgctxt "viewer.strslm"
+msgid "Single linkage (SLM)"
+msgstr "Single linkage (SLM)"
+
+#: viewer.strstatelistempty
+#, fuzzy
+#| msgid "State list empty. Enter at least one state description."
+msgctxt "viewer.strstatelistempty"
+msgid "State list empty or incomplete. Enter at least two state descriptions."
+msgstr "State list empty. Enter at least one state description."
+
+#: viewer.strstates
+msgctxt "viewer.strstates"
+msgid "States:"
+msgstr "States:"
+
+#: viewer.strtextnotfound
+msgctxt "viewer.strtextnotfound"
+msgid "Text not found!"
+msgstr "Text not found!"
+
+#: viewer.strtntdirectory
+msgctxt "viewer.strtntdirectory"
+msgid "Select TNT directory"
+msgstr ""
+
+#: viewer.strtntfilter
+msgctxt "viewer.strtntfilter"
+msgid "TNT data files|*.tnt"
+msgstr ""
+
+#: viewer.strtntnotfound
+msgctxt "viewer.strtntnotfound"
+msgid "TNT not installed or not found in path."
+msgstr ""
+
+#: viewer.strtxtfilter
+msgctxt "viewer.strtxtfilter"
+msgid "Text files|*.txt"
+msgstr "Text files|*.txt"
+
+#: viewer.strunit
+msgctxt "viewer.strunit"
+msgid "Unit:"
+msgstr "Unit:"
+
+#: viewer.strunitempty
+msgctxt "viewer.strunitempty"
+msgid "Measurement unit not defined for real numeric character."
+msgstr "Measurement unit not defined for real numeric character."
+
+#: viewer.struntitled
+msgctxt "viewer.struntitled"
+msgid "Untitled"
+msgstr ""
+
+#: viewer.strupgma
+msgctxt "viewer.strupgma"
+msgid "Average linkage (UPGMA)"
+msgstr "Average linkage (UPGMA)"
+
+#: viewer.strvalidnumber
+msgctxt "viewer.strvalidnumber"
+msgid "Enter numbers only (an integer value between 1 and %d)"
+msgstr ""
+
+#: viewer.strward
+msgctxt "viewer.strward"
+msgid "Ward's Method"
+msgstr "Ward's Method"
+
+#: viewer.strwarning
+msgctxt "viewer.strwarning"
+msgid "Warning"
+msgstr "Warning"
+
+#: viewer.strwindowsonly
+msgctxt "viewer.strwindowsonly"
+msgid "This option is available only under MS-Windows."
+msgstr "This option is available only under MS-Windows."
+
+#: viewer.strwpgma
+msgctxt "viewer.strwpgma"
+msgid "Weighted linkage (WPGMA)"
+msgstr "Weighted linkage (WPGMA)"
+
+#: viewer.strxmlfilter
+msgctxt "viewer.strxmlfilter"
+msgid "XML files|*.xml"
+msgstr ""
+
