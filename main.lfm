@@ -167,9 +167,9 @@ object MainForm: TMainForm
     Height = 443
     Top = 24
     Width = 799
-    ActivePage = ListTab
+    ActivePage = MatrixTab
     Align = alClient
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 1
     Visible = False
     OnChange = PageControlChange
@@ -279,22 +279,22 @@ object MainForm: TMainForm
     end
     object MatrixTab: TTabSheet
       Caption = 'MatrixView'
-      ClientHeight = 407
+      ClientHeight = 415
       ClientWidth = 791
       object Panel4: TPanel
         Left = 0
-        Height = 316
+        Height = 324
         Top = 0
         Width = 791
         Align = alTop
         Anchors = [akTop, akLeft, akRight, akBottom]
         Caption = 'Panel4'
-        ClientHeight = 316
+        ClientHeight = 324
         ClientWidth = 791
         TabOrder = 0
         object DataMatrix: TStringGrid
           Left = 1
-          Height = 314
+          Height = 322
           Top = 1
           Width = 789
           Align = alClient
@@ -309,7 +309,7 @@ object MainForm: TMainForm
       object Panel5: TPanel
         Left = 0
         Height = 71
-        Top = 336
+        Top = 344
         Width = 791
         Align = alBottom
         Caption = 'Panel5'
@@ -341,7 +341,7 @@ object MainForm: TMainForm
       object FeatureLabel: TLabel
         Left = 0
         Height = 15
-        Top = 316
+        Top = 324
         Width = 791
         Align = alTop
         Caption = 'FeatureLabel'
@@ -653,6 +653,11 @@ object MainForm: TMainForm
           Caption = 'XDELTA...'
           Hint = 'Save data in XDELTA XML format'
           OnClick = ExportXDELTAItemClick
+        end
+        object ExportTextItem: TMenuItem
+          Caption = 'Text...'
+          Hint = 'Export data to delimited text file'
+          OnClick = ExportTextItemClick
         end
       end
       object N3: TMenuItem

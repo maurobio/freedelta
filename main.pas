@@ -363,6 +363,9 @@
 {                                 - Added a button to the About form to allow  }
 {                                   donations to the Free Delta Project via    }
 {                                   PayPal.                                    }
+{ Version 2.83, 30 Aug, 2021      - Added an option for exporting the entire   }
+{                                   data matrix to a tab-delimited text file.  }
+{                                 - Updated the user's guide.                  }
 {==============================================================================}
 unit Main;
 
@@ -395,6 +398,7 @@ type
     EditScriptItem: TMenuItem;
     MatrixParsimonyItemTNT: TMenuItem;
     MatrixParsimonyItemPAUP: TMenuItem;
+    ExportTextItem: TMenuItem;
     N13: TMenuItem;
     N20: TMenuItem;
     SearchGotoLine: TMenuItem;
@@ -553,6 +557,7 @@ type
     procedure EditTitleItemClick(Sender: TObject);
     procedure ExpandAllClick(Sender: TObject);
     procedure ExportDELTAItemClick(Sender: TObject);
+    procedure ExportTextItemClick(Sender: TObject);
     procedure ExportXDELTAItemClick(Sender: TObject);
     procedure FileClearMRUItemClick(Sender: TObject);
     procedure FileCloseItemClick(Sender: TObject);
@@ -3601,6 +3606,20 @@ begin
         mtInformation, [mbOK], 0);
     end;
     ChDir(CurDir);
+  end;
+end;
+
+procedure TMainForm.ExportTextItemClick(Sender: TObject);
+begin
+  SaveDialog.FileName := ChangeFileExt(OpenDialog.FileName, '.csv');
+  SaveDialog.Title := strSaveFile;
+  SaveDialog.DefaultExt := '.csv';
+  SaveDialog.Filter := strCSVFilter;
+  if SaveDialog.Execute then
+  begin
+    DataMatrix.SaveToCSVFile(SaveDialog.FileName, #9);
+    MessageDlg(strInformation, Format(strExportFile, [SaveDialog.FileName]),
+      mtInformation, [mbOK], 0);
   end;
 end;
 
