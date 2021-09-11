@@ -1,7 +1,7 @@
 # Free DELTA
- An open source system for processing taxonomic descriptions based on the [DELTA – DEscription Language for TAxonomy]() format.
+ An open source system for processing taxonomic descriptions based on the [DELTA](http://delta-intkey.com/) (*DEscription Language for TAxonomy*) format.
 
-The Free Delta Editor (FDE) is a cross-platform software package for editing [DELTA](http://delta-intkey.com/) data files and running DELTA based programs (CONFOR, KEY, DIST, INTKEY).
+The Free Delta Editor (FDE) is a cross-platform software package for editing DELTA data files and running DELTA based programs (CONFOR, KEY, DIST, INTKEY).
 
 This tool provides an interactive, user-friendly interface to DELTA-format files as a real DELTA data entry/maintenance program. It is possible to insert or delete items, characters, and states, without having to worry about the consistency of the DELTA files. A database-like interface makes it easy to setup and maintain the main DELTA data files (ITEMS, CHARS and SPECS), as well as several of the DELTA directives files (TONAT, TOKEY, TODIS). A spreadsheet-like visualization facility for item and character data is also available.
 
