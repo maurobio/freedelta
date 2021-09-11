@@ -1,4 +1,4 @@
-# ![icon](\images\icon.png)Free DELTA
+# <img src="images\icon.png" alt="Free DELTA" style="zoom:150%;"/>Free DELTA
  An open source system for processing taxonomic descriptions based on the [DELTA](http://delta-intkey.com/) (*DEscription Language for TAxonomy*) format.
 
 The Free Delta Editor (FDE) is a cross-platform software package for editing DELTA data files and running DELTA based programs (CONFOR, KEY, DIST, INTKEY).
