@@ -79,6 +79,7 @@ implementation
 uses Main, Checklist, Delta, KStates;
 
 {$R *.lfm}
+{$I resources.inc}
 
 { TKeyForm }
 
@@ -106,7 +107,7 @@ begin
   ListCharacters := TStringList.Create;
   with ComboBoxOutputFormat.Items do
   begin
-    Add('Text');
+    Add(strText);
     Add('HTML');
     //Add('RTF');
   end;

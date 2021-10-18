@@ -25,8 +25,8 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="2"/>
       <MinorVersionNr Value="8"/>
-      <RevisionNr Value="3"/>
-      <BuildNr Value="33"/>
+      <RevisionNr Value="4"/>
+      <BuildNr Value="36"/>
       <CharSet Value="04B0"/>
       <StringTable Comments="Build configured for Win Linux and Darwin" CompanyName="Ecoinformatics Studio" FileDescription="FreeDelta Editor" InternalName="FreeDelta Editor" LegalCopyright="(c) 2000-2020 Mauro J. Cavalcanti" LegalTrademarks="GPL3" OriginalFilename="fde" ProductName="Lazarus and Freepascal" ProductVersion="1.x and 3.x"/>
     </VersionInfo>

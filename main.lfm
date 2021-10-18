@@ -150,7 +150,7 @@ object MainForm: TMainForm
   OnDestroy = FormDestroy
   OnDropFiles = FormDropFiles
   Position = poDesktopCenter
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '2.0.12.0'
   object StatusLine: TStatusBar
     Left = 0
     Height = 23
@@ -167,9 +167,9 @@ object MainForm: TMainForm
     Height = 443
     Top = 24
     Width = 799
-    ActivePage = MatrixTab
+    ActivePage = ListTab
     Align = alClient
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 1
     Visible = False
     OnChange = PageControlChange
@@ -564,8 +564,8 @@ object MainForm: TMainForm
   end
   object MainMenu: TMainMenu
     Images = ImageList
-    left = 632
-    top = 32
+    Left = 632
+    Top = 32
     object FileMenu: TMenuItem
       Caption = '&File'
       object FileNewItem: TMenuItem
@@ -926,19 +926,19 @@ object MainForm: TMainForm
   object OpenDialog: TOpenDialog
     Title = 'Open existing file'
     Options = [ofFileMustExist]
-    left = 664
-    top = 32
+    Left = 664
+    Top = 32
   end
   object SaveDialog: TSaveDialog
     Title = 'Save as'
     DefaultExt = '.txt'
     Options = [ofOverwritePrompt, ofEnableSizing, ofViewDetail]
-    left = 696
-    top = 32
+    Left = 696
+    Top = 32
   end
   object ImageList: TImageList
-    left = 730
-    top = 32
+    Left = 730
+    Top = 32
     Bitmap = {
       4C69230000001000000010000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2071,18 +2071,18 @@ object MainForm: TMainForm
     Position = 6
     FileMustExist = True
     OnClickHistoryItem = HistoryFilesClickHistoryItem
-    left = 600
-    top = 32
+    Left = 600
+    Top = 32
   end
   object SelectDirectoryDialog: TSelectDirectoryDialog
     Title = 'Select data directory'
     Options = [ofOldStyleDialog, ofEnableSizing, ofViewDetail]
-    left = 568
-    top = 32
+    Left = 568
+    Top = 32
   end
   object ItemsMenu: TPopupMenu
-    left = 536
-    top = 32
+    Left = 536
+    Top = 32
     object AddItem: TMenuItem
       Caption = 'Add item...'
       Hint = 'Create new item'
@@ -2138,8 +2138,8 @@ object MainForm: TMainForm
     end
   end
   object CharsMenu: TPopupMenu
-    left = 507
-    top = 32
+    Left = 507
+    Top = 32
     object AddCharacter: TMenuItem
       Caption = 'Add character...'
       Hint = 'Append new character at the end of list'
@@ -2202,7 +2202,7 @@ object MainForm: TMainForm
   object FindDialog: TFindDialog
     Options = [frDown, frFindNext, frHideUpDown, frEntireScope, frHideEntireScope]
     OnFind = FindDialogFind
-    left = 480
-    top = 32
+    Left = 480
+    Top = 32
   end
 end

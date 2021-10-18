@@ -46,6 +46,8 @@ function OSVersion: Str255;
 
 implementation
 
+uses Main;
+
 {$R *.lfm}
 
 resourcestring
@@ -110,7 +112,12 @@ end;
 
 procedure TAboutBox.DonationClick(Sender: TObject);
 begin
-  OpenURL('https://www.paypal.com/donate?hosted_button_id=NUP8K4U9T9WTY');
+  case MainForm.sLang of
+    'en', 'fr':
+    OpenURL('https://www.paypal.com/donate?hosted_button_id=NUP8K4U9T9WTY');
+    'pt_br':
+    OpenURL('https://www.paypal.com/donate?hosted_button_id=7WSBTGBGD8ZUL');
+  end;
 end;
 
 procedure TAboutBox.WebsiteClick(Sender: TObject);

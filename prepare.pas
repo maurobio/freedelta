@@ -44,7 +44,7 @@ procedure CreateCluster(const scriptfile: string; notu, method: integer);
 procedure CreatePCOA(const scriptfile: string; notu: integer);
 procedure CharactersMarkup;
 procedure ItemsMarkup;
-procedure DescriptionMarkup;
+procedure DescriptionMarkup(header: string);
 procedure KeyMarkup;
 
 implementation
@@ -105,7 +105,7 @@ begin
   WriteLn(outfile);
   if (ext = 'htm') then
   begin
-    DescriptionMarkup;
+    DescriptionMarkup(header);
     WriteLn(outfile, '*INPUT FILE markhtm');
   end;
   //else if (ext = 'rtf') then
@@ -693,9 +693,7 @@ begin
   end;
   AssignFile(outfile, scriptfile);
   Rewrite(outfile);
-  //WriteLn(outfile, 'options(warn=-1)');
-  //WriteLn(outfile, 'out <- file("messages.Rout", open="wt")');
-  //WriteLn(outfile, 'sink(out, type="message")');
+  WriteLn(outfile, 'options(warn=-1)');
   WriteLn(outfile, 'mat <- matrix(0, ', IntToStr(notu), ', ', IntToStr(notu), ')');
   WriteLn(outfile, 'mat[row(mat) >= col(mat)] <- scan("dist.dis")');
   WriteLn(outfile, 'names <- scan("dist.nam", what="character")');
@@ -712,6 +710,7 @@ begin
     strDendrogram +
     ' (r = ", format(r, digits=4), ")"), horiz=TRUE, edgePar=list(col="blue", lwd=3))');
   WriteLn(outfile, 'dev.off()');
+  WriteLn(outfile, 'options(warn=0)');
   CloseFile(outfile);
 end;
 
@@ -724,7 +723,7 @@ var
 begin
   AssignFile(outfile, scriptfile);
   Rewrite(outfile);
-  //WriteLn(outfile, 'options(warn=-1)');
+  WriteLn(outfile, 'options(warn=-1)');
   WriteLn(outfile, 'mat <- matrix(0, ', IntToStr(notu), ', ', IntToStr(notu), ')');
   WriteLn(outfile, 'mat[row(mat) >= col(mat)] <- scan("dist.dis")');
   WriteLn(outfile, 'names <- scan("dist.nam", what="character")');
@@ -741,6 +740,7 @@ begin
     strAxis + '2 (", round(pcovar[2], 3)*100, "%)", sep=""), col="blue", pch=19)');
   WriteLn(outfile, 'text(pco$points[,1:2], labels=rownames(pco$points), pos=3, cex=0.7)');
   WriteLn(outfile, 'dev.off()');
+  WriteLn(outfile, 'options(warn=0)');
   CloseFile(outfile);
 end;
 
@@ -803,7 +803,7 @@ begin
   CloseFile(outfile);
 end;
 
-procedure DescriptionMarkup;
+procedure DescriptionMarkup(header: string);
 var
   outfile: TextFile;
 begin
@@ -823,7 +823,7 @@ begin
   WriteLn(outfile, '<head>');
   WriteLn(outfile, '<meta http-equiv="content-type" content="text/html; charset=utf8">');
   WriteLn(outfile, '<title>');
-  WriteLn(outfile, 'DELTA sample data');
+  WriteLn(outfile, header);
   WriteLn(outfile, '- @NAME');
   WriteLn(outfile, '</title>');
   WriteLn(outfile, '<meta name="description"');

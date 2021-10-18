@@ -512,8 +512,8 @@ var
         end;
         if (ch <> '#') and (ch <> #13) and (ch <> #10) then
           stateName := Concat(stateName, ch);
-        //until (((ch = '/') and not isComment) or EOF(infile));
-      until (EoLn(infile) or EOF(infile));
+      until (((ch = '/') and not isComment) or EOF(infile));
+      //until (EoLn(infile) or EOF(infile));
       if Length(stateName) > 0 then
       begin
         RemoveTrailingChars(stateName, ['/']);

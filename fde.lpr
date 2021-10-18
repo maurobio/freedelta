@@ -20,8 +20,9 @@ uses {$IFDEF UNIX} {$IFDEF UseCThreads}
   Delta,
   Prepare,
   Viewer,
-  Nexus,
-  KStates, Phylogen, Script;
+  KStates,
+  Phylogen,
+  Script;
 
 {$R *.res}
 

@@ -366,6 +366,18 @@
 { Version 2.83, 30 Aug, 2021      - Added an option for exporting the entire   }
 {                                   data matrix to a tab-delimited text file.  }
 {                                 - Updated the user's guide.                  }
+{ Version 2.84, 15 Out, 2021      - Fixed a bug which caused a console screen  }
+{                                   to be displayed when running R scripts     }
+{                                   (MS-Windows only).                         }
+{                                 - Fixed a bug which caused character states  }
+{                                   lines contaning carriage returns to be     }
+{                                   incorrectly read as separate states.       }
+{                                 - Fixed a bug which prevented the correct    }
+{                                   generation of natural-language descriptions}
+{                                   in HTML format.                            }
+{                                 - Changed the mouse cursor to waiting mode   }
+{                                   when running R scripts.                    }
+{                                 - Updated Portoguese and French translations.}
 {==============================================================================}
 unit Main;
 
@@ -651,6 +663,7 @@ type
     procedure ShowErrorLog(S: ansistring);
   public
     { public declarations }
+    sLang: string;
     IntKeyPath: string;
     RPath: string;
     TNTPath: string;
@@ -1452,7 +1465,7 @@ end;
 
 procedure TMainForm.ReadSettings(Sender: TObject);
 var
-  sPath, sLang: string;
+  sPath{, sLang}: string;
   IniFile: TIniFile;
 begin
   sPath := GetAppConfigDir(False);
@@ -1464,11 +1477,19 @@ begin
     begin
       LanguageEnglishItem.Checked := True;
       LanguagePortugueseItem.Checked := False;
+      LanguageFrenchItem.Checked := False;
+    end;
+    'fr':
+    begin
+      LanguageFrenchItem.Checked := True;
+      LanguageEnglishItem.Checked := False;
+      LanguagePortugueseItem.Checked := False;
     end;
     'pt_br':
     begin
-      LanguageEnglishItem.Checked := False;
       LanguagePortugueseItem.Checked := True;
+      LanguageEnglishItem.Checked := False;
+      LanguageFrenchItem.Checked := False;
     end;
   end;
   IntKeyPath := IniFile.ReadString('Options', 'IntKeyPath', '');
@@ -1493,7 +1514,7 @@ var
 begin
   sPath := GetAppConfigDir(False);
   IniFile := TIniFile.Create(sPath + 'fde.ini');
-  //IniFile.WriteString('Options', 'Language', GetDefaultLang);
+  IniFile.WriteString('Options', 'Language', sLang);
   IniFile.WriteString('Options', 'IntKeyPath', IntKeyPath);
   IniFile.WriteString('Options', 'RPath', RPath);
   IniFile.WriteString('Options', 'TNTPath', TNTPath);
@@ -2394,6 +2415,7 @@ var
   sPath: string;
   IniFile: TIniFile;
 begin
+  sLang := 'en';
   LanguageEnglishItem.Checked := True;
   LanguagePortugueseItem.Checked := False;
   LanguageFrenchItem.Checked := False;
@@ -2409,6 +2431,7 @@ var
   sPath: string;
   IniFile: TIniFile;
 begin
+  sLang := 'fr';
   LanguageFrenchItem.Checked := True;
   LanguagePortugueseItem.Checked := False;
   LanguageEnglishItem.Checked := False;
@@ -2424,6 +2447,7 @@ var
   sPath: string;
   IniFile: TIniFile;
 begin
+  sLang := 'pt_br';
   LanguagePortugueseItem.Checked := True;
   LanguageEnglishItem.Checked := False;
   LanguageFrenchItem.Checked := False;
@@ -2454,9 +2478,11 @@ begin
   begin
     CreateCluster('cluster.R', Length(Dataset.ItemList),
       ClusterForm.ComboBoxMethod.ItemIndex);
+    Screen.Cursor := crHourGlass;
     if RunCommand(Concat(RPath, PathDelim, 'Rscript'), ['--vanilla', 'cluster.R'],
       s, [poNoConsole]) then
     begin
+      Screen.Cursor := crDefault;
       with ViewerForm do
       begin
         Caption := 'cluster.png';
@@ -2470,6 +2496,7 @@ begin
     end
     else
     begin
+      Screen.Cursor := crDefault;
       MessageDlg(strError, Format(strNotExecute, ['R']), mtError, [mbOK], 0);
       RPath := '';
     end;
@@ -2609,9 +2636,11 @@ begin
     end;
   end;
   CreatePCOA('pcoa.R', Length(Dataset.ItemList));
+  Screen.Cursor := crHourGlass;
   if RunCommand(Concat(RPath, PathDelim, 'Rscript'), ['--vanilla', 'pcoa.R'],
     S, [poNoConsole]) then
   begin
+    Screen.Cursor := crDefault;
     with ViewerForm do
     begin
       Caption := 'pcoa.png';
@@ -2625,6 +2654,7 @@ begin
   end
   else
   begin
+    Screen.Cursor := crDefault;
     MessageDlg(strError, Format(strNotExecute, ['R']), mtError, [mbOK], 0);
     RPath := '';
   end;
@@ -3165,6 +3195,11 @@ begin
       1: Extension := 'htm';
       //2: Extension := 'rtf';
     end;
+    if OmitTypesettingMarks then
+       OmitTypesettingMarks := False
+    else
+    if not OmitTypesettingMarks then
+       OmitTypeSettingMarks := True;
     CreateTONAT('tonat', Dataset.Heading, ReplaceAngleBrackets,
       OmitCharacterNumbers,
       OmitInapplicables, OmitComments, OmitInnerComments, OmitFinalComma,

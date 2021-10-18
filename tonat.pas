@@ -59,10 +59,8 @@ type
     SpeedButtonExcludeCharacters: TSpeedButton;
     SpeedButtonExcludeItems: TSpeedButton;
     SpinEditPrintWidth: TSpinEdit;
-    procedure ComboBoxOutputFormatChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-    procedure OKButtonClick(Sender: TObject);
     procedure SpeedButtonEmphasizeFeaturesClick(Sender: TObject);
     procedure SpeedButtonExcludeCharactersClick(Sender: TObject);
     procedure SpeedButtonExcludeItemsClick(Sender: TObject);
@@ -90,6 +88,7 @@ implementation
 uses Main, Checklist, Delta;
 
 {$R *.lfm}
+{$I resources.inc}
 
 { TTonatForm }
 
@@ -189,27 +188,17 @@ begin
   ListCharacters := TStringList.Create;
   with ComboBoxOutputFormat.Items do
   begin
-    Add('Text');
+    Add(strText);
     Add('HTML');
     //Add('RTF');
   end;
   ComboBoxOutputFormat.ItemIndex := 0;
 end;
 
-procedure TTonatForm.ComboBoxOutputFormatChange(Sender: TObject);
-begin
-  CheckBoxOmitTypesettingMarks.Enabled := ComboBoxOutputFormat.ItemIndex = 0;
-end;
-
 procedure TTonatForm.FormDestroy(Sender: TObject);
 begin
   ListItems.Free;
   ListCharacters.Free;
-end;
-
-procedure TTonatForm.OKButtonClick(Sender: TObject);
-begin
-  CheckBoxOmitTypeSettingMarks.Checked := ComboBoxOutputFormat.ItemIndex = 0;
 end;
 
 procedure TTonatForm.SpeedButtonEmphasizeFeaturesClick(Sender: TObject);

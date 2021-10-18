@@ -443,6 +443,12 @@ msgctxt "chars.strstates"
 msgid "States:"
 msgstr "States:"
 
+#: chars.strtext
+#, fuzzy
+msgctxt "chars.strtext"
+msgid "Text"
+msgstr "Text"
+
 #: chars.strtextnotfound
 msgctxt "chars.strtextnotfound"
 msgid "Text not found!"
@@ -929,6 +935,12 @@ msgstr "State list empty. Enter at least one state description."
 msgctxt "cluster.strstates"
 msgid "States:"
 msgstr "States:"
+
+#: cluster.strtext
+#, fuzzy
+msgctxt "cluster.strtext"
+msgid "Text"
+msgstr "Text"
 
 #: cluster.strtextnotfound
 msgctxt "cluster.strtextnotfound"
@@ -1468,6 +1480,12 @@ msgctxt "kstates.strstates"
 msgid "States:"
 msgstr "States:"
 
+#: kstates.strtext
+#, fuzzy
+msgctxt "kstates.strtext"
+msgid "Text"
+msgstr "Text"
+
 #: kstates.strtextnotfound
 #, fuzzy
 msgctxt "kstates.strtextnotfound"
@@ -1966,6 +1984,12 @@ msgctxt "main.strstates"
 msgid "States:"
 msgstr "States:"
 
+#: main.strtext
+#, fuzzy
+msgctxt "main.strtext"
+msgid "Text"
+msgstr "Text"
+
 #: main.strtextnotfound
 msgctxt "main.strtextnotfound"
 msgid "Text not found!"
@@ -2452,6 +2476,12 @@ msgstr "State list empty. Enter at least one state description."
 msgctxt "prepare.strstates"
 msgid "States:"
 msgstr "States:"
+
+#: prepare.strtext
+#, fuzzy
+msgctxt "prepare.strtext"
+msgid "Text"
+msgstr "Text"
 
 #: prepare.strtextnotfound
 msgctxt "prepare.strtextnotfound"
@@ -2989,6 +3019,12 @@ msgctxt "script.strstates"
 msgid "States:"
 msgstr "States:"
 
+#: script.strtext
+#, fuzzy
+msgctxt "script.strtext"
+msgid "Text"
+msgstr "Text"
+
 #: script.strtextnotfound
 #, fuzzy
 msgctxt "script.strtextnotfound"
@@ -3071,366 +3107,6 @@ msgstr "Weighted linkage (WPGMA)"
 #: script.strxmlfilter
 msgctxt "script.strxmlfilter"
 msgid "XML files|*.xml"
-msgstr ""
-
-#: taboutbox.caption
-msgid "About"
-msgstr "About"
-
-#: taboutbox.comments.caption
-msgid "Comments"
-msgstr "Comments"
-
-#: taboutbox.compiler.caption
-msgctxt "taboutbox.compiler.caption"
-msgid "Compiler:"
-msgstr "Compiler:"
-
-#: taboutbox.copyright.caption
-#, fuzzy
-#| msgid "Copyright © 2000-2020 Mauro J. Cavalcanti"
-msgid "Copyright © 2000-2021 Mauro J. Cavalcanti"
-msgstr "Copyright © 2000-2020 Mauro J. Cavalcanti"
-
-#: taboutbox.ide.caption
-msgid "IDE:"
-msgstr "IDE:"
-
-#: taboutbox.okbutton.caption
-msgctxt "taboutbox.okbutton.caption"
-msgid "OK"
-msgstr "OK"
-
-#: taboutbox.operatingsystem.caption
-msgid "OS:"
-msgstr "OS:"
-
-#: taboutbox.platform.caption
-msgid "Platform:"
-msgstr "Platform:"
-
-#: taboutbox.productname.caption
-msgctxt "taboutbox.productname.caption"
-msgid "Free Delta Editor"
-msgstr "Free Delta Editor"
-
-#: taboutbox.systeminformation.caption
-msgid "System Information:"
-msgstr "System Information:"
-
-#: taboutbox.versionnumber.caption
-msgid "v 0.0.0"
-msgstr "v 0.0.0"
-
-#: taboutbox.website.caption
-msgctxt "taboutbox.website.caption"
-msgid "FreeDelta website"
-msgstr "FreeDelta website"
-
-#: tcharacterform.cancelbutton.caption
-msgctxt "tcharacterform.cancelbutton.caption"
-msgid "Cancel"
-msgstr "Cancel"
-
-#: tcharacterform.caption
-msgctxt "tcharacterform.caption"
-msgid "Edit Character"
-msgstr "Edit Character"
-
-#: tcharacterform.checkimplicit.caption
-msgid "Implicit"
-msgstr "Implicit"
-
-#: tcharacterform.clearbtn.hint
-msgid "Clear state list"
-msgstr "Clear state list"
-
-#: tcharacterform.downbtn.hint
-msgid "Move a state down"
-msgstr "Move a state down"
-
-#: tcharacterform.editbtn.hint
-msgid "Edit a state name"
-msgstr "Edit a state name"
-
-#: tcharacterform.editchar.editlabel.caption
-msgid "Character Description:"
-msgstr "Character Description:"
-
-#: tcharacterform.editunit.editlabel.caption
-msgctxt "tcharacterform.editunit.editlabel.caption"
-msgid "Unit:"
-msgstr "Unit:"
-
-#: tcharacterform.excludebtn.hint
-msgid "Delete a state"
-msgstr "Delete a state"
-
-#: tcharacterform.includebtn.hint
-msgid "Add a state"
-msgstr "Add a state"
-
-#: tcharacterform.label1.caption
-msgctxt "tcharacterform.label1.caption"
-msgid "Dependent Characters:"
-msgstr ""
-
-#: tcharacterform.labelattributes.caption
-msgid "Controlling Attributes:"
-msgstr ""
-
-#: tcharacterform.labelstates.caption
-msgctxt "tcharacterform.labelstates.caption"
-msgid "States:"
-msgstr "States:"
-
-#: tcharacterform.okbutton.caption
-msgctxt "tcharacterform.okbutton.caption"
-msgid "OK"
-msgstr "OK"
-
-#: tcharacterform.rbin.caption
-msgid "Integer"
-msgstr "Integer"
-
-#: tcharacterform.rbom.caption
-msgid "Ordered"
-msgstr "Ordered"
-
-#: tcharacterform.rbrn.caption
-msgid "Real"
-msgstr "Real"
-
-#: tcharacterform.rbte.caption
-msgctxt "tcharacterform.rbte.caption"
-msgid "Text"
-msgstr "Text"
-
-#: tcharacterform.rbum.caption
-msgid "Unordered"
-msgstr "Unordered"
-
-#: tcharacterform.tabsheetcharacter.caption
-msgid "Character"
-msgstr "Character"
-
-#: tcharacterform.tabsheetdepend.caption
-msgid "Dependencies"
-msgstr ""
-
-#: tcharacterform.tabsheetnote.caption
-msgid "Note"
-msgstr "Note"
-
-#: tcharacterform.upbtn.hint
-msgid "Move a state up"
-msgstr "Move a state up"
-
-#: tchecklistform.cancelbutton.caption
-msgctxt "tchecklistform.cancelbutton.caption"
-msgid "Cancel"
-msgstr "Cancel"
-
-#: tchecklistform.okbutton.caption
-msgctxt "tchecklistform.okbutton.caption"
-msgid "OK"
-msgstr "OK"
-
-#: tclusterform.cancelbutton.caption
-msgctxt "tclusterform.cancelbutton.caption"
-msgid "Cancel"
-msgstr "Cancel"
-
-#: tclusterform.caption
-msgid "Clustering"
-msgstr "Clustering"
-
-#: tclusterform.comboboxmethod.text
-msgctxt "tclusterform.comboboxmethod.text"
-msgid "Average linkage (UPGMA)"
-msgstr "Average linkage (UPGMA)"
-
-#: tclusterform.labelmethod.caption
-msgid "Method:"
-msgstr "Method:"
-
-#: tclusterform.okbutton.caption
-msgctxt "tclusterform.okbutton.caption"
-msgid "OK"
-msgstr "OK"
-
-#: tdistform.cancelbutton.caption
-msgctxt "tdistform.cancelbutton.caption"
-msgid "Cancel"
-msgstr "Cancel"
-
-#: tdistform.caption
-msgid "DIST Directives"
-msgstr "DIST Directives"
-
-#: tdistform.checkboxmatchoverlap.caption
-msgid "Match Overlap"
-msgstr "Match Overlap"
-
-#: tdistform.checkboxphylipformat.caption
-msgid "PHYLIP Format:"
-msgstr "PHYLIP Format:"
-
-#: tdistform.labelexcludecharacters.caption
-msgctxt "tdistform.labelexcludecharacters.caption"
-msgid "Exclude Characters:"
-msgstr "Exclude Characters:"
-
-#: tdistform.labelexcludeitems.caption
-msgctxt "tdistform.labelexcludeitems.caption"
-msgid "Exclude Items:"
-msgstr "Exclude Items:"
-
-#: tdistform.labelminimumnumberofcomparisons.caption
-msgid "Minimum Number of Comparisons:"
-msgstr "Minimum Number of Comparisons:"
-
-#: tdistform.okbutton.caption
-msgctxt "tdistform.okbutton.caption"
-msgid "OK"
-msgstr "OK"
-
-#: tkeyform.cancelbutton.caption
-msgctxt "tkeyform.cancelbutton.caption"
-msgid "Cancel"
-msgstr "Cancel"
-
-#: tkeyform.caption
-msgid "KEY Directives"
-msgstr "KEY Directives"
-
-#: tkeyform.checkboxaddcharacternumbers.caption
-msgid "Add Character Numbers:"
-msgstr "Add Character Numbers:"
-
-#: tkeyform.checkboxnobrackettedkey.caption
-#, fuzzy
-#| msgid "No Bracketted Key"
-msgid "No Bracketted Key:"
-msgstr "No Bracketted Key"
-
-#: tkeyform.checkboxnotabularkey.caption
-msgid "No Tabular Key:"
-msgstr "No Tabular Key:"
-
-#: tkeyform.comboboxoutputformat.text
-#, fuzzy
-msgctxt "tkeyform.comboboxoutputformat.text"
-msgid "Text"
-msgstr "Text"
-
-#: tkeyform.labelabase.caption
-msgid "ABASE:"
-msgstr "ABASE:"
-
-#: tkeyform.labelcharacterreliabilities.caption
-msgid "Character Reliabilities:"
-msgstr "Character Reliabilities:"
-
-#: tkeyform.labelheading.caption
-msgctxt "tkeyform.labelheading.caption"
-msgid "Heading:"
-msgstr "Heading:"
-
-#: tkeyform.labelincludecharacters.caption
-msgctxt "tkeyform.labelincludecharacters.caption"
-msgid "Include Characters:"
-msgstr ""
-
-#: tkeyform.labelincludeitems.caption
-msgid "Include Items:"
-msgstr ""
-
-#: tkeyform.labelkeystates.caption
-msgctxt "tkeyform.labelkeystates.caption"
-msgid "Key States:"
-msgstr "Key States:"
-
-#: tkeyform.labelnumberofconfirmatorycharacters.caption
-msgid "Number of Confirmatory Characters:"
-msgstr "Number of Confirmatory Characters:"
-
-#: tkeyform.labeloutputformat.caption
-msgctxt "tkeyform.labeloutputformat.caption"
-msgid "Output Format:"
-msgstr ""
-
-#: tkeyform.labelrbase.caption
-msgid "RBASE:"
-msgstr "RBASE:"
-
-#: tkeyform.labelreuse.caption
-msgid "REUSE:"
-msgstr "REUSE:"
-
-#: tkeyform.labeltreatcharactersasvariable.caption
-msgid "Treat Characters as Variable:"
-msgstr "Treat Characters as Variable:"
-
-#: tkeyform.labelusenormalvalues.caption
-msgid "Use Normal Values:"
-msgstr "Use Normal Values:"
-
-#: tkeyform.labelvarywt.caption
-msgid "VARYWT:"
-msgstr "VARYWT:"
-
-#: tkeyform.okbutton.caption
-msgctxt "tkeyform.okbutton.caption"
-msgid "OK"
-msgstr "OK"
-
-#: tkeyform.printwidthlabel.caption
-msgctxt "tkeyform.printwidthlabel.caption"
-msgid "Print Width:"
-msgstr ""
-
-#: tkeystatesform.cancelbutton.caption
-#, fuzzy
-msgctxt "tkeystatesform.cancelbutton.caption"
-msgid "Cancel"
-msgstr "Cancel"
-
-#: tkeystatesform.caption
-msgid "Key States"
-msgstr ""
-
-#: tkeystatesform.labelcharacters.caption
-msgctxt "tkeystatesform.labelcharacters.caption"
-msgid "Characters:"
-msgstr ""
-
-#: tkeystatesform.labelclasses.caption
-msgid "Number of Classes:"
-msgstr ""
-
-#: tkeystatesform.labelededitkeystates.editlabel.caption
-#, fuzzy
-msgctxt "tkeystatesform.labelededitkeystates.editlabel.caption"
-msgid "Key States:"
-msgstr "Key States:"
-
-#: tkeystatesform.labelfrequencytable.caption
-msgid "Frequency Table:"
-msgstr ""
-
-#: tkeystatesform.okbutton.caption
-#, fuzzy
-msgctxt "tkeystatesform.okbutton.caption"
-msgid "OK"
-msgstr "OK"
-
-#: tkeystatesform.radiobuttonsquareroot.caption
-msgid "Square Root of N"
-msgstr ""
-
-#: tkeystatesform.radiobuttonsturgesrule.caption
-msgid "Sturges' Rule"
 msgstr ""
 
 #: tmainform.addcharacter.caption
@@ -3714,6 +3390,16 @@ msgstr "DELTA..."
 msgid "Save data in DELTA format"
 msgstr "Save data in DELTA format"
 
+#: tmainform.exporttextitem.caption
+#, fuzzy
+msgctxt "tmainform.exporttextitem.caption"
+msgid "Text..."
+msgstr "Text..."
+
+#: tmainform.exporttextitem.hint
+msgid "Export data to delimited text file"
+msgstr ""
+
 #: tmainform.exportxdeltaitem.caption
 msgid "XDELTA..."
 msgstr ""
@@ -3862,6 +3548,7 @@ msgid "Import data from DELTA files"
 msgstr "Import data from DELTA files"
 
 #: tmainform.importtextitem.caption
+msgctxt "tmainform.importtextitem.caption"
 msgid "Text..."
 msgstr "Text..."
 
@@ -4328,108 +4015,1119 @@ msgctxt "tmainform.uncodedbtn.hint"
 msgid "Report on missing data"
 msgstr "Uncoded Characters|Report on missing data"
 
-#: tphyloform.cancelbutton.caption
+#: tokey.straddcharacter
 #, fuzzy
-msgctxt "tphyloform.cancelbutton.caption"
-msgid "Cancel"
-msgstr "Cancel"
+msgctxt "tokey.straddcharacter"
+msgid "Add Character"
+msgstr "Add Character"
 
-#: tphyloform.caption
-msgid "Parsimony"
-msgstr ""
-
-#: tphyloform.labelexcludecharacters.caption
+#: tokey.stradditemcaption
 #, fuzzy
-msgctxt "tphyloform.labelexcludecharacters.caption"
-msgid "Exclude Characters:"
-msgstr "Exclude Characters:"
+msgctxt "tokey.stradditemcaption"
+msgid "Add Item"
+msgstr "Add Item"
 
-#: tphyloform.labelexcludeitems.caption
+#: tokey.stradditemprompt
 #, fuzzy
-msgctxt "tphyloform.labelexcludeitems.caption"
-msgid "Exclude Items:"
-msgstr "Exclude Items:"
+msgctxt "tokey.stradditemprompt"
+msgid "Enter item name:"
+msgstr "Enter item name:"
 
-#: tphyloform.labelkeystates.caption
+#: tokey.straddstatecaption
 #, fuzzy
-msgctxt "tphyloform.labelkeystates.caption"
-msgid "Key States:"
-msgstr "Key States:"
+msgctxt "tokey.straddstatecaption"
+msgid "Add State"
+msgstr "Add State"
 
-#: tphyloform.okbutton.caption
+#: tokey.straddstateprompt
 #, fuzzy
-msgctxt "tphyloform.okbutton.caption"
-msgid "OK"
-msgstr "OK"
+msgctxt "tokey.straddstateprompt"
+msgid "Enter state description:"
+msgstr "Enter state description:"
 
-#: tscriptform.caption
-msgid "Script Editor"
+#: tokey.straxis
+#, fuzzy
+msgctxt "tokey.straxis"
+msgid "Axis"
+msgstr "Axis"
+
+#: tokey.strcentroid
+#, fuzzy
+msgctxt "tokey.strcentroid"
+msgid "Centroid (UPGMC)"
+msgstr "Centroid (UPGMC)"
+
+#: tokey.strcharacters
+#, fuzzy
+msgctxt "tokey.strcharacters"
+msgid "characters"
+msgstr "characters"
+
+#: tokey.strcharlistempty
+#, fuzzy
+msgctxt "tokey.strcharlistempty"
+msgid "Character list empty. Enter at least one character description."
+msgstr "Character list empty. Enter at least one character description."
+
+#: tokey.strclass
+msgctxt "tokey.strclass"
+msgid " Class "
 msgstr ""
 
-#: tscriptform.copybutton.hint
-msgid "Copy text"
+#: tokey.strclm
+#, fuzzy
+msgctxt "tokey.strclm"
+msgid "Complete linkage (CLM)"
+msgstr "Complete linkage (CLM)"
+
+#: tokey.strcloneitem
+msgctxt "tokey.strcloneitem"
+msgid "Clone of"
 msgstr ""
 
-#: tscriptform.newbutton.hint
-msgid "New script"
+#: tokey.strconfirmation
+#, fuzzy
+msgctxt "tokey.strconfirmation"
+msgid "Confirmation"
+msgstr "Confirmation"
+
+#: tokey.strcontrol
+msgctxt "tokey.strcontrol"
+msgid "Controls character: %s, by state: %s"
 msgstr ""
 
-#: tscriptform.openbutton.hint
-msgid "Open script"
+#: tokey.strcopyimage
+msgctxt "tokey.strcopyimage"
+msgid "Image copied to the Clipboard"
 msgstr ""
 
-#: tscriptform.returnbutton.hint
-msgid "Close script"
+#: tokey.strcopytext
+#, fuzzy
+msgctxt "tokey.strcopytext"
+msgid "Text copied to the Clipboard"
+msgstr "Text copied to the Clipboard"
+
+#: tokey.strcsvfilter
+#, fuzzy
+msgctxt "tokey.strcsvfilter"
+msgid "Comma delimited files|*.csv"
+msgstr "Comma delimited files|*.csv"
+
+#: tokey.strdatadirectory
+#, fuzzy
+msgctxt "tokey.strdatadirectory"
+msgid "Select data directory"
+msgstr "Select data directory"
+
+#: tokey.strdeltadirectory
+msgctxt "tokey.strdeltadirectory"
+msgid "Select DELTA directory"
 msgstr ""
 
-#: tscriptform.runbutton.hint
-msgid "Run script"
+#: tokey.strdendrogram
+#, fuzzy
+msgctxt "tokey.strdendrogram"
+msgid "Dendrogram"
+msgstr "Dendrogram"
+
+#: tokey.strdependent
+msgctxt "tokey.strdependent"
+msgid "Dependent upon character: %s, state: %s"
 msgstr ""
 
-#: tscriptform.runmenuitemconfor.caption
-msgid "CONFOR"
+#: tokey.strdistance
+#, fuzzy
+msgctxt "tokey.strdistance"
+msgid "Distance"
+msgstr "Distance"
+
+#: tokey.strdtzfilter
+#, fuzzy
+msgctxt "tokey.strdtzfilter"
+msgid "FreeDelta project|*.dtz"
+msgstr "FreeDelta project|*.dtz"
+
+#: tokey.streditcaption
+#, fuzzy
+msgctxt "tokey.streditcaption"
+msgid "Database Title"
+msgstr "Database Title"
+
+#: tokey.streditcharacter
+#, fuzzy
+msgctxt "tokey.streditcharacter"
+msgid "Edit Character"
+msgstr "Edit Character"
+
+#: tokey.stredititemcaption
+#, fuzzy
+msgctxt "tokey.stredititemcaption"
+msgid "Edit Item"
+msgstr "Edit Item"
+
+#: tokey.stredititemprompt
+#, fuzzy
+msgctxt "tokey.stredititemprompt"
+msgid "Edit item name:"
+msgstr "Edit item name:"
+
+#: tokey.streditprompt
+#, fuzzy
+msgctxt "tokey.streditprompt"
+msgid "Edit database title:"
+msgstr "Edit database title:"
+
+#: tokey.streditstatecaption
+#, fuzzy
+msgctxt "tokey.streditstatecaption"
+msgid "Edit State"
+msgstr "Edit State"
+
+#: tokey.streditstateprompt
+#, fuzzy
+msgctxt "tokey.streditstateprompt"
+msgid "Edit state description:"
+msgstr "Edit state description:"
+
+#: tokey.strentercharacternumber
+msgctxt "tokey.strentercharacternumber"
+msgid "Enter character number:"
 msgstr ""
 
-#: tscriptform.runmenuitemconfor.hint
-msgid "Run the CONFOR program"
+#: tokey.strerror
+#, fuzzy
+msgctxt "tokey.strerror"
+msgid "Error"
+msgstr "Error"
+
+#: tokey.strexists
+#, fuzzy
+msgctxt "tokey.strexists"
+msgid "File %s already exists. Overwrite?"
+msgstr "File %s already exists. Overwrite?"
+
+#: tokey.strexport
+#, fuzzy
+msgctxt "tokey.strexport"
+msgid "Data exported successfully to directory %s."
+msgstr "Data exported successfully to directory %s."
+
+#: tokey.strexportfile
+msgctxt "tokey.strexportfile"
+msgid "Data exported successfully to file %s."
 msgstr ""
 
-#: tscriptform.runmenuitemdist.caption
-msgid "DIST"
+#: tokey.strfindcharactercaption
+#, fuzzy
+msgctxt "tokey.strfindcharactercaption"
+msgid "Find Character"
+msgstr "Find Character"
+
+#: tokey.strfindcharacterprompt
+#, fuzzy
+msgctxt "tokey.strfindcharacterprompt"
+msgid "Enter character description:"
+msgstr "Enter character description:"
+
+#: tokey.strfinditemcaption
+#, fuzzy
+msgctxt "tokey.strfinditemcaption"
+msgid "Find Item"
+msgstr "Find Item"
+
+#: tokey.strfinditemprompt
+#, fuzzy
+msgctxt "tokey.strfinditemprompt"
+msgid "Enter item name:"
+msgstr "Enter item name:"
+
+#: tokey.strfindtextcaption
+#, fuzzy
+msgctxt "tokey.strfindtextcaption"
+msgid "Find Text"
+msgstr "Find Text"
+
+#: tokey.strfindtextprompt
+#, fuzzy
+msgctxt "tokey.strfindtextprompt"
+msgid "Enter search text:"
+msgstr "Enter search text:"
+
+#: tokey.strfrequency
+msgctxt "tokey.strfrequency"
+msgid " Freq "
 msgstr ""
 
-#: tscriptform.runmenuitemdist.hint
-msgid "Run the DIST program"
+#: tokey.strgotocharacter
+msgctxt "tokey.strgotocharacter"
+msgid "Go to character"
 msgstr ""
 
-#: tscriptform.runmenuitemkey.caption
-msgid "KEY"
+#: tokey.strgotoline
+msgctxt "tokey.strgotoline"
+msgid "Go to"
 msgstr ""
 
-#: tscriptform.runmenuitemkey.hint
-msgid "Run the KEY program"
+#: tokey.strgotolinecaption
+msgctxt "tokey.strgotolinecaption"
+msgid "Enter item/character number:"
 msgstr ""
 
-#: tscriptform.savebutton.hint
-msgid "Save script"
+#: tokey.strhistogram
+msgctxt "tokey.strhistogram"
+msgid " Histogram "
 msgstr ""
 
-#: tscriptform.savedialog.title
-msgid "Save As"
+#: tokey.strimport
+#, fuzzy
+msgctxt "tokey.strimport"
+msgid "Data imported successfully to file %s."
+msgstr "Data imported successfully to file %s."
+
+#: tokey.strinformation
+#, fuzzy
+msgctxt "tokey.strinformation"
+msgid "Information"
+msgstr "Information"
+
+#: tokey.strinputinteger
+msgctxt "tokey.strinputinteger"
+msgid "Enter an integer value between 1 and %d"
+msgstr ""
+
+#: tokey.strinterval
+msgctxt "tokey.strinterval"
+msgid " Class Interval "
+msgstr ""
+
+#: tokey.strinvalidsymbol
+msgctxt "tokey.strinvalidsymbol"
+msgid "Invalid symbol ('/') in character or state name"
+msgstr ""
+
+#: tokey.stritemlistempty
+#, fuzzy
+msgctxt "tokey.stritemlistempty"
+msgid "Item list empty. Enter at least one item name."
+msgstr "Item list empty. Enter at least one item name."
+
+#: tokey.stritems
+#, fuzzy
+msgctxt "tokey.stritems"
+msgid "items"
+msgstr "items"
+
+#: tokey.stritemstatus
+msgctxt "tokey.stritemstatus"
+msgid "Item name, followed by author name and/or comment between <angle brackets>"
+msgstr ""
+
+#: tokey.strlinux64only
+msgctxt "tokey.strlinux64only"
+msgid "This option is not available under GNU/Linux 32-bit."
+msgstr ""
+
+#: tokey.strmark
+msgctxt "tokey.strmark"
+msgid " Class Mark "
+msgstr ""
+
+#: tokey.strmedian
+#, fuzzy
+msgctxt "tokey.strmedian"
+msgid "Median (WPGMC)"
+msgstr "Median (WPGMC)"
+
+#: tokey.strmerge
+msgctxt "tokey.strmerge"
+msgid "All characters will be treated as unordered multistate"
+msgstr ""
+
+#: tokey.strmissingbrackets
+msgctxt "tokey.strmissingbrackets"
+msgid "Missing opening or closing angle brackets ('<>')"
+msgstr ""
+
+#: tokey.strnewcaption
+#, fuzzy
+msgctxt "tokey.strnewcaption"
+msgid "New Database"
+msgstr "New Database"
+
+#: tokey.strnewprompt
+#, fuzzy
+msgctxt "tokey.strnewprompt"
+msgid "Enter database title:"
+msgstr "Enter database title:"
+
+#: tokey.strnexusfilter
+msgctxt "tokey.strnexusfilter"
+msgid "Nexus data files|*.nex"
+msgstr ""
+
+#: tokey.strnotexecute
+#, fuzzy
+msgctxt "tokey.strnotexecute"
+msgid "Couldn't start %s program."
+msgstr "Couldn't start %s program."
+
+#: tokey.strnotfound
+#, fuzzy
+msgctxt "tokey.strnotfound"
+msgid "File %s not found."
+msgstr "File %s not found."
+
+#: tokey.strnotfounddir
+#, fuzzy
+msgctxt "tokey.strnotfounddir"
+msgid "File %s not found in %s."
+msgstr "File %s not found in %s."
+
+#: tokey.stropenfile
+#, fuzzy
+msgctxt "tokey.stropenfile"
+msgid "Open file"
+msgstr "Open file"
+
+#: tokey.stroutofrange
+msgctxt "tokey.stroutofrange"
+msgid "Value out of range"
+msgstr ""
+
+#: tokey.strpaupdirectory
+msgctxt "tokey.strpaupdirectory"
+msgid "Select PAUP directory"
+msgstr ""
+
+#: tokey.strpaupnotfound
+msgctxt "tokey.strpaupnotfound"
+msgid "PAUP not installed or not found in path."
+msgstr ""
+
+#: tokey.strquit
+#, fuzzy
+msgctxt "tokey.strquit"
+msgid "Do you want to exit the program?"
+msgstr "Do you want to exit the program?"
+
+#: tokey.strrdirectory
+msgctxt "tokey.strrdirectory"
+msgid "Select R directory"
+msgstr ""
+
+#: tokey.strreaderror
+msgctxt "tokey.strreaderror"
+msgid "Error reading file %s."
+msgstr ""
+
+#: tokey.strready
+msgctxt "tokey.strready"
+msgid "Ready"
+msgstr ""
+
+#: tokey.strrnotfound
+msgctxt "tokey.strrnotfound"
+msgid "R not installed or not found in path."
+msgstr ""
+
+#: tokey.strsave
+#, fuzzy
+msgctxt "tokey.strsave"
+msgid "Dataset has been modified. Save?"
+msgstr "Dataset has been modified. Save?"
+
+#: tokey.strsavechanges
+msgctxt "tokey.strsavechanges"
+msgid "Save changes?"
+msgstr ""
+
+#: tokey.strsaveerror
+#, fuzzy
+msgctxt "tokey.strsaveerror"
+msgid "Failed to save file %s."
+msgstr "Failed to save file %s."
+
+#: tokey.strsavefile
+#, fuzzy
+msgctxt "tokey.strsavefile"
+msgid "Save file as"
+msgstr "Save file as"
+
+#: tokey.strscatterplot
+#, fuzzy
+msgctxt "tokey.strscatterplot"
+msgid "Scatterplot"
+msgstr "Scatterplot"
+
+#: tokey.strslm
+#, fuzzy
+msgctxt "tokey.strslm"
+msgid "Single linkage (SLM)"
+msgstr "Single linkage (SLM)"
+
+#: tokey.strstatelistempty
+msgctxt "tokey.strstatelistempty"
+msgid "State list empty or incomplete. Enter at least two state descriptions."
+msgstr ""
+
+#: tokey.strstates
+#, fuzzy
+msgctxt "tokey.strstates"
+msgid "States:"
+msgstr "States:"
+
+#: tokey.strtext
+#, fuzzy
+msgctxt "tokey.strtext"
+msgid "Text"
+msgstr "Text"
+
+#: tokey.strtextnotfound
+#, fuzzy
+msgctxt "tokey.strtextnotfound"
+msgid "Text not found!"
+msgstr "Text not found!"
+
+#: tokey.strtntdirectory
+msgctxt "tokey.strtntdirectory"
+msgid "Select TNT directory"
+msgstr ""
+
+#: tokey.strtntfilter
+msgctxt "tokey.strtntfilter"
+msgid "TNT data files|*.tnt"
+msgstr ""
+
+#: tokey.strtntnotfound
+msgctxt "tokey.strtntnotfound"
+msgid "TNT not installed or not found in path."
+msgstr ""
+
+#: tokey.strtxtfilter
+#, fuzzy
+msgctxt "tokey.strtxtfilter"
+msgid "Text files|*.txt"
+msgstr "Text files|*.txt"
+
+#: tokey.strunit
+#, fuzzy
+msgctxt "tokey.strunit"
+msgid "Unit:"
+msgstr "Unit:"
+
+#: tokey.strunitempty
+#, fuzzy
+msgctxt "tokey.strunitempty"
+msgid "Measurement unit not defined for real numeric character."
+msgstr "Measurement unit not defined for real numeric character."
+
+#: tokey.struntitled
+msgctxt "tokey.struntitled"
+msgid "Untitled"
+msgstr ""
+
+#: tokey.strupgma
+#, fuzzy
+msgctxt "tokey.strupgma"
+msgid "Average linkage (UPGMA)"
+msgstr "Average linkage (UPGMA)"
+
+#: tokey.strvalidnumber
+msgctxt "tokey.strvalidnumber"
+msgid "Enter numbers only (an integer value between 1 and %d)"
+msgstr ""
+
+#: tokey.strward
+#, fuzzy
+msgctxt "tokey.strward"
+msgid "Ward's Method"
+msgstr "Ward's Method"
+
+#: tokey.strwarning
+#, fuzzy
+msgctxt "tokey.strwarning"
+msgid "Warning"
+msgstr "Warning"
+
+#: tokey.strwindowsonly
+#, fuzzy
+msgctxt "tokey.strwindowsonly"
+msgid "This option is available only under MS-Windows."
+msgstr "This option is available only under MS-Windows."
+
+#: tokey.strwpgma
+#, fuzzy
+msgctxt "tokey.strwpgma"
+msgid "Weighted linkage (WPGMA)"
+msgstr "Weighted linkage (WPGMA)"
+
+#: tokey.strxmlfilter
+msgctxt "tokey.strxmlfilter"
+msgid "XML files|*.xml"
+msgstr ""
+
+#: tonat.straddcharacter
+#, fuzzy
+msgctxt "tonat.straddcharacter"
+msgid "Add Character"
+msgstr "Add Character"
+
+#: tonat.stradditemcaption
+#, fuzzy
+msgctxt "tonat.stradditemcaption"
+msgid "Add Item"
+msgstr "Add Item"
+
+#: tonat.stradditemprompt
+#, fuzzy
+msgctxt "tonat.stradditemprompt"
+msgid "Enter item name:"
+msgstr "Enter item name:"
+
+#: tonat.straddstatecaption
+#, fuzzy
+msgctxt "tonat.straddstatecaption"
+msgid "Add State"
+msgstr "Add State"
+
+#: tonat.straddstateprompt
+#, fuzzy
+msgctxt "tonat.straddstateprompt"
+msgid "Enter state description:"
+msgstr "Enter state description:"
+
+#: tonat.straxis
+#, fuzzy
+msgctxt "tonat.straxis"
+msgid "Axis"
+msgstr "Axis"
+
+#: tonat.strcentroid
+#, fuzzy
+msgctxt "tonat.strcentroid"
+msgid "Centroid (UPGMC)"
+msgstr "Centroid (UPGMC)"
+
+#: tonat.strcharacters
+#, fuzzy
+msgctxt "tonat.strcharacters"
+msgid "characters"
+msgstr "characters"
+
+#: tonat.strcharlistempty
+#, fuzzy
+msgctxt "tonat.strcharlistempty"
+msgid "Character list empty. Enter at least one character description."
+msgstr "Character list empty. Enter at least one character description."
+
+#: tonat.strclass
+msgctxt "tonat.strclass"
+msgid " Class "
+msgstr ""
+
+#: tonat.strclm
+#, fuzzy
+msgctxt "tonat.strclm"
+msgid "Complete linkage (CLM)"
+msgstr "Complete linkage (CLM)"
+
+#: tonat.strcloneitem
+msgctxt "tonat.strcloneitem"
+msgid "Clone of"
+msgstr ""
+
+#: tonat.strconfirmation
+#, fuzzy
+msgctxt "tonat.strconfirmation"
+msgid "Confirmation"
+msgstr "Confirmation"
+
+#: tonat.strcontrol
+msgctxt "tonat.strcontrol"
+msgid "Controls character: %s, by state: %s"
+msgstr ""
+
+#: tonat.strcopyimage
+msgctxt "tonat.strcopyimage"
+msgid "Image copied to the Clipboard"
+msgstr ""
+
+#: tonat.strcopytext
+#, fuzzy
+msgctxt "tonat.strcopytext"
+msgid "Text copied to the Clipboard"
+msgstr "Text copied to the Clipboard"
+
+#: tonat.strcsvfilter
+#, fuzzy
+msgctxt "tonat.strcsvfilter"
+msgid "Comma delimited files|*.csv"
+msgstr "Comma delimited files|*.csv"
+
+#: tonat.strdatadirectory
+#, fuzzy
+msgctxt "tonat.strdatadirectory"
+msgid "Select data directory"
+msgstr "Select data directory"
+
+#: tonat.strdeltadirectory
+msgctxt "tonat.strdeltadirectory"
+msgid "Select DELTA directory"
+msgstr ""
+
+#: tonat.strdendrogram
+#, fuzzy
+msgctxt "tonat.strdendrogram"
+msgid "Dendrogram"
+msgstr "Dendrogram"
+
+#: tonat.strdependent
+msgctxt "tonat.strdependent"
+msgid "Dependent upon character: %s, state: %s"
+msgstr ""
+
+#: tonat.strdistance
+#, fuzzy
+msgctxt "tonat.strdistance"
+msgid "Distance"
+msgstr "Distance"
+
+#: tonat.strdtzfilter
+#, fuzzy
+msgctxt "tonat.strdtzfilter"
+msgid "FreeDelta project|*.dtz"
+msgstr "FreeDelta project|*.dtz"
+
+#: tonat.streditcaption
+#, fuzzy
+msgctxt "tonat.streditcaption"
+msgid "Database Title"
+msgstr "Database Title"
+
+#: tonat.streditcharacter
+#, fuzzy
+msgctxt "tonat.streditcharacter"
+msgid "Edit Character"
+msgstr "Edit Character"
+
+#: tonat.stredititemcaption
+#, fuzzy
+msgctxt "tonat.stredititemcaption"
+msgid "Edit Item"
+msgstr "Edit Item"
+
+#: tonat.stredititemprompt
+#, fuzzy
+msgctxt "tonat.stredititemprompt"
+msgid "Edit item name:"
+msgstr "Edit item name:"
+
+#: tonat.streditprompt
+#, fuzzy
+msgctxt "tonat.streditprompt"
+msgid "Edit database title:"
+msgstr "Edit database title:"
+
+#: tonat.streditstatecaption
+#, fuzzy
+msgctxt "tonat.streditstatecaption"
+msgid "Edit State"
+msgstr "Edit State"
+
+#: tonat.streditstateprompt
+#, fuzzy
+msgctxt "tonat.streditstateprompt"
+msgid "Edit state description:"
+msgstr "Edit state description:"
+
+#: tonat.strentercharacternumber
+msgctxt "tonat.strentercharacternumber"
+msgid "Enter character number:"
+msgstr ""
+
+#: tonat.strerror
+#, fuzzy
+msgctxt "tonat.strerror"
+msgid "Error"
+msgstr "Error"
+
+#: tonat.strexists
+#, fuzzy
+msgctxt "tonat.strexists"
+msgid "File %s already exists. Overwrite?"
+msgstr "File %s already exists. Overwrite?"
+
+#: tonat.strexport
+#, fuzzy
+msgctxt "tonat.strexport"
+msgid "Data exported successfully to directory %s."
+msgstr "Data exported successfully to directory %s."
+
+#: tonat.strexportfile
+msgctxt "tonat.strexportfile"
+msgid "Data exported successfully to file %s."
+msgstr ""
+
+#: tonat.strfindcharactercaption
+#, fuzzy
+msgctxt "tonat.strfindcharactercaption"
+msgid "Find Character"
+msgstr "Find Character"
+
+#: tonat.strfindcharacterprompt
+#, fuzzy
+msgctxt "tonat.strfindcharacterprompt"
+msgid "Enter character description:"
+msgstr "Enter character description:"
+
+#: tonat.strfinditemcaption
+#, fuzzy
+msgctxt "tonat.strfinditemcaption"
+msgid "Find Item"
+msgstr "Find Item"
+
+#: tonat.strfinditemprompt
+#, fuzzy
+msgctxt "tonat.strfinditemprompt"
+msgid "Enter item name:"
+msgstr "Enter item name:"
+
+#: tonat.strfindtextcaption
+#, fuzzy
+msgctxt "tonat.strfindtextcaption"
+msgid "Find Text"
+msgstr "Find Text"
+
+#: tonat.strfindtextprompt
+#, fuzzy
+msgctxt "tonat.strfindtextprompt"
+msgid "Enter search text:"
+msgstr "Enter search text:"
+
+#: tonat.strfrequency
+msgctxt "tonat.strfrequency"
+msgid " Freq "
+msgstr ""
+
+#: tonat.strgotocharacter
+msgctxt "tonat.strgotocharacter"
+msgid "Go to character"
+msgstr ""
+
+#: tonat.strgotoline
+msgctxt "tonat.strgotoline"
+msgid "Go to"
+msgstr ""
+
+#: tonat.strgotolinecaption
+msgctxt "tonat.strgotolinecaption"
+msgid "Enter item/character number:"
+msgstr ""
+
+#: tonat.strhistogram
+msgctxt "tonat.strhistogram"
+msgid " Histogram "
+msgstr ""
+
+#: tonat.strimport
+#, fuzzy
+msgctxt "tonat.strimport"
+msgid "Data imported successfully to file %s."
+msgstr "Data imported successfully to file %s."
+
+#: tonat.strinformation
+#, fuzzy
+msgctxt "tonat.strinformation"
+msgid "Information"
+msgstr "Information"
+
+#: tonat.strinputinteger
+msgctxt "tonat.strinputinteger"
+msgid "Enter an integer value between 1 and %d"
+msgstr ""
+
+#: tonat.strinterval
+msgctxt "tonat.strinterval"
+msgid " Class Interval "
+msgstr ""
+
+#: tonat.strinvalidsymbol
+msgctxt "tonat.strinvalidsymbol"
+msgid "Invalid symbol ('/') in character or state name"
+msgstr ""
+
+#: tonat.stritemlistempty
+#, fuzzy
+msgctxt "tonat.stritemlistempty"
+msgid "Item list empty. Enter at least one item name."
+msgstr "Item list empty. Enter at least one item name."
+
+#: tonat.stritems
+#, fuzzy
+msgctxt "tonat.stritems"
+msgid "items"
+msgstr "items"
+
+#: tonat.stritemstatus
+msgctxt "tonat.stritemstatus"
+msgid "Item name, followed by author name and/or comment between <angle brackets>"
+msgstr ""
+
+#: tonat.strlinux64only
+msgctxt "tonat.strlinux64only"
+msgid "This option is not available under GNU/Linux 32-bit."
+msgstr ""
+
+#: tonat.strmark
+msgctxt "tonat.strmark"
+msgid " Class Mark "
+msgstr ""
+
+#: tonat.strmedian
+#, fuzzy
+msgctxt "tonat.strmedian"
+msgid "Median (WPGMC)"
+msgstr "Median (WPGMC)"
+
+#: tonat.strmerge
+msgctxt "tonat.strmerge"
+msgid "All characters will be treated as unordered multistate"
+msgstr ""
+
+#: tonat.strmissingbrackets
+msgctxt "tonat.strmissingbrackets"
+msgid "Missing opening or closing angle brackets ('<>')"
+msgstr ""
+
+#: tonat.strnewcaption
+#, fuzzy
+msgctxt "tonat.strnewcaption"
+msgid "New Database"
+msgstr "New Database"
+
+#: tonat.strnewprompt
+#, fuzzy
+msgctxt "tonat.strnewprompt"
+msgid "Enter database title:"
+msgstr "Enter database title:"
+
+#: tonat.strnexusfilter
+msgctxt "tonat.strnexusfilter"
+msgid "Nexus data files|*.nex"
+msgstr ""
+
+#: tonat.strnotexecute
+#, fuzzy
+msgctxt "tonat.strnotexecute"
+msgid "Couldn't start %s program."
+msgstr "Couldn't start %s program."
+
+#: tonat.strnotfound
+#, fuzzy
+msgctxt "tonat.strnotfound"
+msgid "File %s not found."
+msgstr "File %s not found."
+
+#: tonat.strnotfounddir
+#, fuzzy
+msgctxt "tonat.strnotfounddir"
+msgid "File %s not found in %s."
+msgstr "File %s not found in %s."
+
+#: tonat.stropenfile
+#, fuzzy
+msgctxt "tonat.stropenfile"
+msgid "Open file"
+msgstr "Open file"
+
+#: tonat.stroutofrange
+msgctxt "tonat.stroutofrange"
+msgid "Value out of range"
+msgstr ""
+
+#: tonat.strpaupdirectory
+msgctxt "tonat.strpaupdirectory"
+msgid "Select PAUP directory"
+msgstr ""
+
+#: tonat.strpaupnotfound
+msgctxt "tonat.strpaupnotfound"
+msgid "PAUP not installed or not found in path."
+msgstr ""
+
+#: tonat.strquit
+#, fuzzy
+msgctxt "tonat.strquit"
+msgid "Do you want to exit the program?"
+msgstr "Do you want to exit the program?"
+
+#: tonat.strrdirectory
+msgctxt "tonat.strrdirectory"
+msgid "Select R directory"
+msgstr ""
+
+#: tonat.strreaderror
+msgctxt "tonat.strreaderror"
+msgid "Error reading file %s."
+msgstr ""
+
+#: tonat.strready
+msgctxt "tonat.strready"
+msgid "Ready"
+msgstr ""
+
+#: tonat.strrnotfound
+msgctxt "tonat.strrnotfound"
+msgid "R not installed or not found in path."
+msgstr ""
+
+#: tonat.strsave
+#, fuzzy
+msgctxt "tonat.strsave"
+msgid "Dataset has been modified. Save?"
+msgstr "Dataset has been modified. Save?"
+
+#: tonat.strsavechanges
+msgctxt "tonat.strsavechanges"
+msgid "Save changes?"
+msgstr ""
+
+#: tonat.strsaveerror
+#, fuzzy
+msgctxt "tonat.strsaveerror"
+msgid "Failed to save file %s."
+msgstr "Failed to save file %s."
+
+#: tonat.strsavefile
+#, fuzzy
+msgctxt "tonat.strsavefile"
+msgid "Save file as"
+msgstr "Save file as"
+
+#: tonat.strscatterplot
+#, fuzzy
+msgctxt "tonat.strscatterplot"
+msgid "Scatterplot"
+msgstr "Scatterplot"
+
+#: tonat.strslm
+#, fuzzy
+msgctxt "tonat.strslm"
+msgid "Single linkage (SLM)"
+msgstr "Single linkage (SLM)"
+
+#: tonat.strstatelistempty
+msgctxt "tonat.strstatelistempty"
+msgid "State list empty or incomplete. Enter at least two state descriptions."
+msgstr ""
+
+#: tonat.strstates
+#, fuzzy
+msgctxt "tonat.strstates"
+msgid "States:"
+msgstr "States:"
+
+#: tonat.strtext
+#, fuzzy
+msgctxt "tonat.strtext"
+msgid "Text"
+msgstr "Text"
+
+#: tonat.strtextnotfound
+#, fuzzy
+msgctxt "tonat.strtextnotfound"
+msgid "Text not found!"
+msgstr "Text not found!"
+
+#: tonat.strtntdirectory
+msgctxt "tonat.strtntdirectory"
+msgid "Select TNT directory"
+msgstr ""
+
+#: tonat.strtntfilter
+msgctxt "tonat.strtntfilter"
+msgid "TNT data files|*.tnt"
+msgstr ""
+
+#: tonat.strtntnotfound
+msgctxt "tonat.strtntnotfound"
+msgid "TNT not installed or not found in path."
+msgstr ""
+
+#: tonat.strtxtfilter
+#, fuzzy
+msgctxt "tonat.strtxtfilter"
+msgid "Text files|*.txt"
+msgstr "Text files|*.txt"
+
+#: tonat.strunit
+#, fuzzy
+msgctxt "tonat.strunit"
+msgid "Unit:"
+msgstr "Unit:"
+
+#: tonat.strunitempty
+#, fuzzy
+msgctxt "tonat.strunitempty"
+msgid "Measurement unit not defined for real numeric character."
+msgstr "Measurement unit not defined for real numeric character."
+
+#: tonat.struntitled
+msgctxt "tonat.struntitled"
+msgid "Untitled"
+msgstr ""
+
+#: tonat.strupgma
+#, fuzzy
+msgctxt "tonat.strupgma"
+msgid "Average linkage (UPGMA)"
+msgstr "Average linkage (UPGMA)"
+
+#: tonat.strvalidnumber
+msgctxt "tonat.strvalidnumber"
+msgid "Enter numbers only (an integer value between 1 and %d)"
+msgstr ""
+
+#: tonat.strward
+#, fuzzy
+msgctxt "tonat.strward"
+msgid "Ward's Method"
+msgstr "Ward's Method"
+
+#: tonat.strwarning
+#, fuzzy
+msgctxt "tonat.strwarning"
+msgid "Warning"
+msgstr "Warning"
+
+#: tonat.strwindowsonly
+#, fuzzy
+msgctxt "tonat.strwindowsonly"
+msgid "This option is available only under MS-Windows."
+msgstr "This option is available only under MS-Windows."
+
+#: tonat.strwpgma
+#, fuzzy
+msgctxt "tonat.strwpgma"
+msgid "Weighted linkage (WPGMA)"
+msgstr "Weighted linkage (WPGMA)"
+
+#: tonat.strxmlfilter
+msgctxt "tonat.strxmlfilter"
+msgid "XML files|*.xml"
 msgstr ""
 
 #: ttonatform.cancelbutton.caption
-msgctxt "ttonatform.cancelbutton.caption"
 msgid "Cancel"
-msgstr "Cancel"
+msgstr ""
 
 #: ttonatform.caption
 msgid "CONFOR Directives"
-msgstr "CONFOR Directives"
+msgstr ""
 
 #: ttonatform.checkboxomitcharacternumbers.caption
 msgid "Omit Character Numbers:"
-msgstr "Omit Character Numbers:"
+msgstr ""
 
 #: ttonatform.checkboxomitcomments.caption
 msgid "Omit Comments:"
@@ -4441,17 +5139,15 @@ msgstr ""
 
 #: ttonatform.checkboxomitinapplicables.caption
 msgid "Omit Inapplicables:"
-msgstr "Omit Inapplicables:"
+msgstr ""
 
 #: ttonatform.checkboxomitinnercomments.caption
-#, fuzzy
-#| msgid "Omit Inner Comments"
 msgid "Omit Inner Comments:"
-msgstr "Omit Inner Comments"
+msgstr ""
 
 #: ttonatform.checkboxomittypesettingmarks.caption
 msgid "Omit Typesetting Marks:"
-msgstr "Omit Typesetting Marks:"
+msgstr ""
 
 #: ttonatform.checkboxreplaceanglebrackets.caption
 msgid "Replace Angle Brackets:"
@@ -4459,44 +5155,40 @@ msgstr ""
 
 #: ttonatform.checkboxtranslateimplicitvalues.caption
 msgid "Translate Implicit Values:"
-msgstr "Translate Implicit Values:"
+msgstr ""
 
 #: ttonatform.comboboxoutputformat.text
-#, fuzzy
 msgctxt "ttonatform.comboboxoutputformat.text"
 msgid "Text"
-msgstr "Text"
+msgstr ""
 
 #: ttonatform.labelemphasizefeatures.caption
 msgid "Emphasize Features:"
-msgstr "Emphasize Features:"
+msgstr ""
 
 #: ttonatform.labelexcludecharacters.caption
-msgctxt "ttonatform.labelexcludecharacters.caption"
 msgid "Exclude Characters:"
-msgstr "Exclude Characters:"
+msgstr ""
 
 #: ttonatform.labelexcludeitems.caption
-msgctxt "ttonatform.labelexcludeitems.caption"
 msgid "Exclude Items:"
-msgstr "Exclude Items:"
+msgstr ""
 
 #: ttonatform.labelheading.caption
-msgctxt "ttonatform.labelheading.caption"
 msgid "Heading:"
-msgstr "Heading:"
+msgstr ""
 
 #: ttonatform.labelitemsubheadings.caption
 msgid "Item Subheadings:"
-msgstr "Item Subheadings:"
+msgstr ""
 
 #: ttonatform.labellinkcharacters.caption
 msgid "Link Characters:"
-msgstr "Link Characters:"
+msgstr ""
 
 #: ttonatform.labelnewparagraphsatcharacters.caption
 msgid "New Paragraphs At Characters:"
-msgstr "New Paragraphs At Characters:"
+msgstr ""
 
 #: ttonatform.labelomitlowerforcharacters.caption
 msgid "Omit Lower for Characters:"
@@ -4504,19 +5196,17 @@ msgstr ""
 
 #: ttonatform.labelomitorforcharacters.caption
 msgid "Omit Or For Characters:"
-msgstr "Omit Or For Characters:"
+msgstr ""
 
 #: ttonatform.labelomitperiodforcharacters.caption
 msgid "Omit Period for Characters:"
-msgstr "Omit Period for Characters:"
+msgstr ""
 
 #: ttonatform.labeloutputformat.caption
-msgctxt "ttonatform.labeloutputformat.caption"
 msgid "Output Format:"
 msgstr ""
 
 #: ttonatform.labelprintwidth.caption
-msgctxt "ttonatform.labelprintwidth.caption"
 msgid "Print Width:"
 msgstr ""
 
@@ -4525,17 +5215,8 @@ msgid "Replace Semicolon by Comma:"
 msgstr ""
 
 #: ttonatform.okbutton.caption
-msgctxt "ttonatform.okbutton.caption"
 msgid "OK"
-msgstr "OK"
-
-#: tviewerform.closebtn.caption
-msgid "Close"
-msgstr "Close"
-
-#: tviewerform.copybtn.caption
-msgid "Copy"
-msgstr "Copy"
+msgstr ""
 
 #: viewer.straddcharacter
 msgctxt "viewer.straddcharacter"
@@ -4948,6 +5629,12 @@ msgstr "State list empty. Enter at least one state description."
 msgctxt "viewer.strstates"
 msgid "States:"
 msgstr "States:"
+
+#: viewer.strtext
+#, fuzzy
+msgctxt "viewer.strtext"
+msgid "Text"
+msgstr "Text"
 
 #: viewer.strtextnotfound
 msgctxt "viewer.strtextnotfound"

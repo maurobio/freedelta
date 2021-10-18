@@ -64,6 +64,7 @@ resourcestring
   strCopyText = 'Text copied to the Clipboard';
   strCopyImage = 'Image copied to the Clipboard';
   strWindowsOnly = 'This option is available only under MS-Windows.';
+  strLinux64Only = 'This option is not available under GNU/Linux 32-bit.';
   strItemListEmpty = 'Item list empty. Enter at least one item name.';
   strCharListEmpty = 'Character list empty. Enter at least one character description.';
   strStateListEmpty = 'State list empty or incomplete. Enter at least two state descriptions.';
@@ -99,3 +100,5 @@ resourcestring
   strGotoLineCaption = 'Enter item/character number:';
   strInvalidSymbol = 'Invalid symbol (''/'') in character or state name';
   strMissingBrackets = 'Missing opening or closing angle brackets (''<>'')';
+  strText = 'Text';
+

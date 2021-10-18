@@ -147,7 +147,7 @@ object TonatForm: TTonatForm
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   Position = poMainFormCenter
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '2.0.12.0'
   object OKButton: TButton
     Left = 251
     Height = 25
@@ -156,7 +156,6 @@ object TonatForm: TTonatForm
     Caption = 'OK'
     Default = True
     ModalResult = 1
-    OnClick = OKButtonClick
     TabOrder = 21
   end
   object CancelButton: TButton
@@ -206,7 +205,7 @@ object TonatForm: TTonatForm
     Left = 14
     Height = 19
     Top = 112
-    Width = 149
+    Width = 150
     Alignment = taLeftJustify
     Caption = 'Omit Typesetting Marks:'
     Checked = True
@@ -217,7 +216,7 @@ object TonatForm: TTonatForm
     Left = 234
     Height = 19
     Top = 112
-    Width = 150
+    Width = 151
     Alignment = taLeftJustify
     Caption = 'Translate Implicit Values:'
     Checked = True
@@ -478,7 +477,7 @@ object TonatForm: TTonatForm
     Left = 14
     Height = 15
     Top = 359
-    Width = 76
+    Width = 75
     Caption = 'Exclude Items:'
     ParentColor = False
   end
@@ -493,7 +492,7 @@ object TonatForm: TTonatForm
     Left = 14
     Height = 15
     Top = 386
-    Width = 103
+    Width = 102
     Caption = 'Exclude Characters:'
     ParentColor = False
   end
@@ -865,7 +864,6 @@ object TonatForm: TTonatForm
     Top = 435
     Width = 121
     ItemHeight = 15
-    OnChange = ComboBoxOutputFormatChange
     TabOrder = 20
     Text = 'Text'
   end
