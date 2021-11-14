@@ -378,6 +378,9 @@
 {                                 - Changed the mouse cursor to waiting mode   }
 {                                   when running R scripts.                    }
 {                                 - Updated Portoguese and French translations.}
+{ Version 2.85, 12 Nov, 2021      - Changed the way the R software for         }
+{                                   statistical computing and graphics is found}
+{                                   in the current OS to be fully automatic.   }
 {==============================================================================}
 unit Main;
 
@@ -626,6 +629,8 @@ type
     FoundPos: integer;
     HasDistance: boolean;
     SelectedChar: integer;
+    function LocateR: boolean;
+    function FindR: string;
     function SearchListView(LV: TListView; const S: string; Column: integer;
       P: integer): TListItem;
     function SearchTree(TV: TTreeView; SearchItem: string; P: integer): TTreeNode;
@@ -693,6 +698,78 @@ uses About, Prepare, Tonat, Tokey, Todis, Cluster, Chars, Viewer, Phylogen, Scri
 
 {$R *.lfm}
 {$I resources.inc}
+
+function TMainForm.LocateR: boolean;
+begin
+  if not FileExists(RPath) then
+     RPath := '';
+  if RPath = '' then
+  begin
+    if Copy(OSVersion, 1, Pos(' ', OSVersion) - 1) <> 'Windows' then
+      RPath := '/usr/bin/Rscript'
+    else
+    begin
+      Screen.Cursor := crHourGlass;
+      RPath := FindR;
+      if RPath <> '' then
+         RPath := Concat(RPath, 'Rscript.exe');
+      Screen.Cursor := crDefault;
+    end;
+    if RPath = '' then
+    begin
+      MessageDlg(strError, Format(strRNotFound, ['R']), mtError, [mbOK], 0);
+      Result := False;
+    end
+    else
+      WriteSettings(Self);
+  end
+  else
+    Result := True;
+end;
+
+function TMainForm.FindR: string;
+const
+  FN = 'bin\RScript.exe';
+  P = 'C:\Program Files\R';
+
+var
+  I: integer;
+  LSearchResult: TStringList;
+
+  procedure FileSearch(const dirName: string);
+  var
+    searchResult: TSearchRec;
+  begin
+    if FindFirst(dirName + '\*', faAnyFile, searchResult) = 0 then
+    begin
+      try
+        repeat
+          if (searchResult.Attr and faDirectory) = 0 then
+          begin
+            if SameText(ExtractFileExt(searchResult.Name), '.exe') then
+              LSearchResult.Append(IncludeTrailingBackSlash(dirName) +
+                searchResult.Name);
+          end
+          else if (searchResult.Name <> '.') and (searchResult.Name <> '..') then
+            FileSearch(IncludeTrailingBackSlash(dirName) + searchResult.Name);
+        until FindNext(searchResult) <> 0;
+      finally
+        FindClose(searchResult);
+      end;
+    end;
+  end;
+
+begin
+  Result := '';
+  LSearchResult := TStringList.Create;
+  FileSearch(P);
+  for I := 0 to LSearchResult.Count - 1 do
+  begin
+    if Pos(LowerCase(FN), LowerCase(LSearchResult[I])) > 0 then
+      Result := ExtractFilePath(LSearchResult[I]);
+  end;
+  LSearchResult.Free;
+end;
 
 function IsWindows: boolean;
 begin
@@ -2462,7 +2539,7 @@ procedure TMainForm.MatrixClusterItemClick(Sender: TObject);
 var
   s: ansistring;
 begin
-  if RPath = '' then
+  {if RPath = '' then
   begin
     SelectDirectoryDialog.Title := strRDirectory;
     SelectDirectoryDialog.Filename := '';
@@ -2473,14 +2550,17 @@ begin
       MessageDlg(strError, Format(strRNotFound, ['R']), mtError, [mbOK], 0);
       Exit;
     end;
-  end;
+  end;}
+  if not LocateR then
+    Exit;
   if ClusterForm.ShowModal = mrOk then
   begin
     CreateCluster('cluster.R', Length(Dataset.ItemList),
       ClusterForm.ComboBoxMethod.ItemIndex);
     Screen.Cursor := crHourGlass;
-    if RunCommand(Concat(RPath, PathDelim, 'Rscript'), ['--vanilla', 'cluster.R'],
-      s, [poNoConsole]) then
+    //if RunCommand(Concat(RPath, PathDelim, 'Rscript'), ['--vanilla', 'cluster.R'],
+    //  s, [poNoConsole]) then
+    if RunCommand(RPath, ['--vanilla', 'cluster.R'], s, [poNoConsole]) then
     begin
       Screen.Cursor := crDefault;
       with ViewerForm do
@@ -2623,7 +2703,7 @@ procedure TMainForm.MatrixOrdinationItemClick(Sender: TObject);
 var
   S: ansistring;
 begin
-  if RPath = '' then
+  {if RPath = '' then
   begin
     SelectDirectoryDialog.Title := strRDirectory;
     SelectDirectoryDialog.Filename := '';
@@ -2634,11 +2714,14 @@ begin
       MessageDlg(strError, Format(strRNotFound, ['R']), mtError, [mbOK], 0);
       Exit;
     end;
-  end;
+  end;}
+  if not LocateR then
+     Exit;
   CreatePCOA('pcoa.R', Length(Dataset.ItemList));
   Screen.Cursor := crHourGlass;
-  if RunCommand(Concat(RPath, PathDelim, 'Rscript'), ['--vanilla', 'pcoa.R'],
-    S, [poNoConsole]) then
+  //if RunCommand(Concat(RPath, PathDelim, 'Rscript'), ['--vanilla', 'pcoa.R'],
+  //  S, [poNoConsole]) then
+  if RunCommand(RPath, ['--vanilla', 'pcoa.R'], S, [poNoConsole]) then
   begin
     Screen.Cursor := crDefault;
     with ViewerForm do

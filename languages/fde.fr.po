@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Free Delta Editor\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-10-14 21:20-0300\n"
+"PO-Revision-Date: 2021-11-13 09:52-0300\n"
 "Last-Translator: Mauro J. Cavalcanti <maurobio@gmail.com>\n"
 "Language-Team: Free Delta Development Team\n"
 "Language: fr\n"
@@ -1664,13 +1664,11 @@ msgid "Error"
 msgstr "Erreur"
 
 #: main.strexists
-#, fuzzy,badformat
 msgctxt "main.strexists"
 msgid "File %s already exists. Overwrite?"
 msgstr "Le fichier % s existe déjà. Remplacer?"
 
 #: main.strexport
-#, fuzzy,badformat
 msgctxt "main.strexport"
 msgid "Data exported successfully to directory %s."
 msgstr "Les données ont été exportées avec succès vers le répertoire % s."
@@ -4796,69 +4794,68 @@ msgstr "Fichiers XML|*.xml"
 
 #: ttonatform.cancelbutton.caption
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 #: ttonatform.caption
 msgid "CONFOR Directives"
-msgstr ""
+msgstr "Directives CONFOR"
 
 #: ttonatform.checkboxomitcharacternumbers.caption
 msgid "Omit Character Numbers:"
-msgstr ""
+msgstr "Omettre les numéros de caractères:"
 
 #: ttonatform.checkboxomitcomments.caption
 msgid "Omit Comments:"
-msgstr ""
+msgstr "Omettre les commentaires:"
 
 #: ttonatform.checkboxomitfinalcomma.caption
 msgid "Omit Final Comma:"
-msgstr ""
+msgstr "Omettre la virgule finale:"
 
 #: ttonatform.checkboxomitinapplicables.caption
 msgid "Omit Inapplicables:"
-msgstr ""
+msgstr "Omettre les inapplicables:"
 
 #: ttonatform.checkboxomitinnercomments.caption
 msgid "Omit Inner Comments:"
-msgstr ""
+msgstr "Omettre les commentaires internes:"
 
 #: ttonatform.checkboxomittypesettingmarks.caption
 msgid "Omit Typesetting Marks:"
-msgstr ""
+msgstr "Omettre les marques de composition:"
 
 #: ttonatform.checkboxreplaceanglebrackets.caption
 msgid "Replace Angle Brackets:"
-msgstr ""
+msgstr "Remplacer les crochets:"
 
 #: ttonatform.checkboxtranslateimplicitvalues.caption
 msgid "Translate Implicit Values:"
-msgstr ""
+msgstr "Traduire les valeurs implicites:"
 
 #: ttonatform.comboboxoutputformat.text
-#, fuzzy
 msgctxt "ttonatform.comboboxoutputformat.text"
 msgid "Text"
 msgstr "Texte"
 
 #: ttonatform.labelemphasizefeatures.caption
 msgid "Emphasize Features:"
-msgstr ""
+msgstr "Accentuer les caractéristiques:"
 
 #: ttonatform.labelexcludecharacters.caption
 msgid "Exclude Characters:"
-msgstr ""
+msgstr "Exclure des caractères:"
 
 #: ttonatform.labelexcludeitems.caption
 msgid "Exclude Items:"
-msgstr ""
+msgstr "Exclure des Items:"
 
 #: ttonatform.labelheading.caption
 msgid "Heading:"
-msgstr ""
+msgstr "Titre:"
 
 #: ttonatform.labelitemsubheadings.caption
 msgid "Item Subheadings:"
-msgstr ""
+msgstr "Sous-titres d'items:"
 
 #: ttonatform.labellinkcharacters.caption
 msgid "Link Characters:"
@@ -4866,31 +4863,31 @@ msgstr ""
 
 #: ttonatform.labelnewparagraphsatcharacters.caption
 msgid "New Paragraphs At Characters:"
-msgstr ""
+msgstr "Nouveaux paragraphes aux caractères:"
 
 #: ttonatform.labelomitlowerforcharacters.caption
 msgid "Omit Lower for Characters:"
-msgstr ""
+msgstr "Omettre 'inférieur' pour les caractères:"
 
 #: ttonatform.labelomitorforcharacters.caption
 msgid "Omit Or For Characters:"
-msgstr ""
+msgstr "Omettre 'ou' pour les caractères:"
 
 #: ttonatform.labelomitperiodforcharacters.caption
 msgid "Omit Period for Characters:"
-msgstr ""
+msgstr "Remplacer le point-virgule par une virgule:"
 
 #: ttonatform.labeloutputformat.caption
 msgid "Output Format:"
-msgstr ""
+msgstr "Format de sortie:"
 
 #: ttonatform.labelprintwidth.caption
 msgid "Print Width:"
-msgstr ""
+msgstr "Largeur d'impression:"
 
 #: ttonatform.labelreplacesemicolonbycomma.caption
 msgid "Replace Semicolon by Comma:"
-msgstr ""
+msgstr "Remplacer le point-virgule par une virgule:"
 
 #: ttonatform.okbutton.caption
 msgid "OK"
@@ -5385,4 +5382,3 @@ msgstr "Liaison pondérée (WPGMA)"
 msgctxt "viewer.strxmlfilter"
 msgid "XML files|*.xml"
 msgstr "Fichiers XML|*.xml"
-

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Free Delta Editor\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-10-14 21:21-0300\n"
+"PO-Revision-Date: 2021-11-13 09:53-0300\n"
 "Last-Translator: Mauro J. Cavalcanti <maurobio@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -4793,105 +4793,104 @@ msgstr "Arquivos XML|*.xml"
 
 #: ttonatform.cancelbutton.caption
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: ttonatform.caption
 msgid "CONFOR Directives"
-msgstr ""
+msgstr "Diretivas CONFOR"
 
 #: ttonatform.checkboxomitcharacternumbers.caption
 msgid "Omit Character Numbers:"
-msgstr ""
+msgstr "Omitir Número dos Caracteres:"
 
 #: ttonatform.checkboxomitcomments.caption
 msgid "Omit Comments:"
-msgstr ""
+msgstr "Omitir Comentários:"
 
 #: ttonatform.checkboxomitfinalcomma.caption
 msgid "Omit Final Comma:"
-msgstr ""
+msgstr "Omitir Vírgula Final:"
 
 #: ttonatform.checkboxomitinapplicables.caption
 msgid "Omit Inapplicables:"
-msgstr ""
+msgstr "Omitir Não-Aplicáveis:"
 
 #: ttonatform.checkboxomitinnercomments.caption
 msgid "Omit Inner Comments:"
-msgstr ""
+msgstr "Omitir Comentários Internos:"
 
 #: ttonatform.checkboxomittypesettingmarks.caption
 msgid "Omit Typesetting Marks:"
-msgstr ""
+msgstr "Omitir Marcações de impressão:"
 
 #: ttonatform.checkboxreplaceanglebrackets.caption
 msgid "Replace Angle Brackets:"
-msgstr ""
+msgstr "Substituir Parênteses Angulares:"
 
 #: ttonatform.checkboxtranslateimplicitvalues.caption
 msgid "Translate Implicit Values:"
-msgstr ""
+msgstr "Traduzir Valores Implícitos:"
 
 #: ttonatform.comboboxoutputformat.text
-#, fuzzy
 msgctxt "ttonatform.comboboxoutputformat.text"
 msgid "Text"
 msgstr "Texto"
 
 #: ttonatform.labelemphasizefeatures.caption
 msgid "Emphasize Features:"
-msgstr ""
+msgstr "Enfatizar Caracgeres:"
 
 #: ttonatform.labelexcludecharacters.caption
 msgid "Exclude Characters:"
-msgstr ""
+msgstr "Excluir Caracteres:"
 
 #: ttonatform.labelexcludeitems.caption
 msgid "Exclude Items:"
-msgstr ""
+msgstr "Excluir Items:"
 
 #: ttonatform.labelheading.caption
 msgid "Heading:"
-msgstr ""
+msgstr "Título:"
 
 #: ttonatform.labelitemsubheadings.caption
 msgid "Item Subheadings:"
-msgstr ""
+msgstr "Subtítulos dos Items:"
 
 #: ttonatform.labellinkcharacters.caption
 msgid "Link Characters:"
-msgstr ""
+msgstr "Juntar Caracteres:"
 
 #: ttonatform.labelnewparagraphsatcharacters.caption
 msgid "New Paragraphs At Characters:"
-msgstr ""
+msgstr "Novos Parágrafos nos Caracteres:"
 
 #: ttonatform.labelomitlowerforcharacters.caption
 msgid "Omit Lower for Characters:"
-msgstr ""
+msgstr "Omitir Valores Inferiores para Caracteres:"
 
 #: ttonatform.labelomitorforcharacters.caption
 msgid "Omit Or For Characters:"
-msgstr ""
+msgstr "Omitir Ou para Caracteres:"
 
 #: ttonatform.labelomitperiodforcharacters.caption
 msgid "Omit Period for Characters:"
-msgstr ""
+msgstr "Omitir Ponto para Caracteres:"
 
 #: ttonatform.labeloutputformat.caption
 msgid "Output Format:"
-msgstr ""
+msgstr "Formato de Saída:"
 
 #: ttonatform.labelprintwidth.caption
 msgid "Print Width:"
-msgstr ""
+msgstr "Largura da Impressão:"
 
 #: ttonatform.labelreplacesemicolonbycomma.caption
 msgid "Replace Semicolon by Comma:"
-msgstr ""
+msgstr "Substituir Ponto-e-Vírgula por Vírgula:"
 
 #: ttonatform.okbutton.caption
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: viewer.straddcharacter
 msgctxt "viewer.straddcharacter"
@@ -5382,4 +5381,3 @@ msgstr "Ligação ponderada (WPGMA)"
 msgctxt "viewer.strxmlfilter"
 msgid "XML files|*.xml"
 msgstr "Arquivos XML|*.xml"
-
