@@ -117,6 +117,8 @@ end;
 procedure TKeyForm.ComboBoxOutputFormatChange(Sender: TObject);
 begin
   CheckBoxNoTabularKey.Enabled := ComboBoxOutputFormat.ItemIndex = 0;
+  if ComboBoxOutputFormat.ItemIndex = 2 then
+    SpinEditPrintWidth.Value := 0;
 end;
 
 procedure TKeyForm.FormDestroy(Sender: TObject);
@@ -156,7 +158,7 @@ end;
 
 procedure TKeyForm.SpeedButtonKeyStatesClick(Sender: TObject);
 begin
-  if KeyStatesForm.ShowModal = mrOK then
+  if KeyStatesForm.ShowModal = mrOk then
     EditKeyStates.Text := KeyStatesForm.KS;
 end;
 
@@ -177,4 +179,3 @@ begin
 end;
 
 end.
-

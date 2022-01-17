@@ -24,9 +24,8 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="2"/>
-      <MinorVersionNr Value="8"/>
-      <RevisionNr Value="5"/>
-      <BuildNr Value="37"/>
+      <MinorVersionNr Value="9"/>
+      <BuildNr Value="38"/>
       <CharSet Value="04B0"/>
       <StringTable Comments="Build configured for Win Linux and Darwin" CompanyName="Ecoinformatics Studio" FileDescription="FreeDelta Editor" InternalName="FreeDelta Editor" LegalCopyright="(c) 2000-2020 Mauro J. Cavalcanti" LegalTrademarks="GPL3" OriginalFilename="fde" ProductName="Lazarus and Freepascal" ProductVersion="1.x and 3.x"/>
     </VersionInfo>
@@ -43,25 +42,28 @@
         <Mode0 Name="default"/>
       </Modes>
     </RunParams>
-    <RequiredPackages Count="6">
+    <RequiredPackages Count="7">
       <Item1>
-        <PackageName Value="SynEdit"/>
+        <PackageName Value="richmemopackage"/>
       </Item1>
       <Item2>
-        <PackageName Value="FrameViewer09"/>
+        <PackageName Value="SynEdit"/>
       </Item2>
       <Item3>
-        <PackageName Value="TurboPowerIPro"/>
+        <PackageName Value="FrameViewer09"/>
       </Item3>
       <Item4>
-        <PackageName Value="LazControls"/>
+        <PackageName Value="TurboPowerIPro"/>
       </Item4>
       <Item5>
-        <PackageName Value="HistoryLazarus"/>
+        <PackageName Value="LazControls"/>
       </Item5>
       <Item6>
-        <PackageName Value="LCL"/>
+        <PackageName Value="HistoryLazarus"/>
       </Item6>
+      <Item7>
+        <PackageName Value="LCL"/>
+      </Item7>
     </RequiredPackages>
     <Units Count="17">
       <Unit0>

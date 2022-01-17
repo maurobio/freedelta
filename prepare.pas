@@ -42,10 +42,13 @@ procedure CreateTIMAGES(const dirfile: string);
 procedure CreateCIMAGES(const dirfile: string);
 procedure CreateCluster(const scriptfile: string; notu, method: integer);
 procedure CreatePCOA(const scriptfile: string; notu: integer);
-procedure CharactersMarkup;
-procedure ItemsMarkup;
-procedure DescriptionMarkup(header: string);
-procedure KeyMarkup;
+procedure CharactersHtmMarkup;
+procedure ItemsHtmMarkup;
+procedure DescriptionHtmMarkup(header: string);
+procedure KeyHtmMarkup;
+procedure CharactersRtfMarkup;
+procedure ItemsRtfMarkup;
+procedure DescriptionRtfMarkup(header: string);
 
 implementation
 
@@ -105,11 +108,14 @@ begin
   WriteLn(outfile);
   if (ext = 'htm') then
   begin
-    DescriptionMarkup(header);
+    DescriptionHtmMarkup(header);
     WriteLn(outfile, '*INPUT FILE markhtm');
+  end
+  else if (ext = 'rtf') then
+  begin
+    DescriptionRtfMarkup(header);
+    WriteLn(outfile, '*INPUT FILE markrtf');
   end;
-  //else if (ext = 'rtf') then
-  //  WriteLn(outfile, '*INPUT FILE ../markup/markrtf');
   WriteLn(outfile);
   if replace_angle_brackets then
     WriteLn(outfile, '*REPLACE ANGLE BRACKETS');
@@ -123,9 +129,9 @@ begin
     WriteLn(outfile, '*OMIT INNER COMMENTS');
   if omit_final_comma then
     WriteLn(outfile, '*OMIT FINAL COMMA');
-  if omit_typesetting_marks then
+  if omit_typesetting_marks and (ext <> 'rtf') then
     WriteLn(outfile, '*OMIT TYPESETTING MARKS');
-  WriteLn(outfile, '*PRINT WIDTH ', IntToStr(print_width));
+  WriteLn(outfile, '*PRINT WIDTH ', IfThen(ext <> 'rtf', IntToStr(print_width), '0'));
   WriteLn(outfile);
   if Length(omit_lower_for_characters) > 0 then
     WriteLn(outfile, WrapText('*OMIT LOWER FOR CHARACTERS ' +
@@ -176,12 +182,12 @@ begin
   WriteLn(outfile);
   if (ext = 'txt') then
     WriteLn(outfile, '*PRINT HEADING')
-  //else if (ext = 'rtf') then
-  //begin
-  //  WriteLn(outfile, '*PRINT COMMENT');
-  //  WriteLn(outfile,
-  //    '\par\pard\plain\s2\qc\sb500\sa400\keepn\b\f2\fs28\kerning28{} Descriptions');
-  //end
+  else if (ext = 'rtf') then
+  begin
+    WriteLn(outfile, '*PRINT COMMENT');
+    WriteLn(outfile,
+      '\par\pard\plain\s2\qc\sb500\sa400\keepn\b\f2\fs28\kerning28{} Descriptions');
+  end
   else if (ext = 'htm') then
   begin
     WriteLn(outfile, '*PRINT COMMENT');
@@ -397,22 +403,27 @@ begin
   WriteLn(outfile, '*COMMENT Generate dichotomous key.');
   WriteLn(outfile, '*HEADING ', header);
   if (ext = 'txt') then
-    WriteLn(outfile, '*KEY OUTPUT FILE key.', ext);
-  if (ext = 'htm') then
+    WriteLn(outfile, '*KEY OUTPUT FILE key.', ext)
+  else if (ext = 'htm') then
   begin
-    KeyMarkup;
+    KeyHtmMarkup;
     WriteLn(outfile, '*KEY TYPESETTING FILE key.', ext);
     WriteLn(outfile);
     WriteLn(outfile, '*INPUT FILE markhtm');
   end;
-  //else if (ext = 'rtf') then
-  //  WriteLn(outfile, '*INPUT FILE ../markup/markrtf');
+  {else if (ext = 'rtf') then
+  begin
+    KeyRtfMarkup;
+    WriteLn(outfile, '*KEY TYPESETTING FILE key.', ext);
+    WriteLn(outfile);
+    WriteLn(outfile, '*INPUT FILE markrtf');
+  end;}
   WriteLn(outfile);
   WriteLn(outfile, '*ABASE ', FloatToStr(abase));
   WriteLn(outfile, '*RBASE ', FloatToStr(rbase));
   WriteLn(outfile, '*REUSE ', FloatToStr(reuse));
   WriteLn(outfile, '*VARYWT ', FloatToStr(varywt));
-  WriteLn(outfile, '*PRINT WIDTH ', IntToStr(print_width));
+  WriteLn(outfile, '*PRINT WIDTH ', IfThen(ext <> 'rtf', IntToStr(print_width), '0'));
   if add_character_numbers then
     WriteLn(outfile, '*ADD CHARACTER NUMBERS', LineEnding);
   if no_bracketted_key then
@@ -744,7 +755,10 @@ begin
   CloseFile(outfile);
 end;
 
-procedure CharactersMarkup;
+{--------------------------------------------------------------------------}
+{          CharactersHtmMarkup                                             }
+{--------------------------------------------------------------------------}
+procedure CharactersHtmMarkup;
 var
   outfile: TextFile;
 begin
@@ -778,7 +792,10 @@ begin
   CloseFile(outfile);
 end;
 
-procedure ItemsMarkup;
+{--------------------------------------------------------------------------}
+{          ItemsHtmMarkup                                                  }
+{--------------------------------------------------------------------------}
+procedure ItemsHtmMarkup;
 var
   outfile: TextFile;
 begin
@@ -803,7 +820,10 @@ begin
   CloseFile(outfile);
 end;
 
-procedure DescriptionMarkup(header: string);
+{--------------------------------------------------------------------------}
+{          DescriptionHtmMarkup                                            }
+{--------------------------------------------------------------------------}
+procedure DescriptionHtmMarkup(header: string);
 var
   outfile: TextFile;
 begin
@@ -889,7 +909,10 @@ begin
   CloseFile(outfile);
 end;
 
-procedure KeyMarkup;
+{--------------------------------------------------------------------------}
+{          KeyHtmMarkup                                                    }
+{--------------------------------------------------------------------------}
+procedure KeyHtmMarkup;
 var
   outfile: TextFile;
 begin
@@ -939,6 +962,186 @@ begin
   WriteLn(outfile, '|</ul></td></tr></table>|');
   WriteLn(outfile, '#50. <KEY: at end of key; precedes mark 29>');
   WriteLn(outfile, '||');
+  CloseFile(outfile);
+end;
+
+{--------------------------------------------------------------------------}
+{          CharactersRtfMarkup                                             }
+{--------------------------------------------------------------------------}
+procedure CharactersRtfMarkup;
+var
+  outfile: TextFile;
+begin
+  AssignFile(outfile, 'markrtf');
+  Rewrite(outfile);
+  WriteLn(outfile, '*COMMENT ~ Markup for RTF output.');
+  WriteLn(outfile);
+  WriteLn(outfile, '*PRINT WIDTH 0');
+  WriteLn(outfile);
+  WriteLn(outfile, '*TYPESETTING MARKS !');
+  WriteLn(outfile, '#1. <range symbol>');
+  WriteLn(outfile, '!–!');
+  WriteLn(outfile, '#2. <PRINT CHARACTER LIST: before each character (or character heading if');
+  WriteLn(outfile, 'present)>');
+  WriteLn(outfile,
+    '#3. <PRINT CHARACTER LIST: before the first character (or character heading');
+  WriteLn(outfile, 'if present) (and before 2) (it was used for TYPSET tabs and indentations)>');
+  WriteLn(outfile, '#4. <PRINT CHARACTER LIST: before a character heading>');
+  WriteLn(outfile, '!\par\pard\plain\s10\ql\sb300\sa100\li0\fi0\keep\keepn\b\fs24{}!');
+  WriteLn(outfile, '#5. <PRINT CHARACTER LIST: after a character heading>');
+  WriteLn(outfile);
+  WriteLn(outfile, '#6. <PRINT CHARACTER LIST: before each character>');
+  WriteLn(outfile, '!\par\pard\plain\s11\ql\sb0\sa0\li705\fi-705\fs22{}!');
+  WriteLn(outfile, '#7. <PRINT CHARACTER LIST: before a state description>');
+  WriteLn(outfile, '!\par\pard\plain\s12\ql\sb0\sa0\li705\fi-200\fs22{}!');
+  WriteLn(outfile, '#8. <PRINT CHARACTER LIST: before character notes>');
+  WriteLn(outfile, '!\par\pard\plain\s13\ql\sb0\sa0\li505\fi400\fs22{}!');
+  WriteLn(outfile, '#12. <not used>');
+  WriteLn(outfile, '#40. <PRINT CHARACTER LIST: after the character list; precedes mark 29>');
+  WriteLn(outfile);
+  CloseFile(outfile);
+end;
+
+{--------------------------------------------------------------------------}
+{          ItemsRtfMarkup                                                  }
+{--------------------------------------------------------------------------}
+procedure ItemsRtfMarkup;
+var
+  outfile: TextFile;
+begin
+  AssignFile(outfile, 'markrtf');
+  Rewrite(outfile);
+  WriteLn(outfile, '*COMMENT ~ Markup for RTF output.');
+  WriteLn(outfile);
+  WriteLn(outfile, '*PRINT WIDTH 0');
+  WriteLn(outfile);
+  WriteLn(outfile, '*TYPESETTING MARKS !');
+  WriteLn(outfile, '#1. <range symbol>');
+  WriteLn(outfile, '!–!');
+  WriteLn(outfile, '#9. <PRINT ITEM DESCRIPTIONS: before item, with natural language>');
+  WriteLn(outfile, '!\par\pard\plain\ql\sb300\sa0\keepn\fs22{}!');
+  WriteLn(outfile, '#10. <PRINT ITEM DESCRIPTIONS: before item, without natural language>');
+  WriteLn(outfile, '!\par\pard\plain\ql\sb300\sa0\keepn\fs22{}!');
+  WriteLn(outfile, '#11. <PRINT ITEM DESCRIPTIONS: after item name>');
+  WriteLn(outfile, '!\par\pard\plain\ql\sb0\sa0\fs22{}!');
+  WriteLn(outfile, '#12. <not used>');
+  WriteLn(outfile, '#23. <PRINT ITEM NAMES: before item name>');
+  WriteLn(outfile, '!\par\pard\plain\ql\sb0\sa0\fs22{}!');
+  CloseFile(outfile);
+end;
+
+{--------------------------------------------------------------------------}
+{          DescriptionRtfMarkup                                            }
+{--------------------------------------------------------------------------}
+procedure DescriptionRtfMarkup(header: string);
+var
+  outfile: TextFile;
+begin
+  AssignFile(outfile, 'markrtf');
+  Rewrite(outfile);
+  WriteLn(outfile, '*COMMENT ~ Markup for RTF output.');
+  WriteLn(outfile);
+  WriteLn(outfile, '*PRINT WIDTH 0');
+  WriteLn(outfile);
+  WriteLn(outfile, '*TYPESETTING MARKS !');
+  WriteLn(outfile, '#1. <range symbol>');
+  WriteLn(outfile, '!–!');
+  WriteLn(outfile, '#12. <not used>');
+  WriteLn(outfile, '#13. <NATURAL LANGUAGE: before each item (or item heading if present)>');
+  WriteLn(outfile, '#14. <NATURAL LANGUAGE: before item name if at start of a file>');
+  WriteLn(outfile, '!\pard\plain\s21\ql\sb0\sa100\li0\fi0\keep\keepn\b\fs24\f2{}!');
+  WriteLn(outfile, '#15. <NATURAL LANGUAGE: after item name>');
+  WriteLn(outfile, '!\f0\fs22\b0{}!');
+  WriteLn(outfile, '#16. <NATURAL LANGUAGE: before a character which begins a new paragraph>');
+  WriteLn(outfile, '!\par\pard\plain\qj\s22\sb0\sa0\li0\fi340\fs22{}!');
+  WriteLn(outfile, '#17. <NATURAL LANGUAGE: before an emphasized feature>');
+  WriteLn(outfile, '!\i{}!');
+  WriteLn(outfile, '#18. <NATURAL LANGUAGE: after an emphasized feature>');
+  WriteLn(outfile, '!\i0{}!');
+  WriteLn(outfile, '#19. <NATURAL LANGUAGE: before an emphasized character>');
+  WriteLn(outfile, '!\b{}!');
+  WriteLn(outfile, '#20. <NATURAL LANGUAGE: after an emphasized character>');
+  WriteLn(outfile, '!\b0{}!');
+  WriteLn(outfile, '#21. <NATURAL LANGUAGE: before an emphasized state description>');
+  WriteLn(outfile, '!\b{}!');
+  WriteLn(outfile, '#22. <NATURAL LANGUAGE: after an emphasized state description>');
+  WriteLn(outfile, '!\b0{}!');
+  WriteLn(outfile, '#23. <PRINT ITEM NAMES: before item name>');
+  WriteLn(outfile, '!\par\pard\plain\ql\sb0\sa0\fs22{}!');
+  WriteLn(outfile, '#24. <PRINT UNCODED CHARACTERS: before list of uncoded characters>');
+  WriteLn(outfile, '!\par\pard\ql\sb200\sa0{}!');
+  WriteLn(outfile, '#25. <NATURAL LANGUAGE: before a non-comment section of an item name>');
+  WriteLn(outfile, '#26. <NATURAL LANGUAGE: after non-comment section of an item name>');
+  WriteLn(outfile, '#27. <NATURAL LANGUAGE: after each item; precedes mark 29>');
+  WriteLn(outfile,
+    '#28. <NATURAL LANGUAGE: at the start of each file. N.B. Don''t allow style names');
+  WriteLn(outfile,
+    'to wrap, otherwise white space is omitted. Australian English, A4 paper, margins');
+  WriteLn(outfile, '2.5cm:');
+  WriteLn(outfile,
+    '\deflang3081\paperw11906\paperh16838\margl1418\margr1418\margt1418\margb1418{}');
+  WriteLn(outfile, 'US English, Letter paper, margins 1":');
+  WriteLn(outfile,
+    '\deflang1033\paperw12242\paperh15842\margl1440\margr1440\margt1440\margb1440{} >');
+  WriteLn(outfile, '!{\rtf1\ansi\ansicpg1252\uc1\deff0{}');
+  WriteLn(outfile,
+    '\deflang1033\paperw12242\paperh15842\margl1440\margr1440\margt1440\margb1440{}');
+  WriteLn(outfile, '{\fonttbl');
+  WriteLn(outfile, '{\f0\froman\fcharset0\fprq2{}Times New Roman;}');
+  WriteLn(outfile, '{\f1\froman\fcharset2\fprq2{}Symbol;}');
+  WriteLn(outfile, '{\f2\fswiss\fcharset0\fprq2{}Arial;}');
+  WriteLn(outfile, '}');
+  WriteLn(outfile, '{\stylesheet');
+  WriteLn(outfile, '{\qj\fi340\fs22\snext0{}Normal;}');
+  WriteLn(outfile,
+    '{\s1\qc\sb500\sa100\keepn\b\f2\fs32\kerning28\sbasedon0\snext0{}Heading 1;}');
+  WriteLn(outfile,
+    '{\s2\qc\sb500\sa100\keepn\b\f2\fs28\kerning28\sbasedon0\snext0{}Heading 2;}');
+  WriteLn(outfile, '{\s3\ql\sb500\sa100\keepn\b\f2\fs24\sbasedon0\snext0{}Heading 3;}');
+  WriteLn(outfile, '{\s6\ql\sb0\sa0\li340\fi-340\fs22\sbasedon0{}References;}');
+  WriteLn(outfile,
+    '{\s10\ql\sb300\sa100\li0\fi0\keep\keepn\b\fs24\sbasedon0{}Character Heading;}');
+  WriteLn(outfile, '{\s11\ql\sb0\sa0\li705\fi-705\fs22\sbasedon0{}Feature;}');
+  WriteLn(outfile, '{\s12\ql\sb0\sa0\li705\fi-200\fs22\sbasedon0{}State;}');
+  WriteLn(outfile, '{\s13\ql\sb0\sa0\li505\fi400\fs22\sbasedon0{}Character Note;}');
+  WriteLn(outfile, '{\s20\qc\sb300\sa0\li0\fi0\keep\keepn\fs24\sbasedon0{}Taxon Heading;}');
+  WriteLn(outfile, '{\s21\ql\sb300\sa100\li0\fi0\keep\keepn\b\fs24\sbasedon0{}Taxon Name;}');
+  WriteLn(outfile, '{\s22\qj\sb0\sa0\li0\fi340\fs22\sbasedon0{}Description;}');
+  WriteLn(outfile, '{\s23\fi-300\li300\keep\keepn\b\fs22\sbasedon0\snext0\sautoupd{}toc 1;}');
+  WriteLn(outfile, '{\s24\fi-300\li450\keep\fs22\sbasedon0\snext0\sautoupd{}toc 2;}');
+  WriteLn(outfile, '{\s30\ql\sb0\sa0\fi-907\li907\tx680\tqr\tldot\tx9072\fs22\sbasedon0{}Key;}');
+  WriteLn(outfile, '{\s31\ql\sb100\sa0\fi-907\li907\tx680\tqr\tldot\tx9072\fs22');
+  WriteLn(outfile, '\sbasedon30{}Key First Lead;}');
+  WriteLn(outfile, '}');
+  WriteLn(outfile, '\widowctrl{}!');
+  WriteLn(outfile, '#29. <NATURAL LANGUAGE: after the last item in a file; follows mark 27.');
+  WriteLn(outfile, '   PRINT CHARACTER LIST: after the character list; follows mark 40.');
+  WriteLn(outfile, '   KEY: at the end of the key file; follows mark 50>');
+  WriteLn(outfile, '!}!');
+  WriteLn(outfile, '#30. <NATURAL LANGUAGE: before item heading>');
+  WriteLn(outfile, '!\par\pard\plain\s20\qc\sb0\sa0\li0\fi0\keep\keepn\fs24\b{}!');
+  WriteLn(outfile, '#31. <NATURAL LANGUAGE: after item heading>');
+  WriteLn(outfile, '!\b0\fs22{}!');
+  WriteLn(outfile, '#32. <NATURAL LANGUAGE: before item subheading>');
+  WriteLn(outfile, '!\fs21\f2\b{}!');
+  WriteLn(outfile, '#33. <NATURAL LANGUAGE: after item subheading>');
+  WriteLn(outfile, '!\b0\f0\fs22{}!');
+  WriteLn(outfile, '#34. <NATURAL LANGUAGE: before output file name in index file>');
+  WriteLn(outfile,
+    '#35. <NATURAL LANGUAGE: between output file name and taxon name in index file>');
+  WriteLn(outfile, '#36. <NATURAL LANGUAGE: after taxon name in index file>');
+  WriteLn(outfile,
+    '#37. <NATURAL LANGUAGE: before image file name in "character for taxon images">');
+  WriteLn(outfile, '!\par\pard\plain\s21\qc\sb300\sa0\li0\fi0\fs22\keepn{\field{\*\fldinst');
+  WriteLn(outfile, '{ INCLUDEPICTURE "D:\\\\DELTA\\\\sample\\\\images\\\\!');
+  WriteLn(outfile, '#38. <NATURAL LANGUAGE: between image file name and subject>');
+  WriteLn(outfile,
+    '!" \\* MERGEFORMAT \\d }}}\par\pard\plain\s21\qj\sb200\sa0\li0\fi0\fs22\b{}!');
+  WriteLn(outfile, '#39. <NATURAL LANGUAGE: after subject in "character for taxon images">');
+  WriteLn(outfile, '!\b0{}!');
+  WriteLn(outfile, '#40. <PRINT CHARACTER LIST: after the character list; precedes mark 29>');
+  WriteLn(outfile, '#51. <NATURAL LANGUAGE: before item name if not at start of a file>');
+  WriteLn(outfile, '!\par\pard\plain\s21\ql\sb300\sa100\li0\fi0\keep\keepn\b\fs24{}!');
   CloseFile(outfile);
 end;
 

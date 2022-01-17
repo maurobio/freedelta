@@ -846,7 +846,6 @@ object TonatForm: TTonatForm
     Top = 408
     Width = 121
     MaxValue = 200
-    MinValue = 40
     TabOrder = 19
     Value = 80
   end
@@ -864,6 +863,7 @@ object TonatForm: TTonatForm
     Top = 435
     Width = 121
     ItemHeight = 15
+    OnChange = ComboBoxOutputFormatChange
     TabOrder = 20
     Text = 'Text'
   end

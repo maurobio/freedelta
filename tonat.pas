@@ -59,6 +59,7 @@ type
     SpeedButtonExcludeCharacters: TSpeedButton;
     SpeedButtonExcludeItems: TSpeedButton;
     SpinEditPrintWidth: TSpinEdit;
+    procedure ComboBoxOutputFormatChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure SpeedButtonEmphasizeFeaturesClick(Sender: TObject);
@@ -190,9 +191,16 @@ begin
   begin
     Add(strText);
     Add('HTML');
-    //Add('RTF');
+    Add('RTF');
   end;
   ComboBoxOutputFormat.ItemIndex := 0;
+end;
+
+procedure TTonatForm.ComboBoxOutputFormatChange(Sender: TObject);
+begin
+  CheckBoxOmitTypesettingMarks.Checked := ComboBoxOutputFormat.ItemIndex <> 2;
+  if ComboBoxOutputFormat.ItemIndex = 2 then
+    SpinEditPrintWidth.Value := 0;
 end;
 
 procedure TTonatForm.FormDestroy(Sender: TObject);

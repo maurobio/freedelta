@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-  Buttons, Clipbrd, HtmlView;
+  Buttons, Clipbrd, HtmlView, RichMemo;
 
 type
 
@@ -17,6 +17,7 @@ type
     HtmlViewer: THtmlViewer;
     CloseBtn: TBitBtn;
     ImageViewer: TImage;
+    RtfViewer: TRichMemo;
     ScrollBox: TScrollBox;
     TextViewer: TMemo;
     procedure CloseBtnClick(Sender: TObject);
@@ -53,6 +54,13 @@ begin
     TextViewer.SelectAll;
     TextViewer.CopyToClipboard;
     TextViewer.SelLength := 0;
+    MessageDlg(strCopyText, mtInformation, [mbOK], 0);
+  end
+  else if RtfViewer.Visible then
+  begin
+    RtfViewer.SelectAll;
+    RtfViewer.CopyToClipboard;
+    RtfViewer.SelLength := 0;
     MessageDlg(strCopyText, mtInformation, [mbOK], 0);
   end
   else if HtmlViewer.Visible then

@@ -22,6 +22,7 @@
 {     Free Pascal 3.0+ (www.freepascal.org)                                    }
 {     HistoryFiles 1.3+ (wiki.freepascal.org/HistoryFiles)                     }
 {     HtmlViewer 10.2+ (wiki.freepascal.org/THtmlPort)                         }
+{     RichMemo 1.0+ (wiki.freepascal.org/RichMemo)                             }
 {     SynFacilSyn 1.21+ (github.com/t-edson/SynFacilSyn)                       }
 {                                                                              }
 {  REVISION HISTORY:                                                           }
@@ -381,6 +382,8 @@
 { Version 2.85, 12 Nov, 2021      - Changed the way the R software for         }
 {                                   statistical computing and graphics is found}
 {                                   in the current OS to be fully automatic.   }
+{ Version 2.90, 17 Jan, 2022      - Added support to RTF in natural-language   }
+{                                   descriptions.                              }
 {==============================================================================}
 unit Main;
 
@@ -702,7 +705,7 @@ uses About, Prepare, Tonat, Tokey, Todis, Cluster, Chars, Viewer, Phylogen, Scri
 function TMainForm.LocateR: boolean;
 begin
   if not FileExists(RPath) then
-     RPath := '';
+    RPath := '';
   if RPath = '' then
   begin
     if Copy(OSVersion, 1, Pos(' ', OSVersion) - 1) <> 'Windows' then
@@ -712,7 +715,7 @@ begin
       Screen.Cursor := crHourGlass;
       RPath := FindR;
       if RPath <> '' then
-         RPath := Concat(RPath, 'Rscript.exe');
+        RPath := Concat(RPath, 'Rscript.exe');
       Screen.Cursor := crDefault;
     end;
     if RPath = '' then
@@ -2254,6 +2257,7 @@ var
   PrintWidth: integer;
   Extension: string;
   S: ansistring;
+  FS: TFileStream;
 begin
   sPath := ExtractFilePath(Application.ExeName);
   DefaultFormatSettings.DecimalSeparator := '.';
@@ -2352,6 +2356,7 @@ begin
     case KeyForm.ComboBoxOutputFormat.ItemIndex of
       0: Extension := 'txt';
       1: Extension := 'htm';
+      //2: Extension := 'rtf';
     end;
     CreateTOKEY('tokey', Dataset.Heading, UseNormalValues, CharacterReliabilities,
       KeyStates, IncludeItems, IncludeCharacters);
@@ -2393,16 +2398,31 @@ begin
           begin
             if (Extension = 'txt') then
             begin
+              RtfViewer.Visible := False;
               HtmlViewer.Visible := False;
               TextViewer.Visible := True;
               TextViewer.Lines.LoadFromFile('key.' + Extension);
             end
             else if (Extension = 'htm') then
             begin
+              RtfViewer.Visible := False;
               TextViewer.Visible := False;
               HtmlViewer.Visible := True;
               HtmlViewer.LoadFromFile('key.' + Extension);
             end;
+            {else if (Extension = 'rtf') then
+            begin
+              RtfViewer.Visible := True;
+              TextViewer.Visible := False;
+              HtmlViewer.Visible := False;
+              FS := TFileStream.Create(Utf8ToAnsi('key.' + Extension),
+                fmOpenRead or fmShareDenyNone);
+              try
+                RtfViewer.LoadRichText(FS);
+              finally
+                FS.Free
+              end;
+            end;}
             Show;
           end;
         end;
@@ -2716,7 +2736,7 @@ begin
     end;
   end;}
   if not LocateR then
-     Exit;
+    Exit;
   CreatePCOA('pcoa.R', Length(Dataset.ItemList));
   Screen.Cursor := crHourGlass;
   //if RunCommand(Concat(RPath, PathDelim, 'Rscript'), ['--vanilla', 'pcoa.R'],
@@ -3146,6 +3166,7 @@ var
   PrintWidth: integer;
   S: ansistring;
   Vocabulary: TStringList;
+  FS: TFileStream;
 begin
   sPath := ExtractFilePath(Application.ExeName);
   Vocabulary := TStringList.Create;
@@ -3276,13 +3297,13 @@ begin
     case TonatForm.ComboBoxOutputFormat.ItemIndex of
       0: Extension := 'txt';
       1: Extension := 'htm';
-      //2: Extension := 'rtf';
+      2: Extension := 'rtf';
     end;
     if OmitTypesettingMarks then
-       OmitTypesettingMarks := False
+      OmitTypesettingMarks := False
     else
     if not OmitTypesettingMarks then
-       OmitTypeSettingMarks := True;
+      OmitTypeSettingMarks := True;
     CreateTONAT('tonat', Dataset.Heading, ReplaceAngleBrackets,
       OmitCharacterNumbers,
       OmitInapplicables, OmitComments, OmitInnerComments, OmitFinalComma,
@@ -3310,15 +3331,30 @@ begin
         ImageViewer.Visible := False;
         if (Extension = 'txt') then
         begin
+          RtfViewer.Visible := False;
           HtmlViewer.Visible := False;
           TextViewer.Visible := True;
           TextViewer.Lines.LoadFromFile('description.' + Extension);
         end
         else if (Extension = 'htm') then
         begin
+          RtfViewer.Visible := False;
           TextViewer.Visible := False;
           HtmlViewer.Visible := True;
           HtmlViewer.LoadFromFile('description.' + Extension);
+        end
+        else if (Extension = 'rtf') then
+        begin
+          RtfViewer.Visible := True;
+          TextViewer.Visible := False;
+          HtmlViewer.Visible := False;
+          FS := TFileStream.Create(Utf8ToAnsi('description.' + Extension),
+            fmOpenRead or fmShareDenyNone);
+          try
+            RtfViewer.LoadRichText(FS);
+          finally
+            FS.Free
+          end;
         end;
         Show;
       end;

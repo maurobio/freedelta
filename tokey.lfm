@@ -147,7 +147,7 @@ object KeyForm: TKeyForm
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   Position = poMainFormCenter
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '2.0.12.0'
   object LabelHeading: TLabel
     Left = 14
     Height = 15
@@ -287,7 +287,6 @@ object KeyForm: TKeyForm
     TabOrder = 9
     MaxValue = 5
     MinValue = 1
-    NullValue = 0
     Value = 1.2
   end
   object LabelRBASE: TLabel
@@ -308,7 +307,6 @@ object KeyForm: TKeyForm
     TabOrder = 10
     MaxValue = 5
     MinValue = 1
-    NullValue = 0
     Value = 1.4
   end
   object LabelREUSE: TLabel
@@ -329,7 +327,6 @@ object KeyForm: TKeyForm
     TabOrder = 11
     MaxValue = 5
     MinValue = 1
-    NullValue = 0
     Value = 1.01
   end
   object LabelVARYWT: TLabel
@@ -349,8 +346,6 @@ object KeyForm: TKeyForm
     NumbersOnly = True
     TabOrder = 12
     MaxValue = 1
-    MinValue = 0
-    NullValue = 0
     Value = 0.8
   end
   object LabelIncludeItems: TLabel
@@ -623,7 +618,6 @@ object KeyForm: TKeyForm
     Top = 401
     Width = 124
     MaxValue = 299
-    MinValue = 40
     TabOrder = 15
     Value = 80
   end
