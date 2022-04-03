@@ -1,7 +1,7 @@
 {==============================================================================}
 {                          Free Delta Editor                                   }
 {         A software package for building taxonomic databases                  }
-{                   (c) 2000-2021 by Mauro J. Cavalcanti                       }
+{                   (c) 2000-2022 by Mauro J. Cavalcanti                       }
 {                         <maurobio@gmail.com>                                 }
 {                                                                              }
 {   This program is free software: you can redistribute it and/or modify       }
@@ -384,6 +384,10 @@
 {                                   in the current OS to be fully automatic.   }
 { Version 2.90, 17 Jan, 2022      - Added support to RTF in natural-language   }
 {                                   descriptions.                              }
+{ Version 2.91, 27 Mar, 2022      - Fixed a bug which caused all characters in }
+{                                   the character tree to appear unmarked when }
+{                                   the Character Edit dialog was closed by    }
+{                                   pessing the OK button.                     }
 {==============================================================================}
 unit Main;
 
@@ -4371,7 +4375,7 @@ begin
         Dataset.CharacterList[CharIndex].charDependent := DependentChar;
         if ListStates.Items.Count > 0 then
           Dataset.CharacterList[CharIndex].charStates := StatesList;
-        LoadCharacterList;
+        LoadCharacterList(CharIndex);
         DataMatrix.Cells[CharIndex, 0] := CharName;
         DataMatrix.Refresh;
         FileIsChanged := True;
