@@ -1,0 +1,23 @@
+{"version":1,"strings":[
+{"hash":18856115,"name":"tkeyform.caption","sourcebytes":[75,69,89,32,68,105,114,101,99,116,105,118,101,115],"value":"KEY Directives"},
+{"hash":192610378,"name":"tkeyform.labelheading.caption","sourcebytes":[72,101,97,100,105,110,103,58],"value":"Heading:"},
+{"hash":101613098,"name":"tkeyform.checkboxaddcharacternumbers.caption","sourcebytes":[65,100,100,32,67,104,97,114,97,99,116,101,114,32,78,117,109,98,101,114,115,58],"value":"Add Character Numbers:"},
+{"hash":162897642,"name":"tkeyform.checkboxnobrackettedkey.caption","sourcebytes":[78,111,32,66,114,97,99,107,101,116,116,101,100,32,75,101,121,58],"value":"No Bracketted Key:"},
+{"hash":233100282,"name":"tkeyform.checkboxnotabularkey.caption","sourcebytes":[78,111,32,84,97,98,117,108,97,114,32,75,101,121,58],"value":"No Tabular Key:"},
+{"hash":163484106,"name":"tkeyform.labelnumberofconfirmatorycharacters.caption","sourcebytes":[78,117,109,98,101,114,32,111,102,32,67,111,110,102,105,114,109,97,116,111,114,121,32,67,104,97,114,97,99,116,101,114,115,58],"value":"Number of Confirmatory Characters:"},
+{"hash":264930394,"name":"tkeyform.labeltreatcharactersasvariable.caption","sourcebytes":[84,114,101,97,116,32,67,104,97,114,97,99,116,101,114,115,32,97,115,32,86,97,114,105,97,98,108,101,58],"value":"Treat Characters as Variable:"},
+{"hash":255440746,"name":"tkeyform.labelusenormalvalues.caption","sourcebytes":[85,115,101,32,78,111,114,109,97,108,32,86,97,108,117,101,115,58],"value":"Use Normal Values:"},
+{"hash":85412218,"name":"tkeyform.labelcharacterreliabilities.caption","sourcebytes":[67,104,97,114,97,99,116,101,114,32,82,101,108,105,97,98,105,108,105,116,105,101,115,58],"value":"Character Reliabilities:"},
+{"hash":184117050,"name":"tkeyform.labelkeystates.caption","sourcebytes":[75,101,121,32,83,116,97,116,101,115,58],"value":"Key States:"},
+{"hash":72771466,"name":"tkeyform.labelabase.caption","sourcebytes":[65,66,65,83,69,58],"value":"ABASE:"},
+{"hash":90597258,"name":"tkeyform.labelrbase.caption","sourcebytes":[82,66,65,83,69,58],"value":"RBASE:"},
+{"hash":90875786,"name":"tkeyform.labelreuse.caption","sourcebytes":[82,69,85,83,69,58],"value":"REUSE:"},
+{"hash":174582826,"name":"tkeyform.labelvarywt.caption","sourcebytes":[86,65,82,89,87,84,58],"value":"VARYWT:"},
+{"hash":27859738,"name":"tkeyform.labelincludeitems.caption","sourcebytes":[73,110,99,108,117,100,101,32,73,116,101,109,115,58],"value":"Include Items:"},
+{"hash":11082266,"name":"tkeyform.labelincludecharacters.caption","sourcebytes":[73,110,99,108,117,100,101,32,67,104,97,114,97,99,116,101,114,115,58],"value":"Include Characters:"},
+{"hash":1339,"name":"tkeyform.okbutton.caption","sourcebytes":[79,75],"value":"OK"},
+{"hash":77089212,"name":"tkeyform.cancelbutton.caption","sourcebytes":[67,97,110,99,101,108],"value":"Cancel"},
+{"hash":10928090,"name":"tkeyform.printwidthlabel.caption","sourcebytes":[80,114,105,110,116,32,87,105,100,116,104,58],"value":"Print Width:"},
+{"hash":31521626,"name":"tkeyform.labeloutputformat.caption","sourcebytes":[79,117,116,112,117,116,32,70,111,114,109,97,116,58],"value":"Output Format:"},
+{"hash":371956,"name":"tkeyform.comboboxoutputformat.text","sourcebytes":[84,101,120,116],"value":"Text"}
+]}

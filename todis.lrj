@@ -1,0 +1,10 @@
+{"version":1,"strings":[
+{"hash":63960227,"name":"tdistform.caption","sourcebytes":[68,73,83,84,32,68,105,114,101,99,116,105,118,101,115],"value":"DIST Directives"},
+{"hash":88484000,"name":"tdistform.checkboxmatchoverlap.caption","sourcebytes":[77,97,116,99,104,32,79,118,101,114,108,97,112],"value":"Match Overlap"},
+{"hash":201161242,"name":"tdistform.labelminimumnumberofcomparisons.caption","sourcebytes":[77,105,110,105,109,117,109,32,78,117,109,98,101,114,32,111,102,32,67,111,109,112,97,114,105,115,111,110,115,58],"value":"Minimum Number of Comparisons:"},
+{"hash":42590074,"name":"tdistform.checkboxphylipformat.caption","sourcebytes":[80,72,89,76,73,80,32,70,111,114,109,97,116,58],"value":"PHYLIP Format:"},
+{"hash":195631834,"name":"tdistform.labelexcludeitems.caption","sourcebytes":[69,120,99,108,117,100,101,32,73,116,101,109,115,58],"value":"Exclude Items:"},
+{"hash":201923082,"name":"tdistform.labelexcludecharacters.caption","sourcebytes":[69,120,99,108,117,100,101,32,67,104,97,114,97,99,116,101,114,115,58],"value":"Exclude Characters:"},
+{"hash":1339,"name":"tdistform.okbutton.caption","sourcebytes":[79,75],"value":"OK"},
+{"hash":77089212,"name":"tdistform.cancelbutton.caption","sourcebytes":[67,97,110,99,101,108],"value":"Cancel"}
+]}

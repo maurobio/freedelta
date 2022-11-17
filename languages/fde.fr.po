@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Free Delta Editor\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-11-13 09:52-0300\n"
+"PO-Revision-Date: 2022-11-16 17:58-0300\n"
 "Last-Translator: Mauro J. Cavalcanti <maurobio@gmail.com>\n"
 "Language-Team: Free Delta Development Team\n"
 "Language: fr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.0.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: about.strcomments
@@ -2973,6 +2973,345 @@ msgctxt "script.strxmlfilter"
 msgid "XML files|*.xml"
 msgstr "Fichiers XML|*.xml"
 
+#: taboutbox.caption
+msgid "About"
+msgstr "À propos de"
+
+#: taboutbox.comments.caption
+msgid "Comments"
+msgstr "Commentaires"
+
+#: taboutbox.compiler.caption
+msgctxt "taboutbox.compiler.caption"
+msgid "Compiler:"
+msgstr "Compilateur:"
+
+#: taboutbox.copyright.caption
+msgid "Copyright © 2000-2022 Mauro J. Cavalcanti"
+msgstr ""
+
+#: taboutbox.ide.caption
+msgid "IDE:"
+msgstr "IDE:"
+
+#: taboutbox.okbutton.caption
+msgctxt "taboutbox.okbutton.caption"
+msgid "OK"
+msgstr "OK"
+
+#: taboutbox.operatingsystem.caption
+msgid "OS:"
+msgstr "OS:"
+
+#: taboutbox.platform.caption
+msgid "Platform:"
+msgstr "Plate-forme:"
+
+#: taboutbox.productname.caption
+msgctxt "taboutbox.productname.caption"
+msgid "Free Delta Editor"
+msgstr "Éditeur Delta gratuit"
+
+#: taboutbox.systeminformation.caption
+msgid "System Information:"
+msgstr "Informations système:"
+
+#: taboutbox.versionnumber.caption
+msgid "v 0.0.0"
+msgstr ""
+
+#: taboutbox.website.caption
+msgctxt "taboutbox.website.caption"
+msgid "FreeDelta website"
+msgstr "Site web de FreeDelta"
+
+#: tcharacterform.cancelbutton.caption
+msgctxt "tcharacterform.cancelbutton.caption"
+msgid "Cancel"
+msgstr "Annuler"
+
+#: tcharacterform.caption
+msgctxt "tcharacterform.caption"
+msgid "Edit Character"
+msgstr "Editer un Caractère"
+
+#: tcharacterform.checkimplicit.caption
+msgid "Implicit"
+msgstr "Implicite"
+
+#: tcharacterform.clearbtn.hint
+msgid "Clear state list"
+msgstr "Effacer la liste des états"
+
+#: tcharacterform.downbtn.hint
+msgid "Move a state down"
+msgstr "Déplacer un état vers le bas"
+
+#: tcharacterform.editbtn.hint
+msgid "Edit a state name"
+msgstr "Modifier un nom d'état"
+
+#: tcharacterform.editchar.editlabel.caption
+msgid "Character Description:"
+msgstr "Description du caractère:"
+
+#: tcharacterform.editunit.editlabel.caption
+msgctxt "tcharacterform.editunit.editlabel.caption"
+msgid "Unit:"
+msgstr "Unité:"
+
+#: tcharacterform.excludebtn.hint
+msgid "Delete a state"
+msgstr "Supprimer un état"
+
+#: tcharacterform.includebtn.hint
+msgid "Add a state"
+msgstr "Ajouter un état"
+
+#: tcharacterform.label1.caption
+msgid "Dependent Characters:"
+msgstr "Caractères dépendants:"
+
+#: tcharacterform.labelattributes.caption
+msgid "Controlling Attributes:"
+msgstr "Contrôle des attributs:"
+
+#: tcharacterform.labelstates.caption
+msgctxt "tcharacterform.labelstates.caption"
+msgid "States:"
+msgstr "Etats:"
+
+#: tcharacterform.okbutton.caption
+msgctxt "tcharacterform.okbutton.caption"
+msgid "OK"
+msgstr "OK"
+
+#: tcharacterform.rbin.caption
+msgid "Integer"
+msgstr "Entier"
+
+#: tcharacterform.rbom.caption
+msgid "Ordered"
+msgstr "Ordonné"
+
+#: tcharacterform.rbrn.caption
+msgid "Real"
+msgstr "Réel"
+
+#: tcharacterform.rbte.caption
+msgctxt "tcharacterform.rbte.caption"
+msgid "Text"
+msgstr "Texte"
+
+#: tcharacterform.rbum.caption
+msgid "Unordered"
+msgstr "Non ordonné"
+
+#: tcharacterform.tabsheetcharacter.caption
+msgid "Character"
+msgstr "Caractère"
+
+#: tcharacterform.tabsheetdepend.caption
+msgid "Dependencies"
+msgstr "Dépendances"
+
+#: tcharacterform.tabsheetnote.caption
+msgid "Note"
+msgstr "Note"
+
+#: tcharacterform.upbtn.hint
+msgid "Move a state up"
+msgstr "Déplacer un état vers le haut"
+
+#: tclusterform.cancelbutton.caption
+msgctxt "tclusterform.cancelbutton.caption"
+msgid "Cancel"
+msgstr "Annuler"
+
+#: tclusterform.caption
+msgid "Clustering"
+msgstr "Regroupement"
+
+#: tclusterform.comboboxmethod.text
+msgctxt "tclusterform.comboboxmethod.text"
+msgid "Average linkage (UPGMA)"
+msgstr "Lien moyen (UPGMA)"
+
+#: tclusterform.labelmethod.caption
+msgid "Method:"
+msgstr "Méthode:"
+
+#: tclusterform.okbutton.caption
+msgctxt "tclusterform.okbutton.caption"
+msgid "OK"
+msgstr "OK"
+
+#: tdistform.cancelbutton.caption
+msgctxt "tdistform.cancelbutton.caption"
+msgid "Cancel"
+msgstr "Annuler"
+
+#: tdistform.caption
+msgid "DIST Directives"
+msgstr "Directives DIST"
+
+#: tdistform.checkboxmatchoverlap.caption
+msgid "Match Overlap"
+msgstr "Chevauchement"
+
+#: tdistform.checkboxphylipformat.caption
+msgid "PHYLIP Format:"
+msgstr "Format PHYLIP:"
+
+#: tdistform.labelexcludecharacters.caption
+msgctxt "tdistform.labelexcludecharacters.caption"
+msgid "Exclude Characters:"
+msgstr "Exclure des caractères:"
+
+#: tdistform.labelexcludeitems.caption
+msgctxt "tdistform.labelexcludeitems.caption"
+msgid "Exclude Items:"
+msgstr "Exclure des Items:"
+
+#: tdistform.labelminimumnumberofcomparisons.caption
+msgid "Minimum Number of Comparisons:"
+msgstr "Nombre minimum de comparaisons:"
+
+#: tdistform.okbutton.caption
+msgctxt "tdistform.okbutton.caption"
+msgid "OK"
+msgstr "OK"
+
+#: tkeyform.cancelbutton.caption
+msgctxt "tkeyform.cancelbutton.caption"
+msgid "Cancel"
+msgstr "Annuler"
+
+#: tkeyform.caption
+msgid "KEY Directives"
+msgstr "Directives KEY"
+
+#: tkeyform.checkboxaddcharacternumbers.caption
+msgid "Add Character Numbers:"
+msgstr "Ajouter les numéros des caractères:"
+
+#: tkeyform.checkboxnobrackettedkey.caption
+msgid "No Bracketted Key:"
+msgstr "Pas de clé entre crochets:"
+
+#: tkeyform.checkboxnotabularkey.caption
+msgid "No Tabular Key:"
+msgstr "Pas de clé tabulaire:"
+
+#: tkeyform.comboboxoutputformat.text
+msgctxt "tkeyform.comboboxoutputformat.text"
+msgid "Text"
+msgstr "Texte"
+
+#: tkeyform.labelabase.caption
+msgid "ABASE:"
+msgstr "ABASE:"
+
+#: tkeyform.labelcharacterreliabilities.caption
+msgid "Character Reliabilities:"
+msgstr "Poids (fiabilité) des caractères:"
+
+#: tkeyform.labelheading.caption
+msgctxt "tkeyform.labelheading.caption"
+msgid "Heading:"
+msgstr "Titre:"
+
+#: tkeyform.labelincludecharacters.caption
+msgid "Include Characters:"
+msgstr "Inclure des caractères :"
+
+#: tkeyform.labelincludeitems.caption
+msgid "Include Items:"
+msgstr "Inclure les items:"
+
+#: tkeyform.labelkeystates.caption
+msgctxt "tkeyform.labelkeystates.caption"
+msgid "Key States:"
+msgstr "Etats des caractères continus:"
+
+#: tkeyform.labelnumberofconfirmatorycharacters.caption
+msgid "Number of Confirmatory Characters:"
+msgstr "Nombre de caractères de confirmation:"
+
+#: tkeyform.labeloutputformat.caption
+msgctxt "tkeyform.labeloutputformat.caption"
+msgid "Output Format:"
+msgstr "Format de sortie:"
+
+#: tkeyform.labelrbase.caption
+msgid "RBASE:"
+msgstr "RBASE:"
+
+#: tkeyform.labelreuse.caption
+msgid "REUSE:"
+msgstr "REUSE:"
+
+#: tkeyform.labeltreatcharactersasvariable.caption
+msgid "Treat Characters as Variable:"
+msgstr "Traitez les caractères comme variables:"
+
+#: tkeyform.labelusenormalvalues.caption
+msgid "Use Normal Values:"
+msgstr "Utiliser des valeurs normales:"
+
+#: tkeyform.labelvarywt.caption
+msgid "VARYWT:"
+msgstr "VARYWT:"
+
+#: tkeyform.okbutton.caption
+msgctxt "tkeyform.okbutton.caption"
+msgid "OK"
+msgstr "OK"
+
+#: tkeyform.printwidthlabel.caption
+msgctxt "tkeyform.printwidthlabel.caption"
+msgid "Print Width:"
+msgstr "Largeur d'impression:"
+
+#: tkeystatesform.cancelbutton.caption
+msgctxt "tkeystatesform.cancelbutton.caption"
+msgid "Cancel"
+msgstr "Annuler"
+
+#: tkeystatesform.caption
+msgid "Key States"
+msgstr "Etats des caractères continus"
+
+#: tkeystatesform.labelcharacters.caption
+msgid "Characters:"
+msgstr "Caractères:"
+
+#: tkeystatesform.labelclasses.caption
+msgid "Number of Classes:"
+msgstr "Nombre de classes:"
+
+#: tkeystatesform.labelededitkeystates.editlabel.caption
+msgctxt "tkeystatesform.labelededitkeystates.editlabel.caption"
+msgid "Key States:"
+msgstr "Etats des caractères continus:"
+
+#: tkeystatesform.labelfrequencytable.caption
+msgid "Frequency Table:"
+msgstr "Tableau de fréquence :"
+
+#: tkeystatesform.okbutton.caption
+msgctxt "tkeystatesform.okbutton.caption"
+msgid "OK"
+msgstr "OK"
+
+#: tkeystatesform.radiobuttonsquareroot.caption
+msgid "Square Root of N"
+msgstr "Racine carrée de N"
+
+#: tkeystatesform.radiobuttonsturgesrule.caption
+msgid "Sturges' Rule"
+msgstr "Règle de Sturges"
+
 #: tmainform.addcharacter.caption
 msgid "Add character..."
 msgstr "Ajouter un caractère..."
@@ -4792,7 +5131,37 @@ msgctxt "tonat.strxmlfilter"
 msgid "XML files|*.xml"
 msgstr "Fichiers XML|*.xml"
 
+#: tphyloform.cancelbutton.caption
+msgctxt "tphyloform.cancelbutton.caption"
+msgid "Cancel"
+msgstr "Annuler"
+
+#: tphyloform.caption
+msgid "Parsimony"
+msgstr "Parcimonie"
+
+#: tphyloform.labelexcludecharacters.caption
+msgctxt "tphyloform.labelexcludecharacters.caption"
+msgid "Exclude Characters:"
+msgstr "Exclure des caractères:"
+
+#: tphyloform.labelexcludeitems.caption
+msgctxt "tphyloform.labelexcludeitems.caption"
+msgid "Exclude Items:"
+msgstr "Exclure des Items:"
+
+#: tphyloform.labelkeystates.caption
+msgctxt "tphyloform.labelkeystates.caption"
+msgid "Key States:"
+msgstr "Etats des caractères continus:"
+
+#: tphyloform.okbutton.caption
+msgctxt "tphyloform.okbutton.caption"
+msgid "OK"
+msgstr "OK"
+
 #: ttonatform.cancelbutton.caption
+msgctxt "ttonatform.cancelbutton.caption"
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -4842,14 +5211,17 @@ msgid "Emphasize Features:"
 msgstr "Accentuer les caractéristiques:"
 
 #: ttonatform.labelexcludecharacters.caption
+msgctxt "ttonatform.labelexcludecharacters.caption"
 msgid "Exclude Characters:"
 msgstr "Exclure des caractères:"
 
 #: ttonatform.labelexcludeitems.caption
+msgctxt "ttonatform.labelexcludeitems.caption"
 msgid "Exclude Items:"
 msgstr "Exclure des Items:"
 
 #: ttonatform.labelheading.caption
+msgctxt "ttonatform.labelheading.caption"
 msgid "Heading:"
 msgstr "Titre:"
 
@@ -4859,7 +5231,7 @@ msgstr "Sous-titres d'items:"
 
 #: ttonatform.labellinkcharacters.caption
 msgid "Link Characters:"
-msgstr ""
+msgstr "Lier les caractères:"
 
 #: ttonatform.labelnewparagraphsatcharacters.caption
 msgid "New Paragraphs At Characters:"
@@ -4878,10 +5250,12 @@ msgid "Omit Period for Characters:"
 msgstr "Remplacer le point-virgule par une virgule:"
 
 #: ttonatform.labeloutputformat.caption
+msgctxt "ttonatform.labeloutputformat.caption"
 msgid "Output Format:"
 msgstr "Format de sortie:"
 
 #: ttonatform.labelprintwidth.caption
+msgctxt "ttonatform.labelprintwidth.caption"
 msgid "Print Width:"
 msgstr "Largeur d'impression:"
 
@@ -4890,8 +5264,9 @@ msgid "Replace Semicolon by Comma:"
 msgstr "Remplacer le point-virgule par une virgule:"
 
 #: ttonatform.okbutton.caption
+msgctxt "ttonatform.okbutton.caption"
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: viewer.straddcharacter
 msgctxt "viewer.straddcharacter"

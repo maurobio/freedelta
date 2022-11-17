@@ -147,7 +147,7 @@ object DistForm: TDistForm
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   Position = poMainFormCenter
-  LCLVersion = '2.0.6.0'
+  LCLVersion = '2.0.12.0'
   object CheckBoxMatchOverlap: TCheckBox
     Left = 14
     Height = 19
@@ -186,7 +186,7 @@ object DistForm: TDistForm
     Left = 14
     Height = 15
     Top = 85
-    Width = 76
+    Width = 75
     Caption = 'Exclude Items:'
     ParentColor = False
   end
@@ -242,7 +242,7 @@ object DistForm: TDistForm
     Left = 14
     Height = 15
     Top = 117
-    Width = 103
+    Width = 102
     Caption = 'Exclude Characters:'
     ParentColor = False
   end

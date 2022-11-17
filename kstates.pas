@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-  Spin, Buttons, StrUtils;
+  Spin, Buttons, StrUtils, LCLTranslator;
 
 const
   maxwidth: double = 60;

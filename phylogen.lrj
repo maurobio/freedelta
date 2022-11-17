@@ -1,0 +1,8 @@
+{"version":1,"strings":[
+{"hash":161510617,"name":"tphyloform.caption","sourcebytes":[80,97,114,115,105,109,111,110,121],"value":"Parsimony"},
+{"hash":195631834,"name":"tphyloform.labelexcludeitems.caption","sourcebytes":[69,120,99,108,117,100,101,32,73,116,101,109,115,58],"value":"Exclude Items:"},
+{"hash":201923082,"name":"tphyloform.labelexcludecharacters.caption","sourcebytes":[69,120,99,108,117,100,101,32,67,104,97,114,97,99,116,101,114,115,58],"value":"Exclude Characters:"},
+{"hash":1339,"name":"tphyloform.okbutton.caption","sourcebytes":[79,75],"value":"OK"},
+{"hash":77089212,"name":"tphyloform.cancelbutton.caption","sourcebytes":[67,97,110,99,101,108],"value":"Cancel"},
+{"hash":184117050,"name":"tphyloform.labelkeystates.caption","sourcebytes":[75,101,121,32,83,116,97,116,101,115,58],"value":"Key States:"}
+]}

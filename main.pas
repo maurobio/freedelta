@@ -1,394 +1,397 @@
-{==============================================================================}
-{                          Free Delta Editor                                   }
-{         A software package for building taxonomic databases                  }
-{                   (c) 2000-2022 by Mauro J. Cavalcanti                       }
-{                         <maurobio@gmail.com>                                 }
-{                                                                              }
-{   This program is free software: you can redistribute it and/or modify       }
-{   it under the terms of the GNU General Public License as published by       }
-{   the Free Software Foundation, either version 3 of the License, or          }
-{   (at your option) any later version.                                        }
-{                                                                              }
-{   This program is distributed in the hope that it will be useful,            }
-{   but WITHOUT ANY WARRANTY; without even the implied warranty of             }
-{   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the              }
-{   GNU General Public License for more details.                               }
-{                                                                              }
-{   You should have received a copy of the GNU General Public License          }
-{   along with this program. If not, see <http://www.gnu.org/licenses/>.       }
-{                                                                              }
-{   Requirements:                                                              }
-{     Lazarus 2.0+ (www.lazarus.freepascal.org)                                }
-{     Free Pascal 3.0+ (www.freepascal.org)                                    }
-{     HistoryFiles 1.3+ (wiki.freepascal.org/HistoryFiles)                     }
-{     HtmlViewer 10.2+ (wiki.freepascal.org/THtmlPort)                         }
-{     RichMemo 1.0+ (wiki.freepascal.org/RichMemo)                             }
-{     SynFacilSyn 1.21+ (github.com/t-edson/SynFacilSyn)                       }
-{                                                                              }
-{  REVISION HISTORY:                                                           }
-{  Version 1.00, 2nd Feb 2020     - Initial release;                           }
-{  Version 1.01, 4th Feb 2020     - Fixed an issue with the creation of the    }
-{                                   program configuration file in the          }
-{                                   installation directory. This file has      }
-{                                   been moved to an appropriate directory     }
-{                                   in the user's configuration folder.        }
-{  Version 1.02, 9th Feb 2020     - Fixed the folder access problems still     }
-{                                   appearing in previous versions.            }
-{  Version 1.03, 10th Feb 2020    - Added a dialog box for manual selection    }
-{                                   of the R installation directory, in case   }
-{                                   it is not found automatically by the       }
-{                                   program.                                   }
-{                                 - Added a folder to store vocabularies to    }
-{                                   produce natural languagem descriptions in  }
-{                                   different idioms.                          }
-{  Version 1.04, 11th Feb 2020    - Fixed a bug which prevented the DELTA      }
-{                                   programs from being correctly found in     }
-{                                   the application folder.                    }
-{  Version 1.05, 19th Feb 2020    - Removed code for creating file             }
-{                                   association for the extension '.dtz',      }
-{                                   which is now êxecuted by the installation  }
-{                                   program (MS-Windows only).                 }
-{  Version 1.06, 24th Feb 2020    - Changed the default cursor for a waiting   }
-{                                   one when loading files.                    }
-{                                 - Fixed the display of dataset information   }
-{                                   in the status bar when a file is closed.   }
-{                                 - Fixed ambiguous variable names in DELTA    }
-{                                   writing routines in the Delta Library,     }
-{                                   which could prevent to saving the SPECS    }
-{                                   file correctly.                            }
-{  Version 1.07, 26th Feb 2020    - Fixed a bug which raised errors in R when  }
-{                                   reading data files with blanks in the      }
-{                                   item names; blanks in item names are now   }
-{                                   replaced by underscores.                   }
-{  Version 1.08, 18th Apr 2020    - Fixed a bug which prevented the execution  }
-{                                   of DELTA IntKey program when not in path.  }
-{                                   (MS-Windows only).                         }
-{                                 - Fixed a big which prevented the correct    }
-{                                   creation of the directives file for        }
-{                                   building of conventional dichotomous keys. }
-{                                 - Fixed a big which prevented the correct    }
-{                                   saving of the items and specs files.       }
-{                                 - Fixed a bug which prevented the editing    }
-{                                   of text characters before saving a file.   }
-{                                 - Added missing manipulation events to the   }
-{                                   save and search toolbar buttons.           }
-{                                 - Added a check for the existence of the     }
-{                                   output files for descriptions, keys, and   }
-{                                   data matrices from previous runs and       }
-{                                   deleting them of they exist.               }
-{                                 - Added dragging and dropping of data files  }
-{                                   on the program main form.                  }
-{  Version 1.09, 29th Apr 2020    - Fixed a bug which prevented the inclusion  }
-{                                   of new characters without adding an item   }
-{                                   first.                                     }
-{                                 - Fixed a bug which raised an error message  }
-{                                   when a data file was double-clicked in     }
-{                                   the Windows Explorer (MS-Windows only),    }
-{                                 - Changed the default extension of keys,     }
-{                                   descriptions, and report output files to   }
-{                                   '.txt' for better integration with the     }
-{                                   operating system.                          }
-{                                 - Removed the Save button from the view      }
-{                                   results form.                              }
-{                                 - Added missing copy event for images in     }
-{                                   the view results form.                     }
-{                                 - Added output and display of descriptions   }
-{                                   and keys in HTML format.                   }
-{                                 - Added printing of characters and items.    }
-{  Version 1.10, 4th May, 2020    - Fixed the placement of some dialog boxes   }
-{                                   on small screen resolutions.               }
-{                                 - Added support for exporting data files in  }
-{                                   XDELTA XML format.                         }
-{  Version 1.11, 18th May, 2020   - Added support to inclusion of item and     }
-{                                   character images, using the INTIMATE       }
-{                                   program (MS-Windows only).                 }
-{                                 - Added support to dependent characters.     }
-{                                 - Added reordering of items and characters.  }
-{                                 - Added inserting of items and characters.   }
-{                                 - Updated the Portuguese translation.        }
-{  Version 1.12, 30th May, 2020   - Added option for cloning (duplicating) an  }
-{                                   item description.                          }
-{                                 - Added option for merging another list of   }
-{                                   characters with the current one.           }
-{                                 - Changed the design of forms to better      }
-{                                   accommodate translated text and smaller    }
-{                                   screen resolutions.                        }
-{                                 - Added French translation and vocabulary.   }
-{                                 - Updated the Portuguese translation.        }
-{  Version 1.50, 15th Jun, 2020   - Added a form for converting quantitative   }
-{                                   characters into qualitative and generate   }
-{                                   key states automatically.                  }
-{                                 - Added new color icons to distinguish       }
-{                                   between unordered/ordered multistate and   }
-{                                   integer/real numeric characters.           }
-{                                 - Changed the option for merging character   }
-{                                   lists to allow the merge procedure to be   }
-{                                   performed without a specifications file,   }
-{                                   by treating all merged characters as       }
-{                                   qualitative multistate.                    }
-{                                 - Updated the Portuguese and French          }
-{                                   translations.                              }
-{  Version 1.60, 9th Jul, 2020    - Added log output of DELTA programs errors. }
-{                                 - Added the creation of backup files before  }
-{                                   saving data files.                         }
-{                                 - Fixed a bug which prevented the correct    }
-{                                   display of character dependencies in the   }
-{                                   character tree.                            }
-{                                 - Fixed a bug which prevented the output of  }
-{                                   natural language descriptions when the     }
-{                                   translating implicit values.               }
-{                                 - Fixed a bug which raised an error when a   }
-{                                   character type was changed.                }
-{                                 - Fixed several bugs in the character        }
-{                                   editor that prevented adding or changing   }
-{                                   character names and states.                }
-{                                 - Changed the output of the CHARS file to    }
-{                                   omit RTF typesetting marks.                }
-{  Version 1.70, 23th Jun, 2020   - Added a label for displaying the control   }
-{                                   attribute of a dependent character in the  }
-{                                   item descriptions form.                    }
-{                                 - Added a button in the item descriptions    }
-{                                   form to allow going to a given character   }
-{                                   by its number.                             }
-{                                 - Added saving of the current view to the    }
-{                                   program configuration file so it can be    }
-{                                   restored each time the program is run.     }
-{                                 - Fixed a bug which raised an error when a   }
-{                                   text or numeric character was changed to   }
-{                                   multistate.                                }
-{                                 - Fixed a bug which sometimes prevented the  }
-{                                   edition of multistate characters and       }
-{                                   scoring of items.                          }
-{                                 - Fixed a bug which prevented the correct    }
-{                                   saving of multistate characters.           }
-{  Version 1.80, 3rd Aug, 2020    - Added an option to the Matrix menu for     }
-{                                   calling the phylogenetic analysis program  }
-{                                   TNT from the Matrix menu.                  }
-{                                 - Fixed a bug which prevented the correct    }
-{                                   finding of R executable directory.         }
-{  Version 1.90, 29th Aug, 2020   - Added a call to DELTA IntKey help file     }
-{                                   according to the program selected          }
-{                                   language.                                  }
-{                                 -´Added a Find Next option to the Search     }
-{                                   menu to allow incremental searches in the  }
-{                                   items and characters lists.                }
-{                                 - Added saving of directives files in the    }
-{                                   data files, along with the items,          }
-{                                   characters, and specifications.            }
-{                                 -´Changed the Search dialog to allow         }
-{                                   definition of search parameters.           }
-{                                 - Fixed a bug which prevented the reading    }
-{                                   of the character notes when loading a      }
-{                                   dataset.                                   }
-{                                 - Fixed a bug which prevented the use of     }
-{                                   French vocabulary when generating natural  }
-{                                   language descriptions in French language.  }
-{ Version 1.95, 30th Sep, 2020    - Added check of characters and items when   }
-{                                   importing DELTA files and merging          }
-{                                   character lists.                           }
-{                                 - Fixed a bug which prevented the correct    }
-{                                   ordering of characters when merging        }
-{                                   character lists.                           }
-{                                 - Fixed a bug which prevented the correct    }
-{                                   insertion of characters in the character   }
-{                                   tree.                                      }
-{ Version 1.96, 15th Oct, 2020    - Fixed a bug which prevented the correct    }
-{                                   display of natural-language descriptions   }
-{                                   and dichotomous keys.                      }
-{ Version 1.97, 3rd Nov, 2020     - Fixed a bug which caused an error message  }
-{                                   to be incorrectly issued when importing    }
-{                                   data files.                                }
-{ Version 1.98, 22th Nov, 2020    - Added a check for opening/closing of       }
-{                                   brackets in characters and states.         }
-{                                 - Changed checking for the number of states  }
-{                                   when entering multistate characters from   }
-{                                   0 to 2.                                    }
-{                                 - Fixed a bug which prevented the correct    }
-{                                   merging of character lists.                }
-{                                 - Fixed a bug which prevented the correct    }
-{                                   display of implicit values when editing    }
-{                                   characters.                                }
-{                                 - Fixed a bug which caused some dialogs to   }
-{                                   appear as non-modal.                       }
-{ Version 1.99, 30th Nov, 2020    - Added an option to go to a given item or   }
-{                                   character by its number.                   }
-{                                 - Changed the shortcut Ctrl+G key from       }
-{                                   the Edit Images option to the newly added  }
-{                                   Go To Line option.                         }
-{ Version 2.00, 21st Dec, 2020    - Added an indicator of the editing status   }
-{                                   of a file in the title bar.                }
-{                                 - Removed the check for opening/closing of   }
-{                                   brackets in characters and states.         }
-{                                 - Fixed a bug which caused only the first    }
-{                                   item to be selected for description.       }
-{                                 - Fixed a bug which caused the number of     }
-{                                   states to be incorrectly written to the    }
-{                                   SPECS file.                                }
-{                                 - Fixed a bug which prevented the dependent  }
-{                                   characters line to be correctly wrapped    }
-{                                   in the SPECS file.                         }
-{                                 - Updated the Portuguese and French          }
-{                                   translations.                              }
-{ Version 2.10, 12th Jan, 2021    - Fixed a bug which prevented the dependent  }
-{                                   characters directive to be correctly       }
-{                                   written to the SPECS file.                 }
-{                                 - Fixed a bug which caused the ITEMS file    }
-{                                   be incorrectly written.                    }
-{                                 - Fixed a bug which prevented item comments  }
-{                                   to be saved to the ITEMS file.             }
-{                                 - Fixed a bug which prevented the editing    }
-{                                   status indicator of being updated after    }
-{                                   saving a file.                             }
-{                                 - Fixed a bug which prevented a new file     }
-{                                   from being found by CONFOR after importing }
-{                                   a DELTA dataset.                           }
-{                                 - Fixed a bug which prevented the character  }
-{                                   tree of being updated when a new item was  }
-{                                   was added or inserted.                     }
-{ Version 2.20, 8th Feb, 2021     - Fixed a bug which prevented the dependent  }
-{                                   character states of being properly checked }
-{                                   in the character tree.                     }
-{ Version 2.30, 11th Feb, 2021    - Added saving of the current state of the   }
-{                                   character tree (collapsed/expanded) to the }
-{                                   program configuration file so it can be    }
-{                                   restored between sessions.                 }
-{                                 - Added support for multiple dependent       }
-{                                   characters.                                }
-{                                 - Added new icon for displaying implicit     }
-{                                   values.                                    }
-{                                 - Fixed a bug which prevented the display of }
-{                                   the character tree when a new character    }
-{                                   was inserted.                              }
-{ Version 2.40, 23th Feb, 2021    - Fixed a bug which caused an error when     }
-{                                   writing the dependent characters directive }
-{                                   to the SPECS file.                         }
-{ Version 2.50, 28th Feb, 2021    - Added support for entering and editing     }
-{                                   directly using the attribute editor.       }
-{                                 - Added full support for multiple dependent  }
-{                                   characters.                                }
-{                                 - Changed the shortcut keys for the Clone    }
-{                                   menu option to Ctrl+L to avoid conflict    }
-{                                   with the standard Ctrl+C combination.      }
-{                                 - Changed the DELTA reading routines for     }
-{                                   removing RTF typesetting marks from input  }
-{                                   DELTA data files.                          }
-{ Version 2.51, 19 Mar, 2021      - Changed the cursor to waiting mode when    }
-{                                   collapsing/expanding the character tree.   }
-{                                 - Updated the user's guide.                  }
-{ Version 2.52, 29 Apr, 2021      - Added an error message if the key output   }
-{                                   cannot be created.                         }
-{                                 - Fixed a bug which prevented the correct    }
-{                                   handling of the *ITEM SUBHEADINGS          }
-{                                   directive.                                 }
-{                                 - Fixed a bug which prevented directives     }
-{                                   from being read from the KEY directives    }
-{                                   file.                                      }
-{                                 - Fixed a bug which caused the key output    }
-{                                   file not being displayed when the key is   }
-{                                   incomplete.                                }
-{ Version 2.53, 19 May, 2021      - Added support for long lines in the CONFOR,}
-{                                   KEY, and DIST directives files.            }
-{                                 - Removed the need for setting an environment}
-{                                   variable for IntKey. (MS-Windows only)     }
-{                                 - Fixed a bug which prevented the saving of  }
-{                                   excluded characters in the TOKEY directives}
-{                                   file.                                      }
-{                                 - Fixed a bug which prevented the correct    }
-{                                   adding and editing of characters.          }
-{ Version 2.60, 3 Jun, 2021       - Added support for reading the value of the }
-{                                   DATA BUFFER SIZE directive from the SPECS  }
-{                                   file and retaining it.                     }
-{                                 - Changed the TOKEY form to allow including  }
-{                                   items/characters instead of excluding them.}
-{                                 - Changed the DELTA parsing routines for not }
-{                                   omitting RTF typesetting marks from the    }
-{                                   data, if any.                              }
-{                                 - Changed the IntKey initialization file to  }
-{                                   'intkey.ink'. (MS-Windows only)            }
-{                                 - Fixed a bug in the DELTA parsing routines  }
-{                                   which caused character states containg     }
-{                                   internal slashes ('/') to be incorrectly   }
-{                                   read.                                      }
-{                                 - Fixed a bug in the DELTA parsing routines  }
-{                                   which caused text characters to be         }
-{                                   incorrectly always written between angle   }
-{                                   brackets.                                  }
-{                                 - Fixed a bug in the DELTA parsing routines  }
-{                                   which caused item descriptions containing  }
-{                                   dashes ('-') to be broken by an end-of-line}
-{                                   after the '-'.                             }
-{                                 - Fixed a bug in the DELTA parsing routines  }
-{                                   which caused the line endings in the CNOTES}
-{                                   files to be written as just 'LF' instead of}
-{                                   'CR/LF'.                                   }
-{                                 - Fixed a bug which caused the SPECS file not}
-{                                   being found after saving a datafile.       }
-{                                 - Updated the user's guide.                  }
-{ Version 2.61, 8 Jun, 2021       - Added an option to the Help menu to display}
-{                                   the user's guide by pressing F1 using the  }
-{                                   system default PDF viewer.                 }
-{                                 - Fixed a bug which caused the key output    }
-{                                   file not being displayed when the key is   }
-{                                   not generated.                             }
-{                                 - Updated the user's guide.                  }
-{ Version 2.62, 15 Jun, 2021      - Fixed a bug which caused directives files  }
-{                                   TONAT, TOKEY, etc. to be incompletely read }
-{                                   when the lists of included/excluded        }
-{                                   extended for more than one line.           }
-{ Version 2.70, 22 Jun, 2021      - Added a form for configuring the CONFOR    }
-{                                   directives for parsimony analysis.         }
-{                                 - Removed the Nexus and TNT options from the }
-{                                   Export menu.                               }
-{                                 - Removed the Nexus option from the Import   }
-{                                   menu.                                      }
-{                                 - Fixed a bug which prevented generated key  }
-{                                   states from being placed in the appropriate}
-{                                   fields in the conventional key and matrices}
-{                                   for parsimony analysis forms.              }
-{                                 - Updated the user's guide.                  }
-{ Version 2.71, 7 Jul, 2021       - Added a message to inform the file name and}
-{                                   directory where the data metrix for        }
-{                                   parsimony analysis is saved.               }
-{ Version 2.80, 23 Jul, 2021      - Added support for PAUP parsimony program.  }
-{                                 - Added a 'script editor' with DELTA syntax  }
-{                                   highlighting for editing/running           }
-{                                   CONFOR/KEY/DIST directives files.          }
-{                                 - Updated the user's guide.                  }
-{ Version 2.81, 3 Aug, 2021       - Fixed a bug which prevented the R program  }
-{                                   to be correctly called under GNU/Linux.    }
-{                                 - Changed the default value of the           }
-{                                   *TRANSLATE IMPLICIT VALUES to false in the }
-{                                   translate into natural language form.      }
-{ Version 2.82, 11 Aug, 2021      - Fixed a bug which caused implicit values to}
-{                                   be incorrectly written to the SPECS file.  }
-{                                 - Added a button to the About form to allow  }
-{                                   donations to the Free Delta Project via    }
-{                                   PayPal.                                    }
-{ Version 2.83, 30 Aug, 2021      - Added an option for exporting the entire   }
-{                                   data matrix to a tab-delimited text file.  }
-{                                 - Updated the user's guide.                  }
-{ Version 2.84, 15 Out, 2021      - Fixed a bug which caused a console screen  }
-{                                   to be displayed when running R scripts     }
-{                                   (MS-Windows only).                         }
-{                                 - Fixed a bug which caused character states  }
-{                                   lines contaning carriage returns to be     }
-{                                   incorrectly read as separate states.       }
-{                                 - Fixed a bug which prevented the correct    }
-{                                   generation of natural-language descriptions}
-{                                   in HTML format.                            }
-{                                 - Changed the mouse cursor to waiting mode   }
-{                                   when running R scripts.                    }
-{                                 - Updated Portoguese and French translations.}
-{ Version 2.85, 12 Nov, 2021      - Changed the way the R software for         }
-{                                   statistical computing and graphics is found}
-{                                   in the current OS to be fully automatic.   }
-{ Version 2.90, 17 Jan, 2022      - Added support to RTF in natural-language   }
-{                                   descriptions.                              }
-{ Version 2.91, 27 Mar, 2022      - Fixed a bug which caused all characters in }
-{                                   the character tree to appear unmarked when }
-{                                   the Character Edit dialog was closed by    }
-{                                   pessing the OK button.                     }
-{==============================================================================}
+{===============================================================================}
+{                          Free Delta Editor                                    }
+{         A software package for building taxonomic databases                   }
+{                   (c) 2000-2022 by Mauro J. Cavalcanti                        }
+{                         <maurobio@gmail.com>                                  }
+{                                                                               }
+{   This program is free software: you can redistribute it and/or modify        }
+{   it under the terms of the GNU General Public License as published by        }
+{   the Free Software Foundation, either version 3 of the License, or           }
+{   (at your option) any later version.                                         }
+{                                                                               }
+{   This program is distributed in the hope that it will be useful,             }
+{   but WITHOUT ANY WARRANTY; without even the implied warranty of              }
+{   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the               }
+{   GNU General Public License for more details.                                }
+{                                                                               }
+{   You should have received a copy of the GNU General Public License           }
+{   along with this program. If not, see <http://www.gnu.org/licenses/>.        }
+{                                                                               }
+{   Requirements:                                                               }
+{     Lazarus 2.0+ (www.lazarus.freepascal.org)                                 }
+{     Free Pascal 3.0+ (www.freepascal.org)                                     }
+{     HistoryFiles 1.3+ (wiki.freepascal.org/HistoryFiles)                      }
+{     HtmlViewer 10.2+ (wiki.freepascal.org/THtmlPort)                          }
+{     RichMemo 1.0+ (wiki.freepascal.org/RichMemo)                              }
+{     SynFacilSyn 1.21+ (github.com/t-edson/SynFacilSyn)                        }
+{                                                                               }
+{  REVISION HISTORY:                                                            }
+{  Version 1.00, 2nd Feb 2020     - Initial release;                            }
+{  Version 1.01, 4th Feb 2020     - Fixed an issue with the creation of the     }
+{                                   program configuration file in the           }
+{                                   installation directory. This file has       }
+{                                   been moved to an appropriate directory      }
+{                                   in the user's configuration folder.         }
+{  Version 1.02, 9th Feb 2020     - Fixed the folder access problems still      }
+{                                   appearing in previous versions.             }
+{  Version 1.03, 10th Feb 2020    - Added a dialog box for manual selection     }
+{                                   of the R installation directory, in case    }
+{                                   it is not found automatically by the        }
+{                                   program.                                    }
+{                                 - Added a folder to store vocabularies to     }
+{                                   produce natural languagem descriptions in   }
+{                                   different idioms.                           }
+{  Version 1.04, 11th Feb 2020    - Fixed a bug which prevented the DELTA       }
+{                                   programs from being correctly found in      }
+{                                   the application folder.                     }
+{  Version 1.05, 19th Feb 2020    - Removed code for creating file              }
+{                                   association for the extension '.dtz',       }
+{                                   which is now êxecuted by the installation   }
+{                                   program (MS-Windows only).                  }
+{  Version 1.06, 24th Feb 2020    - Changed the default cursor for a waiting    }
+{                                   one when loading files.                     }
+{                                 - Fixed the display of dataset information    }
+{                                   in the status bar when a file is closed.    }
+{                                 - Fixed ambiguous variable names in DELTA     }
+{                                   writing routines in the Delta Library,      }
+{                                   which could prevent to saving the SPECS     }
+{                                   file correctly.                             }
+{  Version 1.07, 26th Feb 2020    - Fixed a bug which raised errors in R when   }
+{                                   reading data files with blanks in the       }
+{                                   item names; blanks in item names are now    }
+{                                   replaced by underscores.                    }
+{  Version 1.08, 18th Apr 2020    - Fixed a bug which prevented the execution   }
+{                                   of DELTA IntKey program when not in path.   }
+{                                   (MS-Windows only).                          }
+{                                 - Fixed a big which prevented the correct     }
+{                                   creation of the directives file for         }
+{                                   building of conventional dichotomous keys.  }
+{                                 - Fixed a big which prevented the correct     }
+{                                   saving of the items and specs files.        }
+{                                 - Fixed a bug which prevented the editing     }
+{                                   of text characters before saving a file.    }
+{                                 - Added missing manipulation events to the    }
+{                                   save and search toolbar buttons.            }
+{                                 - Added a check for the existence of the      }
+{                                   output files for descriptions, keys, and    }
+{                                   data matrices from previous runs and        }
+{                                   deleting them of they exist.                }
+{                                 - Added dragging and dropping of data files   }
+{                                   on the program main form.                   }
+{  Version 1.09, 29th Apr 2020    - Fixed a bug which prevented the inclusion   }
+{                                   of new characters without adding an item    }
+{                                   first.                                      }
+{                                 - Fixed a bug which raised an error message   }
+{                                   when a data file was double-clicked in      }
+{                                   the Windows Explorer (MS-Windows only),     }
+{                                 - Changed the default extension of keys,      }
+{                                   descriptions, and report output files to    }
+{                                   '.txt' for better integration with the      }
+{                                   operating system.                           }
+{                                 - Removed the Save button from the view       }
+{                                   results form.                               }
+{                                 - Added missing copy event for images in      }
+{                                   the view results form.                      }
+{                                 - Added output and display of descriptions    }
+{                                   and keys in HTML format.                    }
+{                                 - Added printing of characters and items.     }
+{  Version 1.10, 4th May, 2020    - Fixed the placement of some dialog boxes    }
+{                                   on small screen resolutions.                }
+{                                 - Added support for exporting data files in   }
+{                                   XDELTA XML format.                          }
+{  Version 1.11, 18th May, 2020   - Added support to inclusion of item and      }
+{                                   character images, using the INTIMATE        }
+{                                   program (MS-Windows only).                  }
+{                                 - Added support to dependent characters.      }
+{                                 - Added reordering of items and characters.   }
+{                                 - Added inserting of items and characters.    }
+{                                 - Updated the Portuguese translation.         }
+{  Version 1.12, 30th May, 2020   - Added option for cloning (duplicating) an   }
+{                                   item description.                           }
+{                                 - Added option for merging another list of    }
+{                                   characters with the current one.            }
+{                                 - Changed the design of forms to better       }
+{                                   accommodate translated text and smaller     }
+{                                   screen resolutions.                         }
+{                                 - Added French translation and vocabulary.    }
+{                                 - Updated the Portuguese translation.         }
+{  Version 1.50, 15th Jun, 2020   - Added a form for converting quantitative    }
+{                                   characters into qualitative and generate    }
+{                                   key states automatically.                   }
+{                                 - Added new color icons to distinguish        }
+{                                   between unordered/ordered multistate and    }
+{                                   integer/real numeric characters.            }
+{                                 - Changed the option for merging character    }
+{                                   lists to allow the merge procedure to be    }
+{                                   performed without a specifications file,    }
+{                                   by treating all merged characters as        }
+{                                   qualitative multistate.                     }
+{                                 - Updated the Portuguese and French           }
+{                                   translations.                               }
+{  Version 1.60, 9th Jul, 2020    - Added log output of DELTA programs errors.  }
+{                                 - Added the creation of backup files before   }
+{                                   saving data files.                          }
+{                                 - Fixed a bug which prevented the correct     }
+{                                   display of character dependencies in the    }
+{                                   character tree.                             }
+{                                 - Fixed a bug which prevented the output of   }
+{                                   natural language descriptions when the      }
+{                                   translating implicit values.                }
+{                                 - Fixed a bug which raised an error when a    }
+{                                   character type was changed.                 }
+{                                 - Fixed several bugs in the character         }
+{                                   editor that prevented adding or changing    }
+{                                   character names and states.                 }
+{                                 - Changed the output of the CHARS file to     }
+{                                   omit RTF typesetting marks.                 }
+{  Version 1.70, 23th Jun, 2020   - Added a label for displaying the control    }
+{                                   attribute of a dependent character in the   }
+{                                   item descriptions form.                     }
+{                                 - Added a button in the item descriptions     }
+{                                   form to allow going to a given character    }
+{                                   by its number.                              }
+{                                 - Added saving of the current view to the     }
+{                                   program configuration file so it can be     }
+{                                   restored each time the program is run.      }
+{                                 - Fixed a bug which raised an error when a    }
+{                                   text or numeric character was changed to    }
+{                                   multistate.                                 }
+{                                 - Fixed a bug which sometimes prevented the   }
+{                                   edition of multistate characters and        }
+{                                   scoring of items.                           }
+{                                 - Fixed a bug which prevented the correct     }
+{                                   saving of multistate characters.            }
+{  Version 1.80, 3rd Aug, 2020    - Added an option to the Matrix menu for      }
+{                                   calling the phylogenetic analysis program   }
+{                                   TNT from the Matrix menu.                   }
+{                                 - Fixed a bug which prevented the correct     }
+{                                   finding of R executable directory.          }
+{  Version 1.90, 29th Aug, 2020   - Added a call to DELTA IntKey help file      }
+{                                   according to the program selected           }
+{                                   language.                                   }
+{                                 -´Added a Find Next option to the Search      }
+{                                   menu to allow incremental searches in the   }
+{                                   items and characters lists.                 }
+{                                 - Added saving of directives files in the     }
+{                                   data files, along with the items,           }
+{                                   characters, and specifications.             }
+{                                 -´Changed the Search dialog to allow          }
+{                                   definition of search parameters.            }
+{                                 - Fixed a bug which prevented the reading     }
+{                                   of the character notes when loading a       }
+{                                   dataset.                                    }
+{                                 - Fixed a bug which prevented the use of      }
+{                                   French vocabulary when generating natural   }
+{                                   language descriptions in French language.   }
+{ Version 1.95, 30th Sep, 2020    - Added check of characters and items when    }
+{                                   importing DELTA files and merging           }
+{                                   character lists.                            }
+{                                 - Fixed a bug which prevented the correct     }
+{                                   ordering of characters when merging         }
+{                                   character lists.                            }
+{                                 - Fixed a bug which prevented the correct     }
+{                                   insertion of characters in the character    }
+{                                   tree.                                       }
+{ Version 1.96, 15th Oct, 2020    - Fixed a bug which prevented the correct     }
+{                                   display of natural-language descriptions    }
+{                                   and dichotomous keys.                       }
+{ Version 1.97, 3rd Nov, 2020     - Fixed a bug which caused an error message   }
+{                                   to be incorrectly issued when importing     }
+{                                   data files.                                 }
+{ Version 1.98, 22th Nov, 2020    - Added a check for opening/closing of        }
+{                                   brackets in characters and states.          }
+{                                 - Changed checking for the number of states   }
+{                                   when entering multistate characters from    }
+{                                   0 to 2.                                     }
+{                                 - Fixed a bug which prevented the correct     }
+{                                   merging of character lists.                 }
+{                                 - Fixed a bug which prevented the correct     }
+{                                   display of implicit values when editing     }
+{                                   characters.                                 }
+{                                 - Fixed a bug which caused some dialogs to    }
+{                                   appear as non-modal.                        }
+{ Version 1.99, 30th Nov, 2020    - Added an option to go to a given item or    }
+{                                   character by its number.                    }
+{                                 - Changed the shortcut Ctrl+G key from        }
+{                                   the Edit Images option to the newly added   }
+{                                   Go To Line option.                          }
+{ Version 2.00, 21st Dec, 2020    - Added an indicator of the editing status    }
+{                                   of a file in the title bar.                 }
+{                                 - Removed the check for opening/closing of    }
+{                                   brackets in characters and states.          }
+{                                 - Fixed a bug which caused only the first     }
+{                                   item to be selected for description.        }
+{                                 - Fixed a bug which caused the number of      }
+{                                   states to be incorrectly written to the     }
+{                                   SPECS file.                                 }
+{                                 - Fixed a bug which prevented the dependent   }
+{                                   characters line to be correctly wrapped     }
+{                                   in the SPECS file.                          }
+{                                 - Updated the Portuguese and French           }
+{                                   translations.                               }
+{ Version 2.10, 12th Jan, 2021    - Fixed a bug which prevented the dependent   }
+{                                   characters directive to be correctly        }
+{                                   written to the SPECS file.                  }
+{                                 - Fixed a bug which caused the ITEMS file     }
+{                                   be incorrectly written.                     }
+{                                 - Fixed a bug which prevented item comments   }
+{                                   to be saved to the ITEMS file.              }
+{                                 - Fixed a bug which prevented the editing     }
+{                                   status indicator of being updated after     }
+{                                   saving a file.                              }
+{                                 - Fixed a bug which prevented a new file      }
+{                                   from being found by CONFOR after importing  }
+{                                   a DELTA dataset.                            }
+{                                 - Fixed a bug which prevented the character   }
+{                                   tree of being updated when a new item was   }
+{                                   was added or inserted.                      }
+{ Version 2.20, 8th Feb, 2021     - Fixed a bug which prevented the dependent   }
+{                                   character states of being properly checked  }
+{                                   in the character tree.                      }
+{ Version 2.30, 11th Feb, 2021    - Added saving of the current state of the    }
+{                                   character tree (collapsed/expanded) to the  }
+{                                   program configuration file so it can be     }
+{                                   restored between sessions.                  }
+{                                 - Added support for multiple dependent        }
+{                                   characters.                                 }
+{                                 - Added new icon for displaying implicit      }
+{                                   values.                                     }
+{                                 - Fixed a bug which prevented the display of  }
+{                                   the character tree when a new character     }
+{                                   was inserted.                               }
+{ Version 2.40, 23th Feb, 2021    - Fixed a bug which caused an error when      }
+{                                   writing the dependent characters directive  }
+{                                   to the SPECS file.                          }
+{ Version 2.50, 28th Feb, 2021    - Added support for entering and editing      }
+{                                   directly using the attribute editor.        }
+{                                 - Added full support for multiple dependent   }
+{                                   characters.                                 }
+{                                 - Changed the shortcut keys for the Clone     }
+{                                   menu option to Ctrl+L to avoid conflict     }
+{                                   with the standard Ctrl+C combination.       }
+{                                 - Changed the DELTA reading routines for      }
+{                                   removing RTF typesetting marks from input   }
+{                                   DELTA data files.                           }
+{ Version 2.51, 19 Mar, 2021      - Changed the cursor to waiting mode when     }
+{                                   collapsing/expanding the character tree.    }
+{                                 - Updated the user's guide.                   }
+{ Version 2.52, 29 Apr, 2021      - Added an error message if the key output    }
+{                                   cannot be created.                          }
+{                                 - Fixed a bug which prevented the correct     }
+{                                   handling of the *ITEM SUBHEADINGS           }
+{                                   directive.                                  }
+{                                 - Fixed a bug which prevented directives      }
+{                                   from being read from the KEY directives     }
+{                                   file.                                       }
+{                                 - Fixed a bug which caused the key output     }
+{                                   file not being displayed when the key is    }
+{                                   incomplete.                                 }
+{ Version 2.53, 19 May, 2021      - Added support for long lines in the CONFOR, }
+{                                   KEY, and DIST directives files.             }
+{                                 - Removed the need for setting an environment }
+{                                   variable for IntKey. (MS-Windows only)      }
+{                                 - Fixed a bug which prevented the saving of   }
+{                                   excluded characters in the TOKEY directives }
+{                                   file.                                       }
+{                                 - Fixed a bug which prevented the correct     }
+{                                   adding and editing of characters.           }
+{ Version 2.60, 3 Jun, 2021       - Added support for reading the value of the  }
+{                                   DATA BUFFER SIZE directive from the SPECS   }
+{                                   file and retaining it.                      }
+{                                 - Changed the TOKEY form to allow including   }
+{                                   items/characters instead of excluding them. }
+{                                 - Changed the DELTA parsing routines for not  }
+{                                   omitting RTF typesetting marks from the     }
+{                                   data, if any.                               }
+{                                 - Changed the IntKey initialization file to   }
+{                                   'intkey.ink'. (MS-Windows only)             }
+{                                 - Fixed a bug in the DELTA parsing routines   }
+{                                   which caused character states containg      }
+{                                   internal slashes ('/') to be incorrectly    }
+{                                   read.                                       }
+{                                 - Fixed a bug in the DELTA parsing routines   }
+{                                   which caused text characters to be          }
+{                                   incorrectly always written between angle    }
+{                                   brackets.                                   }
+{                                 - Fixed a bug in the DELTA parsing routines   }
+{                                   which caused item descriptions containing   }
+{                                   dashes ('-') to be broken by an end-of-line }
+{                                   after the '-'.                              }
+{                                 - Fixed a bug in the DELTA parsing routines   }
+{                                   which caused the line endings in the CNOTES }
+{                                   files to be written as just 'LF' instead of }
+{                                   'CR/LF'.                                    }
+{                                 - Fixed a bug which caused the SPECS file not }
+{                                   being found after saving a datafile.        }
+{                                 - Updated the user's guide.                   }
+{ Version 2.61, 8 Jun, 2021       - Added an option to the Help menu to display }
+{                                   the user's guide by pressing F1 using the   }
+{                                   system default PDF viewer.                  }
+{                                 - Fixed a bug which caused the key output     }
+{                                   file not being displayed when the key is    }
+{                                   not generated.                              }
+{                                 - Updated the user's guide.                   }
+{ Version 2.62, 15 Jun, 2021      - Fixed a bug which caused directives files   }
+{                                   TONAT, TOKEY, etc. to be incompletely read  }
+{                                   when the lists of included/excluded         }
+{                                   extended for more than one line.            }
+{ Version 2.70, 22 Jun, 2021      - Added a form for configuring the CONFOR     }
+{                                   directives for parsimony analysis.          }
+{                                 - Removed the Nexus and TNT options from the  }
+{                                   Export menu.                                }
+{                                 - Removed the Nexus option from the Import    }
+{                                   menu.                                       }
+{                                 - Fixed a bug which prevented generated key   }
+{                                   states from being placed in the appropriate }
+{                                   fields in the conventional key and matrices }
+{                                   for parsimony analysis forms.               }
+{                                 - Updated the user's guide.                   }
+{ Version 2.71, 7 Jul, 2021       - Added a message to inform the file name and }
+{                                   directory where the data metrix for         }
+{                                   parsimony analysis is saved.                }
+{ Version 2.80, 23 Jul, 2021      - Added support for PAUP parsimony program.   }
+{                                 - Added a 'script editor' with DELTA syntax   }
+{                                   highlighting for editing/running            }
+{                                   CONFOR/KEY/DIST directives files.           }
+{                                 - Updated the user's guide.                   }
+{ Version 2.81, 3 Aug, 2021       - Fixed a bug which prevented the R program   }
+{                                   to be correctly called under GNU/Linux.     }
+{                                 - Changed the default value of the            }
+{                                   *TRANSLATE IMPLICIT VALUES to false in the  }
+{                                   translate into natural language form.       }
+{ Version 2.82, 11 Aug, 2021      - Fixed a bug which caused implicit values to }
+{                                   be incorrectly written to the SPECS file.   }
+{                                 - Added a button to the About form to allow   }
+{                                   donations to the Free Delta Project via     }
+{                                   PayPal.                                     }
+{ Version 2.83, 30 Aug, 2021      - Added an option for exporting the entire    }
+{                                   data matrix to a tab-delimited text file.   }
+{                                 - Updated the user's guide.                   }
+{ Version 2.84, 15 Out, 2021      - Fixed a bug which caused a console screen   }
+{                                   to be displayed when running R scripts      }
+{                                   (MS-Windows only).                          }
+{                                 - Fixed a bug which caused character states   }
+{                                   lines contaning carriage returns to be      }
+{                                   incorrectly read as separate states.        }
+{                                 - Fixed a bug which prevented the correct     }
+{                                   generation of natural-language descriptions }
+{                                   in HTML format.                             }
+{                                 - Changed the mouse cursor to waiting mode    }
+{                                   when running R scripts.                     }
+{                                 - Updated Portoguese and French translations. }
+{ Version 2.85, 12 Nov, 2021      - Changed the way the R software for          }
+{                                   statistical computing and graphics is found }
+{                                   in the current OS to be fully automatic.    }
+{ Version 2.90, 17 Jan, 2022      - Added support to RTF in natural-language    }
+{                                   descriptions.                               }
+{ Version 2.91, 27 Mar, 2022      - Fixed a bug which caused all characters in  }
+{                                   the character tree to appear unmarked when  }
+{                                   the Character Edit dialog was closed by     }
+{                                   pessing the OK button.                      }
+{ Version 2.92, 16 Nov, 2022      - Fixed a bug which prevented some forms and  }
+{                                   dialogs not being correctly translated.     }
+{                                 - Added minor corrections to the user's guide.}
+{==============================================================================+}
 unit Main;
 
 {$mode objfpc}{$H+}

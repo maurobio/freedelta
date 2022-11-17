@@ -3,14 +3,14 @@
   <ProjectSession>
     <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="20">
+    <Units Count="21">
       <Unit0>
         <Filename Value="fde.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="14"/>
         <TopLine Value="16"/>
         <CursorPos X="21" Y="21"/>
-        <UsageCount Value="54"/>
+        <UsageCount Value="55"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -21,9 +21,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Main"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="376"/>
-        <CursorPos X="19" Y="387"/>
-        <UsageCount Value="54"/>
+        <TopLine Value="382"/>
+        <CursorPos X="81" Y="392"/>
+        <UsageCount Value="55"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -35,9 +35,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="About"/>
         <EditorIndex Value="8"/>
-        <TopLine Value="45"/>
         <CursorPos X="25" Y="113"/>
-        <UsageCount Value="54"/>
+        <UsageCount Value="55"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -48,9 +47,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Chars"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="70"/>
-        <CursorPos X="19" Y="79"/>
-        <UsageCount Value="54"/>
+        <TopLine Value="166"/>
+        <CursorPos X="16" Y="6"/>
+        <UsageCount Value="55"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
@@ -61,7 +60,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Checklist"/>
         <EditorIndex Value="13"/>
-        <UsageCount Value="54"/>
+        <UsageCount Value="55"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
@@ -72,7 +71,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Cluster"/>
         <EditorIndex Value="9"/>
-        <UsageCount Value="54"/>
+        <UsageCount Value="55"/>
         <Loaded Value="True"/>
       </Unit5>
       <Unit6>
@@ -83,8 +82,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Todis"/>
         <EditorIndex Value="12"/>
-        <TopLine Value="80"/>
-        <UsageCount Value="54"/>
+        <CursorPos X="24" Y="9"/>
+        <UsageCount Value="55"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>
@@ -95,9 +94,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Tokey"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="112"/>
-        <CursorPos X="10" Y="114"/>
-        <UsageCount Value="54"/>
+        <CursorPos X="30" Y="9"/>
+        <UsageCount Value="55"/>
         <Loaded Value="True"/>
       </Unit7>
       <Unit8>
@@ -108,9 +106,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Tonat"/>
         <EditorIndex Value="10"/>
-        <TopLine Value="192"/>
-        <CursorPos X="11" Y="196"/>
-        <UsageCount Value="54"/>
+        <CursorPos X="18" Y="9"/>
+        <UsageCount Value="55"/>
         <Loaded Value="True"/>
       </Unit8>
       <Unit9>
@@ -120,7 +117,7 @@
         <EditorIndex Value="7"/>
         <TopLine Value="408"/>
         <CursorPos X="7" Y="413"/>
-        <UsageCount Value="54"/>
+        <UsageCount Value="55"/>
         <Loaded Value="True"/>
       </Unit9>
       <Unit10>
@@ -130,7 +127,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="20"/>
         <CursorPos X="75" Y="37"/>
-        <UsageCount Value="54"/>
+        <UsageCount Value="55"/>
         <Loaded Value="True"/>
       </Unit10>
       <Unit11>
@@ -141,17 +138,17 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Viewer"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="24"/>
-        <CursorPos X="20" Y="29"/>
-        <UsageCount Value="54"/>
+        <CursorPos X="13" Y="27"/>
+        <UsageCount Value="55"/>
         <Loaded Value="True"/>
       </Unit11>
       <Unit12>
         <Filename Value="resources.inc"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="6"/>
+        <TopLine Value="87"/>
         <CursorPos X="54" Y="10"/>
-        <UsageCount Value="54"/>
+        <UsageCount Value="55"/>
         <Loaded Value="True"/>
       </Unit12>
       <Unit13>
@@ -160,7 +157,7 @@
         <UnitName Value="Nexus"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="40"/>
-        <UsageCount Value="54"/>
+        <UsageCount Value="55"/>
       </Unit13>
       <Unit14>
         <Filename Value="kstates.pas"/>
@@ -170,9 +167,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="KStates"/>
         <EditorIndex Value="11"/>
-        <TopLine Value="57"/>
-        <CursorPos Y="249"/>
-        <UsageCount Value="54"/>
+        <CursorPos X="41" Y="9"/>
+        <UsageCount Value="55"/>
         <Loaded Value="True"/>
       </Unit14>
       <Unit15>
@@ -184,8 +180,8 @@
         <UnitName Value="Phylogen"/>
         <EditorIndex Value="15"/>
         <TopLine Value="7"/>
-        <CursorPos X="32" Y="11"/>
-        <UsageCount Value="54"/>
+        <CursorPos X="26" Y="9"/>
+        <UsageCount Value="55"/>
         <Loaded Value="True"/>
       </Unit15>
       <Unit16>
@@ -197,8 +193,8 @@
         <UnitName Value="Script"/>
         <EditorIndex Value="1"/>
         <TopLine Value="46"/>
-        <CursorPos Y="55"/>
-        <UsageCount Value="46"/>
+        <CursorPos X="28" Y="51"/>
+        <UsageCount Value="47"/>
         <Loaded Value="True"/>
       </Unit16>
       <Unit17>
@@ -226,6 +222,13 @@
         <CursorPos X="82" Y="6"/>
         <UsageCount Value="10"/>
       </Unit19>
+      <Unit20>
+        <Filename Value="chars.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="157"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit20>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
