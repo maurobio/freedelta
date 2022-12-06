@@ -22,7 +22,8 @@ uses {$IFDEF UNIX} {$IFDEF UseCThreads}
   Viewer,
   KStates,
   Phylogen,
-  Script;
+  Script,
+  Toint;
 
 {$R *.res}
 
@@ -43,5 +44,6 @@ begin
   Application.CreateForm(TKeyStatesForm, KeyStatesForm);
   Application.CreateForm(TPhyloForm, PhyloForm);
   Application.CreateForm(TScriptForm, ScriptForm);
+  Application.CreateForm(TIntKeyForm, IntKeyForm);
   Application.Run;
 end.

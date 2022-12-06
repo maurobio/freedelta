@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Free Delta Editor\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-11-16 17:59-0300\n"
+"PO-Revision-Date: 2022-12-03 11:36-0300\n"
 "Last-Translator: Mauro J. Cavalcanti <maurobio@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -136,6 +136,11 @@ msgstr "Dendrograma"
 msgctxt "chars.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr "Dependente do caráter: %s, estado: %s"
+
+#: chars.strdirnotfound
+msgctxt "chars.strdirnotfound"
+msgid "DELTA directory not found."
+msgstr "Diretório do DELTA não encontrado."
 
 #: chars.strdistance
 msgctxt "chars.strdistance"
@@ -627,6 +632,11 @@ msgctxt "cluster.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr "Dependente do caráter: %s, estado: %s"
 
+#: cluster.strdirnotfound
+msgctxt "cluster.strdirnotfound"
+msgid "DELTA directory not found."
+msgstr "Diretório do DELTA não encontrado."
+
 #: cluster.strdistance
 msgctxt "cluster.strdistance"
 msgid "Distance"
@@ -1116,6 +1126,11 @@ msgstr "Dendrograma"
 msgctxt "kstates.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr "Dependente do caráter: %s, estado: %s"
+
+#: kstates.strdirnotfound
+msgctxt "kstates.strdirnotfound"
+msgid "DELTA directory not found."
+msgstr "Diretório do DELTA não encontrado."
 
 #: kstates.strdistance
 msgctxt "kstates.strdistance"
@@ -1607,6 +1622,11 @@ msgctxt "main.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr "Dependente do caráter: %s, estado: %s"
 
+#: main.strdirnotfound
+msgctxt "main.strdirnotfound"
+msgid "DELTA directory not found."
+msgstr "Diretório do DELTA não encontrado."
+
 #: main.strdistance
 msgctxt "main.strdistance"
 msgid "Distance"
@@ -2097,6 +2117,11 @@ msgctxt "prepare.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr "Dependente do caráter: %s, estado: %s"
 
+#: prepare.strdirnotfound
+msgctxt "prepare.strdirnotfound"
+msgid "DELTA directory not found."
+msgstr "Diretório do DELTA não encontrado."
+
 #: prepare.strdistance
 msgctxt "prepare.strdistance"
 msgid "Distance"
@@ -2586,6 +2611,11 @@ msgstr "Dendrograma"
 msgctxt "script.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr "Dependente do caráter: %s, estado: %s"
+
+#: script.strdirnotfound
+msgctxt "script.strdirnotfound"
+msgid "DELTA directory not found."
+msgstr "Diretório do DELTA não encontrado."
 
 #: script.strdistance
 msgctxt "script.strdistance"
@@ -3181,6 +3211,58 @@ msgctxt "tdistform.okbutton.caption"
 msgid "OK"
 msgstr "OK"
 
+#: tintkeyform.cancelbutton.caption
+#, fuzzy
+msgctxt "tintkeyform.cancelbutton.caption"
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: tintkeyform.caption
+msgid "INTKEY Directives"
+msgstr ""
+
+#: tintkeyform.labelcharacterreliabilities.caption
+#, fuzzy
+msgctxt "tintkeyform.labelcharacterreliabilities.caption"
+msgid "Character Reliabilities:"
+msgstr "Confiabilidade dos Caracteres:"
+
+#: tintkeyform.labelheading.caption
+#, fuzzy
+msgctxt "tintkeyform.labelheading.caption"
+msgid "Heading:"
+msgstr "Título:"
+
+#: tintkeyform.labelincludecharacters.caption
+#, fuzzy
+msgctxt "tintkeyform.labelincludecharacters.caption"
+msgid "Include Characters:"
+msgstr "Incluir Caracteres:"
+
+#: tintkeyform.labelincludeitems.caption
+#, fuzzy
+msgctxt "tintkeyform.labelincludeitems.caption"
+msgid "Include Items:"
+msgstr "Incluir Itens:"
+
+#: tintkeyform.labelrbase.caption
+#, fuzzy
+msgctxt "tintkeyform.labelrbase.caption"
+msgid "RBASE:"
+msgstr "RBASE:"
+
+#: tintkeyform.labelvarywt.caption
+#, fuzzy
+msgctxt "tintkeyform.labelvarywt.caption"
+msgid "VARYWT:"
+msgstr "VARYWT:"
+
+#: tintkeyform.okbutton.caption
+#, fuzzy
+msgctxt "tintkeyform.okbutton.caption"
+msgid "OK"
+msgstr "OK"
+
 #: tkeyform.cancelbutton.caption
 msgctxt "tkeyform.cancelbutton.caption"
 msgid "Cancel"
@@ -3212,6 +3294,7 @@ msgid "ABASE:"
 msgstr "ABASE:"
 
 #: tkeyform.labelcharacterreliabilities.caption
+msgctxt "tkeyform.labelcharacterreliabilities.caption"
 msgid "Character Reliabilities:"
 msgstr "Confiabilidade dos Caracteres:"
 
@@ -3221,10 +3304,12 @@ msgid "Heading:"
 msgstr "Título:"
 
 #: tkeyform.labelincludecharacters.caption
+msgctxt "tkeyform.labelincludecharacters.caption"
 msgid "Include Characters:"
 msgstr "Incluir Caracteres:"
 
 #: tkeyform.labelincludeitems.caption
+msgctxt "tkeyform.labelincludeitems.caption"
 msgid "Include Items:"
 msgstr "Incluir Itens:"
 
@@ -3243,6 +3328,7 @@ msgid "Output Format:"
 msgstr "Formato de Saída:"
 
 #: tkeyform.labelrbase.caption
+msgctxt "tkeyform.labelrbase.caption"
 msgid "RBASE:"
 msgstr "RBASE:"
 
@@ -3259,6 +3345,7 @@ msgid "Use Normal Values:"
 msgstr "Use Valores Normais"
 
 #: tkeyform.labelvarywt.caption
+msgctxt "tkeyform.labelvarywt.caption"
 msgid "VARYWT:"
 msgstr "VARYWT:"
 
@@ -4150,6 +4237,501 @@ msgctxt "tmainform.uncodedbtn.hint"
 msgid "Report on missing data"
 msgstr "Caracteres Não-Codificados|Relatório de dados ausentes"
 
+#: toint.straddcharacter
+msgctxt "toint.straddcharacter"
+msgid "Add Character"
+msgstr "Incluir Caráter"
+
+#: toint.stradditemcaption
+msgctxt "toint.stradditemcaption"
+msgid "Add Item"
+msgstr "Incluir Item"
+
+#: toint.stradditemprompt
+msgctxt "toint.stradditemprompt"
+msgid "Enter item name:"
+msgstr "Entre com o nome do item:"
+
+#: toint.straddstatecaption
+msgctxt "toint.straddstatecaption"
+msgid "Add State"
+msgstr "Incluir Estado"
+
+#: toint.straddstateprompt
+msgctxt "toint.straddstateprompt"
+msgid "Enter state description:"
+msgstr "Entre com a descrição do estado:"
+
+#: toint.straxis
+msgctxt "toint.straxis"
+msgid "Axis"
+msgstr "Eixo"
+
+#: toint.strcentroid
+msgctxt "toint.strcentroid"
+msgid "Centroid (UPGMC)"
+msgstr "Centroide (UPGMC)"
+
+#: toint.strcharacters
+msgctxt "toint.strcharacters"
+msgid "characters"
+msgstr "caracteres"
+
+#: toint.strcharlistempty
+msgctxt "toint.strcharlistempty"
+msgid "Character list empty. Enter at least one character description."
+msgstr "Lista de caracteres vazia. Entre com a descrição de pelo menos um caráter."
+
+#: toint.strclass
+msgctxt "toint.strclass"
+msgid " Class "
+msgstr " Classe "
+
+#: toint.strclm
+msgctxt "toint.strclm"
+msgid "Complete linkage (CLM)"
+msgstr "Ligação completa (CLM)"
+
+#: toint.strcloneitem
+msgctxt "toint.strcloneitem"
+msgid "Clone of"
+msgstr "Clone de"
+
+#: toint.strconfirmation
+msgctxt "toint.strconfirmation"
+msgid "Confirmation"
+msgstr "Confirmação"
+
+#: toint.strcontrol
+msgctxt "toint.strcontrol"
+msgid "Controls character: %s, by state: %s"
+msgstr "Controla o caráter: %s, pelo estado: %s"
+
+#: toint.strcopyimage
+msgctxt "toint.strcopyimage"
+msgid "Image copied to the Clipboard"
+msgstr "Imagem copiada para a Área de Transferência"
+
+#: toint.strcopytext
+msgctxt "toint.strcopytext"
+msgid "Text copied to the Clipboard"
+msgstr "Texto copiado para a Área de Trabalho"
+
+#: toint.strcsvfilter
+msgctxt "toint.strcsvfilter"
+msgid "Comma delimited files|*.csv"
+msgstr "Arquivos de texto delimitado por vírgulas|*.csv"
+
+#: toint.strdatadirectory
+msgctxt "toint.strdatadirectory"
+msgid "Select data directory"
+msgstr "Selecione o diretório de dados"
+
+#: toint.strdeltadirectory
+msgctxt "toint.strdeltadirectory"
+msgid "Select DELTA directory"
+msgstr "Selecione o diretório DELTA"
+
+#: toint.strdendrogram
+msgctxt "toint.strdendrogram"
+msgid "Dendrogram"
+msgstr "Dendrograma"
+
+#: toint.strdependent
+msgctxt "toint.strdependent"
+msgid "Dependent upon character: %s, state: %s"
+msgstr "Dependente do caráter: %s, estado: %s"
+
+#: toint.strdirnotfound
+msgctxt "toint.strdirnotfound"
+msgid "DELTA directory not found."
+msgstr "Diretório do DELTA não encontrado."
+
+#: toint.strdistance
+msgctxt "toint.strdistance"
+msgid "Distance"
+msgstr "Distância"
+
+#: toint.strdtzfilter
+msgctxt "toint.strdtzfilter"
+msgid "FreeDelta project|*.dtz"
+msgstr "Projeto FreeDelta (*.dtz)"
+
+#: toint.streditcaption
+msgctxt "toint.streditcaption"
+msgid "Database Title"
+msgstr "Cabeçalho"
+
+#: toint.streditcharacter
+msgctxt "toint.streditcharacter"
+msgid "Edit Character"
+msgstr "Editar Caráter"
+
+#: toint.stredititemcaption
+msgctxt "toint.stredititemcaption"
+msgid "Edit Item"
+msgstr "Editar Item"
+
+#: toint.stredititemprompt
+msgctxt "toint.stredititemprompt"
+msgid "Edit item name:"
+msgstr "Editar nome do item:"
+
+#: toint.streditprompt
+msgctxt "toint.streditprompt"
+msgid "Edit database title:"
+msgstr "Editar o cabeçalho dos dados:"
+
+#: toint.streditstatecaption
+msgctxt "toint.streditstatecaption"
+msgid "Edit State"
+msgstr "Editar Estado"
+
+#: toint.streditstateprompt
+msgctxt "toint.streditstateprompt"
+msgid "Edit state description:"
+msgstr "Editar descrição do estado:"
+
+#: toint.strentercharacternumber
+msgctxt "toint.strentercharacternumber"
+msgid "Enter character number:"
+msgstr "Entre o número do caráter:"
+
+#: toint.strerror
+msgctxt "toint.strerror"
+msgid "Error"
+msgstr "Erro"
+
+#: toint.strexists
+msgctxt "toint.strexists"
+msgid "File %s already exists. Overwrite?"
+msgstr "Arquivo %s já existe. Sobrescrever?"
+
+#: toint.strexport
+msgctxt "toint.strexport"
+msgid "Data exported successfully to directory %s."
+msgstr "Dados exportados com sucesso para o diretório %s."
+
+#: toint.strexportfile
+msgctxt "toint.strexportfile"
+msgid "Data exported successfully to file %s."
+msgstr "Dados exportados com sucesso para o arquivo %s."
+
+#: toint.strfindcharactercaption
+msgctxt "toint.strfindcharactercaption"
+msgid "Find Character"
+msgstr "Localizar Caráter"
+
+#: toint.strfindcharacterprompt
+msgctxt "toint.strfindcharacterprompt"
+msgid "Enter character description:"
+msgstr "Entre com a descrição do caráter:"
+
+#: toint.strfinditemcaption
+msgctxt "toint.strfinditemcaption"
+msgid "Find Item"
+msgstr "Localizar Item"
+
+#: toint.strfinditemprompt
+msgctxt "toint.strfinditemprompt"
+msgid "Enter item name:"
+msgstr "Entre com o nome do item:"
+
+#: toint.strfindtextcaption
+msgctxt "toint.strfindtextcaption"
+msgid "Find Text"
+msgstr "Localizar Texto"
+
+#: toint.strfindtextprompt
+msgctxt "toint.strfindtextprompt"
+msgid "Enter search text:"
+msgstr "Entre com o texto a ser pesquisado:"
+
+#: toint.strfrequency
+msgctxt "toint.strfrequency"
+msgid " Freq "
+msgstr " Freq "
+
+#: toint.strgotocharacter
+msgctxt "toint.strgotocharacter"
+msgid "Go to character"
+msgstr "Ir para o caráter"
+
+#: toint.strgotoline
+msgctxt "toint.strgotoline"
+msgid "Go to"
+msgstr "Ir para o caráter/item"
+
+#: toint.strgotolinecaption
+msgctxt "toint.strgotolinecaption"
+msgid "Enter item/character number:"
+msgstr "Digite o número do item/caráter:"
+
+#: toint.strhistogram
+msgctxt "toint.strhistogram"
+msgid " Histogram "
+msgstr " Histograma "
+
+#: toint.strimport
+msgctxt "toint.strimport"
+msgid "Data imported successfully to file %s."
+msgstr "Dados importados com sucesso para o arquivo %s."
+
+#: toint.strinformation
+msgctxt "toint.strinformation"
+msgid "Information"
+msgstr "Informação"
+
+#: toint.strinputinteger
+msgctxt "toint.strinputinteger"
+msgid "Enter an integer value between 1 and %d"
+msgstr "Entre um valor inteiro entre 1 e %d"
+
+#: toint.strinterval
+msgctxt "toint.strinterval"
+msgid " Class Interval "
+msgstr " Intervalo de Classes "
+
+#: toint.strinvalidsymbol
+msgctxt "toint.strinvalidsymbol"
+msgid "Invalid symbol ('/') in character or state name"
+msgstr "Símbolo inválido ('/') no nome do caráter ou estado"
+
+#: toint.stritemlistempty
+msgctxt "toint.stritemlistempty"
+msgid "Item list empty. Enter at least one item name."
+msgstr "Lista de itens vazia. Entre com o nome de pelo menos um item."
+
+#: toint.stritems
+msgctxt "toint.stritems"
+msgid "items"
+msgstr "itens"
+
+#: toint.stritemstatus
+msgctxt "toint.stritemstatus"
+msgid "Item name, followed by author name and/or comment between <angle brackets>"
+msgstr "Nome do item, seguido pelo nome do autor e/ou comentário entre <parênteses angulares>"
+
+#: toint.strlinux64only
+msgctxt "toint.strlinux64only"
+msgid "This option is not available under GNU/Linux 32-bit."
+msgstr "Esta opção não está disponível em GNU/Linux 32 bits."
+
+#: toint.strmark
+msgctxt "toint.strmark"
+msgid " Class Mark "
+msgstr " Ponto Médio "
+
+#: toint.strmedian
+msgctxt "toint.strmedian"
+msgid "Median (WPGMC)"
+msgstr "Mediana (WPGMC)"
+
+#: toint.strmerge
+msgctxt "toint.strmerge"
+msgid "All characters will be treated as unordered multistate"
+msgstr "Todos os caracteres serão tratados como multiestado não-ordenados"
+
+#: toint.strmissingbrackets
+msgctxt "toint.strmissingbrackets"
+msgid "Missing opening or closing angle brackets ('<>')"
+msgstr "Faltando abertura ou fechamento de parênteses angulares ('<>')."
+
+#: toint.strnewcaption
+msgctxt "toint.strnewcaption"
+msgid "New Database"
+msgstr "Novo Conjunto de Dados"
+
+#: toint.strnewprompt
+msgctxt "toint.strnewprompt"
+msgid "Enter database title:"
+msgstr "Entre o cabeçalho dos dados:"
+
+#: toint.strnexusfilter
+msgctxt "toint.strnexusfilter"
+msgid "Nexus data files|*.nex"
+msgstr "Arquivos de dados Nexus|*.nex"
+
+#: toint.strnotexecute
+msgctxt "toint.strnotexecute"
+msgid "Couldn't start %s program."
+msgstr "Erro na execução do programa %s."
+
+#: toint.strnotfound
+msgctxt "toint.strnotfound"
+msgid "File %s not found."
+msgstr "Arquivo %s não encontrado."
+
+#: toint.strnotfounddir
+msgctxt "toint.strnotfounddir"
+msgid "File %s not found in %s."
+msgstr "Arquivo %s não encontrado em %s."
+
+#: toint.stropenfile
+msgctxt "toint.stropenfile"
+msgid "Open file"
+msgstr "Abrir arquivo"
+
+#: toint.stroutofrange
+msgctxt "toint.stroutofrange"
+msgid "Value out of range"
+msgstr "Valor fora do intervalo"
+
+#: toint.strpaupdirectory
+msgctxt "toint.strpaupdirectory"
+msgid "Select PAUP directory"
+msgstr "Selecione o diretório do PAUP"
+
+#: toint.strpaupnotfound
+msgctxt "toint.strpaupnotfound"
+msgid "PAUP not installed or not found in path."
+msgstr "PAUP não instalado ou não encontrado."
+
+#: toint.strquit
+msgctxt "toint.strquit"
+msgid "Do you want to exit the program?"
+msgstr "Deseja sair do programa?"
+
+#: toint.strrdirectory
+msgctxt "toint.strrdirectory"
+msgid "Select R directory"
+msgstr "Selecione o diretório R"
+
+#: toint.strreaderror
+msgctxt "toint.strreaderror"
+msgid "Error reading file %s."
+msgstr "Erro na leitura do arquivo %s."
+
+#: toint.strready
+msgctxt "toint.strready"
+msgid "Ready"
+msgstr "Pronto"
+
+#: toint.strrnotfound
+msgctxt "toint.strrnotfound"
+msgid "R not installed or not found in path."
+msgstr "R não instalado ou não encontrado."
+
+#: toint.strsave
+msgctxt "toint.strsave"
+msgid "Dataset has been modified. Save?"
+msgstr "Conjunto de dados foi modificado. Salvar?"
+
+#: toint.strsavechanges
+msgctxt "toint.strsavechanges"
+msgid "Save changes?"
+msgstr "Salvar alterações?"
+
+#: toint.strsaveerror
+msgctxt "toint.strsaveerror"
+msgid "Failed to save file %s."
+msgstr "Falha ao salvar arquivo %s."
+
+#: toint.strsavefile
+msgctxt "toint.strsavefile"
+msgid "Save file as"
+msgstr "Salvar arquivo como"
+
+#: toint.strscatterplot
+msgctxt "toint.strscatterplot"
+msgid "Scatterplot"
+msgstr "Diagrama de dispersão"
+
+#: toint.strslm
+msgctxt "toint.strslm"
+msgid "Single linkage (SLM)"
+msgstr "Ligação simples (SLM)"
+
+#: toint.strstatelistempty
+msgctxt "toint.strstatelistempty"
+msgid "State list empty or incomplete. Enter at least two state descriptions."
+msgstr "Lista de estados vazia ou incompleta. Entre com a descrição de pelo menos dois estados."
+
+#: toint.strstates
+msgctxt "toint.strstates"
+msgid "States:"
+msgstr "Estados:"
+
+#: toint.strtext
+msgctxt "toint.strtext"
+msgid "Text"
+msgstr "Texto"
+
+#: toint.strtextnotfound
+msgctxt "toint.strtextnotfound"
+msgid "Text not found!"
+msgstr "Texto não encontrado!"
+
+#: toint.strtntdirectory
+msgctxt "toint.strtntdirectory"
+msgid "Select TNT directory"
+msgstr "Selecione o diretório TNT"
+
+#: toint.strtntfilter
+msgctxt "toint.strtntfilter"
+msgid "TNT data files|*.tnt"
+msgstr "Arquivos de dados TNT|*.tnt"
+
+#: toint.strtntnotfound
+msgctxt "toint.strtntnotfound"
+msgid "TNT not installed or not found in path."
+msgstr "TNT não instalado ou não encontrado."
+
+#: toint.strtxtfilter
+msgctxt "toint.strtxtfilter"
+msgid "Text files|*.txt"
+msgstr "Arquivos de texto|*.txt"
+
+#: toint.strunit
+msgctxt "toint.strunit"
+msgid "Unit:"
+msgstr "Unidade:"
+
+#: toint.strunitempty
+msgctxt "toint.strunitempty"
+msgid "Measurement unit not defined for real numeric character."
+msgstr "Unidade de medida não definida para caráter numérico real."
+
+#: toint.struntitled
+msgctxt "toint.struntitled"
+msgid "Untitled"
+msgstr "Sem titulo"
+
+#: toint.strupgma
+msgctxt "toint.strupgma"
+msgid "Average linkage (UPGMA)"
+msgstr "Ligação média (UPGMA)"
+
+#: toint.strvalidnumber
+msgctxt "toint.strvalidnumber"
+msgid "Enter numbers only (an integer value between 1 and %d)"
+msgstr "Entre somente números (um valor inteiro entre 1 e %d)"
+
+#: toint.strward
+msgctxt "toint.strward"
+msgid "Ward's Method"
+msgstr "Método de Ward"
+
+#: toint.strwarning
+msgctxt "toint.strwarning"
+msgid "Warning"
+msgstr "Aviso"
+
+#: toint.strwindowsonly
+msgctxt "toint.strwindowsonly"
+msgid "This option is available only under MS-Windows."
+msgstr "Esta opção está disponível apenas sob MS-Windows."
+
+#: toint.strwpgma
+msgctxt "toint.strwpgma"
+msgid "Weighted linkage (WPGMA)"
+msgstr "Ligação ponderada (WPGMA)"
+
+#: toint.strxmlfilter
+msgctxt "toint.strxmlfilter"
+msgid "XML files|*.xml"
+msgstr "Arquivos XML|*.xml"
+
 #: tokey.straddcharacter
 msgctxt "tokey.straddcharacter"
 msgid "Add Character"
@@ -4254,6 +4836,11 @@ msgstr "Dendrograma"
 msgctxt "tokey.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr "Dependente do caráter: %s, estado: %s"
+
+#: tokey.strdirnotfound
+msgctxt "tokey.strdirnotfound"
+msgid "DELTA directory not found."
+msgstr "Diretório do DELTA não encontrado."
 
 #: tokey.strdistance
 msgctxt "tokey.strdistance"
@@ -4744,6 +5331,11 @@ msgstr "Dendrograma"
 msgctxt "tonat.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr "Dependente do caráter: %s, estado: %s"
+
+#: tonat.strdirnotfound
+msgctxt "tonat.strdirnotfound"
+msgid "DELTA directory not found."
+msgstr "Diretório do DELTA não encontrado."
 
 #: tonat.strdistance
 msgctxt "tonat.strdistance"
@@ -5372,6 +5964,11 @@ msgctxt "viewer.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr "Dependente do caráter: %s, estado: %s"
 
+#: viewer.strdirnotfound
+msgctxt "viewer.strdirnotfound"
+msgid "DELTA directory not found."
+msgstr "Diretório do DELTA não encontrado."
+
 #: viewer.strdistance
 msgctxt "viewer.strdistance"
 msgid "Distance"
@@ -5756,3 +6353,4 @@ msgstr "Ligação ponderada (WPGMA)"
 msgctxt "viewer.strxmlfilter"
 msgid "XML files|*.xml"
 msgstr "Arquivos XML|*.xml"
+

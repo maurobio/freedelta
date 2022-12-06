@@ -17,7 +17,8 @@ procedure CreateTONAT(const dirfile, header: string;
   print_width: integer; ext: string);
 procedure CreateTOKEY(const dirfile, header, use_normal_values,
   character_reliabilities, key_states, include_items, include_characters: string);
-procedure CreateTOINT(const dirfile, header: string);
+procedure CreateTOINT(const dirfile, header, character_reliabilities,
+  include_items, include_characters: string);
 procedure CreateTODIS(const dirfile, header: string);
 procedure CreateTOHEN(const dirfile, header, key_states, exclude_items,
   exclude_characters, output_file: string);
@@ -32,7 +33,7 @@ procedure CreateDIST(const dirfile: string; match_overlap: boolean;
   minimum_comparisons: integer; phylip_format: boolean;
   const exclude_items, exclude_characters: string);
 procedure CreateUNCODED(const dirfile, header: string);
-procedure CreateINTKEY(const inifile, header: string);
+procedure CreateINTKEY(const inifile, header: string; rbase, varywt: real);
 procedure CreatePRINTC(const dirfile, header: string);
 procedure CreatePRINTN(const dirfile, header: string);
 procedure CreatePRINTI(const dirfile, header: string);
@@ -245,7 +246,8 @@ end;
 {--------------------------------------------------------------------------}
 {          CreateTOINT                                                     }
 {--------------------------------------------------------------------------}
-procedure CreateTOINT(const dirfile, header: string);
+procedure CreateTOINT(const dirfile, header, character_reliabilities,
+  include_items, include_characters: string);
 var
   outfile: TextFile;
 begin
@@ -253,12 +255,11 @@ begin
   Rewrite(outfile);
   WriteLn(outfile, '*SHOW Translate into INTKEY format');
   WriteLn(outfile, '*SHOW Generated on ', DateTimeToStr(Now));
-  WriteLn(outfile, '*HEADING ', header);
+  WriteLn(outfile, '*HEADING DELTA ', header);
   WriteLn(outfile);
   WriteLn(outfile, '*INPUT FILE specs');
   WriteLn(outfile);
   WriteLn(outfile, '*TRANSLATE INTO INTKEY FORMAT');
-  WriteLn(outfile, '*OMIT TYPESETTING MARKS');
   WriteLn(outfile);
   if FileExists('cnotes') then
     WriteLn(outfile, '*INPUT FILE cnotes');
@@ -266,11 +267,24 @@ begin
     WriteLn(outfile, '*INPUT FILE cimages');
   if FileExists('timages') then
     WriteLn(outfile, '*INPUT FILE timages');
+  if Length(include_items) > 0 then
+    WriteLn(outfile, WrapText('*INCLUDE ITEMS ' + include_items, #13#10, [' '], 79),
+      LineEnding);
+  if Length(include_characters) > 0 then
+    WriteLn(outfile, WrapText('*INCLUDE CHARACTERS ' + include_characters,
+      #13#10, [' '], 79));
+  WriteLn(outfile, '*OMIT TYPESETTING MARKS');
+  WriteLn(outfile, '*OMIT INNER COMMENTS');
+  WriteLn(outfile, '*PERCENT ERROR');
   WriteLn(outfile);
-  WriteLn(outfile, '*KEY OUTPUT FILE ichars');
+  if Length(character_reliabilities) > 0 then
+    WriteLn(outfile, WrapText('*CHARACTER RELIABILITIES ' +
+      character_reliabilities, #13#10, [' '], 79), LineEnding);
+  WriteLn(outfile);
+  WriteLn(outfile, '*INTKEY OUTPUT FILE ichars');
   WriteLn(outfile, '*INPUT FILE chars');
   WriteLn(outfile);
-  WriteLn(outfile, '*KEY OUTPUT FILE iitems');
+  WriteLn(outfile, '*INTKEY OUTPUT FILE iitems');
   WriteLn(outfile, '*INPUT FILE items');
   CloseFile(outfile);
 end;
@@ -507,7 +521,7 @@ end;
 {--------------------------------------------------------------------------}
 {          CreateINTKEY                                                    }
 {--------------------------------------------------------------------------}
-procedure CreateINTKEY(const inifile, header: string);
+procedure CreateINTKEY(const inifile, header: string; rbase, varywt: real);
 var
   outfile: TextFile;
 begin
@@ -517,11 +531,21 @@ begin
   WriteLn(outfile, '*COMMENT Generated on ', DateTimeToStr(Now));
   WriteLn(outfile, '*COMMENT ', header);
   WriteLn(outfile);
+  WriteLn(outfile, '*SET IMAGEPATH images');
+  WriteLn(outfile, '*SET INFOPATH info');
+  WriteLn(outfile);
   WriteLn(outfile, '*FILE TAXA iitems');
   WriteLn(outfile, '*FILE CHARACTERS ichars');
   WriteLn(outfile);
+  if FileExists('toolbar.inp') then
+  begin
+    WriteLn(outfile, '*DEFINE BUTTON CLEAR');
+    WriteLn(outfile, '*FILE INPUT toolbar.inp');
+    WriteLn(outfile);
+  end;
   WriteLn(outfile, '*COMMENT Intkey settings.');
-  WriteLn(outfile, '*SET RBASE 1.2');
+  WriteLn(outfile, '*SET RBASE ', FloatToStr(rbase));
+  WriteLn(outfile, '*SET VARYWT ', FloatToStr(varywt));
   WriteLn(outfile);
   WriteLn(outfile, '*DISPLAY INAPPLICABLES off');
   WriteLn(outfile, '*DISPLAY UNKNOWNS off');
@@ -660,7 +684,7 @@ var
 begin
   AssignFile(outfile, dirfile);
   Rewrite(outfile);
-  WriteLn(outfile, '**COMMENT ~ Taxon images.');
+  WriteLn(outfile, '*COMMENT ~ Taxon images.');
   WriteLn(outfile, '*COMMENT Generated on ', DateTimeToStr(Now));
   WriteLn(outfile);
   WriteLn(outfile, '*TAXON IMAGES');
@@ -677,7 +701,7 @@ var
 begin
   AssignFile(outfile, dirfile);
   Rewrite(outfile);
-  WriteLn(outfile, '**COMMENT ~ Character images.');
+  WriteLn(outfile, '*COMMENT ~ Character images.');
   WriteLn(outfile, '*COMMENT Generated on ', DateTimeToStr(Now));
   WriteLn(outfile);
   WriteLn(outfile, '*CHARACTER IMAGES');
@@ -1093,7 +1117,7 @@ begin
   WriteLn(outfile, '}');
   WriteLn(outfile, '{\stylesheet');
   WriteLn(outfile, '{\qj\fi340\fs22\snext0{}Normal;}');
-  WriteLn(outfile,
+  (*WriteLn(outfile,
     '{\s1\qc\sb500\sa100\keepn\b\f2\fs32\kerning28\sbasedon0\snext0{}Heading 1;}');
   WriteLn(outfile,
     '{\s2\qc\sb500\sa100\keepn\b\f2\fs28\kerning28\sbasedon0\snext0{}Heading 2;}');
@@ -1105,7 +1129,7 @@ begin
   WriteLn(outfile, '{\s12\ql\sb0\sa0\li705\fi-200\fs22\sbasedon0{}State;}');
   WriteLn(outfile, '{\s13\ql\sb0\sa0\li505\fi400\fs22\sbasedon0{}Character Note;}');
   WriteLn(outfile, '{\s20\qc\sb300\sa0\li0\fi0\keep\keepn\fs24\sbasedon0{}Taxon Heading;}');
-  WriteLn(outfile, '{\s21\ql\sb300\sa100\li0\fi0\keep\keepn\b\fs24\sbasedon0{}Taxon Name;}');
+  WriteLn(outfile, '{\s21\ql\sb300\sa100\li0\fi0\keep\keepn\b\fs24\sbasedon0{}Taxon Name;}');*)
   WriteLn(outfile, '{\s22\qj\sb0\sa0\li0\fi340\fs22\sbasedon0{}Description;}');
   WriteLn(outfile, '{\s23\fi-300\li300\keep\keepn\b\fs22\sbasedon0\snext0\sautoupd{}toc 1;}');
   WriteLn(outfile, '{\s24\fi-300\li450\keep\fs22\sbasedon0\snext0\sautoupd{}toc 2;}');

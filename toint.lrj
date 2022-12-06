@@ -1,0 +1,11 @@
+{"version":1,"strings":[
+{"hash":22127795,"name":"tintkeyform.caption","sourcebytes":[73,78,84,75,69,89,32,68,105,114,101,99,116,105,118,101,115],"value":"INTKEY Directives"},
+{"hash":192610378,"name":"tintkeyform.labelheading.caption","sourcebytes":[72,101,97,100,105,110,103,58],"value":"Heading:"},
+{"hash":85412218,"name":"tintkeyform.labelcharacterreliabilities.caption","sourcebytes":[67,104,97,114,97,99,116,101,114,32,82,101,108,105,97,98,105,108,105,116,105,101,115,58],"value":"Character Reliabilities:"},
+{"hash":90597258,"name":"tintkeyform.labelrbase.caption","sourcebytes":[82,66,65,83,69,58],"value":"RBASE:"},
+{"hash":174582826,"name":"tintkeyform.labelvarywt.caption","sourcebytes":[86,65,82,89,87,84,58],"value":"VARYWT:"},
+{"hash":27859738,"name":"tintkeyform.labelincludeitems.caption","sourcebytes":[73,110,99,108,117,100,101,32,73,116,101,109,115,58],"value":"Include Items:"},
+{"hash":11082266,"name":"tintkeyform.labelincludecharacters.caption","sourcebytes":[73,110,99,108,117,100,101,32,67,104,97,114,97,99,116,101,114,115,58],"value":"Include Characters:"},
+{"hash":1339,"name":"tintkeyform.okbutton.caption","sourcebytes":[79,75],"value":"OK"},
+{"hash":77089212,"name":"tintkeyform.cancelbutton.caption","sourcebytes":[67,97,110,99,101,108],"value":"Cancel"}
+]}

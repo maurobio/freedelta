@@ -124,6 +124,11 @@ msgctxt "chars.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr ""
 
+#: chars.strdirnotfound
+msgctxt "chars.strdirnotfound"
+msgid "DELTA directory not found."
+msgstr ""
+
 #: chars.strdistance
 msgctxt "chars.strdistance"
 msgid "Distance"
@@ -612,6 +617,11 @@ msgstr ""
 #: cluster.strdependent
 msgctxt "cluster.strdependent"
 msgid "Dependent upon character: %s, state: %s"
+msgstr ""
+
+#: cluster.strdirnotfound
+msgctxt "cluster.strdirnotfound"
+msgid "DELTA directory not found."
 msgstr ""
 
 #: cluster.strdistance
@@ -1104,6 +1114,11 @@ msgctxt "kstates.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr ""
 
+#: kstates.strdirnotfound
+msgctxt "kstates.strdirnotfound"
+msgid "DELTA directory not found."
+msgstr ""
+
 #: kstates.strdistance
 msgctxt "kstates.strdistance"
 msgid "Distance"
@@ -1592,6 +1607,11 @@ msgstr ""
 #: main.strdependent
 msgctxt "main.strdependent"
 msgid "Dependent upon character: %s, state: %s"
+msgstr ""
+
+#: main.strdirnotfound
+msgctxt "main.strdirnotfound"
+msgid "DELTA directory not found."
 msgstr ""
 
 #: main.strdistance
@@ -2084,6 +2104,11 @@ msgctxt "prepare.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr ""
 
+#: prepare.strdirnotfound
+msgctxt "prepare.strdirnotfound"
+msgid "DELTA directory not found."
+msgstr ""
+
 #: prepare.strdistance
 msgctxt "prepare.strdistance"
 msgid "Distance"
@@ -2572,6 +2597,11 @@ msgstr ""
 #: script.strdependent
 msgctxt "script.strdependent"
 msgid "Dependent upon character: %s, state: %s"
+msgstr ""
+
+#: script.strdirnotfound
+msgctxt "script.strdirnotfound"
+msgid "DELTA directory not found."
 msgstr ""
 
 #: script.strdistance
@@ -3168,6 +3198,50 @@ msgctxt "tdistform.okbutton.caption"
 msgid "OK"
 msgstr ""
 
+#: tintkeyform.cancelbutton.caption
+msgctxt "tintkeyform.cancelbutton.caption"
+msgid "Cancel"
+msgstr ""
+
+#: tintkeyform.caption
+msgid "INTKEY Directives"
+msgstr ""
+
+#: tintkeyform.labelcharacterreliabilities.caption
+msgctxt "tintkeyform.labelcharacterreliabilities.caption"
+msgid "Character Reliabilities:"
+msgstr ""
+
+#: tintkeyform.labelheading.caption
+msgctxt "tintkeyform.labelheading.caption"
+msgid "Heading:"
+msgstr ""
+
+#: tintkeyform.labelincludecharacters.caption
+msgctxt "tintkeyform.labelincludecharacters.caption"
+msgid "Include Characters:"
+msgstr ""
+
+#: tintkeyform.labelincludeitems.caption
+msgctxt "tintkeyform.labelincludeitems.caption"
+msgid "Include Items:"
+msgstr ""
+
+#: tintkeyform.labelrbase.caption
+msgctxt "tintkeyform.labelrbase.caption"
+msgid "RBASE:"
+msgstr ""
+
+#: tintkeyform.labelvarywt.caption
+msgctxt "tintkeyform.labelvarywt.caption"
+msgid "VARYWT:"
+msgstr ""
+
+#: tintkeyform.okbutton.caption
+msgctxt "tintkeyform.okbutton.caption"
+msgid "OK"
+msgstr ""
+
 #: tkeyform.cancelbutton.caption
 msgctxt "tkeyform.cancelbutton.caption"
 msgid "Cancel"
@@ -3199,6 +3273,7 @@ msgid "ABASE:"
 msgstr ""
 
 #: tkeyform.labelcharacterreliabilities.caption
+msgctxt "tkeyform.labelcharacterreliabilities.caption"
 msgid "Character Reliabilities:"
 msgstr ""
 
@@ -3208,10 +3283,12 @@ msgid "Heading:"
 msgstr ""
 
 #: tkeyform.labelincludecharacters.caption
+msgctxt "tkeyform.labelincludecharacters.caption"
 msgid "Include Characters:"
 msgstr ""
 
 #: tkeyform.labelincludeitems.caption
+msgctxt "tkeyform.labelincludeitems.caption"
 msgid "Include Items:"
 msgstr ""
 
@@ -3230,6 +3307,7 @@ msgid "Output Format:"
 msgstr ""
 
 #: tkeyform.labelrbase.caption
+msgctxt "tkeyform.labelrbase.caption"
 msgid "RBASE:"
 msgstr ""
 
@@ -3246,6 +3324,7 @@ msgid "Use Normal Values:"
 msgstr ""
 
 #: tkeyform.labelvarywt.caption
+msgctxt "tkeyform.labelvarywt.caption"
 msgid "VARYWT:"
 msgstr ""
 
@@ -4137,6 +4216,501 @@ msgctxt "tmainform.uncodedbtn.hint"
 msgid "Report on missing data"
 msgstr ""
 
+#: toint.straddcharacter
+msgctxt "toint.straddcharacter"
+msgid "Add Character"
+msgstr ""
+
+#: toint.stradditemcaption
+msgctxt "toint.stradditemcaption"
+msgid "Add Item"
+msgstr ""
+
+#: toint.stradditemprompt
+msgctxt "toint.stradditemprompt"
+msgid "Enter item name:"
+msgstr ""
+
+#: toint.straddstatecaption
+msgctxt "toint.straddstatecaption"
+msgid "Add State"
+msgstr ""
+
+#: toint.straddstateprompt
+msgctxt "toint.straddstateprompt"
+msgid "Enter state description:"
+msgstr ""
+
+#: toint.straxis
+msgctxt "toint.straxis"
+msgid "Axis"
+msgstr ""
+
+#: toint.strcentroid
+msgctxt "toint.strcentroid"
+msgid "Centroid (UPGMC)"
+msgstr ""
+
+#: toint.strcharacters
+msgctxt "toint.strcharacters"
+msgid "characters"
+msgstr ""
+
+#: toint.strcharlistempty
+msgctxt "toint.strcharlistempty"
+msgid "Character list empty. Enter at least one character description."
+msgstr ""
+
+#: toint.strclass
+msgctxt "toint.strclass"
+msgid " Class "
+msgstr ""
+
+#: toint.strclm
+msgctxt "toint.strclm"
+msgid "Complete linkage (CLM)"
+msgstr ""
+
+#: toint.strcloneitem
+msgctxt "toint.strcloneitem"
+msgid "Clone of"
+msgstr ""
+
+#: toint.strconfirmation
+msgctxt "toint.strconfirmation"
+msgid "Confirmation"
+msgstr ""
+
+#: toint.strcontrol
+msgctxt "toint.strcontrol"
+msgid "Controls character: %s, by state: %s"
+msgstr ""
+
+#: toint.strcopyimage
+msgctxt "toint.strcopyimage"
+msgid "Image copied to the Clipboard"
+msgstr ""
+
+#: toint.strcopytext
+msgctxt "toint.strcopytext"
+msgid "Text copied to the Clipboard"
+msgstr ""
+
+#: toint.strcsvfilter
+msgctxt "toint.strcsvfilter"
+msgid "Comma delimited files|*.csv"
+msgstr ""
+
+#: toint.strdatadirectory
+msgctxt "toint.strdatadirectory"
+msgid "Select data directory"
+msgstr ""
+
+#: toint.strdeltadirectory
+msgctxt "toint.strdeltadirectory"
+msgid "Select DELTA directory"
+msgstr ""
+
+#: toint.strdendrogram
+msgctxt "toint.strdendrogram"
+msgid "Dendrogram"
+msgstr ""
+
+#: toint.strdependent
+msgctxt "toint.strdependent"
+msgid "Dependent upon character: %s, state: %s"
+msgstr ""
+
+#: toint.strdirnotfound
+msgctxt "toint.strdirnotfound"
+msgid "DELTA directory not found."
+msgstr ""
+
+#: toint.strdistance
+msgctxt "toint.strdistance"
+msgid "Distance"
+msgstr ""
+
+#: toint.strdtzfilter
+msgctxt "toint.strdtzfilter"
+msgid "FreeDelta project|*.dtz"
+msgstr ""
+
+#: toint.streditcaption
+msgctxt "toint.streditcaption"
+msgid "Database Title"
+msgstr ""
+
+#: toint.streditcharacter
+msgctxt "toint.streditcharacter"
+msgid "Edit Character"
+msgstr ""
+
+#: toint.stredititemcaption
+msgctxt "toint.stredititemcaption"
+msgid "Edit Item"
+msgstr ""
+
+#: toint.stredititemprompt
+msgctxt "toint.stredititemprompt"
+msgid "Edit item name:"
+msgstr ""
+
+#: toint.streditprompt
+msgctxt "toint.streditprompt"
+msgid "Edit database title:"
+msgstr ""
+
+#: toint.streditstatecaption
+msgctxt "toint.streditstatecaption"
+msgid "Edit State"
+msgstr ""
+
+#: toint.streditstateprompt
+msgctxt "toint.streditstateprompt"
+msgid "Edit state description:"
+msgstr ""
+
+#: toint.strentercharacternumber
+msgctxt "toint.strentercharacternumber"
+msgid "Enter character number:"
+msgstr ""
+
+#: toint.strerror
+msgctxt "toint.strerror"
+msgid "Error"
+msgstr ""
+
+#: toint.strexists
+msgctxt "toint.strexists"
+msgid "File %s already exists. Overwrite?"
+msgstr ""
+
+#: toint.strexport
+msgctxt "toint.strexport"
+msgid "Data exported successfully to directory %s."
+msgstr ""
+
+#: toint.strexportfile
+msgctxt "toint.strexportfile"
+msgid "Data exported successfully to file %s."
+msgstr ""
+
+#: toint.strfindcharactercaption
+msgctxt "toint.strfindcharactercaption"
+msgid "Find Character"
+msgstr ""
+
+#: toint.strfindcharacterprompt
+msgctxt "toint.strfindcharacterprompt"
+msgid "Enter character description:"
+msgstr ""
+
+#: toint.strfinditemcaption
+msgctxt "toint.strfinditemcaption"
+msgid "Find Item"
+msgstr ""
+
+#: toint.strfinditemprompt
+msgctxt "toint.strfinditemprompt"
+msgid "Enter item name:"
+msgstr ""
+
+#: toint.strfindtextcaption
+msgctxt "toint.strfindtextcaption"
+msgid "Find Text"
+msgstr ""
+
+#: toint.strfindtextprompt
+msgctxt "toint.strfindtextprompt"
+msgid "Enter search text:"
+msgstr ""
+
+#: toint.strfrequency
+msgctxt "toint.strfrequency"
+msgid " Freq "
+msgstr ""
+
+#: toint.strgotocharacter
+msgctxt "toint.strgotocharacter"
+msgid "Go to character"
+msgstr ""
+
+#: toint.strgotoline
+msgctxt "toint.strgotoline"
+msgid "Go to"
+msgstr ""
+
+#: toint.strgotolinecaption
+msgctxt "toint.strgotolinecaption"
+msgid "Enter item/character number:"
+msgstr ""
+
+#: toint.strhistogram
+msgctxt "toint.strhistogram"
+msgid " Histogram "
+msgstr ""
+
+#: toint.strimport
+msgctxt "toint.strimport"
+msgid "Data imported successfully to file %s."
+msgstr ""
+
+#: toint.strinformation
+msgctxt "toint.strinformation"
+msgid "Information"
+msgstr ""
+
+#: toint.strinputinteger
+msgctxt "toint.strinputinteger"
+msgid "Enter an integer value between 1 and %d"
+msgstr ""
+
+#: toint.strinterval
+msgctxt "toint.strinterval"
+msgid " Class Interval "
+msgstr ""
+
+#: toint.strinvalidsymbol
+msgctxt "toint.strinvalidsymbol"
+msgid "Invalid symbol ('/') in character or state name"
+msgstr ""
+
+#: toint.stritemlistempty
+msgctxt "toint.stritemlistempty"
+msgid "Item list empty. Enter at least one item name."
+msgstr ""
+
+#: toint.stritems
+msgctxt "toint.stritems"
+msgid "items"
+msgstr ""
+
+#: toint.stritemstatus
+msgctxt "toint.stritemstatus"
+msgid "Item name, followed by author name and/or comment between <angle brackets>"
+msgstr ""
+
+#: toint.strlinux64only
+msgctxt "toint.strlinux64only"
+msgid "This option is not available under GNU/Linux 32-bit."
+msgstr ""
+
+#: toint.strmark
+msgctxt "toint.strmark"
+msgid " Class Mark "
+msgstr ""
+
+#: toint.strmedian
+msgctxt "toint.strmedian"
+msgid "Median (WPGMC)"
+msgstr ""
+
+#: toint.strmerge
+msgctxt "toint.strmerge"
+msgid "All characters will be treated as unordered multistate"
+msgstr ""
+
+#: toint.strmissingbrackets
+msgctxt "toint.strmissingbrackets"
+msgid "Missing opening or closing angle brackets ('<>')"
+msgstr ""
+
+#: toint.strnewcaption
+msgctxt "toint.strnewcaption"
+msgid "New Database"
+msgstr ""
+
+#: toint.strnewprompt
+msgctxt "toint.strnewprompt"
+msgid "Enter database title:"
+msgstr ""
+
+#: toint.strnexusfilter
+msgctxt "toint.strnexusfilter"
+msgid "Nexus data files|*.nex"
+msgstr ""
+
+#: toint.strnotexecute
+msgctxt "toint.strnotexecute"
+msgid "Couldn't start %s program."
+msgstr ""
+
+#: toint.strnotfound
+msgctxt "toint.strnotfound"
+msgid "File %s not found."
+msgstr ""
+
+#: toint.strnotfounddir
+msgctxt "toint.strnotfounddir"
+msgid "File %s not found in %s."
+msgstr ""
+
+#: toint.stropenfile
+msgctxt "toint.stropenfile"
+msgid "Open file"
+msgstr ""
+
+#: toint.stroutofrange
+msgctxt "toint.stroutofrange"
+msgid "Value out of range"
+msgstr ""
+
+#: toint.strpaupdirectory
+msgctxt "toint.strpaupdirectory"
+msgid "Select PAUP directory"
+msgstr ""
+
+#: toint.strpaupnotfound
+msgctxt "toint.strpaupnotfound"
+msgid "PAUP not installed or not found in path."
+msgstr ""
+
+#: toint.strquit
+msgctxt "toint.strquit"
+msgid "Do you want to exit the program?"
+msgstr ""
+
+#: toint.strrdirectory
+msgctxt "toint.strrdirectory"
+msgid "Select R directory"
+msgstr ""
+
+#: toint.strreaderror
+msgctxt "toint.strreaderror"
+msgid "Error reading file %s."
+msgstr ""
+
+#: toint.strready
+msgctxt "toint.strready"
+msgid "Ready"
+msgstr ""
+
+#: toint.strrnotfound
+msgctxt "toint.strrnotfound"
+msgid "R not installed or not found in path."
+msgstr ""
+
+#: toint.strsave
+msgctxt "toint.strsave"
+msgid "Dataset has been modified. Save?"
+msgstr ""
+
+#: toint.strsavechanges
+msgctxt "toint.strsavechanges"
+msgid "Save changes?"
+msgstr ""
+
+#: toint.strsaveerror
+msgctxt "toint.strsaveerror"
+msgid "Failed to save file %s."
+msgstr ""
+
+#: toint.strsavefile
+msgctxt "toint.strsavefile"
+msgid "Save file as"
+msgstr ""
+
+#: toint.strscatterplot
+msgctxt "toint.strscatterplot"
+msgid "Scatterplot"
+msgstr ""
+
+#: toint.strslm
+msgctxt "toint.strslm"
+msgid "Single linkage (SLM)"
+msgstr ""
+
+#: toint.strstatelistempty
+msgctxt "toint.strstatelistempty"
+msgid "State list empty or incomplete. Enter at least two state descriptions."
+msgstr ""
+
+#: toint.strstates
+msgctxt "toint.strstates"
+msgid "States:"
+msgstr ""
+
+#: toint.strtext
+msgctxt "toint.strtext"
+msgid "Text"
+msgstr ""
+
+#: toint.strtextnotfound
+msgctxt "toint.strtextnotfound"
+msgid "Text not found!"
+msgstr ""
+
+#: toint.strtntdirectory
+msgctxt "toint.strtntdirectory"
+msgid "Select TNT directory"
+msgstr ""
+
+#: toint.strtntfilter
+msgctxt "toint.strtntfilter"
+msgid "TNT data files|*.tnt"
+msgstr ""
+
+#: toint.strtntnotfound
+msgctxt "toint.strtntnotfound"
+msgid "TNT not installed or not found in path."
+msgstr ""
+
+#: toint.strtxtfilter
+msgctxt "toint.strtxtfilter"
+msgid "Text files|*.txt"
+msgstr ""
+
+#: toint.strunit
+msgctxt "toint.strunit"
+msgid "Unit:"
+msgstr ""
+
+#: toint.strunitempty
+msgctxt "toint.strunitempty"
+msgid "Measurement unit not defined for real numeric character."
+msgstr ""
+
+#: toint.struntitled
+msgctxt "toint.struntitled"
+msgid "Untitled"
+msgstr ""
+
+#: toint.strupgma
+msgctxt "toint.strupgma"
+msgid "Average linkage (UPGMA)"
+msgstr ""
+
+#: toint.strvalidnumber
+msgctxt "toint.strvalidnumber"
+msgid "Enter numbers only (an integer value between 1 and %d)"
+msgstr ""
+
+#: toint.strward
+msgctxt "toint.strward"
+msgid "Ward's Method"
+msgstr ""
+
+#: toint.strwarning
+msgctxt "toint.strwarning"
+msgid "Warning"
+msgstr ""
+
+#: toint.strwindowsonly
+msgctxt "toint.strwindowsonly"
+msgid "This option is available only under MS-Windows."
+msgstr ""
+
+#: toint.strwpgma
+msgctxt "toint.strwpgma"
+msgid "Weighted linkage (WPGMA)"
+msgstr ""
+
+#: toint.strxmlfilter
+msgctxt "toint.strxmlfilter"
+msgid "XML files|*.xml"
+msgstr ""
+
 #: tokey.straddcharacter
 msgctxt "tokey.straddcharacter"
 msgid "Add Character"
@@ -4240,6 +4814,11 @@ msgstr ""
 #: tokey.strdependent
 msgctxt "tokey.strdependent"
 msgid "Dependent upon character: %s, state: %s"
+msgstr ""
+
+#: tokey.strdirnotfound
+msgctxt "tokey.strdirnotfound"
+msgid "DELTA directory not found."
 msgstr ""
 
 #: tokey.strdistance
@@ -4730,6 +5309,11 @@ msgstr ""
 #: tonat.strdependent
 msgctxt "tonat.strdependent"
 msgid "Dependent upon character: %s, state: %s"
+msgstr ""
+
+#: tonat.strdirnotfound
+msgctxt "tonat.strdirnotfound"
+msgid "DELTA directory not found."
 msgstr ""
 
 #: tonat.strdistance
@@ -5357,6 +5941,11 @@ msgstr ""
 #: viewer.strdependent
 msgctxt "viewer.strdependent"
 msgid "Dependent upon character: %s, state: %s"
+msgstr ""
+
+#: viewer.strdirnotfound
+msgctxt "viewer.strdirnotfound"
+msgid "DELTA directory not found."
 msgstr ""
 
 #: viewer.strdistance

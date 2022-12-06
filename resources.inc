@@ -25,6 +25,7 @@ resourcestring
   strReadError = 'Error reading file %s.';
   strNotFound = 'File %s not found.';
   strNotFoundDir = 'File %s not found in %s.';
+  strDirNotFound = 'DELTA directory not found.';
   strExists = 'File %s already exists. Overwrite?';
   strExportFile = 'Data exported successfully to file %s.';
   strExport = 'Data exported successfully to directory %s.';

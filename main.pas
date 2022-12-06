@@ -39,14 +39,14 @@
 {                                   it is not found automatically by the        }
 {                                   program.                                    }
 {                                 - Added a folder to store vocabularies to     }
-{                                   produce natural languagem descriptions in   }
+{                                   produce natural language descriptions in   }
 {                                   different idioms.                           }
 {  Version 1.04, 11th Feb 2020    - Fixed a bug which prevented the DELTA       }
 {                                   programs from being correctly found in      }
 {                                   the application folder.                     }
 {  Version 1.05, 19th Feb 2020    - Removed code for creating file              }
 {                                   association for the extension '.dtz',       }
-{                                   which is now êxecuted by the installation   }
+{                                   which is now executed by the installation   }
 {                                   program (MS-Windows only).                  }
 {  Version 1.06, 24th Feb 2020    - Changed the default cursor for a waiting    }
 {                                   one when loading files.                     }
@@ -306,7 +306,7 @@
 {                                 - Changed the IntKey initialization file to   }
 {                                   'intkey.ink'. (MS-Windows only)             }
 {                                 - Fixed a bug in the DELTA parsing routines   }
-{                                   which caused character states containg      }
+{                                   which caused character states containing    }
 {                                   internal slashes ('/') to be incorrectly    }
 {                                   read.                                       }
 {                                 - Fixed a bug in the DELTA parsing routines   }
@@ -347,7 +347,7 @@
 {                                   for parsimony analysis forms.               }
 {                                 - Updated the user's guide.                   }
 { Version 2.71, 7 Jul, 2021       - Added a message to inform the file name and }
-{                                   directory where the data metrix for         }
+{                                   directory where the data matrix for         }
 {                                   parsimony analysis is saved.                }
 { Version 2.80, 23 Jul, 2021      - Added support for PAUP parsimony program.   }
 {                                 - Added a 'script editor' with DELTA syntax   }
@@ -371,14 +371,14 @@
 {                                   to be displayed when running R scripts      }
 {                                   (MS-Windows only).                          }
 {                                 - Fixed a bug which caused character states   }
-{                                   lines contaning carriage returns to be      }
+{                                   lines containing carriage returns to be     }
 {                                   incorrectly read as separate states.        }
 {                                 - Fixed a bug which prevented the correct     }
 {                                   generation of natural-language descriptions }
 {                                   in HTML format.                             }
 {                                 - Changed the mouse cursor to waiting mode    }
 {                                   when running R scripts.                     }
-{                                 - Updated Portoguese and French translations. }
+{                                 - Updated Portuguese and French translations. }
 { Version 2.85, 12 Nov, 2021      - Changed the way the R software for          }
 {                                   statistical computing and graphics is found }
 {                                   in the current OS to be fully automatic.    }
@@ -387,10 +387,14 @@
 { Version 2.91, 27 Mar, 2022      - Fixed a bug which caused all characters in  }
 {                                   the character tree to appear unmarked when  }
 {                                   the Character Edit dialog was closed by     }
-{                                   pessing the OK button.                      }
+{                                   pressing the OK button.                     }
 { Version 2.92, 16 Nov, 2022      - Fixed a bug which prevented some forms and  }
 {                                   dialogs not being correctly translated.     }
 {                                 - Added minor corrections to the user's guide.}
+{ Version 2.93, 5 Dec, 2022       - Added a form for editing IntKey directives. }
+{                                 - Fixed a bug which caused CIMAGES directive  }
+{                                   to be incorrectly generated.                }
+{                                 - Updated the user's guide.                   }
 {==============================================================================+}
 unit Main;
 
@@ -680,6 +684,7 @@ type
     { public declarations }
     sLang: string;
     IntKeyPath: string;
+    IntMatePath: string;
     RPath: string;
     TNTPath: string;
     PAUPPath: string;
@@ -704,7 +709,8 @@ procedure SplitString(Delimiter: char; Str: string; ListOfStrings: TStrings);
 
 implementation
 
-uses About, Prepare, Tonat, Tokey, Todis, Cluster, Chars, Viewer, Phylogen, Script;
+uses About, Prepare, Tonat, Tokey, Toint, Todis, Cluster, Chars,
+  Viewer, Phylogen, Script;
 
 {$R *.lfm}
 {$I resources.inc}
@@ -1580,6 +1586,7 @@ begin
     end;
   end;
   IntKeyPath := IniFile.ReadString('Options', 'IntKeyPath', '');
+  IntMatePath := IniFile.ReadString('Options', 'IntMatePath', '');
   RPath := IniFile.ReadString('Options', 'RPath', '');
   TNTPath := IniFile.ReadString('Options', 'TNTPath', '');
   PAUPPath := IniFile.ReadString('Options', 'PAUPPath', '');
@@ -1603,6 +1610,7 @@ begin
   IniFile := TIniFile.Create(sPath + 'fde.ini');
   IniFile.WriteString('Options', 'Language', sLang);
   IniFile.WriteString('Options', 'IntKeyPath', IntKeyPath);
+  IniFile.WriteString('Options', 'IntMatePath', IntMatePath);
   IniFile.WriteString('Options', 'RPath', RPath);
   IniFile.WriteString('Options', 'TNTPath', TNTPath);
   IniFile.WriteString('Options', 'PAUPPath', PAUPPath);
@@ -2454,63 +2462,106 @@ end;
 
 procedure TMainForm.KeyInteractiveItemClick(Sender: TObject);
 var
+  CharacterReliabilities, IncludeItems, IncludeCharacters: string;
   sPath, ConforPath, {IntKeyPath,} HlpFile, Lang: string;
+  RBase, Varywt: double;
   s: ansistring;
 begin
   sPath := ExtractFilePath(Application.ExeName);
+  DefaultFormatSettings.DecimalSeparator := '.';
   if Copy(OSVersion, 1, Pos(' ', OSVersion) - 1) <> 'Windows' then
     MessageDlg(strWindowsOnly, mtInformation, [mbOK], 0)
   else
   begin
-    CreateTOINT('toint', Dataset.Heading);
-    ConforPath := sPath + 'confor.exe';
-    Screen.Cursor := crHourGlass;
-    if RunCommand(ConforPath, ['toint'], s, [poNoConsole]) then
+    if IntKeyPath = '' then
     begin
-      //if GetEnvironmentVariable('DELTA') = '' then
-      if IntKeyPath = '' then
+      SelectDirectoryDialog.Title := strDeltaDirectory;
+      SelectDirectoryDialog.Filename := '';
+      if DirectoryExists('c:\delta') then
+        SelectDirectoryDialog.InitialDir := 'c:\delta';
+      if SelectDirectoryDialog.Execute then
+        IntKeyPath := SelectDirectoryDialog.FileName + '\intkey5.exe'
+      else
       begin
-        SelectDirectoryDialog.Title := strDeltaDirectory;
-        SelectDirectoryDialog.Filename := '';
-        if SelectDirectoryDialog.Execute then
-          IntKeyPath := SelectDirectoryDialog.FileName + '\intkey5.exe'
-        else
-        begin
-          Screen.Cursor := crDefault;
-          MessageDlg(strError, Format(strNotExecute, ['INTKEY']),
-            mtError, [mbOK], 0);
-          Exit;
-        end;
-      end;
-      //else
-      //  IntKeyPath := 'c:\delta\intkey5.exe';
-      if not FileExists('intkey.ink') then
-        CreateINTKEY('intkey.ink', Dataset.Heading);
-      Lang := GetDefaultLang;
-      case Lang of
-        'en': HlpFile := 'intken.hin';
-        'pt': HlpFile := 'intkpt.hin';
-        'fr': HlpFile := 'intkfr.hin';
-        else
-          HelpFile := 'intken.hin';
-      end;
-      if not RunCommand(IntKeyPath, ['-h=' + HlpFile, 'intkey.ink'],
-        s, [poNoConsole]) then
-      begin
-        FileIsChanged := True;
         Screen.Cursor := crDefault;
-        MessageDlg(strError, Format(strNotExecute, ['DELTA INTKEY']),
-          mtError, [mbOK], 0);
+        MessageDlg(strError, strDirNotFound, mtError, [mbOK], 0);
+        Exit;
       end;
+    end;
+    if FileExists('toint') then
+    begin
+      CharacterReliabilities :=
+        Delta.ReadDirective('toint', '*CHARACTER RELIABILITIES', True);
+      IncludeItems := Delta.ReadDirective('toint', '*INCLUDE ITEMS', True);
+      IncludeCharacters := Delta.ReadDirective('toint', '*INCLUDE CHARACTERS', True);
     end
     else
     begin
-      Screen.Cursor := crDefault;
-      MessageDlg(strError, Format(strNotExecute, ['DELTA CONFOR']),
-        mtError, [mbOK], 0);
-      ShowErrorLog(S);
+      CharacterReliabilities := '';
+      IncludeItems := '';
+      IncludeCharacters := '';
     end;
-    Screen.Cursor := crDefault;
+    if FileExists('intkey.ink') then
+    begin
+      RBase := StrToFloatDef(Delta.ReadDirective('intkey.ink', '*RBASE', True), 1.1);
+      Varywt := StrToFloatDef(Delta.ReadDirective('intkey.ink', '*VARYWT', True), 1.0);
+    end
+    else
+    begin
+      RBase := 1.1;
+      Varywt := 1.0;
+    end;
+    with IntKeyForm do
+    begin
+      EditHeading.Text := Dataset.Heading;
+      EditCharacterReliabilities.Text := CharacterReliabilities;
+      FloatSpinEditRBASE.Value := RBase;
+      FloatSpinEditVARYWT.Value := Varywt;
+      EditIncludeItems.Text := IncludeItems;
+      EditIncludeCharacters.Text := IncludeCharacters;
+    end;
+    if IntKeyForm.ShowModal = mrOk then
+    begin
+      CharacterReliabilities := IntKeyForm.EditCharacterReliabilities.Text;
+      RBase := IntKeyForm.FloatSpinEditRBASE.Value;
+      Varywt := IntKeyForm.FloatSpinEditVARYWT.Value;
+      IncludeItems := IntKeyForm.EditIncludeItems.Text;
+      IncludeCharacters := IntKeyForm.EditIncludeCharacters.Text;
+      CreateTOINT('toint', Dataset.Heading, CharacterReliabilities,
+        IncludeItems, IncludeCharacters);
+      ConforPath := sPath + 'confor.exe';
+      Screen.Cursor := crHourGlass;
+      if RunCommand(ConforPath, ['toint'], s, [poNoConsole]) then
+      begin
+        //if GetEnvironmentVariable('DELTA') = '' then
+        if not FileExists('intkey.ink') then
+          CreateINTKEY('intkey.ink', Dataset.Heading, RBase, Varywt);
+        Lang := GetDefaultLang;
+        case Lang of
+          'en': HlpFile := 'intken.hin';
+          'pt': HlpFile := 'intkpt.hin';
+          'fr': HlpFile := 'intkfr.hin';
+          else
+            HelpFile := 'intken.hin';
+        end;
+        if not RunCommand(IntKeyPath, ['-h=' + HlpFile, 'intkey.ink'],
+          s, [poNoConsole]) then
+        begin
+          FileIsChanged := True;
+          Screen.Cursor := crDefault;
+          MessageDlg(strError, Format(strNotExecute, ['DELTA INTKEY']),
+            mtError, [mbOK], 0);
+        end;
+      end
+      else
+      begin
+        Screen.Cursor := crDefault;
+        MessageDlg(strError, Format(strNotExecute, ['DELTA CONFOR']),
+          mtError, [mbOK], 0);
+        ShowErrorLog(S);
+      end;
+      Screen.Cursor := crDefault;
+    end;
   end;
 end;
 
@@ -4536,7 +4587,9 @@ end;
 
 procedure TMainForm.EditImagesItemClick(Sender: TObject);
 var
+  CharacterReliabilities, IncludeItems, IncludeCharacters: string;
   sPath, ConforPath{, IntKeyPath}: string;
+  RBase, Varywt: double;
   s: ansistring;
 begin
   sPath := ExtractFilePath(Application.ExeName);
@@ -4544,34 +4597,57 @@ begin
     MessageDlg(strWindowsOnly, mtInformation, [mbOK], 0)
   else
   begin
-    CreateTOINT('toint', Dataset.Heading);
+    if IntMatePath = '' then
+    begin
+      SelectDirectoryDialog.Title := strDeltaDirectory;
+      SelectDirectoryDialog.Filename := '';
+      if DirectoryExists('c:\delta') then
+        SelectDirectoryDialog.InitialDir := 'c:\delta';
+      if SelectDirectoryDialog.Execute then
+        IntMatePath := SelectDirectoryDialog.FileName + '\intimat5.exe'
+      else
+      begin
+        Screen.Cursor := crDefault;
+        MessageDlg(strError, strDirNotFound, mtError, [mbOK], 0);
+        Exit;
+      end;
+    end;
+    if FileExists('toint') then
+    begin
+      CharacterReliabilities :=
+        Delta.ReadDirective('toint', '*CHARACTER RELIABILITIES', True);
+      IncludeItems := Delta.ReadDirective('toint', '*INCLUDE ITEMS', True);
+      IncludeCharacters := Delta.ReadDirective('toint', '*INCLUDE CHARACTERS', True);
+    end
+    else
+    begin
+      CharacterReliabilities := '';
+      IncludeItems := '';
+      IncludeCharacters := '';
+    end;
+    if FileExists('intkey.ink') then
+    begin
+      RBase := StrToFloatDef(Delta.ReadDirective('intkey.ink', '*RBASE', True), 1.1);
+      Varywt := StrToFloatDef(Delta.ReadDirective('intkey.ink', '*VARYWT', True), 1.0);
+    end
+    else
+    begin
+      RBase := 1.1;
+      Varywt := 1.0;
+    end;
+    CreateTOINT('toint', Dataset.Heading, CharacterReliabilities,
+      IncludeItems, IncludeCharacters);
     ConforPath := sPath + 'confor.exe';
     if RunCommand(ConforPath, ['toint'], s, [poNoConsole]) then
     begin
-      //if GetEnvironmentVariable('DELTA') = '' then
-      if IntKeyPath = '' then
-      begin
-        SelectDirectoryDialog.Title := strDeltaDirectory;
-        SelectDirectoryDialog.Filename := '';
-        if SelectDirectoryDialog.Execute then
-          IntKeyPath := SelectDirectoryDialog.FileName + '\intimat5.exe'
-        else
-        begin
-          MessageDlg(strError, Format(strNotExecute, ['INTIMATE']),
-            mtError, [mbOK], 0);
-          Exit;
-        end;
-      end;
-      //else
-      //  IntKeyPath := 'c:\delta\intimat5.exe';
       if not FileExists('intkey.ink') then
-        CreateINTKEY('intkey.ink', Dataset.Heading);
+        CreateINTKEY('intkey.ink', Dataset.Heading, RBase, Varywt);
       if not FileExists('timages') then
         CreateTIMAGES('timages');
       if not FileExists('cimages') then
-        CreateTIMAGES('cimages');
-      if not RunCommand(IntKeyPath, ['intkey.ink'], s, [poNoConsole]) then
-        MessageDlg(strError, Format(strNotExecute, ['DELTA INTMATE']),
+        CreateCIMAGES('cimages');
+      if not RunCommand(IntMatePath, ['intkey.ink'], s, [poNoConsole]) then
+        MessageDlg(strError, Format(strNotExecute, ['DELTA INTIMATE']),
           mtError, [mbOK], 0);
     end
     else
