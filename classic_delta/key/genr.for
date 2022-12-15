@@ -1,0 +1,1283 @@
+      SUBROUTINE KEYGEN (D, T, BRULE, ERULE, DUP, A, ALOG2,                 GENR
+     * FN, RINDX, FMSK, IWRK, IWRK1, NSTAT, FO, R, USED, FLAG,
+     * NBO, NEO, NBN, NEN, NCO, NCN, DIV,
+     * NLSET, KOSET, JBSET, NSD, ICDEP, ITXNAM, TAXON, LTAXON)
+ 
+C  REVISED 23-FEB-89.
+C  READS DATA AND GENERATES KEY.
+ 
+C  D RECEIVES THE MATRIX.
+C  T RECEIVES NUMERIC TAXON IDENTIFIERS.
+C  BRULE RETURNS BETWEEN-TAXA RULINGS SHOWN IN THE TABULAR KEY.
+C  ERULE RETURNS BETWEEN-CHARACTER RULINGS SHOWN IN THE TABULAR KEY.
+C  DUP RETURNS A DUPLICATES FLAG. (SEE ARRANG)
+C  A RECEIVES ITEM ABUNDANCES.
+C  ALOG2 RECEIVES WORKING SPACE OF LENGTH NTU.
+C  FN RECEIVES THE CORRESPONDENCE BETWEEN NEW AND OLD CHARACTER NUMBERS.
+C  RINDX RECEIVES THE FEATURE RELIABILITY INDICES.
+C  FMSK RECEIVES THE CHARACTER MASK.
+C  IWRK RECEIVES WORKING SPACE OF LENGTH NFR.
+C  IWRK1 RECEIVES WORKING SPACE OF LENGTH NFR.
+C  NSTAT RECEIVES THE NUMBERS OF FEATURE STATES.
+C  FO RECEIVES THE ORIGINAL FEATURE NUMBERS.
+C  R RECEIVES THE FEATURE RELIABILITY INDEX.
+C  USED RECEIVES WORKING SPACE OF LENGTH NF.
+C  FLAG RETURNS THE VARIANT STATUS OF A TAXA. (SEE ARRANG)
+C  NLSET RECEIVES THE COLUMN NUMBERS FOR PRESET FEATURES.
+C  KOSET RECEIVES THE GROUP NUMBERS FOR PRESET FEATURES.
+C  JBSET RECEIVES THE NUMBER OF THE PRESET FEATURE.
+C  NSD RECEIVES THE NUMBER OF PRESET FEATURES.
+C  ICDEP RECEIVES THE FEATRUE DEPENDENCIES.
+C  ITXNAM RECEIVES POINTERS TO THE TAXON NAMES.
+C  TAXON RECEIVES THE TAXON NAMES.
+C  LTAXON RECEIVES THE LENGTH OF TAXON.
+ 
+C  HISTORY.
+ 
+C  17/10/86. PRESETTING ERRORS MADE NON-FATAL.
+C  15/10/86. 'STOP AFTER COLUMN' DIRECTIVE IMPLEMENTED.
+C  9/10/86. WORDING OF ERROR MESSAGE CHANGED.
+ 
+      COMMON /DIMXXX/ LDM,NFR,NF,NTM,NTM1,NTU,NTH,NWORD,NDESC,LCDEP
+      COMMON /DMPXXX/ IDUMP,IMDMP1,IMDMP2,IRDMP1,IRDMP2
+      COMMON /ERRXXX/ IERR
+C     COMMON /EXTXXX/ EXTIME(6)                                               C*
+      COMMON /LINEXX/ LINE
+      CHARACTER*200 LINE
+      COMMON /LUNXXX/ LUNI,LUNC,LUNT,LUNO,LUNP,LUNS,LUNS1,LUNE,LUNL,LUNB
+      COMMON /MATXXX/ JU,JF,JS,I,J,NL,JB,NFP,NB,NE
+      COMMON /MNSXXX/ MNS,MNS1,MNS2,MNS3
+      COMMON /PARXXX/ NFB,NFE,JFB,NVAR,NEWLN,NT,NTD,NTA,NO,KN,NUSED,
+     *                INCOMP,VARW,NTR,RBASE,ABASE,REUSE,VARYWT,NCONF,
+     *                NSET,RES,ITUNKV,IADCNO,ITCHV,IRTF,IHTML
+      COMMON /STPXXX/ ISTOPC
+ 
+      INTEGER FEAT
+      INTEGER D(LDM),T(NTU),DUP(NTU),BRULE(NTU),ERULE(NTU),FN(NFR),
+     * FMSK(NFR),IWRK(NFR),IWRK1(NFR),NSTAT(NF),USED(NF),FO(NF),
+     * NBO(NTH),NEO(NTH),NBN(NTH),NEN(NTH),NCO(NTH),NCN(NTH),DIV(NTH),
+     * FLAG(NTM),NLSET(NSD),KOSET(NSD),JBSET(NSD),ICDEP(LCDEP),
+     * ITXNAM(NTM1)
+      REAL A(NTU),ALOG2(NTU),R(NF),RINDX(NFR)
+      CHARACTER*1 TAXON(LTAXON)
+ 
+C     EXTIME(2) = TIMEF(DUMMY)                                                C*
+C     DO 2 K = 3, 6                                                           C*
+C   2   EXTIME(K) = EXTIME(2)                                                 C*
+ 
+C-  PRELIMINARY CALCULATIONS.
+      DO 24 K = 1, NF
+        USED(K) = 0
+   24   CONTINUE
+      Z = 1./ALOG(2.)
+      DO 26 K = 1, NTU
+        ALOG2(K) = Z*ALOG(FLOAT(K))
+   26   CONTINUE
+      NFE = NF
+      BRULE(NT) = 0
+      NBO(1) = 1
+      NEO(1) = NT
+      NCO(1) = 0
+      NO = 1
+      NL = 1
+      KSET = 1
+      NUSED = 0
+      INCOMP = 0
+      NEWLN = 0
+ 
+C--   SELECT SET OF CHARACTERS TO FORM KEY, AND REARRANGE DATA MATRIX SO
+C--   THAT KEY IS AT LEFT OF MATRIX.
+   30 CONTINUE
+        NFB = NL
+        CALL PROGRS(NL)
+        IF (NL-1.GE.IMDMP1 .AND. NL-1.LE.IMDMP2)
+     *    CALL MDUMP (D, T, ITXNAM, TAXON, LTAXON, FO, NT,
+     *    IRDMP1, IRDMP2)
+ 
+        IF (IDUMP.GT.0 .AND. NL.LE.IDUMP) THEN
+          WRITE (LINE, 36) NL
+   36     FORMAT ('Column', I3, '%')
+          CALL MESS (LINE, LUNL)
+        ENDIF
+ 
+        DO 100 KO = 1, NO
+ 
+C         FIND BEGINNING AND END OF GROUP.
+          NB = NBO(KO)
+          NE = NEO(KO)
+          DIV(KO) = 1
+C
+C-        FIND CHARACTER TO BE USED FOR SUBDIVISION OF GROUP.
+          JB = 0
+          IBEST = 0
+ 
+C         HAS THE CHARACTER FOR THE SUBDIVISION BEEN PRESET.
+   40     IF (KSET.GT.NSET)  GOTO 80
+            IF (NLSET(KSET)-NL) 46,42,80
+   42       IF (KOSET(KSET)-KO) 46,44,80
+   44       IF (NCO(KO).EQ.0)  GOTO 60
+   46       CONTINUE
+            WRITE (LINE,50) JBSET(KSET),NLSET(KSET),KOSET(KSET)
+   50       FORMAT('Attempt to preset character',i4,
+     1       ' at completed part of key - column',i3,', group',i3,'.%')
+            CALL ERROR (0, LINE)
+            IERR = IERR - 1
+            KSET = KSET + 1
+          GOTO 40
+ 
+C         IS THE PRESET CHARACTER SUITABLE.
+   60     DO 62 J = NL, NF
+            K = FEAT (D, LDM, NB, J)
+            IF (FO(K).EQ.JBSET(KSET))  GOTO 64
+   62     CONTINUE
+          IF (JBSET(KSET).NE.0)  GOTO 66
+          KSET = KSET + 1
+          GOTO 82
+ 
+   64     NFB = J
+          NFE = NFB
+          CALL BEST (D, T, A, ALOG2, DUP, FO, R, NSTAT,
+     *      RINDX, KO, 1, ITXNAM, TAXON, LTAXON)
+          NFB = NL
+          NFE = NF
+          IF (JB.NE.0)  IBEST = 1
+          IF (JB.NE.0)  GOTO 70
+ 
+   66     CONTINUE
+          WRITE (LINE,68) JBSET(KSET),NLSET(KSET),KOSET(KSET)
+   68     FORMAT('Character',i4,' is not suitable for use',
+     1       ' at column',i3,', group',i3,'.%')
+          CALL ERROR (0, LINE)
+          IF (NLSET(KSET).EQ.1) GOTO 600
+          IERR = IERR - 1
+ 
+   70     KSET = KSET + 1
+ 
+C         FIND SUBSCRIPT OF BEST CHARACTER FOR SUBDIVISION.
+   80     IF (NCO(KO).GT.0)  GOTO 100
+          IF (JB.EQ.0)
+     *    CALL BEST (D, T, A, ALOG2, DUP, FO, R, NSTAT,
+     *      RINDX, KO, 0, ITXNAM, TAXON, LTAXON)
+          IF (JB.NE.0)  IBEST = 1
+          IF (JB.GT.0)  GOTO 84
+   82     INCOMP = 1
+          DIV(KO) = 0
+          GOTO 100
+ 
+   84     IF (NVAR.EQ.0)  GOTO 90
+          DIV(KO) = 2
+          NEWLN = NEWLN + NVAR
+          IF (NT+NEWLN.LE.NTU)  GOTO 90
+          WRITE (LINE, 86) NL
+   86     FORMAT ('There was insufficient storage for new items ',
+     *     'at column', I3, '.%')
+          CALL ERROR (0, LINE)
+          IERR = IERR - 1
+          NEWLN = -1
+          GOTO 110
+C
+C-        IF CHARACTER HAS NOT PREVIOUSLY BEEN USED, INCREASE APPROPRI-
+C         ATE ELEMENT OF R SO AS TO INCREASE PROBABILITY OF REUSE.
+   90     IF (USED(JFB).EQ.0)  THEN
+            NUSED = NUSED + 1
+            USED(JFB) = NUSED
+            R(JFB) = R(JFB)/REUSE
+          ENDIF
+C
+          IF (NCONF.GT.0)  CALL CONF (D, LDM, NBN, NTU, NCO, KO, NTH,
+     *     R, NSTAT, USED, NF)
+ 
+  100   CONTINUE
+ 
+C-      SPLIT VARIABLE TAXA AND REARRANGE MATRIX.
+        CALL ARRANG (D, LDM, A, T, DUP, BRULE, ERULE,  NTU,
+     *   NSTAT, FO, NF, FLAG, NTM, NBO, NEO, NBN, NEN, NCO, NCN, DIV,
+     *   NTH, ICDEP, LCDEP, FN, FMSK, IWRK, IWRK1, NFR)
+ 
+C-      IF POSSIBLE, CONTINUE SUBDIVISION OF GROUPS.
+        IF (KN.EQ.0)  GOTO 120
+        NO = KN
+        DO 104 K = 1, NO
+          NBO(K) = NBN(K)
+          NEO(K) = NEN(K)
+          NCO(K) = NCN(K)
+  104   CONTINUE
+        NL = NL + 1
+  110 IF (NL.LE.NF .AND. (ISTOPC.LE.0.OR.NL.LE.ISTOPC))  GOTO 30
+ 
+C-    NO MORE CHARACTERS. CLOSE OFF RULING.
+      IF (NL.GT.NF) INCOMP = 1
+      DO 112 K = 1, NO
+        DIV(K) = 0
+  112 CONTINUE
+ 
+      CALL ARRANG (D, LDM, A, T, DUP, BRULE, ERULE, NTU,
+     * NSTAT, FO, NF, FLAG, NTM, NBO, NEO, NBN, NEN, NCO, NCN, DIV, NTH,
+     * ICDEP, LCDEP, FN, FMSK, IWRK, IWRK1, NFR)
+ 
+C-- FLAG NATURE OF DUPLICATE ENTRIES.
+  120 IF (NL.EQ.1.AND.IBEST.EQ.0)  GOTO 520
+      DO 140 K = 1, NTA
+        J = T(K)
+        IF (FLAG(J).LT.0)  GOTO 140
+        IF (FLAG(J).EQ.1.OR.FLAG(J).EQ.3)  GOTO 138
+C     CHECK NUMBER OF ENTRIES.
+        NB = K + 1
+        NE = IDIM(3,FLAG(J))
+        IF (NB.LE.NTA)  THEN
+          DO 122 I = NB, NTA
+            IF (T(I).EQ.J)  NE = NE + 1
+  122       CONTINUE
+        ENDIF
+        FLAG(J) = FLAG(J) - IDIM(2,NE)
+C     CHANGE SIGN OF FLAGS THAT HAVE BEEN EXAMINED.
+  138   FLAG(J) = -FLAG(J)
+  140   CONTINUE
+ 
+C     EXTIME(3) = TIMEF(DUMMY)                                                C*
+C     DO 350 K = 4, 6                                                         C*
+C 350   EXTIME(K) = EXTIME(3)                                                 C*
+ 
+      GOTO 600
+ 
+C-- ERROR MESSAGE.
+  520 CALL FERROR('No suitable characters. Execution terminated.%')
+C--
+  600 RETURN
+      END
+      SUBROUTINE BEST (D, T, A, ALOG2, DUP, FO, R, NSTAT,                   GENR
+     * RINDX, KO, IPRSET, ITXNAM, TAXON, LTAXON)
+ 
+C* REVISED 23-FEB-89.
+C* FINDS BEST CHARACTER FOR SUBDIVISION OF ROWS NB TO NE.
+ 
+C  D RECEIVES THE MATRIX.
+C  T RECEIVES THE TAXON NUMBERS CORRESPONDING TO EACH ROW.
+C  LDM RECEIVES THE LENGTH OF D.
+C  A RECEIVES THE ITEM ABUNDANCES.
+C  ALOG2 RECEIVES A TABLE OF CALCULATED VALUES.
+C  DUP RECEIVES A DUPLICATION FACTOR. (SEE ARRANG)
+C  NTU RECEIVES THE MAXIMUM NUMBER OF ITEMS.
+C  FO RECEIVES THE ORIGINAL FEATURE NUMBERS.
+C  R RECEIVES THE COSTS.
+C  NSTAT RECEIVES THE NUMBERS OF FEATURE STATES.
+C  NF RECEIVES THE NUMBER OF FEATURES.
+C  RINDX RECEIVES THE RELIABILITY INDICES.
+C  NFR RECEIVES THE NUMBER OF FEATURES READ.
+C  IPRSET RECEIVES WHETHER ONE IS ATTEMPTING TO PRESET A CHARACTER.
+C  ITXNAM RECEIVES POINTERS TO THE TAXON NAMES.
+C  TAXON RECEIVES THE TAXON NAMES.
+C  LTAXON RECEIVES THE LENGTH OF TAXON.
+ 
+C  HISTORY.
+ 
+C  23-FEB-89. OUTPUT OF REASONS FOR UNSUITABILITY OF PRESET CHARACTER.
+C  25/11/86. BUGS IN CHECK OF LOWER BOUND OF SUITABILITY FIXED.
+C  22/10/86. 'DUMP' DIRECTIVE IMPLEMENTED.
+C  17/10/86. CORRECT CHECKING OF LOWER BOUND OF SUITABILITY INDEX
+C    (FOR REAL RINDX IN RANGE 0-10, INSTEAD OF INTEGER 1-9.)
+C  18/11/83. DUPF ALTERED TO WEIGHT MORE HEAVILY AGAINST VARIABILITY
+C    LATE IN THE KEY.
+ 
+C  MEANINGS OF VARIABLES.
+ 
+C  AA(K) = TOTAL ABUNDANCE OF ITEMS WITH STATE K OF CURRENT CHARACTER.
+C  DUPF = ARBITRARY INTRA-TAXON VARIABILITY COMPONENT OF SUP.
+C  JFOPT(IOPT) = CHARACTER NUMBER OF IOPT-TH BEST CHARACTER.
+C  JOPT = NUMBER OF BEST CHARACTERS FOUND SO FAR.
+C  MOPT = MAXIMUM NUMBER OF BEST CHARACTERS TO STORE.
+C  MSS = NUMBER OF STATES OF CURRENT CHARACTER.
+C  N(K) = NUMBER OF TAXA WITH STATE K OF CURRENT CHARACTER.
+C  ND(K) = NUMBER OF ITEMS IN A MULTI-ITEM TAXON THAT HAVE STATE
+C    K OF CURRENT CHARACTER.
+C  NOPT(K,IOPT) = VALUE OF N(K) FOR IOPT-TH BEST CHARACTER.
+C  NVX = NUMBER OF VARIANT ITEMS TO BE GENERATED IF THE CURRENT
+C    CHARACTER IS USED TO SPLIT THE GROUP.
+C  NVAR = NUMBER OF VARIANT ITEMS GENERATED BY BEST CHARACTER.
+C  NDIST = NUMBER OF TAXA IN GROUP.
+C  NDUP = NUMBER OF SUBGROUPS WHICH CONTAIN NDIST TAXA.
+C  NN = SUM OF THE N(K). (= NUMBER OF TAXA, COUNTING TAXA IN
+C    DIFFERENT SUBGROUPS AS DISTINCT.)
+C  NNOPT(IOPT) = VALUE OF NN FOR IOPT-TH BEST CHARACTER.
+C  RAV = MINIMUM COST OF REMAINING POSSIBLE CHARACTERS.
+C  RIOPT(IOPT) = VALUE OF RINDX FOR IOPT-TH BEST CHARACTER.
+C  RO = ORIGINAL COST OF CURRENT CHARACTER (BEFORE APPLICATION OF
+C    REUSE).
+C  SU = SUITABILITY OF CURRENT CHARACTER. SU = R(JF)+RAV*SUP.
+C  SUOPT(IOPT) = VALUE OF SU FOR IOPT-TH BEST CHARACTER.
+C  SUP = TOTAL PARTITION COMPONENT OF SU. SUP = SUP0 + DUPF.
+C  SUP0 = THEORETICAL PARTITION COMPONENT OF SUP.
+C  SUPINF = LOWER BOUND OF SUP. IF ALL THE ABUNDANCES ARE EQUAL,
+C    THE TRUE VALUE OF SUPINF IS ALOG2(NDIST)-ALOG2(MSS).
+C    OTHERWISE, SUPINF IS DIFFICULT TO CALCULATE, AND TENDS TO 0
+C    IF ONE ABUNDANCE IS MUCH BIGGER THAN THE REST.
+C    THE VALUE USED BELOW WILL PROBABLY NOT LEAD TO REJECTION OF
+C    THE TRUE BEST CHARACTER EXCEPT IN THE MOST EXTREME CASES OF
+C    UNEQUAL ABUNDANCES. ANOTHER REASON FOR RELAXING THE LOWER-BOUND
+C    TEST IS TO REDUCE REJECTION OF 'NEXT-BEST' CHARACTERS.
+C  SUPOPT(IOPT) = VALUE OF SUP FOR IOPT-TH BEST CHARACTER.
+ 
+      PARAMETER (MOPT=3)
+ 
+      COMMON /ALGXXX/ IALG
+      COMMON /DIMXXX/ LDM,NFR,NF,NTM,NTM1,NTU,NTH,NWORD,NDESC,LCDEP
+      COMMON /DMPXXX/ IDUMP,IMDMP1,IMDMP2,IRDMP1,IRDMP2
+      COMMON /LINEXX/ LINE
+      CHARACTER*200 LINE
+      COMMON /LUNXXX/ LUNI,LUNC,LUNT,LUNO,LUNP,LUNS,LUNS1,LUNE,LUNL,LUNB
+      COMMON /MATXXX/ JU,JF,JS,I,J,NL,JB,NFP,NB,NE
+      COMMON /MNSXXX/ MNS,MNS1,MNS2,MNS3
+      COMMON /PARXXX/ NFB,NFE,JFB,NVAR,NEWLN,NT,NTD,NTA,NO,KN,NUSED,
+     *                INCOMP,VARW,NTR,RBASE,ABASE,REUSE,VARYWT,NCONF,
+     *                NSET,RES,ITUNKV,IADCNO,ITCHV,IRTF,IHTML
+ 
+      INTEGER FEAT
+      INTEGER D(LDM),T(NTU),DUP(NTU),FO(NF),NSTAT(NF),ITXNAM(NTM1)
+      CHARACTER*1 TAXON(LTAXON)
+      CHARACTER*45 TMP
+      REAL A(NTU),ALOG2(NTU),R(NF),RINDX(NFR)
+C     DIMENSIONS MUST BE MNS.
+      DIMENSION N(20),ND(20),AA(20),NOPT(20,MOPT)                             =*
+C     DIMENSION MUST BE MNS+3.
+      DIMENSION ISTAT(23)                                                     =*
+      DIMENSION JFOPT(MOPT),NNOPT(MOPT),SUPOPT(MOPT),SUOPT(MOPT)
+ 
+ 
+C-  INITIALIZE VARIABLES AND FIND NUMBER OF DISTINCT TAXA IN GROUP.
+      JOPT = 0
+      CALL SETRA (SUOPT, MOPT, 0)
+      CALL SETRA (SUPOPT, MOPT, 0)
+      RAV = 0.
+      NG = NE - NB + 1
+      NVI = 0
+      DO 6 K = NB, NE
+        IF (DUP(K).EQ.1)  NVI = NVI + 1
+    6 CONTINUE
+      NDIST = NG - NVI
+      IF (IDUMP.GT.0 .AND. NL.LE.IDUMP) THEN
+        WRITE (LINE, 8) KO, NDIST
+    8   FORMAT (' Group', I3, ':', I4, ' taxa%')
+        CALL MESS (LINE, LUNL)
+      ENDIF
+ 
+C---- FIND COLUMN JB OF BEST CHARACTER FOR NEXT SUBDIVISION.
+      ITMBAD = 0
+      DO 100 J = NFB, NFE
+ 
+C---    FIND SUITABILITY INDEX SU OF COLUMN J.
+ 
+C       IF CHARACTER HAS BEEN FLAGGED UNSUITABLE, GOTO NEXT CHARACTER.
+        JF = FEAT (D, LDM, NB, J)
+        IF (JU.EQ.1)  GOTO 100
+        MSS = NSTAT(JF)
+        RO = RBASE**(5.-RINDX(FO(JF)))
+ 
+C       CHECK LOWER BOUND OF SUITABILITY INDEX.
+        IF (JOPT.GT.0) THEN
+C       - THIS TEST NECESSARY TO AVOID POSSIBLE ARRAY BOUNDS ERROR.
+          IF (MSS*2.GE.NDIST) THEN
+            SUPINF = 0.
+          ELSE
+C         - SEE NOTE WITH MEANING OF SUPINF, ABOVE.
+            SUPINF = ALOG2(NDIST) - ALOG2(MSS*2)
+          ENDIF
+          IF (RO.GE.RAV) THEN
+            IF (R(JF)+RAV*SUPINF.GE.SUOPT(1)) GOTO 100
+          ELSE
+            IF (R(JF)+RO*SUPINF.GE.R(JFB)+RO*SUPOPT(1)) GOTO 100
+          ENDIF
+        ENDIF
+ 
+C       INITIALIZE VARIABLES.
+        DO 12 K = 1, MSS
+          AA(K) = 0.
+          N(K) = 0
+          ND(K) = 0
+   12   CONTINUE
+        NVX = 0
+        DUPF = 0.
+ 
+C--     ACCUMULATE ABUNDANCES AND NUMBERS FOR SUBGROUPS.
+        I = NB
+   14   IF (I.GT.NE)  GOTO 26
+          IF (DUP(I).GT.0)  GOTO 18
+ 
+C-        TAXA WITH A SINGLE ENTRY.
+          CALL FINDST (D, LDM, I, J, ISTAT, MSS, NSP)
+C         IF CHARACTER IS NOT APPLICABLE OR NO STATES ARE RECORDED,
+C         IT IS UNSUITABLE.
+          IF (ISTAT(MNS2).NE.0 .OR. NSP.EQ.0)  GOTO 22
+          DO 15 JS = 1, MSS
+            AA(JS) = AA(JS) + A(I)*ISTAT(JS)
+            N(JS) = N(JS) + ISTAT(JS)
+   15     CONTINUE
+          IF (ISTAT(MNS1).NE.0)  NVX = NVX + NSP - 1
+          I = I + 1
+        GOTO 14
+ 
+C-        DUPLICATED TAXA.
+   16     I = I + 1
+   18       CALL FINDST (D, LDM, I, J, ISTAT, MSS, NSP)
+C           IF CHARACTER IS NOT APPLICABLE OR NO STATES ARE RECORDED,
+C           IT IS UNSUITABLE.
+            IF (ISTAT(MNS2).NE.0.OR.NSP.EQ.0)  GOTO 22
+            DO 19 JS = 1, MSS
+              AA(JS) = AA(JS) + A(I)*ISTAT(JS)
+              ND(JS) = ND(JS) + ISTAT(JS)
+   19         CONTINUE
+            IF (ISTAT(MNS1).NE.0)  NVX = NVX + NSP - 1
+            IF (DUP(I).NE.2)  GOTO 16
+          DO 20 K = 1, MSS
+            IF (ND(K).GT.0)  N(K) = N(K) + 1
+            ND(K) = 0
+   20     CONTINUE
+          I = I + 1
+        GOTO 14
+ 
+C       LIST TAXA WHICH MAKE PRESET CHARACTER UNSUITABLE.
+   22   IF (IPRSET.EQ.0)  GOTO 100
+        ITMBAD = ITMBAD + 1
+        IC = FO(FEAT(D,LDM,I,J))
+        IT = T(I)
+        IB = ITXNAM(IT)
+        LT = MIN(LEN(TMP),ITXNAM(IT+1)-IB)
+        DO 23 II = 1, LT
+          TMP(II:II) = TAXON(IB+II-1)
+   23   CONTINUE
+        WRITE (LINE, 24) TMP(1:LT), IC
+   24   FORMAT (A, ' makes character', I4, ' unsuitable.%')
+        CALL MESS (LINE, LUNL)
+ 
+        IF (ITMBAD.GE.5)  GOTO 100
+        I = I + 1
+        GOTO 14
+ 
+C--     CALCULATE SUITABILITY INDEX.
+   26   IF (ITMBAD.NE.0 .OR. (NEWLN.LT.0.AND.NVX.GT.0))  GOTO 100
+        NN = 0
+        SUP0 = 0.
+        AAA = 0.
+        DO 30 K = 1, MSS
+          NK = N(K)
+          AAA = AAA + AA(K)
+          NN = NN + NK
+          IF (NK.NE.0)  SUP0 = SUP0 + AA(K)*ALOG2(NK)
+   30   CONTINUE
+        NDUP = 0
+        DO 32 K = 1, MSS
+          IF (N(K).EQ.NN)  GOTO 90
+          IF (N(K).EQ.NDIST)  NDUP = NDUP + 1
+   32   CONTINUE
+ 
+        IF (NN.GT.NDIST) THEN
+          IF (NDUP.EQ.MSS)  GOTO 90
+          IF (VARYWT.EQ.0.)  GOTO 100
+          IF (NDUP.NE.0.AND.IALG.EQ.1.AND.IPRSET.EQ.0)  GOTO 100
+C         DUPF = VARW*(1.+100.*NDUP)*(NN-NDIST)/ALOG2(NDIST)
+          DUPF = VARW*(1.+100.*NDUP)*(NN-NDIST)
+     *     * (NDIST+8.)/(NDIST*ALOG2(NDIST))
+        ENDIF
+ 
+        SUP0 = SUP0/AAA
+        SUP = SUP0 + DUPF
+ 
+C-      IF THIS CHARACTER HAS SMALLER COST THAN ANY PREVIOUS ONE,
+C-      RECALCULATE SUOPT.
+        IF (RO.LT.RAV .OR. JOPT.EQ.0) THEN
+          RAV = RO
+          DO 38 IOPT = 1, JOPT
+            SUOPT(IOPT) = R(JFB) + RAV*SUPOPT(IOPT)
+   38     CONTINUE
+C         WRITE (LUNL, '(5X,A,2F8.3)') '(RAV,SUOPT)',RAV,SUOPT(1)
+        ENDIF
+C-
+        SU = R(JF) + RAV*SUP
+C       WRITE (LUNL, '(1X,A,2I5, 5F8.3)') 'FO,NN,SUP0,DUPF,SUP,R,SU',
+C    *    FO(JF),NN,SUP0,DUPF,SUP,R(JF),SU
+ 
+C--     IF THIS CHARACTER IS ONE OF THE BEST, SAVE ITS VALUES.
+C       FIND WHETHER IT IS ONE OF THE BEST.
+        DO 60 IOPT = 1, JOPT
+          IF (SU.LT.SUOPT(IOPT)) GOTO 62
+   60   CONTINUE
+C       MOVE THE INFERIOR CHARACTERS DOWN ONE PLACE.
+   62   JOPT = MIN(JOPT+1,MOPT)
+        DO 70 K = JOPT, IOPT+1, -1
+          JFOPT(K) = JFOPT(K-1)
+          NNOPT(K) = NNOPT(K-1)
+          SUPOPT(K) = SUPOPT(K-1)
+          SUOPT(K) = SUOPT(K-1)
+          DO 64 KK = 1, NSTAT(JFOPT(K))
+            NOPT(KK,K) = NOPT(KK,K-1)
+   64     CONTINUE
+   70   CONTINUE
+C       INSERT THE NEW CHARACTER IN THE LIST.
+        IF (IOPT.LE.MOPT) THEN
+          JFOPT(IOPT) = JF
+          NNOPT(IOPT) = NN
+          SUPOPT(IOPT) = SUP
+          SUOPT(IOPT) = SU
+          DO 66 K = 1, MSS
+            NOPT(K,IOPT) = N(K)
+   66     CONTINUE
+        ENDIF
+C       SAVE OTHER VARIABLES.
+        IF (IOPT.EQ.1) THEN
+C         WRITE (LUNL, '(5X,A,F8.3)') 'SUOPT', SUOPT(1)
+          JB = J
+          JFB = JF
+          NVAR = NVX
+        ENDIF
+        GOTO 100
+ 
+C--     SET BIT TO INDICATE UNSUITABILITY FOR FURTHER USE.
+   90   CALL SETU (D, LDM)
+C---
+  100 CONTINUE
+ 
+C     DUMP IF REQUIRED.
+      IF (IDUMP.GT.0 .AND. NL.LE.IDUMP .AND. JOPT.GT.0) THEN
+        CALL WRTREC
+     *  (' Char   R     Div   Div&R TotN   N1  N2 ...', LUNL)
+        DO 110 IOPT = 1, JOPT
+          JF = JFOPT(IOPT)
+          JFO = FO(JF)
+          WRITE (LINE, 102)
+     *      JFO, RINDX(JFO), SUPOPT(IOPT), SUOPT(IOPT), NNOPT(IOPT),
+     *      (NOPT(K,IOPT),K=1,NSTAT(JF))
+  102     FORMAT (I4, F5.1, 2F8.3, 2I5, 19I4, '%')
+          CALL MESS (LINE, LUNL)
+  110   CONTINUE
+      ENDIF
+ 
+C---- GET BEST CHARACTER INTO COLUMN NL.
+      IF (JB.NE.0) CALL SWAP (D, LDM)
+ 
+      RETURN
+      END
+      SUBROUTINE CONF (D, LDM, SM, NTU, NCO, KO, NTH, R, NSTAT,             GENR
+     * USED, NF)
+ 
+C  REVISED 26/8/87.
+C  FINDS CONFIRMATORY CHARACTERS FOR THE LAST CHARACTER FOUND BY BEST.
+ 
+      INTEGER FEAT,STATE
+      INTEGER D(LDM),SM(NTU),NCO(NTH),NSTAT(NF),USED(NF),JC(4),JFC(4)
+      REAL R(NF),RC(4)
+C     SC MUST BE DIMENSIONED MNS+1.                                           =/
+      INTEGER SC(21)                                                          =*
+ 
+      COMMON /MATXXX/ JU,JF,JS,I,J,NL,JB,NFP,NB,NE
+      COMMON /MNSXXX/ MNS,MNS1,MNS2,MNS3
+      COMMON /PARXXX/ NFB,NFE,JFB,NVAR,NEWLN,NT,NTD,NTA,NO,KN,NUSED,
+     *                INCOMP,VARW,NTR,RBASE,ABASE,REUSE,VARYWT,NCONF,
+     *                NSET,RES,ITUNKV,IADCNO,ITCHV,IRTF,IHTML
+ 
+ 
+C-- STORE STATES OF MAIN CHARACTER.
+      JCONF = 0
+      J = NL
+      DO 20 I = NB, NE
+        SM(I) = STATE(D,LDM,I)
+        IF (SM(I).EQ.MNS1)  GOTO 100
+   20   CONTINUE
+      JSMB = SM(NB)
+      NBP = NB + 1
+      MSS = NSTAT(JFB)
+      IF (NL.EQ.NF)  GOTO 100
+      NL = NL + 1
+      DO 22 I = 1, NCONF
+        RC(I) = 1.E20
+   22   CONTINUE
+ 
+C-- SEARCH FOR BEST CONFIRMATORY CHARACTERS.
+      DO 50 J = NL, NF
+C     CHECK UNSUITABILITY BIT.
+        JF = FEAT (D, LDM, NB, J)
+        IF (JU.EQ.1)  GOTO 50
+ 
+C     INITIALIZE STATE-CORRESPONDENCE ARRAY.
+        DO 30 I = 1, MSS
+          SC(I) = -1
+   30     CONTINUE
+C     SET CORRESPONDENCE FOR FIRST STATE.
+        SC(JSMB) = STATE(D,LDM,NB)
+        IF (SC(JSMB).EQ.0.OR.SC(JSMB).EQ.MNS1)  GOTO 50
+C
+C-    CHECK CORRESPONDENCE OF REST OF STATES.
+        DO 40 I = NBP, NE
+          JSM = SM(I)
+          JS = STATE(D,LDM,I)
+C       DO THE STATES CORRESPOND.
+          IF (SC(JSM).EQ.JS)  GOTO 40
+C       HAS CORRESPONDENCE BEEN SET.
+          IF (SC(JSM).NE.-1)  GOTO 50
+C       SET CORRESPONDENCE.
+          IF (JS.EQ.0.OR.JS.EQ.MNS1)  GOTO 50
+          DO 34 K = 1, MSS
+            IF (SC(K).EQ.JS)  GOTO 50
+   34       CONTINUE
+          SC(JSM) = JS
+   40     CONTINUE
+C
+C-    INSERT IN LIST OF POSSIBLE CONFIRMATORY CHARACTERS.
+        JCONF = MIN0(NCONF,JCONF+1)
+        DO 42 K = 1, JCONF
+          IF (R(JF).LT.RC(K))  GOTO 44
+   42     CONTINUE
+        GOTO 50
+ 
+   44   I = JCONF
+   46   IF (I.EQ.K)  GOTO 48
+          I = I - 1
+          RC(I+1) = RC(I)
+          JC(I+1) = JC(I)
+          JFC(I+1) = JFC(I)
+          GOTO 46
+   48   RC(K) = R(JF)
+        JC(K) = J
+        JFC(K) = JF
+   50   CONTINUE
+ 
+C-  GET CONFIRMATORY CHARACTERS INTO CORRECT COLUMNS, AND SET FLAGS.
+      IF (JCONF.EQ.0)  GOTO 80
+      DO 70 K = 1, JCONF
+        JB = JC(K)
+        IF (JB.GE.NL)  GOTO 62
+        DO 58 J = NL, NF
+          IF (FEAT(D,LDM,NB,J).EQ.JFC(K))  GOTO 60
+   58     CONTINUE
+   60   JB = J
+   62   CALL SWAP (D, LDM)
+        J = NL - 1
+        CALL SETU (D, LDM)
+        I = JFC(K)
+        IF (USED(I).NE.0)  GOTO 70
+        NUSED = NUSED + 1
+        USED(I) = NUSED
+        R(I) = R(I)/REUSE
+   70   NL = NL + 1
+   80 NL = NL - JCONF - 1
+  100 NCO(KO) = -JCONF
+      RETURN
+      END
+      SUBROUTINE ARRANG (D, LDM, A, T, DUP, BRULE, ERULE, NTU,              GENR
+     * NSTAT, FO, NF, FLAG, NTM, NBO, NEO, NBN, NEN, NCO, NCN, DIV, NTH,
+     * ICDEP, LCDEP, FN, FMSK, IWRK, IWRK1, NFR)
+ 
+C  REVISED 28-AUG-98.
+C  REARRANGES DATA MATRIX AND INSERTS EXTRA ROWS.
+ 
+C  MEANINGS OF VARIABLES.
+C    DUP(I). WHEN THE TAXA ARE READ IN, DUP(I) IS SET TO 0 FOR SINGLE
+C  ENTRIES. FOR MULTIPLE ENTRIES, DUP(I) IS SET TO 2 FOR THE LAST
+C  ENTRY, AND 1 FOR THE OTHERS. THIS ARRANGEMENT IS MAINTAINED BY
+C  THE DO LOOP ENDING ON STATEMENT 130 IN ARRANG. WHEN A GROUP IS
+C  REDUCED TO MULTIPLE ENTRIES OF A SINGLE TAXON, DUP(I) IS SET TO -1
+C  FOR ALL ENTRIES BUT THE LAST.
+C    FLAG(T(I)). INDICATES WHETHER THE ROW IS ONE OF A GROUP OF
+C  MULTIPLE ITEMS. 1 - SINGLE ITEM. 2 - ALL MULTIPLE ITEMS READ IN.
+C  3 - ONE EXTRA ITEM WAS GENERATED FROM AN ORIGINAL ITEM.
+C  4 - MORE THAN ONE ITEM WAS GENERATED FROM AN ORIGINAL ITEM.
+C    NCO(KO). AFTER A CALL TO CONF, -NCO(KO) IS THE NUMBER OF
+C  CONFIRMATORY CHARACTERS FOUND FOR GROUP KO. AT THE NEXT CALL TO
+C  ARRANG, THE SIGN IS CHANGED, AND AT EACH SUBSEQUENT CALL, NCO(KO) IS
+C  DECREMENTED BY 1. WHEN IT REACHES ZERO, THE CONFIRMATORY
+C  CHARACTERS HAVE BEEN PASSED, AND ANOTHER CALL TO BEST IS POSSIBLE.
+ 
+      INTEGER FEAT,STATE
+      DIMENSION ISTAT(23)                                                     =*
+      INTEGER D(LDM),T(NTU),DUP(NTU),BRULE(NTU),ERULE(NTU),NSTAT(NF),
+     1 FO(NF),FLAG(NTM),NBO(NTH),NBN(NTH),NEO(NTH),NEN(NTH),
+     2 NCO(NTH),NCN(NTH),DIV(NTH),ICDEP(LCDEP),FN(NFR),FMSK(NFR),
+     3 IWRK(NFR),IWRK1(NFR)
+      REAL A(NTU)
+ 
+      COMMON /MATXXX/ JU,JF,JS,I,J,NL,JB,NFP,NB,NE
+      COMMON /MNSXXX/ MNS,MNS1,MNS2,MNS3
+      COMMON /PARXXX/ NFB,NFE,JFB,NVAR,NEWLN,NT,NTD,NTA,NO,KN,NUSED,
+     *                INCOMP,VARW,NTR,RBASE,ABASE,REUSE,VARYWT,NCONF,
+     *                NSET,RES,ITUNKV,IADCNO,ITCHV,IRTF,IHTML
+ 
+ 
+      J = NL
+      IF (NEWLN.LE.0)  THEN
+C       No new rows added to matrix. Still need to update dependencies, as 
+C       chained dependencies are not handled when new rows are generated.
+C       This is handled as follows:
+ 
+C       If the character at this point (column) in the key generation
+C       is a controlling character, check dependencies of this feature/state combination.
+        IF (LCDEP.GT.1)  THEN
+          DO KO = 1, NO
+            NB = NBO(KO)
+            NE = NEO(KO)
+            DO 2 I = NB, NE
+            JF = FEAT(D,LDM,I,J)
+            IF (ICDEP(JF).NE.0)  THEN
+              NS = NSTAT(JF)
+              CALL FINDST (D, LDM, I, J, ISTAT, NS, NSP)
+C             The value should never be variable, but checking anyway.
+              IF (NONZER(ISTAT, NS).GT.1)  GOTO 2
+              DO II = I, NS
+                IF (ISTAT(II).NE.0)  THEN
+C               JS is the current state value.
+                  JS = II
+                  GOTO 1
+                ENDIF
+              ENDDO
+C             Set this up as a variable attribute - to fit in with the way
+C             UPDDEP works.
+    1         CALL SETIA (ISTAT, NS, 1)
+              CALL UPDDEP (D, LDM, ICDEP, LCDEP, FO, NSTAT,
+     *         NF, FN, FMSK, IWRK, IWRK1, NFR, ISTAT)
+            ENDIF
+    2       ENDDO
+          ENDDO
+        ENDIF
+        GOTO 40
+      ENDIF
+ 
+C-- SPLIT VARIABLE TAXA.
+ 
+C-  CALCULATE NEW NUMBER OF TAXA.
+      I = NT
+      NT = NT + NEWLN
+      IN = NT
+      NTA = NTA + NEWLN
+      KO = NO
+ 
+C-  TRANSFER ROWS NOT IN GROUPS.
+      ASSIGN 4 TO NRTN
+    4 IF (I.NE.NEO(KO))  GOTO 30
+C   BOTTOM OF NEXT GROUP.
+      NEO(KO) = IN
+      IF (DIV(KO).GT.1)  GOTO 10
+ 
+C-  TRANSFER ROWS IN GROUP WITH NO VARIABLE TAXA.
+      ASSIGN 8 TO NRTN
+    8 IF (I.NE.NBO(KO))  GOTO 30
+ 
+C   TOP OF GROUP.
+      NBO(KO) = IN
+      KO = KO - 1
+      ASSIGN 4 TO NRTN
+      GOTO 30
+ 
+C-  TRANSFER ROWS IN GROUP WITH VARIABLE TAXA.
+C   FIND CHARACTER BEING USED.
+   10 JF = FEAT(D,LDM,I,J)
+C   TRANSFER NON-VARIABLE ROWS.
+      ASSIGN 14 TO NRTN
+   14 NS = NSTAT(JF)
+      CALL FINDST (D, LDM, I, J, ISTAT, NS, NSP)
+      IF (ISTAT(MNS1).NE.0)  GOTO 20
+      IF (I.NE.NBO(KO))  GOTO 30
+C   TOP OF GROUP.
+   16 NBO(KO) = IN
+      KO = KO - 1
+      ASSIGN 4 TO NRTN
+      GOTO 30
+C   GENERATE NEW STATES, INSERT IN VARIABLE ROW, AND TRANSFER TO
+C   NEW POSITIONS.
+   20 K = T(I)
+      IF (FLAG(K).GE.3.OR.NSTAT(JF).GT.2)  THEN
+        FLAG(K) = 4
+      ELSE
+        FLAG(K) = 3
+      ENDIF
+      JS = NSTAT(JF) + 1
+      ASSIGN 26 TO NRTN
+      A(I) = A(I)/NSP
+ 
+      I = I - 1
+   26 JS = JS - 1
+      IF (ISTAT(JS).EQ.0)  GOTO 26
+        I = I + 1
+        CALL SETS (D, LDM)
+        NSP = NSP - 1
+        IF (NSP.GT.0)  GOTO 30
+        IF (I.EQ.IN)  THEN
+C         CHECK DEPENDENCIES OF THIS FEATURE/STATE COMBINATION.
+          IF (LCDEP.GT.1)  CALL UPDDEP (D, LDM, ICDEP, LCDEP, FO, NSTAT,
+     *     NF, FN, FMSK, IWRK, IWRK1, NFR, ISTAT)
+          GOTO 38
+        ENDIF
+        IF (I.EQ.NBO(KO))  GOTO 16
+        ASSIGN 14 TO NRTN
+ 
+C-  CODE TO TRANFER ROW I TO ROW IN.
+   30 DUP(IN) = DUP(I)
+      BRULE(IN) = BRULE(I)
+      ERULE(IN) = ERULE(I)
+      T(IN) = T(I)
+      A(IN) = A(I)
+      IE = I*NFP
+      IB = IE - NFP + 1
+      L = (IN-1)*NFP
+      DO 32 K = IB, IE
+        L = L + 1
+        D(L) = D(K)
+   32   CONTINUE
+      IF (LCDEP.GT.1)  THEN
+        ISV = I
+        I = IN
+C       CHECK DEPENDENCIES OF THIS FEATURE/STATE COMBINATION.
+        CALL UPDDEP (D, LDM, ICDEP, LCDEP, FO, NSTAT,
+     *   NF, FN, FMSK, IWRK, IWRK1, NFR, ISTAT)
+        I = ISV
+      ENDIF
+      IN = IN - 1
+      I = I - 1
+      GOTO NRTN, (4,8,14,26)
+   38 NEWLN = 0
+ 
+C-- REARRANGE MATRIX.
+   40 KN = 0
+      DO 100 KO = 1, NO
+        NB = NBO(KO)
+        NE = NEO(KO)
+C
+C-  IF GROUP CANNOT BE SUBDIVIDED, SET RULING CONSTANTS
+C-  AND DUPLICATE FLAGS.
+        IF (DIV(KO).GT.0)  GOTO 52
+        ERULE(NE) = NL - 1
+        NE = NE - 1
+        DO 42 K = NB, NE
+          IF (T(K).NE.T(K+1))  GOTO 41
+          DUP(K) = -1
+          NTA = NTA - 1
+   41     ERULE(K) = ERULE(NE+1)
+          BRULE(K) = ERULE(K) + 1
+   42     CONTINUE
+        GOTO 100
+C
+C-    SORT ROWS NB TO NE SO THAT THE STATES USED IN THE SUBDIVISION ARE
+C     IN ASCENDING ORDER.
+   52   IF (NCO(KO).GT.0)  GOTO 86
+        IB = NB
+        JF = FEAT(D,LDM,IB,J)
+        JS = 0
+        MSS = NSTAT(JF)
+   54   JS = JS + 1
+        IF (JS.EQ.MSS)  GOTO 66
+        IE = NE
+   56   IF (IB.GE.IE)  GOTO 54
+        IF (STATE(D,LDM,IB).GT.JS)  GOTO 58
+        IB = IB + 1
+        GOTO 56
+   58   IF (IE.LE.IB)  GOTO 54
+        IF (STATE(D,LDM,IE).EQ.JS)  GOTO 60
+        IE = IE - 1
+        GOTO 58
+C     CODE TO SWAP ROWS IB AND IE.
+   60   KEEP = DUP(IB)
+        DUP(IB) = DUP(IE)
+        DUP(IE) = KEEP
+        KEEP = T(IB)
+        T(IB) = T(IE)
+        T(IE) = KEEP
+        HOLD = A(IB)
+        A(IB) = A(IE)
+        A(IE) = HOLD
+        IBE = IB*NFP
+        IBB = IBE - NFP + 1
+        L = (IE-1)*NFP
+C$      NOTRACE SUBSCRIPTS
+        DO 62 K = IBB, IBE
+          L = L + 1
+          KEEP = D(K)
+          D(K) = D(L)
+          D(L) = KEEP
+   62     CONTINUE
+C$      TRACE SUBSCRIPTS
+        IB = IB + 1
+        IE = IE - 1
+        GOTO 56
+C
+C-    COUNT GROUPS AND RECORD SUBSCRIPTS OF BEGINNINGS AND ENDS OF
+C-    GROUPS. DETERMINE CONSTANTS FOR RULING TABLE.
+   66   K = NB
+   70   JS = STATE(D,LDM,K)
+        JB = T(K)
+        NG = 1
+        IT = 1
+   72   K = K + 1
+        IF (STATE(D,LDM,K).NE.JS)  GOTO 74
+        IF (T(K).NE.JB)  IT = 0
+        NG = NG + 1
+        IF (K.LT.NE)  GOTO 72
+        GOTO 80
+C     NOT THE LAST SUBGROUP.
+   74   BRULE(K-1) = NL
+        IF (IT.NE.1)  GOTO 76
+        ERULE(K-1) = NL - NCO(KO)
+        IF (NG.EQ.1)  GOTO 78
+        NTA = NTA - NG + 1
+        IB = K - NG
+        IE = K - 2
+        DO 75 I = IB, IE
+          DUP(I) = -1
+   75     CONTINUE
+        GOTO 78
+   76   KN = KN + 1
+        NBN(KN) = K - NG
+        NEN(KN) = K - 1
+        NCN(KN) = -NCO(KO)
+   78   IF (K.LT.NE)  GOTO 70
+C     LAST SUBGROUP.
+        ERULE(NE) = NL - NCO(KO)
+        GOTO 100
+   80   IF (IT.NE.1)  GOTO 82
+        ERULE(NE) = NL - NCO(KO)
+        NTA = NTA - NG + 1
+        IB = NE - NG + 1
+        IE = NE - 1
+        DO 84 I = IB, IE
+          DUP(I) = -1
+   84     CONTINUE
+        GOTO 100
+   82   KN = KN + 1
+        NBN(KN) = NE - NG + 1
+        NEN(KN) = NE
+        NCN(KN) = -NCO(KO)
+        GOTO 100
+C-    CONFIRMATORY CHARACTER.
+   86   KN = KN + 1
+        NBN(KN) = NBO(KO)
+        NEN(KN) = NEO(KO)
+        NCN(KN) = NCO(KO) - 1
+  100   CONTINUE
+      IF (KN.EQ.0)  GOTO 150
+ 
+C-- RESET DUPLICATE FLAGS AND COLLECT DUPLICATE ROWS.
+      DO 130 KG = 1, KN
+        NB = NBN(KG)
+        NE = NEN(KG)
+C     SEARCH FOR DUPLICATE-FLAGGED TAXON.
+        IB = NB
+  102   IF (IB.GT.NE)  GOTO 130
+        IF (DUP(IB).GT.0)  GOTO 110
+        IB = IB + 1
+        GOTO 102
+  110   DUP(IB) = 1
+        NVAR = 0
+C    SEARCH FOR FURTHER OCCURRENCES OF THE TAXON WITHIN THE GROUP.
+        IE = IB + 1
+  112   IF (IE.GT.NE)  GOTO 120
+        IF (T(IE).EQ.T(IB))  GOTO 114
+        IE = IE + 1
+        GOTO 112
+C    FLAG DUPLICATE. IF NECESSARY, MOVE IT NEXT TO THE PREVIOUS
+C    OCCURRENCE.
+  114   IB = IB + 1
+        IF (IE.EQ.IB)  GOTO 116
+        KEEP = DUP(IB)
+        DUP(IB) = DUP(IE)
+        DUP(IE) = KEEP
+        KEEP = T(IB)
+        T(IB) = T(IE)
+        T(IE) = KEEP
+        HOLD = A(IB)
+        A(IB) = A(IE)
+        A(IE) = HOLD
+        IBE = IB*NFP
+        IBB = IBE - NFP + 1
+        L = (IE-1)*NFP
+C$      NOTRACE SUBSCRIPTS
+        DO 115 K = IBB, IBE
+        L = L + 1
+        KEEP = D(K)
+        D(K) = D(L)
+  115   D(L) = KEEP
+C$      TRACE SUBSCRIPTS
+  116   DUP(IB) = 1
+        NVAR = 2
+        IE = IE + 1
+        GOTO 112
+C     FLAG LAST OR ONLY OCCURRENCE OF THE TAXON.
+  120   DUP(IB) = NVAR
+        IB = IB + 1
+        GOTO 102
+  130   CONTINUE
+      GOTO 200
+ 
+C-- REMOVE UNWANTED DUPLICATE ROWS.
+  150 IF (NTA.EQ.NT)  GOTO 200
+      IN = 0
+      DO 160 I = 1, NT
+        IF (DUP(I).EQ.-1)  GOTO 160
+        IN = IN + 1
+        IF (I.EQ.IN)  GOTO 160
+        BRULE(IN) = BRULE(I)
+        ERULE(IN) = ERULE(I)
+        T(IN) = T(I)
+        IE = I*NFP
+        IB = IE - NFP + 1
+        L = (IN-1)*NFP
+C$      NOTRACE SUBSCRIPTS
+        DO 152 K = IB, IE
+        L = L + 1
+  152   D(L) = D(K)
+C$      TRACE SUBSCRIPTS
+  160   CONTINUE
+  200 RETURN
+      END
+      SUBROUTINE MDUMP (D, T, ITXNAM, TAXON, LTAXON, FO, NT,                GENR
+     * IROW1, IROW2)
+ 
+C* REVISED 18-JUN-92.
+C* DUMPS MATRIX.
+ 
+C  D RECEIVES THE MATRIX.
+C  T RECEIVES THE NUMERIC TAXON IDENTIFIERS.
+C  ITXNAM RECEIVES THE POINTERS TO THE TAXON NAMES.
+C  TAXON RECEIVES THE TAXON NAMES.
+C  LTAXON RECEIVES THE LENGTH OF TAXON.
+C  FO RECEIVES THE ORIGINAL FEATURE NUMBERS.
+C  NT RECEIVES THE NUMBER OF ITEMS IN THE MATRIX.
+C  IROW1 RECEIVES THE FIRST ROW TO DUMP.
+C  IROW2 RECEIVES THE LAST ROW TO DUMP.
+ 
+      COMMON /DIMXXX/ LDM,NFR,NF,NTM,NTM1,NTU,NTH,NWORD,NDESC,LCDEP
+      COMMON /FMTXXX/ ITAB,LFOUT,LTXOUT,KCOLS,MAXWID
+      COMMON /LINEXX/ LINE
+      CHARACTER*200 LINE
+      COMMON /LUNXXX/ LUNI,LUNC,LUNT,LUNO,LUNP,LUNS,LUNS1,LUNE,LUNL,LUNB
+      COMMON /MATXXX/ JU,JF,JS,I,J,NL,JB,NFP,NB,NE
+      COMMON /MNSXXX/ MNS,MNS1,MNS2,MNS3
+ 
+      INTEGER FEAT
+      INTEGER D(LDM),T(NTU),ITXNAM(NTM1),FO(NF)
+      CHARACTER*1 TAXON(LTAXON)
+ 
+C     DIMENSION MUST BE MNS3.                                                 =/
+      DIMENSION ISTAT(23)                                                     =*
+ 
+      CALL WRTREC (' ', LUNL)
+      WRITE (LINE, 10) NL-1
+   10 FORMAT ('Matrix after completion of column', I4, '%')
+      CALL MESS (LINE, LUNL)
+ 
+      IROW1 = MIN0(IROW1,NT)
+      IROW2 = MIN0(IROW2,NT)
+ 
+      IF (IROW1.LE.0)  THEN
+        IROW1 = 1
+        IROW2 = NT
+      ENDIF
+ 
+      DO 100 IT = IROW1, IROW2
+        ID = T(IT)
+        IB = ITXNAM(ID)
+        LX = MIN0 (ITXNAM(ID+1)-IB,70)
+        IE = IB + LX - 1
+        WRITE (LINE, 12) ID, (TAXON(I),I=IB,IE)
+   12   FORMAT ('Item ', I3, 1X, 70A1, '%')
+        CALL MESS (LINE, LUNL)
+ 
+        LLINE = 0
+        DO 50 IFF = 1, NF
+          IC = FEAT (D, LDM, IT, IFF)
+          IC = FO(IC)
+          CALL FINDST (D, LDM, IT, IFF, ISTAT, MNS, NSP)
+          JSTAT = 0
+          DO 20 IS = 1, MNS
+            IF (ISTAT(IS).NE.0)  JSTAT = JSTAT + 2**(IS-1)
+   20       CONTINUE
+          JOUT = 0
+          DO 30 IOCT = 1, 8
+            IREM = MOD (JSTAT,8)
+            JSTAT = JSTAT/8
+            JOUT = JOUT + IREM * 10**(IOCT-1)
+   30       CONTINUE
+          KOUT = 0
+          DO 40 IS = MNS1, MNS3
+            IF (ISTAT(IS).NE.0)  KOUT = KOUT + 2**(IS-MNS1)
+   40       CONTINUE
+          WRITE (LINE(LLINE+1:), '(1X,I3,A,I1,A,I1,A,I8)')
+     *     IC,',',JU,',',KOUT,',',JOUT
+          LLINE = LLINE + 17
+          IF (LLINE+15.GT.MAXWID)  THEN
+            CALL WRTREC(LINE(1:LLINE), LUNL)
+            LLINE = 0
+          ENDIF
+   50     CONTINUE
+        IF (LLINE.GT.0)  CALL WRTREC(LINE(1:LLINE), LUNL)
+  100   CONTINUE
+      CALL WRTREC (' ', LUNL)
+ 
+      RETURN
+      END
+      SUBROUTINE UPDDEP (D, LDM, ICDEP, LCDEP, FO, NSTAT, NF, FN, FMSK,
+     * ICLST, ICCLST, NFR, KSTAT)
+ 
+C  REVISED 15-OCT-98.
+C  UPDATE DEPENDENCY FLAGS.
+ 
+C  D RECEIVES THE MATRIX.
+C  LDM RECEIVES THE LENGTH OF D.
+C  ICDEP RECEIVES THE CHARACTER DEPENDENCIES.
+C  LCDEP RECEIVES THE LENGTH OF ICDEP.
+C  FO RECEIVES THE OLD FEATURE NUMBERS.
+C  NSTAT RECEIVES THE NUMBERS OF STATES.
+C  NF RECEIVES THE NUMBER OF MASKED-IN FEATURES.
+C  FN RECEIVES THE NEW FEATURE NUMBERS.
+C  FMSK RECEIVES THE FEATURE MASK.
+C  ICLST RECEIVES WORKING SPACE OF LENGTH NFR.
+C  ICCLST RECEIVES WORKING SPACE OF LENGTH NFR.
+C  NFR RECEIVES THE NUMBER OF FEATURES.
+C  KSTAT RECEIVES THE STATES OF THE CURRENT CHARACTER, JF.
+ 
+      COMMON /LUNXXX/ LUNI,LUNC,LUNT,LUNO,LUNP,LUNS,LUNS1,LUNE,LUNL,LUNB
+      COMMON /MATXXX/ JU,JF,JS,I,J,NL,JB,NFP,NB,NE
+      COMMON /MNSXXX/ MNS,MNS1,MNS2,MNS3
+ 
+      INTEGER FEAT,FINDCOL
+      INTEGER D(LDM),ICDEP(LCDEP),FO(NF),NSTAT(NF),FN(NFR),FMSK(NFR),
+     * ICLST(NFR),ICCLST(NF),KSTAT(23)
+C     Local arrays.
+      INTEGER ISTAT(23),JSTAT(23),LSTAT(23)
+ 
+      LF = FO(JF)
+      IF (ICDEP(LF).EQ.0)  GOTO 1000
+      NS = NSTAT(JF)
+C     Copy KSTAT to working array ISTAT so that KSTAT is unchanged on return.
+      CALL COPIA (KSTAT, ISTAT, 23)
+C     Store current state of the character in JSTAT.
+      CALL SETIA (JSTAT, NS, 0)
+      JSTAT(JS) = 1
+ 
+C     SAVE CURRENT COLUMN NUMBER.
+      JCOL = J
+      NCOL = JCOL
+      NCC = 0
+      ICC = 0
+ 
+   10 CONTINUE
+      ISPTR = ICDEP(LF)
+ 
+      DO 200 IS = 1, NS
+        IF (ICDEP(ISPTR+IS-1).EQ.0)  GOTO 200
+        IF (ISTAT(IS).EQ.0)  GOTO 200
+C       CURRENT STATE IS A CONTROLLING STATE?
+        IF (JSTAT(IS).NE.0)  GOTO 200
+        IRPTR = ICDEP(ISPTR+IS-1)
+        NR = ICDEP(IRPTR)
+        DO 150 IR = 1, NR
+          IB = ICDEP(IRPTR+2*IR-1)
+          IE = ICDEP(IRPTR+2*IR)
+          DO 100 IF = IB, IE
+            IF (FMSK(IF).EQ.0)  GOTO 100
+ 
+C           Find all characters controlling IF, and store in ICLST.
+            CALL CNTRLC (IF, ICDEP, LCDEP, NSTAT, NF, FN, FMSK,
+     *       ICLST, NFR)
+ 
+C           LOOK AT CHARACTERS IN THIS ROW.
+C           CHECK IF N/A STATUS STILL HOLDS FOR CHARACTER IF.
+ 
+            DO 50 J = 1, NCOL
+              KKF = FEAT(D,LDM,I,J)
+              KF = FO (KKF)
+              IF (ICLST(KF).EQ.0)  GOTO 50
+              LNS = NSTAT(KKF)
+              CALL FINDST (D, LDM, I, J, LSTAT, LNS, NSP)
+              IF (LSTAT(MNS2).NE.0.OR.NSP.EQ.0)  GOTO 50
+              DO 40 KS = 1, LNS
+                IF (LSTAT(KS).EQ.0)  GOTO 40
+                KSPTR = ICDEP(KF) + KS - 1
+                IF (ICDEP(KSPTR).EQ.0)  GOTO 40
+                KRPTR = ICDEP(KSPTR)
+                NR1 = ICDEP(KRPTR)
+                DO 30 KR = 1, NR1
+                  KB = ICDEP(KRPTR+2*KR-1)
+                  KE = ICDEP(KRPTR+2*KR)
+                  IF (IF.GE.KB.AND.IF.LE.KE)  GOTO 100
+   30           CONTINUE
+   40         CONTINUE
+              ICLST(KF) = 0
+   50         CONTINUE
+ 
+C           RESTORE COLUMN NUMBER.
+            J = JCOL
+            IF (NONZER(ICLST,NFR).GT.0)  GOTO 100
+C           NO POSSIBLE DEPENDENCIES IN THIS ROW -
+C            CLEAR N/A FLAG FOR CHARACTER IF.
+            IIF = FN(IF)
+            CALL CLRNA (D, LDM, IIF)
+ 
+            IF (ICDEP(IF).NE.0)  THEN
+C             If this is a controlling character,
+C             follow down the chain of dependencies to check inapplicable status
+C             of its dependent characters.
+              NCC = NCC + 1
+              ICCLST(NCC) = IF
+            ENDIF
+ 
+  100       CONTINUE
+          J = JCOL
+  150     CONTINUE
+  200   CONTINUE
+ 
+C     CHECK FOR CHAINED DEPENDENCIES.
+      IF (NCC.GT.0.AND.ICC.LT.NCC)  THEN
+        ICC = ICC + 1
+        LF = ICCLST(ICC)
+        IIF = FN(LF)
+        NS = NSTAT(IIF)
+        KCOL = FINDCOL (D, LDM, IIF)
+C       Put the states of the controlling character into JSTAT.
+        CALL FINDST (D, LDM, I, KCOL, JSTAT, NS, NSP)
+        CALL SETIA (ISTAT, NS, 1)
+C       Process all columns in this row.
+        NCOL = NF
+        GOTO 10
+      ENDIF 
+ 
+ 1000 RETURN
+      END
+      SUBROUTINE CNTRLC (IC, ICDEP, LCDEP, NSTAT, NF, FN, FMSK,
+     * ICLST, NFR)
+ 
+C  REVISED 20/8/87.
+C  FINDS ALL CHARACTERS CONTROLLING A GIVEN CHARACTER.
+ 
+C  IC RECEIVES THE CHARACTER NUMBER.
+C  ICDEP RECEIVES THE CHARACTER DEPENDENCIES.
+C  LCDEP RECEIVES THE LENGTH OF ICDEP.
+C  NSTAT RECEIVES THE NUMBERS OF STATES.
+C  NF RECEIVES THE NUMBER OF MASKED-IN FEATURES.
+C  FN RECEIVES THE NEW FEATURE NUMBERS.
+C  FMSK RECEIVES THE FEATURE MASK.
+C  ICLST RETURNS THE LIST OF CONTROLLING CHARACTERS.
+C  NFR RECEIVES THE NUMBER OF FEATURES.
+ 
+      INTEGER ICDEP(LCDEP),NSTAT(NF),FN(NFR),FMSK(NFR),ICLST(NFR)
+ 
+      CALL SETIA (ICLST, NFR, 0)
+ 
+      DO 100 IF = 1, NFR
+        IF (ICDEP(IF).EQ.0)  GOTO 100
+        IF (FMSK(IF).EQ.0)  GOTO 100
+        ISPTR = ICDEP(IF)
+        NS = NSTAT(FN(IF))
+        DO 40 IS = 1, NS
+          IF (ICDEP(ISPTR+IS-1).EQ.0)  GOTO 40
+          IRPTR = ICDEP(ISPTR+IS-1)
+          NR = ICDEP(IRPTR)
+          DO 30 IR = 1, NR
+            IB = ICDEP(IRPTR+2*IR-1)
+            IE = ICDEP(IRPTR+2*IR)
+            DO 20 II = IB, IE
+              IF (IC.EQ.II)  THEN
+                ICLST(IF) = 1
+                GOTO 100
+              ENDIF
+   20         CONTINUE
+   30       CONTINUE
+   40     CONTINUE
+  100   CONTINUE
+ 
+      RETURN
+      END

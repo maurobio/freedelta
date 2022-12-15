@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Free Delta Editor\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-12-03 11:39-0300\n"
+"PO-Revision-Date: 2022-12-08 09:25-0300\n"
 "Last-Translator: Mauro J. Cavalcanti <maurobio@gmail.com>\n"
 "Language-Team: Free Delta Development Team\n"
 "Language: fr\n"
@@ -1684,13 +1684,11 @@ msgid "Error"
 msgstr "Erreur"
 
 #: main.strexists
-#, fuzzy,badformat
 msgctxt "main.strexists"
 msgid "File %s already exists. Overwrite?"
 msgstr "Le fichier % s existe déjà. Remplacer?"
 
 #: main.strexport
-#, fuzzy,badformat
 msgctxt "main.strexport"
 msgid "Data exported successfully to directory %s."
 msgstr "Les données ont été exportées avec succès vers le répertoire % s."
@@ -3215,7 +3213,6 @@ msgid "OK"
 msgstr "OK"
 
 #: tintkeyform.cancelbutton.caption
-#, fuzzy
 msgctxt "tintkeyform.cancelbutton.caption"
 msgid "Cancel"
 msgstr "Annuler"
@@ -3225,43 +3222,36 @@ msgid "INTKEY Directives"
 msgstr ""
 
 #: tintkeyform.labelcharacterreliabilities.caption
-#, fuzzy
 msgctxt "tintkeyform.labelcharacterreliabilities.caption"
 msgid "Character Reliabilities:"
 msgstr "Poids (fiabilité) des caractères:"
 
 #: tintkeyform.labelheading.caption
-#, fuzzy
 msgctxt "tintkeyform.labelheading.caption"
 msgid "Heading:"
 msgstr "Titre:"
 
 #: tintkeyform.labelincludecharacters.caption
-#, fuzzy
 msgctxt "tintkeyform.labelincludecharacters.caption"
 msgid "Include Characters:"
 msgstr "Inclure des caractères :"
 
 #: tintkeyform.labelincludeitems.caption
-#, fuzzy
 msgctxt "tintkeyform.labelincludeitems.caption"
 msgid "Include Items:"
 msgstr "Inclure les items:"
 
 #: tintkeyform.labelrbase.caption
-#, fuzzy
 msgctxt "tintkeyform.labelrbase.caption"
 msgid "RBASE:"
 msgstr "RBASE:"
 
 #: tintkeyform.labelvarywt.caption
-#, fuzzy
 msgctxt "tintkeyform.labelvarywt.caption"
 msgid "VARYWT:"
 msgstr "VARYWT:"
 
 #: tintkeyform.okbutton.caption
-#, fuzzy
 msgctxt "tintkeyform.okbutton.caption"
 msgid "OK"
 msgstr "OK"
@@ -6356,4 +6346,3 @@ msgstr "Liaison pondérée (WPGMA)"
 msgctxt "viewer.strxmlfilter"
 msgid "XML files|*.xml"
 msgstr "Fichiers XML|*.xml"
-

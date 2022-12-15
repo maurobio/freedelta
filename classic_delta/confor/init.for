@@ -1,0 +1,579 @@
+      SUBROUTINE BLKDAT                                                     INIT
+ 
+C* REVISED 26-OCT-00.
+C* SETS COMMON VARIABLES.
+ 
+      COMMON /ALPXXX/ KA,KB,KC,KD,KE,KF,KG,KH,KI,KJ,KK,KL,KM,
+     *                KN,KO,KP,KQ,KR,KS,KT,KU,KV,KW,KX,KY,KZ
+      COMMON /ALPLCX/ KLA,KLB,KLC,KLD,KLE,KLF,KLG,KLH,KLI,KLJ,KLK,KLL,
+     *                KLM,KLN,KLO,KLP,KLQ,KLR,KLS,KLT,KLU,KLV,KLW,KLX,
+     *                KLY,KLZ
+      COMMON /BINXXX/ IENDRC,LENDRC,INSBLK
+      COMMON /BLKXXX/ KBLANK
+      COMMON /CAPXXX/ KCAPMK,IOMCAP
+      COMMON /DELXXX/ KDPLUS,KDSTAR,KDNUM,KDSOL,KDLBRA,KDRBRA,
+     * KDCOM,KDRANG,KDAMP,KDCOLN,KDSTOP,KDINF,KDLPAR,KDRPAR,KDBSLSH
+      COMMON /DIR1XX/ NCON1,JDIR1(5)
+      COMMON /DIR2XX/ NCON2,JDIR2(1)
+      COMMON /DIR3XX/ NCON3,JDIR3(1)
+      COMMON /DIR4XX/ NCON4,JDIR4(97)
+      COMMON /DIR5XX/ NCON5,JDIR5(4)
+      COMMON /FFFXXX/ KFF
+      COMMON /FMTMKX/ IFMTMK,NFMTMK,FMTWRD(3),LFMTWD(3)
+        CHARACTER*20 FMTWRD
+      COMMON /FNTXXX/ IOFONT,NFONT
+      COMMON /HEDXXX/ LHEAD,IHEAD(200)
+      COMMON /INPFIL/ NINPUT
+      COMMON /INQXXX/ ISEQ,SEQ,LIBUF,MIREC,LISIND,LLUNI,JLIS,LISOUT(132)
+      COMMON /ITSXXX/ ITSS
+      COMMON /JSTXXX/ IOUT(132,5),LOUT,ICAP,
+     * JIOUT(5),IENDWD(5),INDEN(5),LWIDTH(5),PSEQ,SEQINC,NSQDIG
+      COMMON /LANGXX/ IUSELNG1,IUSELNG2,NLANG
+      COMMON /LUNDAX/ LRECDA,IRECDA
+      COMMON /LUOXXX/ NUN,LPAGE,LPRINT,LTOP,LPRDEF,LPUDEF,
+     * LUNCOM(15),LUNPRE(15),LUNUSE(19),LUNREC(19),LUNPAG(19)
+      COMMON /NUMXXX/ KNUM(10),KDEC,KMINUS
+      COMMON /DIRYXX/ OUTDIR,LOUTDIR,IMGDIR,LIMGDIR
+        CHARACTER*80 OUTDIR,IMGDIR
+      COMMON /REGXXX/ IREGHD(200),LREGHD,IREGSHD(200),LREGSHD,
+     * IREGVD(20),LREGVD
+      COMMON /SCRCXX/ LRECSC
+      COMMON /SCRNMX/ SCRNAM(7)
+        CHARACTER*8 SCRNAM
+      COMMON /SCRXXX/ LUNTS1,LUNTS2,LUNTS3,LUNTS4,LUNTS5,LUNTS6,LUNTS7
+      COMMON /SHOXXX/ LSHOW,ISHOW(200)
+      COMMON /STOXXX/ ISTYPE,LRECSS
+      COMMON /SYMXXX/ KPOINT,KDASH,KSTAR,KVERT,KEQUAL,KCOMMA,KSEMIC,
+     * KCOLON,KSTOP,KSOL,KLPAR,KRPAR,KDOLLA,KQUEST,KEXCL,KAT,KLBRACE,
+     * KRBRACE
+      COMMON /TCHXXX/ NTCOD,ITCOD(2,7),JTCOD(7)
+      COMMON /TPSXXX/ ITPSET,NTYPMK,IFBEGIN,IFEND
+      COMMON /VALXXX/ KVAR,KUNK,KNA,KVAL(64),LKVAL
+      COMMON /VWDXXX/ VWORD(18)
+        CHARACTER*40 VWORD
+      COMMON /VLWXXX/ NVWD,MAXVWD,LVWD(18),IBPUNC,IEPUNC,
+     * KVSTOP,KVCOM1,KVCOM2,KVSEMI,KVDEC
+      COMMON /WRDSIZ/ NBITS,NCHRWD
+C
+      CHARACTER*1 LALPXX(26),LALPLC(26),LBLANK,LDELXX(15),LNUMXX(12),
+     * LSYMXX(18), LVALXX(3),LTCHXX(2,7)
+C
+      DATA LALPXX /
+     * 'A','B','C','D','E','F','G','H','I','J','K','L','M',
+     * 'N','O','P','Q','R','S','T','U','V','W','X','Y','Z'/
+      DATA LALPLC /
+     * 'a','b','c','d','e','f','g','h','i','j','k','l','m',
+     * 'n','o','p','q','r','s','t','u','v','w','x','y','z'/
+C
+      DATA LBLANK / ' '/
+C
+      DATA LDELXX /'+','*','#','/','<','>',',','-','&',':','.','~',
+     * '(',')','\'/
+C
+      DATA LNUMXX / '0','1','2','3','4','5','6','7','8','9','.','-'/
+C
+      DATA LSYMXX / '^','-','*','|','=',',',';',':','.','/','(',
+     * ')','$','?','!','@','{','}'/
+C
+      DATA LTCHXX(1,1),LTCHXX(2,1) / 'U','M'/
+      DATA LTCHXX(1,2),LTCHXX(2,2) / 'O','M'/
+      DATA LTCHXX(1,3),LTCHXX(2,3) / 'I','N'/
+      DATA LTCHXX(1,4),LTCHXX(2,4) / 'R','N'/
+      DATA LTCHXX(1,5),LTCHXX(2,5) / 'T','E'/
+      DATA LTCHXX(1,6),LTCHXX(2,6) / 'E','U'/
+      DATA LTCHXX(1,7),LTCHXX(2,7) / 'E','O'/
+C
+      DATA LVALXX / 'V','U','-'/
+C
+      CALL COPCIA (LALPXX, KA, 26)
+C
+      CALL COPCIA (LALPLC, KLA, 26)
+C
+      CALL COPCIA (LBLANK, KBLANK, 1)
+C
+      CALL COPCIA (LDELXX, KDPLUS, 15)
+C
+      CALL COPCIA (LNUMXX, KNUM, 12)
+C
+      CALL COPCIA (LSYMXX, KPOINT, 18)
+C
+      CALL COPCIA (LVALXX, KVAR, 3)
+C
+      CALL COPCIA (LTCHXX, ITCOD, 14)
+C
+C
+C     DIR.XX.
+      NCON1 = 5                                                               =*
+      NCON2 = 1                                                               =*
+      NCON3 = 1                                                               =*
+      NCON4 = 97                                                              =*
+      NCON5 = 4                                                               =*
+ 
+C     BINXXX.
+      IENDRC = 0
+      LENDRC = 1
+      INSBLK = 1
+ 
+C     FFFXXX.
+      KFF = 12
+ 
+C     FMTMKX.
+      IFMTMK = 0
+      NFMTMK = 3
+      FMTWRD(1) = '[10i][14''i][1p]'
+      LFMTWD(1) = 15
+      FMTWRD(2) = '[8i][12''i][1p]'
+      LFMTWD(2) = 14
+      FMTWRD(3) = '[0i][0''i][2''z]'
+      LFMTWD(3) = 14
+ 
+C     FNTXXX.
+      IOFONT = 0
+      NFONT = 3
+ 
+C     HEDXXX.
+      LHEAD = 200
+ 
+C     CAPXXX.
+C     DEFINE ESCAPE CHARACTER FOR NO CAPITALIZATION AS '|'.
+      KCAPMK = 124
+      IOMCAP = 0
+ 
+C     INPFIL.
+      NINPUT = 0
+ 
+C     INQXXX.
+C     NOTES.                                                                  =/
+C     LISIND+MIREC MUST NOT BE GREATER THAN LOUT.
+C     IF MIREC IS CHANGED, SUBR. RREC MAY NEED TO BE CHANGED.
+      LIBUF = 121
+      MIREC = 117
+      LISIND = 15
+C
+C     ITSXXX.
+      ITSS = 5
+C
+C     JSTXXX.
+C     NOTES.                                                                  =/
+C     LOUT MUST BE AT LEAST LISIND+MIREC.
+C     IF LOUT IS CHANGED, SUBR. WREC, WRECB MAY NEED TO BE CHANGED.
+      LOUT = 132
+      SEQINC = 0.01
+      NSQDIG = 2
+ 
+C     LANGXX.
+      IUSELNG1 = 0
+      IUSELNG2 = 0
+      NLANG = 0
+ 
+C     DIRYXX.
+      LIMGDIR = 0
+      LOUTDIR = 0
+ 
+C     REGXXX.
+      IREGHD(1) = 1
+      LREGHD = 200
+      IREGSHD(1) = 1
+      LREGSHD = 200
+      IREGVD(1) = 1
+      LREGVD = 20
+ 
+C     TPSXXX.
+      NTYPMK = 51
+      IFBEGIN = 0
+      IFEND = 0
+ 
+C     VWDXXX, VLWXXX.
+      NVWD = 18
+      MAXVWD = 40
+      VWORD(1) = 'or'
+      LVWD(1) = 2
+      VWORD(2) = 'to'
+      LVWD(2) = 2
+      VWORD(3) = 'and'
+      LVWD(3) = 3
+      VWORD(4)  = 'variable'
+      LVWD(4) = 8
+      VWORD(5)  = 'unknown'
+      LVWD(5) = 7
+      VWORD(6)  = 'not applicable'
+      LVWD(6) = 14
+      VWORD(7)  = '(variant)'
+      LVWD(7) = 9
+      VWORD(8)  = 'not coded'
+      LVWD(8) = 9
+      VWORD(9)  = 'never'
+      LVWD(9) = 5
+      VWORD(10)  = 'minimum'
+      LVWD(10) = 7
+      VWORD(11)  = 'maximum'
+      LVWD(11) = 7
+      VWORD(12)  = 'up to'
+      LVWD(12) = 5
+      VWORD(13)  = 'or more'
+      LVWD(13) = 7
+C     FULL STOP.
+      VWORD(14) = '.'
+      LVWD(14) = 1
+      KVSTOP = 14
+C     COMMA.
+      VWORD(15) = ','
+      LVWD(15) = 1
+      KVCOM1 = 15
+C     ALTERNATE COMMA.
+      VWORD(16) = ','
+      LVWD(16) = 1
+      KVCOM2 = 16
+C     SEMI-COLON.
+      VWORD(17) = ';'
+      LVWD(17) = 1
+      KVSEMI = 17
+C     DECIMAL POINT.
+      VWORD(18) = '.'
+      LVWD(18) = 1
+      KVDEC = 18
+      IBPUNC = 14
+      IEPUNC = 17
+ 
+C     LUNDAX.
+      LRECDA = 32
+ 
+C     LUOXXX.
+C     THERE ARE ARRAYS DIMENSIONED NUN IN LISXXX, LUFXXX, AND LUOXXX.         =/
+      NUN = 19
+      LPAGE = 66
+      LPRINT = 0
+      LTOP = 0
+      LPRDEF = 80
+      LPUDEF = 80
+ 
+C     SCRCXX.
+      LRECSC = 128
+ 
+C     SCRNMX.
+      SCRNAM(1) = 'SCRATCH1'
+      SCRNAM(2) = 'SCRATCH2'
+      SCRNAM(3) = 'SCRATCH3'
+      SCRNAM(4) = 'SCRATCH4'
+      SCRNAM(5) = 'SCRATCH5'
+      SCRNAM(6) = 'SCRATCH6'
+      SCRNAM(7) = 'SCRATCH7'
+ 
+C     SCRXXX.
+      LUNTS1 = 5
+      LUNTS2 = 10
+      LUNTS3 = 11
+      LUNTS4 = 12
+      LUNTS5 = 13
+      LUNTS6 = 14
+      LUNTS7 = 15
+ 
+C     SHOXXX.
+      LSHOW = 200
+ 
+C     STOXXX.
+      LRECSS = 128
+ 
+C     TCHXXX.
+      NTCOD = 7
+      NTCOD2 = NTCOD - 2
+      DO 10 I = 1, NTCOD2
+        JTCOD(I) = I
+   10   CONTINUE
+      JTCOD(NTCOD-1) = -1
+      JTCOD(NTCOD) = -2
+ 
+C     WRDSIZ.
+      NBITS = 32
+      NCHRWD = 4
+ 
+      END
+      SUBROUTINE INITIO                                                     INIT
+ 
+C* REVISED 18-AUG-92.
+C* INITIALIZATION OF VARIABLES ASSOCIATED WITH INPUT/OUTPUT.
+ 
+C  MUST BE CALLED BEFORE THE FIRST CALL TO RDBUF.
+C
+C  22/9/86. CALLS TO BUG REPLACED BY STOPS (ERROR UNIT NOT YET
+C    DEFINED).
+ 
+C     NUMBER OF LOGICAL UNITS IN LUNXXX.
+      PARAMETER (NU=15)                                                       =*
+ 
+      DIMENSION LU(NU)
+      CHARACTER*60 FSPEC
+C
+      COMMON /BLKXXX/ KBLANK
+      COMMON /INPXXX/ IBUF(121),JBUF,JBDAT,JEDAT,IDERR,NCERR,NSERR,NWERR
+      COMMON /INQXXX/ ISEQ,SEQ,LIBUF,MIREC,LISIND,LLUNI,JLIS,LISOUT(132)
+      COMMON /JSTXXX/ IOUT(132,5),LOUT,ICAP,
+     * JIOUT(5),IENDWD(5),INDEN(5),LWIDTH(5),PSEQ,SEQINC,NSQDIG
+      COMMON /LISXXX/ ILISTC,ILISTD,ILISTI,ILISTP,NEM(19),NEMM
+      COMMON /LUNDXX/ LUND
+      COMMON /LUNXXX/ LUNE,LUNL,LUNO,LUNP,LUNS1,LUNBO,LUNBI,LUNI,LUNDA,
+     * LUNS2,LUNS3,LUNS4,LUNS5,LUNS6,LUNS7
+      COMMON /LUOXXX/ NUN,LPAGE,LPRINT,LTOP,LPRDEF,LPUDEF,
+     * LUNCOM(15),LUNPRE(15),LUNUSE(19),LUNREC(19),LUNPAG(19)
+      COMMON /LUTXXX/ LUNTI,LUNTO
+      COMMON /UNUXXX/ ILUNU
+C
+      EQUIVALENCE (LU(1), LUNE)
+ 
+      IF (LOUT.LT.80) STOP '****** PROGRAM BUG. LOUT.LT.80'
+      IF (LPRDEF.LT.40) STOP '****** PROGRAM BUG. LPRDEF.LT.40'
+      IF (LPRDEF.GT.LOUT) STOP '****** PROGRAM BUG. LPRDEF.GT.LOUT'
+      IF (LPUDEF.LT.40) STOP '****** PROGRAM BUG. LPUDEF.LT.40'
+      IF (LPUDEF.GT.LOUT) STOP '****** PROGRAM BUG. LPUDEF.GT.LOUT'
+      IF (LISIND.LT.8) STOP '****** PROGRAM BUG. LISIND.LT.8'
+      IF (LISIND+MIREC.GT.LOUT)
+     *  STOP '****** PROGRAM BUG. LISIND+MIREC.GT.LOUT'
+C
+      DO 20 I = 1, LIBUF
+   20   IBUF(I) = KBLANK
+      JBUF = 1
+      JEDAT = 1
+C
+      LLUNI = 0
+      ISEQ = 0
+      SEQ = 0.
+C
+      ILISTC = 0
+      ILISTD = 0
+      ILISTI = 0
+      DO 25 LUN = 1, NUN
+        NEM(LUN) = -1
+   25   CONTINUE
+      NEMM = 11
+C
+      LUNTI = -1
+      LUNTO = -1
+C
+      DO 30 LUN = 1, NUN
+        LUNUSE(LUN) = -1
+        LUNREC(LUN) = 0
+   30   LUNPAG(LUN) = 0
+      DO 32 LUNTYP = 1, NU
+        LU(LUNTYP) = -1
+        LUNCOM(LUNTYP) = LUNTYP
+   32   LUNPRE(LUNTYP) = -1
+      LUNCOM(1) = 2
+C      LUNCOM(3) = 2
+      DO 40 I = 1, 5
+        JIOUT(I) = -1
+        IENDWD(I) = -1
+        INDEN(I) = 0
+   40   LWIDTH(I) = LPRDEF
+      LWIDTH(4) = LPUDEF
+      LWIDTH(5) = LPUDEF
+      ILUNU = 0
+      PSEQ = 0.
+C
+      CALL INITF (LUNE, LUNI, LUNTI, LUNTO, LUNUSE, NUN)
+ 
+      LUND = LUNI
+      FSPEC = 'TERMINAL'
+      IF (LUNTI.GE.0)  CALL SETLUN (FSPEC, LUNTI, 1)
+      IF (LUNTO.GE.0.AND.LUNTO.NE.LUNTI)  CALL SETLUN (FSPEC, LUNTO, 1)
+ 
+      IF (LUNE.LT.0) STOP '****** PROGRAM BUG. LUNE NOT DEFINED.'
+      LU(1) = LUNE
+      LU(2) = LUNE
+      LU(3) = LUNE
+      IF (LUNUSE(LUNE).LT.0) THEN
+        INQUIRE (UNIT=LUNE, NAME=FSPEC)
+        CALL SETLUN (FSPEC, LUNE, 1)
+      ENDIF
+ 
+      CALL PROGID (1)
+ 
+      IF (LUNI.LT.0) STOP '****** PROGRAM BUG. LUNI NOT DEFINED.'
+      IF (LUNUSE(LUNI).LT.0) THEN
+        INQUIRE (UNIT=LUNI, NAME=FSPEC)
+        CALL SETLUN (FSPEC, LUNI, 8)
+      ENDIF
+ 
+      RETURN
+      END
+      SUBROUTINE INITM (W, IW, LW)                                          INIT
+ 
+C* REVISED 28-JUN-00.
+C* INITIALIZES VARIOUS VARIABLES.
+C
+      DIMENSION W(LW),IW(LW)
+C
+      COMMON /ADRXXX/ IITYPC,IIMC,IIMI,IWTC,IWTI,INSTAT,IKSTAT,
+     * INEWOR,INDEC,IICDES,ILCDES,IITMAD,IWW1C,IWW2C,IWW1I,IWW2I,
+     * IWW1S,IWW2S,IIDAT,IIDAM,IIDAV,IIPARA,IIEMPF,ILINKC,IICHHD,
+     * IITSHD,IISBND,IIVCON,IICDEP,ILSTDE,INEWFL,IIMPL1,IIMPL2,
+     * IIMPFL,IISUMM,IICPTW,IICPTB,IITPTR,ILNAME,IINTRL,IMANDC,IRBND,
+     * INBND,IITXPT,INORNG,IIOMOR,IIFILS,IIREPS,IIADDT,IIADDC,IIEMPT,
+     * IIEMPC,IMINC,IMAXC,INUMRN,INAFLG,ISCALF,IISRTS,IICNOT,IICNGP,
+     * IITYMK,IIFMT,IIOMPD,IIOMLO,IICIMG,IICIGP,IITIMG,IITREC,IPCERR,
+     * IABERR,IIOMFC,IIALTC,IIADNM,IIADDL,IIEMNM,IIEMPL,IIOUSP,IICSYN,
+     * IILANG,IICSTR,IITHD,IITHREC,IICDNAM,IITFIL,IITFREC,IIXHD,IIXHREC,
+     * IIFNT,IIUSECC,IIFOFSET,IITLNK,IILREC,IITLNK2,IINAUTOCC,IIOSUBJ,
+     * ILAST
+      COMMON /DIMXXX/ NC,MI,MS,LIDAT,LCSTR
+      COMMON /DIRXXX/ LDIR
+      COMMON /DIR1XX/ NCON1,JDIR1(5)
+      COMMON /DIR2XX/ NCON2,JDIR2(1)
+      COMMON /DIR3XX/ NCON3,JDIR3(1)
+      COMMON /DIR4XX/ NCON4,JDIR4(97)
+      COMMON /DIR5XX/ NCON5,JDIR5(4)
+      COMMON /INIXXX/ JI,JT,JIM,IVARIT,MASTIN,MISTOP
+      COMMON /HEDXXX/ LHEAD,IHEAD(200)
+      COMMON /IGNXXX/ ICMD,IGNTYP
+      COMMON /INPXXX/ IBUF(121),JBUF,JBDAT,JEDAT,IDERR,NCERR,NSERR,NWERR
+      COMMON /MISXXX/ IMPVAL,IPACH,IPCHN,IPUNC,IRAB,IKEYCH,ICMPRS,
+     * ITUNC,ITINAP,ITIMPL,IUNVAR,LNKC,IDEPC,LICDEP,IPSUMM,ICHSEQ,
+     * ITMSEQ,INSRVA,IFATT,ITINTR,ICMAND,IUNRNG,IOMTOR,NEWFLS,IRSEMI,
+     * IOMSTC,IADDCH,IEMPCH,IVARUN,ISCALC,ICNOTE,ICIMGE,ITIMGE,MTIMGE,
+     * NTIMGE,IOMNSC,IOMCMT,IOMLOW,IERRPC,IERRAB,ICHNSE,NUMST0,IUMEAN,
+     * NADNAM,NEMNAM,NODELO,IOMUSP,ICKYIMG,ITKYIMG,ISUPIMG,ICTIMGE,
+     * ICTNAME,IHTML,IRTF,MTHEAD,NTHEAD,ITMHDGS,LCDNAM,MTFILE,NTFILE,
+     * ITMFILS,MXHEAD,NXHEAD,IDXHDGS,INSIMGFN,ICOFILE,IUCC,IOUNC,ITLINK,
+     * MTLINK,NTLINK,NAUTOCC,IOUTSUBJ
+      COMMON /STOXXX/ ISTYPE,LRECSS
+      COMMON /TPSXXX/ ITPSET,NTYPMK,IFBEGIN,IFEND
+      COMMON /TRNXXX/ IPCHAR,IPITEM,IPNAME,ITRAN
+      COMMON /VALXXX/ KVAR,KUNK,KNA,KVAL(64),LKVAL
+      COMMON /ULAXXX/ IULA
+C
+C      CHARACTER*10 TIM,DAT
+ 
+C     THESE VARIABLES ARE INITIALIZED IN CASE AN OUTPUT PARAMETERS             =/
+C     OR HEADING DIRECTIVE IS ENCOUNTERED BEFORE ALLOC1 HAS BEEN CALLED
+C     (SEE SUBR. DIRB).
+      IITYPC = 1
+      IIMC = IITYPC + 1
+      IWTC = IIMC + 1
+      INSTAT = IWTC + 1
+      INEWOR = INSTAT + 1
+      IIDAT = INEWOR + 1
+      IW(IITYPC) = 1
+      IW(IIMC) = 1
+      W(IWTC) = 1.
+      IW(INSTAT) = 2
+      IW(INEWOR) = 1
+C
+      NC = 1
+      MI = 1
+      MS = 2
+      LIDAT = 800
+C
+      LDIR = 0
+      CALL SETIA (JDIR1, NCON1, 0)
+      CALL SETIA (JDIR2, NCON2, 0)
+      CALL SETIA (JDIR3, NCON3, 0)
+      CALL SETIA (JDIR4, NCON4, 0)
+      CALL SETIA (JDIR5, NCON5, 0)
+C
+      JI = 0
+      JT = 0
+      JIM = 0
+      MISTOP = 0
+C
+      IHEAD(1) = 1
+C      IHEAD(1) = 24
+C      IHEAD(2) = 23
+C      IHEAD(3) = 22
+C      IHEAD(4) = 1
+C      CALL GTIME (TIM, DAT)
+C      CALL COPSIA (TIM, IHEAD(5), 10)
+C      CALL COPSIA (DAT, IHEAD(15), 10)
+C
+C     IGNXXX.
+      ICMD = 0
+C
+      NCERR = 0
+      NSERR = 0
+      NWERR = 0
+C
+C     MISXXX.
+      IMPVAL = 0
+      IPACH = 0
+      IPCHN = 1
+      IPUNC = 0
+      IRAB = 0
+      IKEYCH = 0
+      ICMPRS = 0
+      ITUNC = 0
+      ITINAP = 1
+      ITIMPL = 0
+      IUNVAR = 0
+      LNKC = 0
+      IDEPC = 0
+      LICDEP = 0
+      IPSUMM = 0
+      ICHSEQ = 0
+      ITMSEQ = 0
+      INSRVA = 0
+      IFATT = 1
+      ITINTR = 0
+      ICMAND = 0
+      IUNRNG = 0
+      IOMTOR = 0
+      NEWFLS = 0
+      IRSEMI = 0
+      IOMSTC = 0
+      IADDCH = 0
+      IEMPCH = 0
+      IVARUN = 0
+      ISCALC = 0
+      ICNOTE = 0
+      IOMNSC = 0
+      IOMCMT = 0
+      IOMLOW = 0
+      IERRPC = 0
+      IERRAB = 0
+      ICIMGE = 0
+      ITIMGE = 0
+      MTIMGE = 0
+      NTIMGE = 0
+      ICHNSE = 0
+      NUMST0 = 0
+      IUMEAN = 0
+      NADNAM = 0
+      NEMNAM = 0
+      NODELO = 0
+      IOMUSP = 0
+      ICTIMGE = 0
+      ICTNAME = 0
+      IHTML = 0
+      IRTF = 1
+      MTHEAD = 0
+      NTHEAD = 0
+      ITMHDGS = 0
+      LCDNAM = 0
+      MTFILE = 0
+      NTFILE = 0
+      ITMFILS = 0
+      MXHEAD = 0
+      NXHEAD = 0
+      IDXHDGS = 0
+      INSIMGFN = 0
+      ICOFILE = 0
+      IUCC = 0
+      IOUNC = 0
+      ITLINK = 0
+      MTLINK = 0
+      NTLINK = 0
+      NAUTOCC = 0
+      IOUTSUBJ = 0
+C
+      ISTYPE = 1
+C
+      ITPSET = 0
+C
+      IPCHAR = 0
+      IPITEM = 0
+      IPNAME = 0
+      ITRAN = 0
+C
+      LKVAL =  0
+C
+      IULA = 0
+C
+      RETURN
+      END

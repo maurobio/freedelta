@@ -39,7 +39,7 @@
 {                                   it is not found automatically by the        }
 {                                   program.                                    }
 {                                 - Added a folder to store vocabularies to     }
-{                                   produce natural language descriptions in   }
+{                                   produce natural language descriptions in    }
 {                                   different idioms.                           }
 {  Version 1.04, 11th Feb 2020    - Fixed a bug which prevented the DELTA       }
 {                                   programs from being correctly found in      }
@@ -395,7 +395,11 @@
 {                                 - Fixed a bug which caused CIMAGES directive  }
 {                                   to be incorrectly generated.                }
 {                                 - Updated the user's guide.                   }
-{==============================================================================+}
+{ Version 2.94, 15 Dec, 2022      - Fixed a problem with executing IntKey when  }
+{                                   its path was not correctly set.             }
+{                                 - Fixed translated text not being displayed   }
+{                                   in the TOINT edting form.                   }
+{===============================================================================}
 unit Main;
 
 {$mode objfpc}{$H+}
@@ -2551,6 +2555,7 @@ begin
           Screen.Cursor := crDefault;
           MessageDlg(strError, Format(strNotExecute, ['DELTA INTKEY']),
             mtError, [mbOK], 0);
+          IntKeyPath := '';
         end;
       end
       else
