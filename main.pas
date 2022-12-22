@@ -398,7 +398,11 @@
 { Version 2.94, 15 Dec, 2022      - Fixed a problem with executing IntKey when  }
 {                                   its path was not correctly set.             }
 {                                 - Fixed translated text not being displayed   }
-{                                   in the TOINT edting form.                   }
+{                                   in the TOINT editing form.                  }
+{ Version 2.95, 20 Dec, 2022      - Fixed a bug which caused the incorrect      }
+{                                   generation of the TOINT directives file.    }
+{                                 - Fixed a problem with executing Intimate     }
+{                                   when its path was not correctly set.        }
 {===============================================================================}
 unit Main;
 
@@ -4652,8 +4656,11 @@ begin
       if not FileExists('cimages') then
         CreateCIMAGES('cimages');
       if not RunCommand(IntMatePath, ['intkey.ink'], s, [poNoConsole]) then
+      begin
         MessageDlg(strError, Format(strNotExecute, ['DELTA INTIMATE']),
           mtError, [mbOK], 0);
+        IntMatePath := '';
+      end;
     end
     else
     begin

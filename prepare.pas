@@ -273,6 +273,7 @@ begin
   if Length(include_characters) > 0 then
     WriteLn(outfile, WrapText('*INCLUDE CHARACTERS ' + include_characters,
       #13#10, [' '], 79));
+  WriteLn(outfile);
   WriteLn(outfile, '*OMIT TYPESETTING MARKS');
   WriteLn(outfile, '*OMIT INNER COMMENTS');
   WriteLn(outfile, '*PERCENT ERROR');
