@@ -6,13 +6,15 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  Spin, SpinEx, LCLTranslator;
+  Spin, SpinEx, LCLTranslator, EditBtn;
 
 type
 
   { TIntKeyForm }
 
   TIntKeyForm = class(TForm)
+    DirectoryEditImagePath: TDirectoryEdit;
+    LabelImagePath: TLabel;
     OKButton: TButton;
     CancelButton: TButton;
     EditIncludeCharacters: TEdit;

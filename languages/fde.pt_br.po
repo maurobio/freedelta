@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Free Delta Editor\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-12-08 09:24-0300\n"
+"PO-Revision-Date: 2023-02-18 09:21-0300\n"
 "Last-Translator: Mauro J. Cavalcanti <maurobio@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -3016,8 +3016,8 @@ msgid "Compiler:"
 msgstr "Compilador:"
 
 #: taboutbox.copyright.caption
-msgid "Copyright © 2000-2022 Mauro J. Cavalcanti"
-msgstr ""
+msgid "Copyright © 2000-2023 Mauro J. Cavalcanti"
+msgstr "Copyright © 2000-2023 Mauro J. Cavalcanti"
 
 #: taboutbox.ide.caption
 msgid "IDE:"
@@ -3218,6 +3218,10 @@ msgstr "Cancelar"
 
 #: tintkeyform.caption
 msgid "INTKEY Directives"
+msgstr "Diretivas INTKEY"
+
+#: tintkeyform.directoryeditimagepath.text
+msgid "images"
 msgstr ""
 
 #: tintkeyform.labelcharacterreliabilities.caption
@@ -3229,6 +3233,10 @@ msgstr "Confiabilidade dos Caracteres:"
 msgctxt "tintkeyform.labelheading.caption"
 msgid "Heading:"
 msgstr "Título:"
+
+#: tintkeyform.labelimagepath.caption
+msgid "Image Path:"
+msgstr "Local das Imagens::"
 
 #: tintkeyform.labelincludecharacters.caption
 msgctxt "tintkeyform.labelincludecharacters.caption"

@@ -3154,7 +3154,7 @@ msgid "Compiler:"
 msgstr "Compiler:"
 
 #: taboutbox.copyright.caption
-msgid "Copyright © 2000-2022 Mauro J. Cavalcanti"
+msgid "Copyright © 2000-2023 Mauro J. Cavalcanti"
 msgstr ""
 
 #: taboutbox.ide.caption
@@ -3363,6 +3363,10 @@ msgstr ""
 msgid "INTKEY Directives"
 msgstr ""
 
+#: tintkeyform.directoryeditimagepath.text
+msgid "images"
+msgstr ""
+
 #: tintkeyform.labelcharacterreliabilities.caption
 msgctxt "tintkeyform.labelcharacterreliabilities.caption"
 msgid "Character Reliabilities:"
@@ -3371,6 +3375,10 @@ msgstr ""
 #: tintkeyform.labelheading.caption
 msgctxt "tintkeyform.labelheading.caption"
 msgid "Heading:"
+msgstr ""
+
+#: tintkeyform.labelimagepath.caption
+msgid "Image Path:"
 msgstr ""
 
 #: tintkeyform.labelincludecharacters.caption

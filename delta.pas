@@ -1120,10 +1120,12 @@ begin
   begin
     Character := CharacterList[I];
     for J := 0 to Character.charDependent.Count - 1 do
+	begin
       depStr := Concat(depStr, IntToStr(I + 1), ',',
         Character.charDependent[J], ' ');
+	end;	
   end;
-  WriteLn(Outfile, WrapText(depStr, #13#10, [' '], 79));
+  WriteLn(Outfile, WrapText(depStr, #13#10, [' '], 49));
   CloseFile(Outfile);
 
   WriteSpecs := dt_OK;  { OK }

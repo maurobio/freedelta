@@ -1,7 +1,7 @@
 {===============================================================================}
 {                          Free Delta Editor                                    }
 {         A software package for building taxonomic databases                   }
-{                   (c) 2000-2022 by Mauro J. Cavalcanti                        }
+{                   (c) 2000-2023 by Mauro J. Cavalcanti                        }
 {                         <maurobio@gmail.com>                                  }
 {                                                                               }
 {   This program is free software: you can redistribute it and/or modify        }
@@ -403,6 +403,12 @@
 {                                   generation of the TOINT directives file.    }
 {                                 - Fixed a problem with executing Intimate     }
 {                                   when its path was not correctly set.        }
+{ Version 2.96, 19 Feb, 2023      - Added the CIMAGES and TIMAGES files to the  }
+{                                   list of saved files in a dataset.           }
+{                                 - Added a new field to the TOINT form to set  }
+{                                   the image path directive.                   }
+{                                 - Fixed a bug with writing lines too long for }
+{                                   the *DEPENDENT CHARACTERS directive.        }
 {===============================================================================}
 unit Main;
 
@@ -1844,9 +1850,9 @@ end;
 
 procedure TMainForm.SaveFile(Filename: string);
 const
-  FileList: array[1..14] of string = ('chars', 'items', 'specs', 'cnotes',
+  FileList: array[1..16] of string = ('chars', 'items', 'specs', 'cnotes',
     'tonat', 'tokey', 'todis', 'toint', 'tohen', 'key', 'summary', 'dist',
-    'uncoded', 'intkey.ink');
+    'uncoded', 'cimages', 'timages', 'intkey.ink');
 var
   I: integer;
   OutZipper: TZipper;
@@ -2471,7 +2477,7 @@ end;
 procedure TMainForm.KeyInteractiveItemClick(Sender: TObject);
 var
   CharacterReliabilities, IncludeItems, IncludeCharacters: string;
-  sPath, ConforPath, {IntKeyPath,} HlpFile, Lang: string;
+  sPath, ConforPath, {IntKeyPath,} ImagePath, HlpFile, Lang: string;
   RBase, Varywt: double;
   s: ansistring;
 begin
@@ -2513,11 +2519,13 @@ begin
     begin
       RBase := StrToFloatDef(Delta.ReadDirective('intkey.ink', '*RBASE', True), 1.1);
       Varywt := StrToFloatDef(Delta.ReadDirective('intkey.ink', '*VARYWT', True), 1.0);
+      ImagePath := Delta.ReadDirective('intkey.ink', '*SET IMAGEPATH', True);
     end
     else
     begin
       RBase := 1.1;
       Varywt := 1.0;
+      ImagePath := 'images';
     end;
     with IntKeyForm do
     begin
@@ -2527,6 +2535,7 @@ begin
       FloatSpinEditVARYWT.Value := Varywt;
       EditIncludeItems.Text := IncludeItems;
       EditIncludeCharacters.Text := IncludeCharacters;
+      DirectoryEditImagePath.Text := ImagePath;
     end;
     if IntKeyForm.ShowModal = mrOk then
     begin
@@ -2535,6 +2544,7 @@ begin
       Varywt := IntKeyForm.FloatSpinEditVARYWT.Value;
       IncludeItems := IntKeyForm.EditIncludeItems.Text;
       IncludeCharacters := IntKeyForm.EditIncludeCharacters.Text;
+      ImagePath := IntKeyForm.DirectoryEditImagePath.Text;
       CreateTOINT('toint', Dataset.Heading, CharacterReliabilities,
         IncludeItems, IncludeCharacters);
       ConforPath := sPath + 'confor.exe';
