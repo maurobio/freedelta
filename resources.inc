@@ -7,6 +7,9 @@ resourcestring
   strTNTFilter = 'TNT data files|*.tnt';
   strXMLFilter = 'XML files|*.xml';
   strTxtFilter = 'Text files|*.txt';
+  strXLSFilter = 'Excel 97-2003 files|*.xls';
+  //strXLSXFilter = 'Excel 2007-365 files|*.xlsx';
+  //strODSFilter = 'Calc ODS files|*.ods';
   //strSaveImage = 'Bitmap files (*.bmp)|*.bmp';
   //strSaveImage = 'PNG files (*.png)|*.png';
   //strSaveImage = 'JPEG files (*.jpg)|*.jpg';

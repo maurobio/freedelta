@@ -659,6 +659,10 @@ object MainForm: TMainForm
           Hint = 'Export data to delimited text file'
           OnClick = ExportTextItemClick
         end
+        object ExportSpreadsheetItem: TMenuItem
+          Caption = 'Spreadsheet...'
+          OnClick = ExportSpreadsheetItemClick
+        end
       end
       object N3: TMenuItem
         Caption = '-'

@@ -524,6 +524,11 @@ msgctxt "chars.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Weighted linkage (WPGMA)"
 
+#: chars.strxlsfilter
+msgctxt "chars.strxlsfilter"
+msgid "Excel 97-2003 files|*.xls"
+msgstr ""
+
 #: chars.strxmlfilter
 msgctxt "chars.strxmlfilter"
 msgid "XML files|*.xml"
@@ -1021,6 +1026,11 @@ msgstr "This option is available only under MS-Windows."
 msgctxt "cluster.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Weighted linkage (WPGMA)"
+
+#: cluster.strxlsfilter
+msgctxt "cluster.strxlsfilter"
+msgid "Excel 97-2003 files|*.xls"
+msgstr ""
 
 #: cluster.strxmlfilter
 msgctxt "cluster.strxmlfilter"
@@ -1580,6 +1590,11 @@ msgctxt "kstates.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Weighted linkage (WPGMA)"
 
+#: kstates.strxlsfilter
+msgctxt "kstates.strxlsfilter"
+msgid "Excel 97-2003 files|*.xls"
+msgstr ""
+
 #: kstates.strxmlfilter
 msgctxt "kstates.strxmlfilter"
 msgid "XML files|*.xml"
@@ -2080,6 +2095,11 @@ msgctxt "main.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Weighted linkage (WPGMA)"
 
+#: main.strxlsfilter
+msgctxt "main.strxlsfilter"
+msgid "Excel 97-2003 files|*.xls"
+msgstr ""
+
 #: main.strxmlfilter
 msgctxt "main.strxmlfilter"
 msgid "XML files|*.xml"
@@ -2577,6 +2597,11 @@ msgstr "This option is available only under MS-Windows."
 msgctxt "prepare.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Weighted linkage (WPGMA)"
+
+#: prepare.strxlsfilter
+msgctxt "prepare.strxlsfilter"
+msgid "Excel 97-2003 files|*.xls"
+msgstr ""
 
 #: prepare.strxmlfilter
 msgctxt "prepare.strxmlfilter"
@@ -3133,6 +3158,11 @@ msgstr "This option is available only under MS-Windows."
 msgctxt "script.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Weighted linkage (WPGMA)"
+
+#: script.strxlsfilter
+msgctxt "script.strxlsfilter"
+msgid "Excel 97-2003 files|*.xls"
+msgstr ""
 
 #: script.strxmlfilter
 msgctxt "script.strxmlfilter"
@@ -3821,6 +3851,10 @@ msgstr "DELTA..."
 #: tmainform.exportdeltaitem.hint
 msgid "Save data in DELTA format"
 msgstr "Save data in DELTA format"
+
+#: tmainform.exportspreadsheetitem.caption
+msgid "Spreadsheet..."
+msgstr ""
 
 #: tmainform.exporttextitem.caption
 #, fuzzy
@@ -4997,6 +5031,11 @@ msgctxt "toint.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Weighted linkage (WPGMA)"
 
+#: toint.strxlsfilter
+msgctxt "toint.strxlsfilter"
+msgid "Excel 97-2003 files|*.xls"
+msgstr ""
+
 #: toint.strxmlfilter
 msgctxt "toint.strxmlfilter"
 msgid "XML files|*.xml"
@@ -5553,6 +5592,11 @@ msgctxt "tokey.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Weighted linkage (WPGMA)"
 
+#: tokey.strxlsfilter
+msgctxt "tokey.strxlsfilter"
+msgid "Excel 97-2003 files|*.xls"
+msgstr ""
+
 #: tokey.strxmlfilter
 msgctxt "tokey.strxmlfilter"
 msgid "XML files|*.xml"
@@ -6108,6 +6152,11 @@ msgstr "This option is available only under MS-Windows."
 msgctxt "tonat.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Weighted linkage (WPGMA)"
+
+#: tonat.strxlsfilter
+msgctxt "tonat.strxlsfilter"
+msgid "Excel 97-2003 files|*.xls"
+msgstr ""
 
 #: tonat.strxmlfilter
 msgctxt "tonat.strxmlfilter"
@@ -6743,6 +6792,11 @@ msgstr "This option is available only under MS-Windows."
 msgctxt "viewer.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Weighted linkage (WPGMA)"
+
+#: viewer.strxlsfilter
+msgctxt "viewer.strxlsfilter"
+msgid "Excel 97-2003 files|*.xls"
+msgstr ""
 
 #: viewer.strxmlfilter
 msgctxt "viewer.strxmlfilter"

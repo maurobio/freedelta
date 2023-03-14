@@ -409,6 +409,10 @@
 {                                   the image path directive.                   }
 {                                 - Fixed a bug with writing lines too long for }
 {                                   the *DEPENDENT CHARACTERS directive.        }
+{ Version 2.97, 15 Mar, 2023      - Changed the default extension of exported   }
+{                                   tab-delimited text files to .txt.           }
+{                                 - Added an option to export the data matrix   }
+{                                   Excel 97-2003 (.xls) format.                }
 {===============================================================================}
 unit Main;
 
@@ -442,6 +446,7 @@ type
     MatrixParsimonyItemTNT: TMenuItem;
     MatrixParsimonyItemPAUP: TMenuItem;
     ExportTextItem: TMenuItem;
+    ExportSpreadsheetItem: TMenuItem;
     N13: TMenuItem;
     N20: TMenuItem;
     SearchGotoLine: TMenuItem;
@@ -600,6 +605,7 @@ type
     procedure EditTitleItemClick(Sender: TObject);
     procedure ExpandAllClick(Sender: TObject);
     procedure ExportDELTAItemClick(Sender: TObject);
+    procedure ExportSpreadsheetItemClick(Sender: TObject);
     procedure ExportTextItemClick(Sender: TObject);
     procedure ExportXDELTAItemClick(Sender: TObject);
     procedure FileClearMRUItemClick(Sender: TObject);
@@ -1083,6 +1089,49 @@ begin
   WriteNEXUS;
   CloseFile(Infile);
   CloseFile(Outfile);
+end;
+
+procedure XlsWriteCellLabel(XlsStream: TStream; const ACol, ARow: word;
+  const AValue: string);
+var
+  L: word;
+const
+  {$J+}
+  CXlsLabel: array[0..5] of word = ($204, 0, 0, 0, 0, 0);
+  {$J-}
+begin
+  L := Length(AValue);
+  CXlsLabel[1] := 8 + L;
+  CXlsLabel[2] := ARow;
+  CXlsLabel[3] := ACol;
+  CXlsLabel[5] := L;
+  XlsStream.WriteBuffer(CXlsLabel, SizeOf(CXlsLabel));
+  XlsStream.WriteBuffer(Pointer(AValue)^, L);
+end;
+
+function SaveAsExcelFile(AGrid: TStringGrid; AFileName: string): boolean;
+const
+  {$J+}
+  CXlsBof: array[0..5] of word = ($809, 8, 00, $10, 0, 0);
+  {$J-}
+  CXlsEof: array[0..1] of word = ($0A, 00);
+var
+  FStream: TFileStream;
+  I, J: integer;
+begin
+  Result := False;
+  FStream := TFileStream.Create(PChar(AFileName), fmCreate or fmOpenWrite);
+  try
+    CXlsBof[4] := 0;
+    FStream.WriteBuffer(CXlsBof, SizeOf(CXlsBof));
+    for i := 0 to AGrid.ColCount - 1 do
+      for j := 0 to AGrid.RowCount - 1 do
+        XlsWriteCellLabel(FStream, I, J, AGrid.cells[i, j]);
+    FStream.WriteBuffer(CXlsEof, SizeOf(CXlsEof));
+    Result := True;
+  finally
+    FStream.Free;
+  end;
 end;
 
 { TMainForm }
@@ -3840,12 +3889,26 @@ begin
   end;
 end;
 
+procedure TMainForm.ExportSpreadsheetItemClick(Sender: TObject);
+begin
+  SaveDialog.FileName := ChangeFileExt(OpenDialog.FileName, '.xls');
+  SaveDialog.Title := strSaveFile;
+  SaveDialog.DefaultExt := '.xls';
+  SaveDialog.Filter := strXLSFilter;
+  if SaveDialog.Execute then
+  begin
+    if SaveAsExcelFile(DataMatrix, SaveDialog.FileName) then
+      MessageDlg(strInformation, Format(strExportFile, [SaveDialog.FileName]),
+        mtInformation, [mbOK], 0);
+  end;
+end;
+
 procedure TMainForm.ExportTextItemClick(Sender: TObject);
 begin
-  SaveDialog.FileName := ChangeFileExt(OpenDialog.FileName, '.csv');
+  SaveDialog.FileName := ChangeFileExt(OpenDialog.FileName, '.txt');
   SaveDialog.Title := strSaveFile;
-  SaveDialog.DefaultExt := '.csv';
-  SaveDialog.Filter := strCSVFilter;
+  SaveDialog.DefaultExt := '.txt';
+  SaveDialog.Filter := strTxtFilter;
   if SaveDialog.Execute then
   begin
     DataMatrix.SaveToCSVFile(SaveDialog.FileName, #9);

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Free Delta Editor\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-02-18 09:25-0300\n"
+"PO-Revision-Date: 2023-03-12 09:23-0300\n"
 "Last-Translator: Mauro J. Cavalcanti <maurobio@gmail.com>\n"
 "Language-Team: Free Delta Development Team\n"
 "Language: fr\n"
@@ -523,6 +523,11 @@ msgctxt "chars.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
 
+#: chars.strxlsfilter
+msgctxt "chars.strxlsfilter"
+msgid "Excel 97-2003 files|*.xls"
+msgstr "Fichiers Excel 97-2003|*.xls"
+
 #: chars.strxmlfilter
 msgctxt "chars.strxmlfilter"
 msgid "XML files|*.xml"
@@ -1017,6 +1022,11 @@ msgstr "Option disponible uniquement sous MS-Windows."
 msgctxt "cluster.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
+
+#: cluster.strxlsfilter
+msgctxt "cluster.strxlsfilter"
+msgid "Excel 97-2003 files|*.xls"
+msgstr "Fichiers Excel 97-2003|*.xls"
 
 #: cluster.strxmlfilter
 msgctxt "cluster.strxmlfilter"
@@ -1513,6 +1523,11 @@ msgctxt "kstates.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
 
+#: kstates.strxlsfilter
+msgctxt "kstates.strxlsfilter"
+msgid "Excel 97-2003 files|*.xls"
+msgstr "Fichiers Excel 97-2003|*.xls"
+
 #: kstates.strxmlfilter
 msgctxt "kstates.strxmlfilter"
 msgid "XML files|*.xml"
@@ -1684,11 +1699,13 @@ msgid "Error"
 msgstr "Erreur"
 
 #: main.strexists
+#, fuzzy
 msgctxt "main.strexists"
 msgid "File %s already exists. Overwrite?"
 msgstr "Le fichier % s existe déjà. Remplacer?"
 
 #: main.strexport
+#, fuzzy
 msgctxt "main.strexport"
 msgid "Data exported successfully to directory %s."
 msgstr "Les données ont été exportées avec succès vers le répertoire % s."
@@ -2007,6 +2024,11 @@ msgstr "Cette option n'est disponible que sous MS-Windows."
 msgctxt "main.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Lien pondéré (WPGMA)"
+
+#: main.strxlsfilter
+msgctxt "main.strxlsfilter"
+msgid "Excel 97-2003 files|*.xls"
+msgstr "Fichiers Excel 97-2003|*.xls"
 
 #: main.strxmlfilter
 msgctxt "main.strxmlfilter"
@@ -2503,6 +2525,11 @@ msgctxt "prepare.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
 
+#: prepare.strxlsfilter
+msgctxt "prepare.strxlsfilter"
+msgid "Excel 97-2003 files|*.xls"
+msgstr "Fichiers Excel 97-2003|*.xls"
+
 #: prepare.strxmlfilter
 msgctxt "prepare.strxmlfilter"
 msgid "XML files|*.xml"
@@ -2997,6 +3024,11 @@ msgstr "Cette option n'est disponible que sous MS-Windows."
 msgctxt "script.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
+
+#: script.strxlsfilter
+msgctxt "script.strxlsfilter"
+msgid "Excel 97-2003 files|*.xls"
+msgstr "Fichiers Excel 97-2003|*.xls"
 
 #: script.strxmlfilter
 msgctxt "script.strxmlfilter"
@@ -3647,6 +3679,10 @@ msgstr "DELTA..."
 #: tmainform.exportdeltaitem.hint
 msgid "Save data in DELTA format"
 msgstr "Enregistrer les données au format DELTA"
+
+#: tmainform.exportspreadsheetitem.caption
+msgid "Spreadsheet..."
+msgstr ""
 
 #: tmainform.exporttextitem.caption
 msgctxt "tmainform.exporttextitem.caption"
@@ -4728,6 +4764,11 @@ msgctxt "toint.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
 
+#: toint.strxlsfilter
+msgctxt "toint.strxlsfilter"
+msgid "Excel 97-2003 files|*.xls"
+msgstr "Fichiers Excel 97-2003|*.xls"
+
 #: toint.strxmlfilter
 msgctxt "toint.strxmlfilter"
 msgid "XML files|*.xml"
@@ -5223,6 +5264,11 @@ msgctxt "tokey.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
 
+#: tokey.strxlsfilter
+msgctxt "tokey.strxlsfilter"
+msgid "Excel 97-2003 files|*.xls"
+msgstr "Fichiers Excel 97-2003|*.xls"
+
 #: tokey.strxmlfilter
 msgctxt "tokey.strxmlfilter"
 msgid "XML files|*.xml"
@@ -5717,6 +5763,11 @@ msgstr "Cette option n'est disponible que sous MS-Windows."
 msgctxt "tonat.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
+
+#: tonat.strxlsfilter
+msgctxt "tonat.strxlsfilter"
+msgid "Excel 97-2003 files|*.xls"
+msgstr "Fichiers Excel 97-2003|*.xls"
 
 #: tonat.strxmlfilter
 msgctxt "tonat.strxmlfilter"
@@ -6349,6 +6400,11 @@ msgstr "Cette option n'est disponible que sous MS-Windows."
 msgctxt "viewer.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
+
+#: viewer.strxlsfilter
+msgctxt "viewer.strxlsfilter"
+msgid "Excel 97-2003 files|*.xls"
+msgstr "Fichiers Excel 97-2003|*.xls"
 
 #: viewer.strxmlfilter
 msgctxt "viewer.strxmlfilter"
