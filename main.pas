@@ -413,6 +413,12 @@
 {                                   tab-delimited text files to .txt.           }
 {                                 - Added an option to export the data matrix   }
 {                                   Excel 97-2003 (.xls) format.                }
+{ Version 2.98, 11 May, 2023      - Changed the viewer form to allow it to be   }
+{                                   maximized upon displaying.                  }
+{                                 - Fixed a bug which sometimes caused the      }
+{                                   DELTA programs to raise errors when a data  }
+{                                   file was opened just after another.         }
+{                                 - Updated Portuguese and French translations. }
 {===============================================================================}
 unit Main;
 
@@ -734,78 +740,6 @@ uses About, Prepare, Tonat, Tokey, Toint, Todis, Cluster, Chars,
 
 {$R *.lfm}
 {$I resources.inc}
-
-function TMainForm.LocateR: boolean;
-begin
-  if not FileExists(RPath) then
-    RPath := '';
-  if RPath = '' then
-  begin
-    if Copy(OSVersion, 1, Pos(' ', OSVersion) - 1) <> 'Windows' then
-      RPath := '/usr/bin/Rscript'
-    else
-    begin
-      Screen.Cursor := crHourGlass;
-      RPath := FindR;
-      if RPath <> '' then
-        RPath := Concat(RPath, 'Rscript.exe');
-      Screen.Cursor := crDefault;
-    end;
-    if RPath = '' then
-    begin
-      MessageDlg(strError, Format(strRNotFound, ['R']), mtError, [mbOK], 0);
-      Result := False;
-    end
-    else
-      WriteSettings(Self);
-  end
-  else
-    Result := True;
-end;
-
-function TMainForm.FindR: string;
-const
-  FN = 'bin\RScript.exe';
-  P = 'C:\Program Files\R';
-
-var
-  I: integer;
-  LSearchResult: TStringList;
-
-  procedure FileSearch(const dirName: string);
-  var
-    searchResult: TSearchRec;
-  begin
-    if FindFirst(dirName + '\*', faAnyFile, searchResult) = 0 then
-    begin
-      try
-        repeat
-          if (searchResult.Attr and faDirectory) = 0 then
-          begin
-            if SameText(ExtractFileExt(searchResult.Name), '.exe') then
-              LSearchResult.Append(IncludeTrailingBackSlash(dirName) +
-                searchResult.Name);
-          end
-          else if (searchResult.Name <> '.') and (searchResult.Name <> '..') then
-            FileSearch(IncludeTrailingBackSlash(dirName) + searchResult.Name);
-        until FindNext(searchResult) <> 0;
-      finally
-        FindClose(searchResult);
-      end;
-    end;
-  end;
-
-begin
-  Result := '';
-  LSearchResult := TStringList.Create;
-  FileSearch(P);
-  for I := 0 to LSearchResult.Count - 1 do
-  begin
-    if Pos(LowerCase(FN), LowerCase(LSearchResult[I])) > 0 then
-      Result := ExtractFilePath(LSearchResult[I]);
-  end;
-  LSearchResult.Free;
-end;
 
 function IsWindows: boolean;
 begin
@@ -1135,6 +1069,78 @@ begin
 end;
 
 { TMainForm }
+
+function TMainForm.LocateR: boolean;
+begin
+  if not FileExists(RPath) then
+    RPath := '';
+  if RPath = '' then
+  begin
+    if Copy(OSVersion, 1, Pos(' ', OSVersion) - 1) <> 'Windows' then
+      RPath := '/usr/bin/Rscript'
+    else
+    begin
+      Screen.Cursor := crHourGlass;
+      RPath := FindR;
+      if RPath <> '' then
+        RPath := Concat(RPath, 'Rscript.exe');
+      Screen.Cursor := crDefault;
+    end;
+    if RPath = '' then
+    begin
+      MessageDlg(strError, Format(strRNotFound, ['R']), mtError, [mbOK], 0);
+      Result := False;
+    end
+    else
+      WriteSettings(Self);
+  end
+  else
+    Result := True;
+end;
+
+function TMainForm.FindR: string;
+const
+  FN = 'bin\RScript.exe';
+  P = 'C:\Program Files\R';
+
+var
+  I: integer;
+  LSearchResult: TStringList;
+
+  procedure FileSearch(const dirName: string);
+  var
+    searchResult: TSearchRec;
+  begin
+    if FindFirst(dirName + '\*', faAnyFile, searchResult) = 0 then
+    begin
+      try
+        repeat
+          if (searchResult.Attr and faDirectory) = 0 then
+          begin
+            if SameText(ExtractFileExt(searchResult.Name), '.exe') then
+              LSearchResult.Append(IncludeTrailingBackSlash(dirName) +
+                searchResult.Name);
+          end
+          else if (searchResult.Name <> '.') and (searchResult.Name <> '..') then
+            FileSearch(IncludeTrailingBackSlash(dirName) + searchResult.Name);
+        until FindNext(searchResult) <> 0;
+      finally
+        FindClose(searchResult);
+      end;
+    end;
+  end;
+
+begin
+  Result := '';
+  LSearchResult := TStringList.Create;
+  FileSearch(P);
+  for I := 0 to LSearchResult.Count - 1 do
+  begin
+    if Pos(LowerCase(FN), LowerCase(LSearchResult[I])) > 0 then
+      Result := ExtractFilePath(LSearchResult[I]);
+  end;
+  LSearchResult.Free;
+end;
 
 function TMainForm.SearchListView(LV: TListView; const S: string;
   Column, P: integer): TListItem;
@@ -2263,7 +2269,7 @@ begin
     WriteLn(outfile);
     WriteLn(outfile, '*NUMBERS OF STATES ');
     CloseFile(outfile);
-    SaveDialog.FileName := ChangeFileExt(OpenDialog.FileName, '.dtz');
+    SaveDialog.FileName := ChangeFileExt(ExtractFileName(OpenDialog.FileName), '.dtz');
     SaveDialog.Title := strSaveFile;
     SaveDialog.DefaultExt := '.dtz';
     SaveDialog.Filter := strDtzFilter;
@@ -3891,7 +3897,7 @@ end;
 
 procedure TMainForm.ExportSpreadsheetItemClick(Sender: TObject);
 begin
-  SaveDialog.FileName := ChangeFileExt(OpenDialog.FileName, '.xls');
+  SaveDialog.FileName := ChangeFileExt(ExtractFileName(OpenDialog.FileName), '.xls');
   SaveDialog.Title := strSaveFile;
   SaveDialog.DefaultExt := '.xls';
   SaveDialog.Filter := strXLSFilter;
@@ -3899,13 +3905,16 @@ begin
   begin
     if SaveAsExcelFile(DataMatrix, SaveDialog.FileName) then
       MessageDlg(strInformation, Format(strExportFile, [SaveDialog.FileName]),
-        mtInformation, [mbOK], 0);
+        mtInformation, [mbOK], 0)
+    else
+      MessageDlg(strSaveError, Format(strExportFile, [SaveDialog.FileName]),
+        mtError, [mbOK], 0);
   end;
 end;
 
 procedure TMainForm.ExportTextItemClick(Sender: TObject);
 begin
-  SaveDialog.FileName := ChangeFileExt(OpenDialog.FileName, '.txt');
+  SaveDialog.FileName := ChangeFileExt(ExtractFileName(OpenDialog.FileName), '.txt');
   SaveDialog.Title := strSaveFile;
   SaveDialog.DefaultExt := '.txt';
   SaveDialog.Filter := strTxtFilter;
@@ -3924,7 +3933,7 @@ var
   values: TStringList;
   startval, endval, lowerval, upperval, range, attribute, comment: string;
 begin
-  SaveDialog.FileName := ChangeFileExt(OpenDialog.FileName, '.xml');
+  SaveDialog.FileName := ChangeFileExt(ExtractFileName(OpenDialog.FileName), '.xml');
   SaveDialog.Title := strSaveFile;
   SaveDialog.DefaultExt := '.xml';
   SaveDialog.Filter := strXMLFilter;

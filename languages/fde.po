@@ -5895,6 +5895,14 @@ msgctxt "ttonatform.okbutton.caption"
 msgid "OK"
 msgstr ""
 
+#: tviewerform.closebtn.caption
+msgid "Close"
+msgstr ""
+
+#: tviewerform.copybtn.caption
+msgid "Copy"
+msgstr ""
+
 #: viewer.straddcharacter
 msgctxt "viewer.straddcharacter"
 msgid "Add Character"

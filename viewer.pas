@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-  Buttons, Clipbrd, HtmlView, RichMemo;
+  Buttons, Clipbrd, IniFiles, HtmlView, RichMemo;
 
 type
 
@@ -22,6 +22,9 @@ type
     TextViewer: TMemo;
     procedure CloseBtnClick(Sender: TObject);
     procedure CopyBtnClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure FormResize(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     Bitmap: TBitmap;
@@ -79,6 +82,40 @@ begin
     Clipboard.Assign(Bitmap);
     Bitmap.Free;
     MessageDlg(strCopyImage, mtInformation, [mbOK], 0);
+  end;
+end;
+
+procedure TViewerForm.FormCreate(Sender: TObject);
+var
+  sPath: string;
+  IniFile: TIniFile;
+begin
+  sPath := GetAppConfigDir(False);
+  IniFile := TIniFile.Create(sPath + 'fde.ini');
+  WindowState := TWindowState(IniFile.ReadInteger('ViewerForm', 'State',
+    integer(WindowState)));
+  IniFile.Free;
+end;
+
+procedure TViewerForm.FormDestroy(Sender: TObject);
+var
+  sPath: string;
+  IniFile: TIniFile;
+begin
+  sPath := GetAppConfigDir(False);
+  IniFile := TIniFile.Create(sPath + 'fde.ini');
+  IniFile.WriteInteger('ViewerForm', 'State', integer(WindowState));
+  IniFile.Free;
+end;
+
+procedure TViewerForm.FormResize(Sender: TObject);
+begin
+  if WindowState = wsMinimized then
+  begin
+    Height := 532;
+    Left := 332;
+    Top := 118;
+    Width := 702;
   end;
 end;
 

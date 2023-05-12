@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Free Delta Editor\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-03-12 09:22-0300\n"
+"PO-Revision-Date: 2023-05-12 09:45-0300\n"
 "Last-Translator: Mauro J. Cavalcanti <maurobio@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -3679,7 +3679,7 @@ msgstr "Salvar dados no formato DELTA"
 
 #: tmainform.exportspreadsheetitem.caption
 msgid "Spreadsheet..."
-msgstr ""
+msgstr "Planilha..."
 
 #: tmainform.exporttextitem.caption
 msgctxt "tmainform.exporttextitem.caption"
