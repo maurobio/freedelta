@@ -419,6 +419,9 @@
 {                                   DELTA programs to raise errors when a data  }
 {                                   file was opened just after another.         }
 {                                 - Updated Portuguese and French translations. }
+{ Version 2.99, 1 Nov, 2023       - Added Spanish translation and vocabulary.   }
+{                                 - Changed the behavior of the attribute editor}
+{                                   to accept the ENTER key to finish editing.  }
 {===============================================================================}
 unit Main;
 
@@ -453,6 +456,7 @@ type
     MatrixParsimonyItemPAUP: TMenuItem;
     ExportTextItem: TMenuItem;
     ExportSpreadsheetItem: TMenuItem;
+    LanguageSpanishItem: TMenuItem;
     N13: TMenuItem;
     N20: TMenuItem;
     SearchGotoLine: TMenuItem;
@@ -585,6 +589,7 @@ type
     S6: TToolButton;
     UncodedBtn: TToolButton;
     procedure AttrEditorEditingDone(Sender: TObject);
+    procedure AttrEditorKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure CharacterTreeViewDblClick(Sender: TObject);
     procedure CharacterTreeViewKeyDown(Sender: TObject; var Key: word;
       Shift: TShiftState);
@@ -642,6 +647,7 @@ type
     procedure LanguageEnglishItemClick(Sender: TObject);
     procedure LanguageFrenchItemClick(Sender: TObject);
     procedure LanguagePortugueseItemClick(Sender: TObject);
+    procedure LanguageSpanishItemClick(Sender: TObject);
     procedure MatrixClusterItemClick(Sender: TObject);
     procedure MatrixDistanceItemClick(Sender: TObject);
     procedure MatrixOrdinationItemClick(Sender: TObject);
@@ -676,7 +682,7 @@ type
     function SearchTree(TV: TTreeView; SearchItem: string; P: integer): TTreeNode;
     function GetRootCount(TV: TTreeView): integer;
     function GetRootItem(TV: TTreeView; Index: integer): TTreeNode;
-    function GetNodeAtUpperLevelByIndex(Nodes: TTreeNodes; Index: integer): TTreeNode;
+    {function GetNodeAtUpperLevelByIndex(Nodes: TTreeNodes; Index: integer): TTreeNode;}
     function IsTreeviewFullyExpanded(tv: TTreeview): boolean;
     function IsTreeviewFullyCollapsed(tv: TTreeview): boolean;
     function FindCol(SG: TStringGrid; C: integer; sFind: string; P: integer): integer;
@@ -1242,7 +1248,7 @@ begin
   end;
 end;
 
-function TMainForm.GetNodeAtUpperLevelByIndex(Nodes: TTreeNodes;
+{function TMainForm.GetNodeAtUpperLevelByIndex(Nodes: TTreeNodes;
   Index: integer): TTreeNode;
 begin
   if (Nodes = nil) or (Index < 0) then
@@ -1253,7 +1259,7 @@ begin
     Dec(Index);
     Result := Result.GetNextSibling;
   end;
-end;
+end;}
 
 function TMainForm.IsTreeviewFullyExpanded(tv: TTreeView): boolean;
 var
@@ -1640,18 +1646,28 @@ begin
       LanguageEnglishItem.Checked := True;
       LanguagePortugueseItem.Checked := False;
       LanguageFrenchItem.Checked := False;
+      LanguageSpanishItem.Checked := False;
     end;
     'fr':
     begin
       LanguageFrenchItem.Checked := True;
       LanguageEnglishItem.Checked := False;
       LanguagePortugueseItem.Checked := False;
+      LanguageSpanishItem.Checked := False;
     end;
     'pt_br':
     begin
       LanguagePortugueseItem.Checked := True;
       LanguageEnglishItem.Checked := False;
       LanguageFrenchItem.Checked := False;
+      LanguageSpanishItem.Checked := False;
+    end;
+    'es':
+    begin
+      LanguageSpanishItem.Checked := True;
+      LanguageFrenchItem.Checked := False;
+      LanguageEnglishItem.Checked := False;
+      LanguagePortugueseItem.Checked := False;
     end;
   end;
   IntKeyPath := IniFile.ReadString('Options', 'IntKeyPath', '');
@@ -2325,8 +2341,10 @@ begin
       Attribute := 'U';
     end;
     AttrEditor.Clear;
-    AttrEditor.Lines.AddText(Attribute);
-    AttrEditor.SelStart := 0;
+    //AttrEditor.Lines.AddText(Attribute);
+    AttrEditor.Lines.Text := StringReplace(Attribute, #13#10, '', [rfReplaceAll]);
+    //AttrEditor.SelStart := 0;
+    AttrEditor.SelStart := Length(Attribute);
   end;
 end;
 
@@ -2614,6 +2632,7 @@ begin
           'en': HlpFile := 'intken.hin';
           'pt': HlpFile := 'intkpt.hin';
           'fr': HlpFile := 'intkfr.hin';
+          'es': HlpFile := 'intkes.hin';
           else
             HelpFile := 'intken.hin';
         end;
@@ -2648,6 +2667,7 @@ begin
   LanguageEnglishItem.Checked := True;
   LanguagePortugueseItem.Checked := False;
   LanguageFrenchItem.Checked := False;
+  LanguageSpanishItem.Checked := False;
   sPath := GetAppConfigDir(False);
   IniFile := TIniFile.Create(sPath + 'fde.ini');
   SetDefaultLang('en', 'language', True);
@@ -2664,6 +2684,7 @@ begin
   LanguageFrenchItem.Checked := True;
   LanguagePortugueseItem.Checked := False;
   LanguageEnglishItem.Checked := False;
+  LanguageSpanishItem.Checked := False;
   sPath := GetAppConfigDir(False);
   IniFile := TIniFile.Create(sPath + 'fde.ini');
   SetDefaultLang('fr', 'language', True);
@@ -2680,10 +2701,28 @@ begin
   LanguagePortugueseItem.Checked := True;
   LanguageEnglishItem.Checked := False;
   LanguageFrenchItem.Checked := False;
+  LanguageSpanishItem.Checked := False;
   sPath := GetAppConfigDir(False);
   IniFile := TIniFile.Create(sPath + 'fde.ini');
   SetDefaultLang('pt_br', 'language', True);
   IniFile.WriteString('Options', 'Language', 'pt_br');
+  IniFile.Free;
+end;
+
+procedure TMainForm.LanguageSpanishItemClick(Sender: TObject);
+var
+  sPath: string;
+  IniFile: TIniFile;
+begin
+  sLang := 'es';
+  LanguageSpanishItem.Checked := True;
+  LanguageFrenchItem.Checked := False;
+  LanguagePortugueseItem.Checked := False;
+  LanguageEnglishItem.Checked := False;
+  sPath := GetAppConfigDir(False);
+  IniFile := TIniFile.Create(sPath + 'fde.ini');
+  SetDefaultLang('es', 'language', True);
+  IniFile.WriteString('Options', 'Language', 'es');
   IniFile.Free;
 end;
 
@@ -3307,6 +3346,7 @@ begin
     'en': Vocabulary.LoadFromFile(sPath + 'vocabulary/vocaben');
     'pt': Vocabulary.LoadFromFile(sPath + 'vocabulary/vocabpt');
     'fr': Vocabulary.LoadFromFile(sPath + 'vocabulary/vocabfr');
+    'es': Vocabulary.LoadFromFile(sPath + 'vocabulary/vocabes');
     else
       Vocabulary.LoadFromFile(sPath + 'vocabulary/vocaben');
   end;
@@ -3786,8 +3826,10 @@ begin
     begin
       Attribute := Dataset.ItemList[I].itemAttributes[SelectedChar];
       AttrEditor.Clear;
-      AttrEditor.Lines.AddText(Attribute);
-      AttrEditor.SelStart := 0;
+      //AttrEditor.Lines.AddText(Attribute);
+      AttrEditor.Lines.Text := StringReplace(Attribute, #13#10, '', [rfReplaceAll]);
+      //AttrEditor.SelStart := 0;
+      AttrEditor.SelStart := Length(Attribute);
     end;
   end;
 end;
@@ -3800,6 +3842,7 @@ end;
 procedure TMainForm.AttrEditorEditingDone(Sender: TObject);
 var
   I, J: integer;
+  Node: TTreeNode;
 begin
   I := ItemListView.Selected.Index;
   if I < 0 then
@@ -3827,7 +3870,21 @@ begin
   end;}
   Dataset.ItemList[I].itemAttributes[J] := AttrEditor.Lines.Text;
   LoadCharacterList(I);
+  Node := GetRootItem(CharacterTreeView, J);
+  if Node <> nil then
+    CharacterTreeView.Select(Node);
+  CharacterTreeView.SetFocus;
   FileIsChanged := True;
+end;
+
+procedure TMainForm.AttrEditorKeyDown(Sender: TObject; var Key: word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+  begin
+    AttrEditorEditingDone(Sender);
+    Key := 0;
+  end;
 end;
 
 procedure TMainForm.CharacterTreeViewKeyDown(Sender: TObject;

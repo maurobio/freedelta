@@ -590,8 +590,8 @@ object TonatForm: TTonatForm
     Left = 14
     Height = 15
     Top = 168
-    Width = 125
-    Caption = 'Omit Or For Characters:'
+    Width = 123
+    Caption = 'Omit Or for Characters:'
     ParentColor = False
   end
   object EditOmitOrForCharacters: TEdit

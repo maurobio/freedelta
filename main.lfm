@@ -1,12 +1,13 @@
 object MainForm: TMainForm
   Left = 283
   Height = 510
+  Hint = '|Ready'
   Top = 129
-  Width = 799
+  Width = 800
   AllowDropFiles = True
   Caption = 'Free Delta Editor'
   ClientHeight = 490
-  ClientWidth = 799
+  ClientWidth = 800
   Icon.Data = {
     BE1000000000010001002020000001002000A810000016000000280000002000
     0000400000000100200000000000001000006400000064000000000000000000
@@ -150,12 +151,13 @@ object MainForm: TMainForm
   OnDestroy = FormDestroy
   OnDropFiles = FormDropFiles
   Position = poDesktopCenter
+  ShowHint = True
   LCLVersion = '2.0.12.0'
   object StatusLine: TStatusBar
     Left = 0
     Height = 23
     Top = 467
-    Width = 799
+    Width = 800
     AutoHint = True
     Panels = <>
     ParentShowHint = False
@@ -166,7 +168,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 443
     Top = 24
-    Width = 799
+    Width = 800
     ActivePage = ListTab
     Align = alClient
     TabIndex = 0
@@ -176,12 +178,12 @@ object MainForm: TMainForm
     object ListTab: TTabSheet
       Caption = 'List View'
       ClientHeight = 415
-      ClientWidth = 791
+      ClientWidth = 792
       object CharacterTreeView: TTreeView
         Left = 280
         Height = 312
         Top = 24
-        Width = 511
+        Width = 512
         Anchors = [akTop, akLeft, akRight, akBottom]
         AutoExpand = True
         HideSelection = False
@@ -235,11 +237,11 @@ object MainForm: TMainForm
         Left = 0
         Height = 79
         Top = 336
-        Width = 791
+        Width = 792
         Align = alBottom
         Caption = 'Panel3'
         ClientHeight = 79
-        ClientWidth = 791
+        ClientWidth = 792
         TabOrder = 1
         object AttrLabel: TLabel
           Left = 1
@@ -253,10 +255,11 @@ object MainForm: TMainForm
           Left = 64
           Height = 77
           Top = 1
-          Width = 726
+          Width = 727
           Align = alRight
           Anchors = [akTop, akLeft, akRight, akBottom]
           OnEditingDone = AttrEditorEditingDone
+          OnKeyDown = AttrEditorKeyDown
           ScrollBars = ssAutoVertical
           TabOrder = 0
         end
@@ -265,7 +268,7 @@ object MainForm: TMainForm
         Left = 280
         Height = 26
         Top = 0
-        Width = 511
+        Width = 512
         DragReorder = False
         Sections = <        
           item
@@ -353,7 +356,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 24
     Top = 0
-    Width = 799
+    Width = 800
     AutoSize = True
     Images = ImageList
     TabOrder = 2
@@ -908,6 +911,12 @@ object MainForm: TMainForm
         Hint = 'Afficher l''interface en Français'
         ImageIndex = 25
         OnClick = LanguageFrenchItemClick
+      end
+      object LanguageSpanishItem: TMenuItem
+        Caption = 'Español'
+        Hint = 'Mostrar la interfaz en español'
+        ImageIndex = 26
+        OnClick = LanguageSpanishItemClick
       end
     end
     object HelpMenu: TMenuItem

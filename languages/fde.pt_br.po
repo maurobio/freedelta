@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Free Delta Editor\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-05-12 09:45-0300\n"
+"PO-Revision-Date: 2023-10-26 09:00-0300\n"
 "Last-Translator: Mauro J. Cavalcanti <maurobio@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: about.strcomments
@@ -24,7 +24,8 @@ msgid "Compiler:"
 msgstr "Compilador:"
 
 #: about.strplatform
-msgid "Plataform:"
+msgctxt "about.strplatform"
+msgid "Platform:"
 msgstr "Plataforma:"
 
 #: about.strwebsite
@@ -3051,7 +3052,7 @@ msgstr "Copyright © 2000-2023 Mauro J. Cavalcanti"
 
 #: taboutbox.ide.caption
 msgid "IDE:"
-msgstr "IDE:"
+msgstr "ADI:"
 
 #: taboutbox.okbutton.caption
 msgctxt "taboutbox.okbutton.caption"
@@ -3060,9 +3061,10 @@ msgstr "OK"
 
 #: taboutbox.operatingsystem.caption
 msgid "OS:"
-msgstr "OS:"
+msgstr "SO:"
 
 #: taboutbox.platform.caption
+msgctxt "taboutbox.platform.caption"
 msgid "Platform:"
 msgstr "Plataforma:"
 
@@ -3077,7 +3079,7 @@ msgstr "Informação do Sistema:"
 
 #: taboutbox.versionnumber.caption
 msgid "v 0.0.0"
-msgstr ""
+msgstr "v 0.0.0"
 
 #: taboutbox.website.caption
 msgctxt "taboutbox.website.caption"
@@ -3252,7 +3254,7 @@ msgstr "Diretivas INTKEY"
 
 #: tintkeyform.directoryeditimagepath.text
 msgid "images"
-msgstr ""
+msgstr "imagens"
 
 #: tintkeyform.labelcharacterreliabilities.caption
 msgctxt "tintkeyform.labelcharacterreliabilities.caption"
@@ -3825,6 +3827,10 @@ msgstr "Índice"
 msgid "Display the index of help topics"
 msgstr "Exibe o índice de tópicos de ajuda"
 
+#: tmainform.hint
+msgid "|Ready"
+msgstr "!Pronto"
+
 #: tmainform.importdeltaitem.caption
 msgctxt "tmainform.importdeltaitem.caption"
 msgid "DELTA..."
@@ -3938,6 +3944,14 @@ msgstr "Português"
 #: tmainform.languageportugueseitem.hint
 msgid "Exibir a interface em português"
 msgstr "Exibir a interface em português"
+
+#: tmainform.languagespanishitem.caption
+msgid "Español"
+msgstr "Español"
+
+#: tmainform.languagespanishitem.hint
+msgid "Mostrar la interfaz en español"
+msgstr "Mostrar la interfaz en español"
 
 #: tmainform.listtab.caption
 msgid "List View"
@@ -5907,6 +5921,14 @@ msgstr "Substituir Ponto-e-Vírgula por Vírgula:"
 msgctxt "ttonatform.okbutton.caption"
 msgid "OK"
 msgstr "OK"
+
+#: tviewerform.closebtn.caption
+msgid "Close"
+msgstr "Fechar"
+
+#: tviewerform.copybtn.caption
+msgid "Copy"
+msgstr "Copiar"
 
 #: viewer.straddcharacter
 msgctxt "viewer.straddcharacter"

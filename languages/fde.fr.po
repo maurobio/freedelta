@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Free Delta Editor\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-05-11 15:53-0300\n"
+"PO-Revision-Date: 2023-10-06 08:42-0300\n"
 "Last-Translator: Mauro J. Cavalcanti <maurobio@gmail.com>\n"
 "Language-Team: Free Delta Development Team\n"
 "Language: fr\n"
@@ -25,8 +25,10 @@ msgid "Compiler:"
 msgstr "Compilateur:"
 
 #: about.strplatform
-msgid "Plataform:"
-msgstr "Plataforme:"
+#, fuzzy
+msgctxt "about.strplatform"
+msgid "Platform:"
+msgstr "Plateforme:"
 
 #: about.strwebsite
 msgctxt "about.strwebsite"
@@ -3066,8 +3068,9 @@ msgid "OS:"
 msgstr "OS:"
 
 #: taboutbox.platform.caption
+msgctxt "taboutbox.platform.caption"
 msgid "Platform:"
-msgstr "Plate-forme:"
+msgstr "Plateforme:"
 
 #: taboutbox.productname.caption
 msgctxt "taboutbox.productname.caption"
@@ -3828,6 +3831,10 @@ msgstr "Index"
 msgid "Display the index of help topics"
 msgstr "Afficher l’index des rubriques d’aide"
 
+#: tmainform.hint
+msgid "|Ready"
+msgstr ""
+
 #: tmainform.importdeltaitem.caption
 msgctxt "tmainform.importdeltaitem.caption"
 msgid "DELTA..."
@@ -3941,6 +3948,14 @@ msgstr "Português"
 #: tmainform.languageportugueseitem.hint
 msgid "Exibir a interface em português"
 msgstr "Exibir a interface em português"
+
+#: tmainform.languagespanishitem.caption
+msgid "Español"
+msgstr ""
+
+#: tmainform.languagespanishitem.hint
+msgid "Mostrar la interfaz en español"
+msgstr ""
 
 #: tmainform.listtab.caption
 msgid "List View"

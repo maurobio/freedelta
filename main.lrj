@@ -1,4 +1,5 @@
 {"version":1,"strings":[
+{"hash":135837625,"name":"tmainform.hint","sourcebytes":[124,82,101,97,100,121],"value":"|Ready"},
 {"hash":6208546,"name":"tmainform.caption","sourcebytes":[70,114,101,101,32,68,101,108,116,97,32,69,100,105,116,111,114],"value":"Free Delta Editor"},
 {"hash":5814201,"name":"tmainform.statusline.simpletext","sourcebytes":[82,101,97,100,121],"value":"Ready"},
 {"hash":174431431,"name":"tmainform.listtab.caption","sourcebytes":[76,105,115,116,32,86,105,101,119],"value":"List View"},
@@ -143,6 +144,8 @@
 {"hash":85632899,"name":"tmainform.languageportugueseitem.hint","sourcebytes":[69,120,105,98,105,114,32,97,32,105,110,116,101,114,102,97,99,101,32,101,109,32,112,111,114,116,117,103,117,195,170,115],"value":"Exibir a interface em portugu\u00EAs"},
 {"hash":145595267,"name":"tmainform.languagefrenchitem.caption","sourcebytes":[70,114,97,110,195,167,97,105,115],"value":"Fran\u00E7ais"},
 {"hash":144019155,"name":"tmainform.languagefrenchitem.hint","sourcebytes":[65,102,102,105,99,104,101,114,32,108,39,105,110,116,101,114,102,97,99,101,32,101,110,32,70,114,97,110,195,167,97,105,115],"value":"Afficher l'interface en Fran\u00E7ais"},
+{"hash":174974108,"name":"tmainform.languagespanishitem.caption","sourcebytes":[69,115,112,97,195,177,111,108],"value":"Espa\u00F1ol"},
+{"hash":59630636,"name":"tmainform.languagespanishitem.hint","sourcebytes":[77,111,115,116,114,97,114,32,108,97,32,105,110,116,101,114,102,97,122,32,101,110,32,101,115,112,97,195,177,111,108],"value":"Mostrar la interfaz en espa\u00F1ol"},
 {"hash":2812976,"name":"tmainform.helpmenu.caption","sourcebytes":[38,72,101,108,112],"value":"&Help"},
 {"hash":5262024,"name":"tmainform.helpmenuitem.caption","sourcebytes":[73,110,100,101,120],"value":"Index"},
 {"hash":209531603,"name":"tmainform.helpmenuitem.hint","sourcebytes":[68,105,115,112,108,97,121,32,116,104,101,32,105,110,100,101,120,32,111,102,32,104,101,108,112,32,116,111,112,105,99,115],"value":"Display the index of help topics"},

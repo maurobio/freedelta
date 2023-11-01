@@ -56,7 +56,7 @@ resourcestring
      ' based on the DELTA (DEscription Language for TAxonomy) format.';
    strWebsite = 'FreeDelta website';
    strCompiler = 'Compiler:';
-   strPlatform = 'Plataform:';
+   strPlatform = 'Platform:';
 
 function OSVersion: Str255;
 begin

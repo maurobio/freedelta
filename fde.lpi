@@ -25,7 +25,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="2"/>
       <MinorVersionNr Value="9"/>
-      <RevisionNr Value="8"/>
+      <RevisionNr Value="9"/>
       <BuildNr Value="1"/>
       <CharSet Value="04B0"/>
       <StringTable Comments="Build configured for Win Linux and Darwin" CompanyName="Ecoinformatics Studio" FileDescription="FreeDelta Editor" InternalName="FreeDelta Editor" LegalCopyright="(c) 2000-2020 Mauro J. Cavalcanti" LegalTrademarks="GPL3" OriginalFilename="fde" ProductName="Lazarus and Freepascal" ProductVersion="1.x and 3.x"/>
@@ -204,7 +204,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="C:\lazarus\user\SynFacilSyn\;C:\lazarus\user\fpspreadsheet\source\common\"/>
+      <OtherUnitFiles Value="C:\lazarus\user\SynFacilSyn\"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

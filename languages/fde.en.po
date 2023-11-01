@@ -23,8 +23,9 @@ msgid "Compiler:"
 msgstr "Compiler:"
 
 #: about.strplatform
-msgid "Plataform:"
-msgstr "Plataform:"
+msgctxt "about.strplatform"
+msgid "Platform:"
+msgstr ""
 
 #: about.strwebsite
 msgctxt "about.strwebsite"
@@ -3201,6 +3202,7 @@ msgid "OS:"
 msgstr ""
 
 #: taboutbox.platform.caption
+msgctxt "taboutbox.platform.caption"
 msgid "Platform:"
 msgstr ""
 
@@ -4004,6 +4006,10 @@ msgstr ""
 msgid "Display the index of help topics"
 msgstr ""
 
+#: tmainform.hint
+msgid "|Ready"
+msgstr ""
+
 #: tmainform.importdeltaitem.caption
 msgctxt "tmainform.importdeltaitem.caption"
 msgid "DELTA..."
@@ -4122,6 +4128,14 @@ msgstr ""
 
 #: tmainform.languageportugueseitem.hint
 msgid "Exibir a interface em português"
+msgstr ""
+
+#: tmainform.languagespanishitem.caption
+msgid "Español"
+msgstr ""
+
+#: tmainform.languagespanishitem.hint
+msgid "Mostrar la interfaz en español"
 msgstr ""
 
 #: tmainform.listtab.caption
@@ -6274,7 +6288,7 @@ msgid "Omit Lower for Characters:"
 msgstr ""
 
 #: ttonatform.labelomitorforcharacters.caption
-msgid "Omit Or For Characters:"
+msgid "Omit Or for Characters:"
 msgstr ""
 
 #: ttonatform.labelomitperiodforcharacters.caption
