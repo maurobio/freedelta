@@ -43,7 +43,7 @@
         <Mode0 Name="default"/>
       </Modes>
     </RunParams>
-    <RequiredPackages Count="7">
+    <RequiredPackages Count="8">
       <Item1>
         <PackageName Value="richmemopackage"/>
       </Item1>
@@ -65,6 +65,9 @@
       <Item7>
         <PackageName Value="LCL"/>
       </Item7>
+      <Item8>
+        <PackageName Value="synfacilsyn"/>
+      </Item8>
     </RequiredPackages>
     <Units Count="18">
       <Unit0>
