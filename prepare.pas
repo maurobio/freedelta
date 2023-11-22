@@ -740,7 +740,7 @@ begin
   WriteLn(outfile, 'r <- cor(df.dist, dc)');
   WriteLn(outfile, 'ppi <- 100');
   WriteLn(outfile, 'png("cluster.png", width=6*ppi, height=6*ppi, res=ppi)');
-  WriteLn(outfile, 'par(mar=c(4,4,4,4))');
+  WriteLn(outfile, 'par(mar=c(5,4,4,10) + 0.1)');
   WriteLn(outfile,
     'plot(as.dendrogram(hc), xlab="' + strDistance + '", ylab="OTU''s", main=paste("' +
     strDendrogram +

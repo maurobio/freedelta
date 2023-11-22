@@ -67,6 +67,8 @@ type
   public
     ListItems: TStringList;
     ListCharacters: TStringList;
+    ListSelectedItems: TStringList;
+    ListSelectedChars: TStringList;
     procedure FillListItems(Sender: TObject);
     procedure FillListCharacters(Sender: TObject);
   end;
@@ -90,6 +92,10 @@ begin
   for J := 0 to Length(Dataset.CharacterList) - 1 do
     ListCharacters.Add(IntToStr(J + 1) + '. ' +
       Delta.OmitTypeSettingMarks(Dataset.CharacterList[J].charName));
+  if Length(Trim(EditIncludeCharacters.Text)) > 0 then
+    ListSelectedChars.DelimitedText := EditIncludeCharacters.Text
+  else
+    ListSelectedChars := nil;
 end;
 
 procedure TKeyForm.FillListItems(Sender: TObject);
@@ -99,12 +105,18 @@ begin
   for I := 0 to Length(Dataset.ItemList) - 1 do
     ListItems.Add(IntToStr(I + 1) + '. ' + Delta.OmitTypeSettingMarks(
       Dataset.ItemList[I].itemName));
+  if Length(Trim(EditIncludeItems.Text)) > 0 then
+    ListSelectedItems.DelimitedText := EditIncludeItems.Text
+  else
+    ListSelectedItems := nil;
 end;
 
 procedure TKeyForm.FormCreate(Sender: TObject);
 begin
   ListItems := TStringList.Create;
   ListCharacters := TStringList.Create;
+  ListSelectedItems := TStringList.Create;
+  ListSelectedChars := TStringList.Create;
   with ComboBoxOutputFormat.Items do
   begin
     Add(strText);
@@ -125,6 +137,8 @@ procedure TKeyForm.FormDestroy(Sender: TObject);
 begin
   ListItems.Free;
   ListCharacters.Free;
+  ListSelectedItems.Free;
+  ListSelectedChars.Free;
 end;
 
 procedure TKeyForm.OKButtonClick(Sender: TObject);
@@ -136,6 +150,7 @@ procedure TKeyForm.SpeedButtonCharacterReliabilitiesClick(Sender: TObject);
 begin
   FillListCharacters(Self);
   ChecklistForm.L := ListCharacters;
+  ChecklistForm.X := ListSelectedChars;
   if ChecklistForm.ShowModal = mrOk then
     EditCharacterReliabilities.Text := ChecklistForm.S;
 end;
@@ -144,6 +159,7 @@ procedure TKeyForm.SpeedButtonIncludeCharactersClick(Sender: TObject);
 begin
   FillListCharacters(Self);
   ChecklistForm.L := ListCharacters;
+  ChecklistForm.X := ListSelectedChars;
   if ChecklistForm.ShowModal = mrOk then
     EditIncludeCharacters.Text := ChecklistForm.S;
 end;
@@ -152,6 +168,7 @@ procedure TKeyForm.SpeedButtonIncludeItemsClick(Sender: TObject);
 begin
   FillListItems(Self);
   ChecklistForm.L := ListItems;
+  ChecklistForm.Y := ListSelectedItems;
   if ChecklistForm.ShowModal = mrOk then
     EditIncludeItems.Text := ChecklistForm.S;
 end;
@@ -166,6 +183,7 @@ procedure TKeyForm.SpeedButtonTreatCharactersAsVariableClick(Sender: TObject);
 begin
   FillListCharacters(Self);
   ChecklistForm.L := ListCharacters;
+  ChecklistForm.X := ListSelectedChars;
   if ChecklistForm.ShowModal = mrOk then
     EditTreatCharactersAsVariable.Text := ChecklistForm.S;
 end;
@@ -174,6 +192,7 @@ procedure TKeyForm.SpeedButtonUseNormalValuesClick(Sender: TObject);
 begin
   FillListCharacters(Self);
   ChecklistForm.L := ListCharacters;
+  ChecklistForm.X := ListSelectedChars;
   if ChecklistForm.ShowModal = mrOk then
     EditUseNormalValues.Text := ChecklistForm.S;
 end;

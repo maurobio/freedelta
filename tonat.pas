@@ -75,6 +75,8 @@ type
   private
     ListItems: TStringList;
     ListCharacters: TStringList;
+    ListSelectedItems: TStringList;
+    ListSelectedChars: TStringList;
     procedure FillListItems(Sender: TObject);
     procedure FillListCharacters(Sender: TObject);
   public
@@ -100,6 +102,10 @@ begin
   for J := 0 to Length(Dataset.CharacterList) - 1 do
     ListCharacters.Add(IntToStr(J + 1) + '. ' +
       Delta.OmitTypeSettingMarks(Dataset.CharacterList[J].charName));
+  if Length(Trim(EditExcludeCharacters.Text)) > 0 then
+    ListSelectedChars.DelimitedText := EditExcludeCharacters.Text
+  else
+    ListSelectedChars := nil;
 end;
 
 procedure TTonatForm.FillListItems(Sender: TObject);
@@ -109,12 +115,17 @@ begin
   for I := 0 to Length(Dataset.ItemList) - 1 do
     ListItems.Add(IntToStr(I + 1) + '. ' + Delta.OmitTypeSettingMarks(
       Dataset.ItemList[I].itemName));
+  if Length(Trim(EditExcludeItems.Text)) > 0 then
+    ListSelectedItems.DelimitedText := EditExcludeItems.Text
+  else
+    ListSelectedItems := nil;
 end;
 
 procedure TTonatForm.SpeedButtonNewParagraphsAtCharactersClick(Sender: TObject);
 begin
   FillListCharacters(Self);
   ChecklistForm.L := ListCharacters;
+  ChecklistForm.X := ListSelectedChars;
   if ChecklistForm.ShowModal = mrOk then
     EditNewParagraphsAtCharacters.Text := ChecklistForm.S;
 end;
@@ -123,6 +134,7 @@ procedure TTonatForm.SpeedButtonOmitLowerForCharactersClick(Sender: TObject);
 begin
   FillListCharacters(Self);
   ChecklistForm.L := ListCharacters;
+  ChecklistForm.X := ListSelectedChars;
   if ChecklistForm.ShowModal = mrOk then
     EditOmitLowerForCharacters.Text := ChecklistForm.S;
 end;
@@ -131,6 +143,7 @@ procedure TTonatForm.SpeedButtonOmitOrForCharactersClick(Sender: TObject);
 begin
   FillListCharacters(Self);
   ChecklistForm.L := ListCharacters;
+  ChecklistForm.X := ListSelectedChars;
   if ChecklistForm.ShowModal = mrOk then
     EditOmitOrForCharacters.Text := ChecklistForm.S;
 end;
@@ -139,6 +152,7 @@ procedure TTonatForm.SpeedButtonOmitPeriodForCharactersClick(Sender: TObject);
 begin
   FillListCharacters(Self);
   ChecklistForm.L := ListCharacters;
+  ChecklistForm.X := ListSelectedChars;
   if ChecklistForm.ShowModal = mrOk then
     EditOmitPeriodForCharacters.Text := ChecklistForm.S;
 end;
@@ -147,6 +161,7 @@ procedure TTonatForm.SpeedButtonReplaceSemicolonByCommaClick(Sender: TObject);
 begin
   FillListCharacters(Self);
   ChecklistForm.L := ListCharacters;
+  ChecklistForm.X := ListSelectedChars;
   if ChecklistForm.ShowModal = mrOk then
     EditReplaceSemicolonByComma.Text := ChecklistForm.S;
 end;
@@ -155,6 +170,7 @@ procedure TTonatForm.SpeedButtonExcludeItemsClick(Sender: TObject);
 begin
   FillListItems(Self);
   ChecklistForm.L := ListItems;
+  ChecklistForm.Y := ListSelectedItems;
   if ChecklistForm.ShowModal = mrOk then
     EditExcludeItems.Text := ChecklistForm.S;
 end;
@@ -163,6 +179,7 @@ procedure TTonatForm.SpeedButtonExcludeCharactersClick(Sender: TObject);
 begin
   FillListCharacters(Self);
   ChecklistForm.L := ListCharacters;
+  ChecklistForm.X := ListSelectedChars;
   if ChecklistForm.ShowModal = mrOk then
     EditExcludeCharacters.Text := ChecklistForm.S;
 end;
@@ -171,6 +188,7 @@ procedure TTonatForm.SpeedButtonItemSubheadingsClick(Sender: TObject);
 begin
   FillListCharacters(Self);
   ChecklistForm.L := ListCharacters;
+  ChecklistForm.X := ListSelectedChars;
   if ChecklistForm.ShowModal = mrOk then
     EditItemSubheadings.Text := ChecklistForm.S;
 end;
@@ -179,6 +197,7 @@ procedure TTonatForm.SpeedButtonLinkCharactersClick(Sender: TObject);
 begin
   FillListCharacters(Self);
   ChecklistForm.L := ListCharacters;
+  ChecklistForm.X := ListSelectedChars;
   if ChecklistForm.ShowModal = mrOk then
     EditLinkCharacters.Text := ChecklistForm.S;
 end;
@@ -187,6 +206,8 @@ procedure TTonatForm.FormCreate(Sender: TObject);
 begin
   ListItems := TStringList.Create;
   ListCharacters := TStringList.Create;
+  ListSelectedItems := TStringList.Create;
+  ListSelectedChars := TStringList.Create;
   with ComboBoxOutputFormat.Items do
   begin
     Add(strText);
@@ -207,12 +228,15 @@ procedure TTonatForm.FormDestroy(Sender: TObject);
 begin
   ListItems.Free;
   ListCharacters.Free;
+  ListSelectedItems.Free;
+  ListSelectedChars.Free;
 end;
 
 procedure TTonatForm.SpeedButtonEmphasizeFeaturesClick(Sender: TObject);
 begin
   FillListCharacters(Self);
   ChecklistForm.L := ListCharacters;
+  ChecklistForm.X := ListSelectedChars;
   if ChecklistForm.ShowModal = mrOk then
     EditEmphasizeFeatures.Text := ChecklistForm.S;
 end;

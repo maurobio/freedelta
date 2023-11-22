@@ -422,6 +422,12 @@
 { Version 2.99, 1 Nov, 2023       - Added Spanish translation and vocabulary.   }
 {                                 - Changed the behavior of the attribute editor}
 {                                   to accept the ENTER key to finish editing.  }
+{ Version 3.00, 21 Nov, 2023      - Bug fixes and minor improvements to the     }
+{                                   cluster and ordination R scripts.           }
+{                                 - Added check marks to the included/excluded  }
+{                                   characters and/or items in the popup        }
+{                                   selection lists in the CONFOR directives    }
+{                                   forms.                                      }
 {===============================================================================}
 unit Main;
 
@@ -2729,6 +2735,7 @@ end;
 procedure TMainForm.MatrixClusterItemClick(Sender: TObject);
 var
   s: ansistring;
+  nex, notu: integer;
 begin
   {if RPath = '' then
   begin
@@ -2746,8 +2753,18 @@ begin
     Exit;
   if ClusterForm.ShowModal = mrOk then
   begin
-    CreateCluster('cluster.R', Length(Dataset.ItemList),
-      ClusterForm.ComboBoxMethod.ItemIndex);
+    if FileExists('dist') then
+    begin
+      nex := WordCount(Delta.ReadDirective('dist', '*EXCLUDE ITEMS', True),
+        StdWordDelims);
+      if nex = 0 then
+        notu := Length(Dataset.ItemList)
+      else
+        notu := Abs(Length(Dataset.ItemList) - nex);
+    end
+    else
+      notu := Length(Dataset.ItemList);
+    CreateCluster('cluster.R', notu, ClusterForm.ComboBoxMethod.ItemIndex);
     Screen.Cursor := crHourGlass;
     //if RunCommand(Concat(RPath, PathDelim, 'Rscript'), ['--vanilla', 'cluster.R'],
     //  s, [poNoConsole]) then
@@ -2893,6 +2910,7 @@ end;
 procedure TMainForm.MatrixOrdinationItemClick(Sender: TObject);
 var
   S: ansistring;
+  nex, notu: integer;
 begin
   {if RPath = '' then
   begin
@@ -2908,7 +2926,18 @@ begin
   end;}
   if not LocateR then
     Exit;
-  CreatePCOA('pcoa.R', Length(Dataset.ItemList));
+  if FileExists('dist') then
+  begin
+    nex := WordCount(Delta.ReadDirective('dist', '*EXCLUDE ITEMS', True),
+      StdWordDelims);
+    if nex = 0 then
+      notu := Length(Dataset.ItemList)
+    else
+      notu := Abs(Length(Dataset.ItemList) - nex);
+  end
+  else
+    notu := Length(Dataset.ItemList);
+  CreatePCOA('pcoa.R', notu);
   Screen.Cursor := crHourGlass;
   //if RunCommand(Concat(RPath, PathDelim, 'Rscript'), ['--vanilla', 'pcoa.R'],
   //  S, [poNoConsole]) then
