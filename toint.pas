@@ -64,11 +64,13 @@ procedure TIntKeyForm.FillListCharacters(Sender: TObject);
 var
   J: word;
 begin
+  ListCharacters.Clear;
   for J := 0 to Length(Dataset.CharacterList) - 1 do
     ListCharacters.Add(IntToStr(J + 1) + '. ' +
       Delta.OmitTypeSettingMarks(Dataset.CharacterList[J].charName));
   if Length(Trim(EditIncludeCharacters.Text)) > 0 then
-    ListSelectedChars.DelimitedText := EditIncludeCharacters.Text
+    //ListSelectedChars.DelimitedText := EditIncludeCharacters.Text
+    ListSelectedChars := Delta.ExpandRange(EditIncludeCharacters.Text)
   else
     ListSelectedChars := nil;
 end;
@@ -77,11 +79,13 @@ procedure TIntKeyForm.FillListItems(Sender: TObject);
 var
   I: word;
 begin
+  ListItems.Clear;
   for I := 0 to Length(Dataset.ItemList) - 1 do
     ListItems.Add(IntToStr(I + 1) + '. ' + Delta.OmitTypeSettingMarks(
       Dataset.ItemList[I].itemName));
   if Length(Trim(EditIncludeItems.Text)) > 0 then
-    ListSelectedItems.DelimitedText := EditIncludeItems.Text
+    //ListSelectedItems.DelimitedText := EditIncludeItems.Text
+    ListSelectedItems := ExpandRange(EditIncludeItems.Text)
   else
     ListSelectedItems := nil;
 end;

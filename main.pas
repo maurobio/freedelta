@@ -428,6 +428,11 @@
 {                                   characters and/or items in the popup        }
 {                                   selection lists in the CONFOR directives    }
 {                                   forms.                                      }
+{ Version 3.10, 29 Nov, 2023      - Added support for ranges of character and   }
+{                                   items numbers in the CONFOR directives forms}
+{                                 - Fixed a bug which caused the selection lists}
+{                                   of items and characters to appear duplicated}
+{                                   in the CONFOR directive forms.              }
 {===============================================================================}
 unit Main;
 

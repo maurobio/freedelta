@@ -6,7 +6,7 @@
 {                                                                        }
 {                      Version 1.0, November 1994                        }
 {              Version 2.1, August 1996, Updated May 1998                }
-{           Version 3.3, June 2016, Updated July 2020, June 2021         }
+{    Version 3.3, June 2016, Updated July 2020, June 2021, November 2023 }
 {                                                                        }
 {          Author: Mauro J. Cavalcanti, Rio de Janeiro, BRASIL           }
 {                    E-mail: <maurobio@gmail.com>                        }
@@ -133,6 +133,7 @@ function RemoveComments(const S: string): string;
 function OmitTypesettingMarks(const S: string): string;
 function OmitInnerComments(const S: string): string;
 function CheckBrackets(const str: string): boolean;
+function ExpandRange(const Range: string): TStringList;
 
 { Helper routines }
 function Frequency(const C: char; const S: string): integer;
@@ -1120,10 +1121,10 @@ begin
   begin
     Character := CharacterList[I];
     for J := 0 to Character.charDependent.Count - 1 do
-	begin
+    begin
       depStr := Concat(depStr, IntToStr(I + 1), ',',
         Character.charDependent[J], ' ');
-	end;	
+    end;
   end;
   WriteLn(Outfile, WrapText(depStr, #13#10, [' '], 49));
   CloseFile(Outfile);
@@ -1410,5 +1411,37 @@ begin
   else if (Pos('>', str) > 0) and (Pos('<', str) > 0) then
     Result := True;
 end;  { CheckBrackets }
+
+{==========================================================================}
+{          Expand a range of characters or items numbers                   }
+{==========================================================================}
+function ExpandRange(const Range: string): TStringList;
+var
+  I, J, First, Last: word;
+  S: string;
+  L: TStringList;
+begin
+  L := TStringList.Create;
+  if Pos('-', Range) = 0 then
+    L.DelimitedText := Range
+  else
+  begin
+    for I := 0 to WordCount(Range, StdWordDelims) do
+    begin
+      S := ExtractWord(I, Range, [' ']);
+      if Pos('-', S) > 0 then
+        if Pos('-', S) > 0 then
+        begin
+          First := StrToIntDef(Copy(S, 1, Pos('-', S) - 1), 0);
+          Last := StrToIntDef(Copy(S, Pos('-', S) + 1, Length(S)), 0);
+          for J := First to Last do
+            L.Add(IntToStr(J));
+        end
+        else
+          L.Add(S);
+    end;
+  end;
+  Result := L;
+end;
 
 end.

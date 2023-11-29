@@ -53,11 +53,13 @@ procedure TDistForm.FillListCharacters(Sender: TObject);
 var
   J: word;
 begin
+  ListCharacters.Clear;
   for J := 0 to Length(Dataset.CharacterList) - 1 do
     ListCharacters.Add(IntToStr(J + 1) + '. ' +
       Delta.OmitTypeSettingMarks(Dataset.CharacterList[J].charName));
   if Length(Trim(EditExcludeCharacters.Text)) > 0 then
-    ListSelectedChars.DelimitedText := EditExcludeCharacters.Text
+    //ListSelectedChars.DelimitedText := EditExcludeCharacters.Text
+    ListSelectedChars := Delta.ExpandRange(EditExcludeCharacters.Text)
   else
     ListSelectedChars := nil;
 end;
@@ -66,11 +68,13 @@ procedure TDistForm.FillListItems(Sender: TObject);
 var
   I: word;
 begin
+  ListItems.Clear;
   for I := 0 to Length(Dataset.ItemList) - 1 do
     ListItems.Add(IntToStr(I + 1) + '. ' + Delta.OmitTypeSettingMarks(
       Dataset.ItemList[I].itemName));
   if Length(Trim(EditExcludeItems.Text)) > 0 then
-    ListSelectedItems.DelimitedText := EditExcludeItems.Text
+    //ListSelectedItems.DelimitedText := EditExcludeItems.Text
+    ListSelectedItems := ExpandRange(EditExcludeItems.Text)
   else
     ListSelectedItems := nil;
 end;
