@@ -5,6 +5,8 @@ interface
 uses
   Classes, SysUtils, FileUtil, StrUtils, Forms;
 
+procedure CreateCHECKC(const dirfile, header: string);
+procedure CreateCHECKI(const dirfile, header: string);
 procedure CreateSUMMARY(const dirfile, header: string);
 procedure CreateTONAT(const dirfile, header: string;
   replace_angle_brackets, omit_character_numbers, omit_inapplicables,
@@ -56,6 +58,44 @@ implementation
 uses Main;
 
 {$I resources.inc}
+
+{--------------------------------------------------------------------------}
+{          CreateCHECKC                                                    }
+{--------------------------------------------------------------------------}
+procedure CreateCHECKC(const dirfile, header: string);
+var
+  outfile: TextFile;
+begin
+  AssignFile(outfile, dirfile);
+  Rewrite(outfile);
+  WriteLn(outfile, '*SHOW Check the characters');
+  WriteLn(outfile, '*SHOW Generated on ', DateTimeToStr(Now));
+  WriteLn(outfile, '*HEADING ', header);
+  WriteLn(outfile);
+  WriteLn(outfile, '*INPUT FILE specs');
+  WriteLn(outfile);
+  WriteLn(outfile, '*INPUT FILE chars');
+  CloseFile(outfile);
+end;
+
+{--------------------------------------------------------------------------}
+{          CreateCHECKI                                                    }
+{--------------------------------------------------------------------------}
+procedure CreateCHECKI(const dirfile, header: string);
+var
+  outfile: TextFile;
+begin
+  AssignFile(outfile, dirfile);
+  Rewrite(outfile);
+  WriteLn(outfile, '*SHOW Check the items');
+  WriteLn(outfile, '*SHOW Generated on ', DateTimeToStr(Now));
+  WriteLn(outfile, '*HEADING ', header);
+  WriteLn(outfile);
+  WriteLn(outfile, '*INPUT FILE specs');
+  WriteLn(outfile);
+  WriteLn(outfile, '*INPUT FILE items');
+  CloseFile(outfile);
+end;               
 
 {--------------------------------------------------------------------------}
 {          CreateSUMMARY                                                   }

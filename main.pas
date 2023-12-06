@@ -428,11 +428,20 @@
 {                                   characters and/or items in the popup        }
 {                                   selection lists in the CONFOR directives    }
 {                                   forms.                                      }
-{ Version 3.10, 29 Nov, 2023      - Added support for ranges of character and   }
-{                                   items numbers in the CONFOR directives forms}
+{ Version 3.10, 29 Nov, 2023      - Added support for expanding ranges of items }
+{                                   and character numbers in the CONFOR         }
+{                                   directives forms.                           }
 {                                 - Fixed a bug which caused the selection lists}
 {                                   of items and characters to appear duplicated}
 {                                   in the CONFOR directive forms.              }
+{ Version 3.20, 6 Dec, 2023       - Added support for compressing ranges of     }
+{                                   items and character numbers in the CONFOR   }
+{                                   directives forms.                           }
+{                                 - Added data checks when importing DELTA      }
+{                                   CHARS, ITEMS, and SPECS files.              }
+{                                 - Changed call to the IntKey program to the   }
+{                                   version provided with the Open DELTA suite  }
+{                                 - Removed the Images option from the Edit menu}
 {===============================================================================}
 unit Main;
 
@@ -468,7 +477,6 @@ type
     ExportTextItem: TMenuItem;
     ExportSpreadsheetItem: TMenuItem;
     LanguageSpanishItem: TMenuItem;
-    N13: TMenuItem;
     N20: TMenuItem;
     SearchGotoLine: TMenuItem;
     SearchFindNextItem: TMenuItem;
@@ -482,7 +490,6 @@ type
     EditCloneItem: TMenuItem;
     N8: TMenuItem;
     ExportXDELTAItem: TMenuItem;
-    EditImagesItem: TMenuItem;
     EditInsertItem: TMenuItem;
     EditInsertCharacterItem: TMenuItem;
     InsertCharacter: TMenuItem;
@@ -619,7 +626,6 @@ type
     procedure EditCloneItemClick(Sender: TObject);
     procedure EditDeleteCharacterItemClick(Sender: TObject);
     procedure EditDeleteItemClick(Sender: TObject);
-    procedure EditImagesItemClick(Sender: TObject);
     procedure EditInsertCharacterItemClick(Sender: TObject);
     procedure EditInsertItemClick(Sender: TObject);
     procedure EditMergeCharacterItemClick(Sender: TObject);
@@ -1595,7 +1601,6 @@ begin
   EditDeleteCharacterItem.Enabled := FileIsOpen;
   EditMergeCharacterItem.Enabled := FileIsOpen;
   EditTitleItem.Enabled := FileIsOpen;
-  EditImagesItem.Enabled := FileIsOpen;
   EditScriptItem.Enabled := FileIsOpen;
   SearchFindItem.Enabled := FileIsOpen;
   SearchGotoLine.Enabled := FileIsOpen;
@@ -2153,11 +2158,19 @@ end;
 procedure TMainForm.ImportDeltaItemClick(Sender: TObject);
 var
   {CurDir,} Directory: string;
+  sPath, ConforPath: string;
+  S: ansistring;
   Ok: boolean;
   Zipper: TZipper;
 begin
-  SelectDirectoryDialog.Filename := '';
   Ok := False;
+  sPath := ExtractFilePath(Application.ExeName);
+  {$IFDEF WINDOWS}
+  ConforPath := sPath + 'confor.exe';
+  {$ELSE}
+  ConforPath := sPath + 'confor';
+  {$ENDIF}
+  SelectDirectoryDialog.Filename := '';
   if SelectDirectoryDialog.Execute then
   begin
     Directory := SelectDirectoryDialog.Filename;
@@ -2165,23 +2178,37 @@ begin
     if FileExists('specs') then
       Ok := True
     else
-    begin
       MessageDlg(strInformation, Format(strNotFoundDir, ['SPECS', Directory]),
         mtInformation, [mbOK], 0);
-    end;
     if FileExists('chars') then
       Ok := True
     else
-    begin
       MessageDlg(strInformation, Format(strNotFoundDir, ['CHARS', Directory]),
         mtInformation, [mbOK], 0);
-    end;
     if FileExists('items') then
       Ok := True
     else
-    begin
       MessageDlg(strInformation, Format(strNotFoundDir, ['ITEMS', Directory]),
         mtInformation, [mbOK], 0);
+    if Ok then
+    begin
+      CreateCHECKC('checkc', Dataset.Heading);
+      if not RunCommand(ConforPath, ['checkc'], S, [poNoConsole]) then
+      begin
+        MessageDlg(strError, Format(strReadError, ['CHARS']), mtError, [mbOK], 0);
+        ShowErrorLog(S);
+        Ok := False;
+      end;
+    end;
+    if Ok then
+    begin
+      CreateCHECKI('checki', Dataset.Heading);
+      if not RunCommand(ConforPath, ['checki'], S, [poNoConsole]) then
+      begin
+        MessageDlg(strError, Format(strReadError, ['ITEMS']), mtError, [mbOK], 0);
+        ShowErrorLog(S);
+        Ok := False;
+      end;
     end;
     if Ok then
     begin
@@ -2561,111 +2588,118 @@ end;
 procedure TMainForm.KeyInteractiveItemClick(Sender: TObject);
 var
   CharacterReliabilities, IncludeItems, IncludeCharacters: string;
-  sPath, ConforPath, {IntKeyPath,} ImagePath, HlpFile, Lang: string;
+  sPath, ConforPath {IntKeyPath}, ImagePath {HlpFile, Lang}: string;
   RBase, Varywt: double;
   s: ansistring;
 begin
   sPath := ExtractFilePath(Application.ExeName);
   DefaultFormatSettings.DecimalSeparator := '.';
-  if Copy(OSVersion, 1, Pos(' ', OSVersion) - 1) <> 'Windows' then
-    MessageDlg(strWindowsOnly, mtInformation, [mbOK], 0)
+  if (IntKeyPath = '') or (not DirectoryExists(ExtractFileDir(IntKeyPath))) then
+  begin
+    SelectDirectoryDialog.Title := strDeltaDirectory;
+    SelectDirectoryDialog.Filename := '';
+    if SelectDirectoryDialog.Execute then
+    begin
+      {$IFDEF WINDOWS}
+      IntKeyPath := SelectDirectoryDialog.FileName + '\Intkey.exe';
+      {$ELSE}
+      IntKeyPath := SelectDirectoryDialog.FileName + '/Intkey.sh';
+      {$ENDIF}
+    end
+    else
+    begin
+      Screen.Cursor := crDefault;
+      MessageDlg(strError, strDirNotFound, mtError, [mbOK], 0);
+      Exit;
+    end;
+  end;
+  if FileExists('toint') then
+  begin
+    CharacterReliabilities :=
+      Delta.ReadDirective('toint', '*CHARACTER RELIABILITIES', True);
+    IncludeItems := Delta.ReadDirective('toint', '*INCLUDE ITEMS', True);
+    IncludeCharacters := Delta.ReadDirective('toint', '*INCLUDE CHARACTERS', True);
+  end
   else
   begin
-    if IntKeyPath = '' then
+    CharacterReliabilities := '';
+    IncludeItems := '';
+    IncludeCharacters := '';
+  end;
+  if FileExists('intkey.ink') then
+  begin
+    RBase := StrToFloatDef(Delta.ReadDirective('intkey.ink', '*RBASE', True), 1.1);
+    Varywt := StrToFloatDef(Delta.ReadDirective('intkey.ink', '*VARYWT', True), 1.0);
+    ImagePath := Delta.ReadDirective('intkey.ink', '*SET IMAGEPATH', True);
+  end
+  else
+  begin
+    RBase := 1.1;
+    Varywt := 1.0;
+    ImagePath := 'images';
+  end;
+  with IntKeyForm do
+  begin
+    EditHeading.Text := Dataset.Heading;
+    EditCharacterReliabilities.Text := CharacterReliabilities;
+    FloatSpinEditRBASE.Value := RBase;
+    FloatSpinEditVARYWT.Value := Varywt;
+    EditIncludeItems.Text := IncludeItems;
+    EditIncludeCharacters.Text := IncludeCharacters;
+    DirectoryEditImagePath.Text := ImagePath;
+  end;
+  if IntKeyForm.ShowModal = mrOk then
+  begin
+    CharacterReliabilities := IntKeyForm.EditCharacterReliabilities.Text;
+    RBase := IntKeyForm.FloatSpinEditRBASE.Value;
+    Varywt := IntKeyForm.FloatSpinEditVARYWT.Value;
+    IncludeItems := IntKeyForm.EditIncludeItems.Text;
+    IncludeCharacters := IntKeyForm.EditIncludeCharacters.Text;
+    ImagePath := IntKeyForm.DirectoryEditImagePath.Text;
+    CreateTOINT('toint', Dataset.Heading, CharacterReliabilities,
+      IncludeItems, IncludeCharacters);
+    {$IFDEF WINDOWS}
+    ConforPath := sPath + 'confor.exe';
+    {$ELSE}
+    ConforPath := sPath + 'confor';
+    {$ENDIF}
+    Screen.Cursor := crHourGlass;
+    if RunCommand(ConforPath, ['toint'], s, [poNoConsole]) then
     begin
-      SelectDirectoryDialog.Title := strDeltaDirectory;
-      SelectDirectoryDialog.Filename := '';
-      if DirectoryExists('c:\delta') then
-        SelectDirectoryDialog.InitialDir := 'c:\delta';
-      if SelectDirectoryDialog.Execute then
-        IntKeyPath := SelectDirectoryDialog.FileName + '\intkey5.exe'
-      else
+      if not FileExists('intkey.ink') then
+        CreateINTKEY('intkey.ink', Dataset.Heading, RBase, Varywt);
+      if not FileExists('timages') then
+        CreateTIMAGES('timages');
+      if not FileExists('cimages') then
+        CreateCIMAGES('cimages');
+      {Lang := GetDefaultLang;
+      case Lang of
+        'en': HlpFile := 'intken.hin';
+        'pt': HlpFile := 'intkpt.hin';
+        'fr': HlpFile := 'intkfr.hin';
+        'es': HlpFile := 'intkes.hin';
+        else
+          HelpFile := 'intken.hin';
+      end;}
+      {if not RunCommand(IntKeyPath, ['-h=' + HlpFile, 'intkey.ink'],
+        s, [poNoConsole]) then}
+      if not RunCommand(IntKeyPath, ['intkey.ink'], s, [poNoConsole]) then
       begin
+        FileIsChanged := True;
         Screen.Cursor := crDefault;
-        MessageDlg(strError, strDirNotFound, mtError, [mbOK], 0);
-        Exit;
-      end;
-    end;
-    if FileExists('toint') then
-    begin
-      CharacterReliabilities :=
-        Delta.ReadDirective('toint', '*CHARACTER RELIABILITIES', True);
-      IncludeItems := Delta.ReadDirective('toint', '*INCLUDE ITEMS', True);
-      IncludeCharacters := Delta.ReadDirective('toint', '*INCLUDE CHARACTERS', True);
-    end
-    else
-    begin
-      CharacterReliabilities := '';
-      IncludeItems := '';
-      IncludeCharacters := '';
-    end;
-    if FileExists('intkey.ink') then
-    begin
-      RBase := StrToFloatDef(Delta.ReadDirective('intkey.ink', '*RBASE', True), 1.1);
-      Varywt := StrToFloatDef(Delta.ReadDirective('intkey.ink', '*VARYWT', True), 1.0);
-      ImagePath := Delta.ReadDirective('intkey.ink', '*SET IMAGEPATH', True);
-    end
-    else
-    begin
-      RBase := 1.1;
-      Varywt := 1.0;
-      ImagePath := 'images';
-    end;
-    with IntKeyForm do
-    begin
-      EditHeading.Text := Dataset.Heading;
-      EditCharacterReliabilities.Text := CharacterReliabilities;
-      FloatSpinEditRBASE.Value := RBase;
-      FloatSpinEditVARYWT.Value := Varywt;
-      EditIncludeItems.Text := IncludeItems;
-      EditIncludeCharacters.Text := IncludeCharacters;
-      DirectoryEditImagePath.Text := ImagePath;
-    end;
-    if IntKeyForm.ShowModal = mrOk then
-    begin
-      CharacterReliabilities := IntKeyForm.EditCharacterReliabilities.Text;
-      RBase := IntKeyForm.FloatSpinEditRBASE.Value;
-      Varywt := IntKeyForm.FloatSpinEditVARYWT.Value;
-      IncludeItems := IntKeyForm.EditIncludeItems.Text;
-      IncludeCharacters := IntKeyForm.EditIncludeCharacters.Text;
-      ImagePath := IntKeyForm.DirectoryEditImagePath.Text;
-      CreateTOINT('toint', Dataset.Heading, CharacterReliabilities,
-        IncludeItems, IncludeCharacters);
-      ConforPath := sPath + 'confor.exe';
-      Screen.Cursor := crHourGlass;
-      if RunCommand(ConforPath, ['toint'], s, [poNoConsole]) then
-      begin
-        //if GetEnvironmentVariable('DELTA') = '' then
-        if not FileExists('intkey.ink') then
-          CreateINTKEY('intkey.ink', Dataset.Heading, RBase, Varywt);
-        Lang := GetDefaultLang;
-        case Lang of
-          'en': HlpFile := 'intken.hin';
-          'pt': HlpFile := 'intkpt.hin';
-          'fr': HlpFile := 'intkfr.hin';
-          'es': HlpFile := 'intkes.hin';
-          else
-            HelpFile := 'intken.hin';
-        end;
-        if not RunCommand(IntKeyPath, ['-h=' + HlpFile, 'intkey.ink'],
-          s, [poNoConsole]) then
-        begin
-          FileIsChanged := True;
-          Screen.Cursor := crDefault;
-          MessageDlg(strError, Format(strNotExecute, ['DELTA INTKEY']),
-            mtError, [mbOK], 0);
-          IntKeyPath := '';
-        end;
-      end
-      else
-      begin
-        Screen.Cursor := crDefault;
-        MessageDlg(strError, Format(strNotExecute, ['DELTA CONFOR']),
+        MessageDlg(strError, Format(strNotExecute, ['DELTA INTKEY']),
           mtError, [mbOK], 0);
-        ShowErrorLog(S);
+        IntKeyPath := '';
       end;
+    end
+    else
+    begin
       Screen.Cursor := crDefault;
+      MessageDlg(strError, Format(strNotExecute, ['DELTA CONFOR']),
+        mtError, [mbOK], 0);
+      ShowErrorLog(S);
     end;
+    Screen.Cursor := crDefault;
   end;
 end;
 
@@ -4764,83 +4798,6 @@ begin
     ItemListView.Selected;
     if PageControl.TabIndex = 0 then
       ItemListView.SetFocus;
-  end;
-end;
-
-procedure TMainForm.EditImagesItemClick(Sender: TObject);
-var
-  CharacterReliabilities, IncludeItems, IncludeCharacters: string;
-  sPath, ConforPath{, IntKeyPath}: string;
-  RBase, Varywt: double;
-  s: ansistring;
-begin
-  sPath := ExtractFilePath(Application.ExeName);
-  if Copy(OSVersion, 1, Pos(' ', OSVersion) - 1) <> 'Windows' then
-    MessageDlg(strWindowsOnly, mtInformation, [mbOK], 0)
-  else
-  begin
-    if IntMatePath = '' then
-    begin
-      SelectDirectoryDialog.Title := strDeltaDirectory;
-      SelectDirectoryDialog.Filename := '';
-      if DirectoryExists('c:\delta') then
-        SelectDirectoryDialog.InitialDir := 'c:\delta';
-      if SelectDirectoryDialog.Execute then
-        IntMatePath := SelectDirectoryDialog.FileName + '\intimat5.exe'
-      else
-      begin
-        Screen.Cursor := crDefault;
-        MessageDlg(strError, strDirNotFound, mtError, [mbOK], 0);
-        Exit;
-      end;
-    end;
-    if FileExists('toint') then
-    begin
-      CharacterReliabilities :=
-        Delta.ReadDirective('toint', '*CHARACTER RELIABILITIES', True);
-      IncludeItems := Delta.ReadDirective('toint', '*INCLUDE ITEMS', True);
-      IncludeCharacters := Delta.ReadDirective('toint', '*INCLUDE CHARACTERS', True);
-    end
-    else
-    begin
-      CharacterReliabilities := '';
-      IncludeItems := '';
-      IncludeCharacters := '';
-    end;
-    if FileExists('intkey.ink') then
-    begin
-      RBase := StrToFloatDef(Delta.ReadDirective('intkey.ink', '*RBASE', True), 1.1);
-      Varywt := StrToFloatDef(Delta.ReadDirective('intkey.ink', '*VARYWT', True), 1.0);
-    end
-    else
-    begin
-      RBase := 1.1;
-      Varywt := 1.0;
-    end;
-    CreateTOINT('toint', Dataset.Heading, CharacterReliabilities,
-      IncludeItems, IncludeCharacters);
-    ConforPath := sPath + 'confor.exe';
-    if RunCommand(ConforPath, ['toint'], s, [poNoConsole]) then
-    begin
-      if not FileExists('intkey.ink') then
-        CreateINTKEY('intkey.ink', Dataset.Heading, RBase, Varywt);
-      if not FileExists('timages') then
-        CreateTIMAGES('timages');
-      if not FileExists('cimages') then
-        CreateCIMAGES('cimages');
-      if not RunCommand(IntMatePath, ['intkey.ink'], s, [poNoConsole]) then
-      begin
-        MessageDlg(strError, Format(strNotExecute, ['DELTA INTIMATE']),
-          mtError, [mbOK], 0);
-        IntMatePath := '';
-      end;
-    end
-    else
-    begin
-      MessageDlg(strError, Format(strNotExecute, ['DELTA CONFOR']),
-        mtError, [mbOK], 0);
-      ShowErrorLog(S);
-    end;
   end;
 end;
 

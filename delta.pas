@@ -134,6 +134,7 @@ function OmitTypesettingMarks(const S: string): string;
 function OmitInnerComments(const S: string): string;
 function CheckBrackets(const str: string): boolean;
 function ExpandRange(const Range: string): TStringList;
+function CompressRange(const Numbers: string): string;
 
 { Helper routines }
 function Frequency(const C: char; const S: string): integer;
@@ -1442,6 +1443,49 @@ begin
     end;
   end;
   Result := L;
-end;
+end; { ExpandRange }
+
+{==========================================================================}
+{          Compress a range of characters or items numbers                 }
+{==========================================================================}
+function CompressRange(const Numbers: string): string;
+var
+  iFrom, iTo: SizeInt;
+  HighA: SizeInt;
+  L: TStringList;
+  A: array of integer;
+  I, J: integer;
+  S: TStringArray;
+begin
+  S := Numbers.Split([' '], TStringSplitOptions.ExcludeEmpty);
+  SetLength(A, Length(S));
+  for I := 0 to High(S) do
+    if TryStrToInt(S[I], J) then
+      A[I] := J;
+  L := TStringList.Create;
+  try
+    L.LineBreak := ' ';
+    L.TrailingLineBreak := False;
+    iFrom := Low(A);
+    HighA := High(A);
+    while iFrom <= HighA do
+    begin
+      iTo := iFrom + 1;
+      while (iTo <= HighA) and ((A[iTo] - A[iTo - 1]) = 1) do
+        Inc(iTo);
+      if (iTo - iFrom) = 1 then
+        L.Append(Format('%d', [A[iFrom]]))
+      else
+        L.Append(Format('%d-%d', [A[iFrom], A[iTo - 1]]));
+      iFrom := iTo;
+    end;
+    for I := 0 to L.Count - 1 do
+      if L[I] = '0' then
+        L.Delete(I);
+    Result := L.Text;
+  finally
+    L.Free;
+  end;
+end; { CompressRange }
 
 end.

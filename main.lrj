@@ -101,8 +101,6 @@
 {"hash":220357717,"name":"tmainform.editmergecharacteritem.hint","sourcebytes":[77,101,114,103,101,32,97,110,111,116,104,101,114,32,108,105,115,116,32,111,102,32,99,104,97,114,97,99,116,101,114,115,32,119,105,116,104,32,116,104,101,32,99,117,114,114,101,110,116,32,111,110,101],"value":"Merge another list of characters with the current one"},
 {"hash":141664494,"name":"tmainform.edittitleitem.caption","sourcebytes":[68,97,116,97,98,97,115,101,32,84,105,116,108,101,46,46,46],"value":"Database Title..."},
 {"hash":126992117,"name":"tmainform.edittitleitem.hint","sourcebytes":[67,104,97,110,103,101,32,100,97,116,97,98,97,115,101,32,116,105,116,108,101],"value":"Change database title"},
-{"hash":84114883,"name":"tmainform.editimagesitem.caption","sourcebytes":[73,109,97,103,101,115],"value":"Images"},
-{"hash":196518961,"name":"tmainform.editimagesitem.hint","sourcebytes":[68,105,115,112,108,97,121,32,105,109,97,103,101,115,32,111,102,32,99,104,97,114,97,99,116,101,114,115,32,111,114,32,116,97,120,97],"value":"Display images of characters or taxa"},
 {"hash":94015604,"name":"tmainform.editscriptitem.caption","sourcebytes":[83,99,114,105,112,116],"value":"Script"},
 {"hash":136288629,"name":"tmainform.editscriptitem.hint","sourcebytes":[69,100,105,116,47,82,117,110,32,67,79,78,70,79,82,47,75,69,89,47,68,73,83,84,32,100,105,114,101,99,116,105,118,101,115,32,102,105,108,101],"value":"Edit/Run CONFOR/KEY/DIST directives file"},
 {"hash":194742456,"name":"tmainform.searchmenu.caption","sourcebytes":[38,83,101,97,114,99,104],"value":"&Search"},

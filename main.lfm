@@ -763,14 +763,6 @@ object MainForm: TMainForm
       object N11: TMenuItem
         Caption = '-'
       end
-      object EditImagesItem: TMenuItem
-        Caption = 'Images'
-        Hint = 'Display images of characters or taxa'
-        OnClick = EditImagesItemClick
-      end
-      object N13: TMenuItem
-        Caption = '-'
-      end
       object EditScriptItem: TMenuItem
         Caption = 'Script'
         Hint = 'Edit/Run CONFOR/KEY/DIST directives file'

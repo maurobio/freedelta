@@ -31,6 +31,8 @@ var
 
 implementation
 
+uses Delta;
+
 {$R *.lfm}
 
 function NumberInList(Value: string; Strings: TStringList): boolean;
@@ -74,6 +76,7 @@ begin
   for J := 0 to CheckListBox.Count - 1 do
     if CheckListBox.Checked[J] then
       S := S + IntToStr(J + 1) + ' ';
+  S := Delta.CompressRange(S);	  
 end;
 
 end.
