@@ -1655,7 +1655,7 @@ begin
   sPath := GetAppConfigDir(False);
   IniFile := TIniFile.Create(sPath + 'fde.ini');
   sLang := IniFile.ReadString('Options', 'Language', 'en'); // First default is English
-  SetDefaultLang(sLang, 'languages', True);
+  SetDefaultLang(sLang, 'languages', '', True);
   case sLang of
     'en':
     begin
@@ -2715,7 +2715,7 @@ begin
   LanguageSpanishItem.Checked := False;
   sPath := GetAppConfigDir(False);
   IniFile := TIniFile.Create(sPath + 'fde.ini');
-  SetDefaultLang('en', 'language', True);
+  SetDefaultLang('en', 'language', '', True);
   IniFile.WriteString('Options', 'Language', 'en');
   IniFile.Free;
 end;
@@ -2732,7 +2732,7 @@ begin
   LanguageSpanishItem.Checked := False;
   sPath := GetAppConfigDir(False);
   IniFile := TIniFile.Create(sPath + 'fde.ini');
-  SetDefaultLang('fr', 'language', True);
+  SetDefaultLang('fr', 'language', '', True);
   IniFile.WriteString('Options', 'Language', 'fr');
   IniFile.Free;
 end;
@@ -2749,7 +2749,7 @@ begin
   LanguageSpanishItem.Checked := False;
   sPath := GetAppConfigDir(False);
   IniFile := TIniFile.Create(sPath + 'fde.ini');
-  SetDefaultLang('pt_br', 'language', True);
+  SetDefaultLang('pt_br', 'language', '', True);
   IniFile.WriteString('Options', 'Language', 'pt_br');
   IniFile.Free;
 end;
@@ -2766,7 +2766,7 @@ begin
   LanguageEnglishItem.Checked := False;
   sPath := GetAppConfigDir(False);
   IniFile := TIniFile.Create(sPath + 'fde.ini');
-  SetDefaultLang('es', 'language', True);
+  SetDefaultLang('es', 'language', '', True);
   IniFile.WriteString('Options', 'Language', 'es');
   IniFile.Free;
 end;
