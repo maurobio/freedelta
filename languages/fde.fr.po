@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Free Delta Editor\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-10-06 08:42-0300\n"
+"PO-Revision-Date: 2023-12-19 08:23-0300\n"
 "Last-Translator: Mauro J. Cavalcanti <maurobio@gmail.com>\n"
 "Language-Team: Free Delta Development Team\n"
 "Language: fr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: about.strcomments
@@ -25,7 +25,6 @@ msgid "Compiler:"
 msgstr "Compilateur:"
 
 #: about.strplatform
-#, fuzzy
 msgctxt "about.strplatform"
 msgid "Platform:"
 msgstr "Plateforme:"
@@ -349,6 +348,11 @@ msgstr "Taper le nom de la base de données:"
 msgctxt "chars.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Fichiers de données au format Nexus|*.nex"
+
+#: chars.strnoinnercomments
+msgctxt "chars.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Commentaires internes non étayés"
 
 #: chars.strnotexecute
 msgctxt "chars.strnotexecute"
@@ -850,6 +854,11 @@ msgctxt "cluster.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Fichiers de données au format Nexus|*.nex"
 
+#: cluster.strnoinnercomments
+msgctxt "cluster.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Commentaires internes non étayés"
+
 #: cluster.strnotexecute
 msgctxt "cluster.strnotexecute"
 msgid "Couldn't start %s program."
@@ -1350,6 +1359,11 @@ msgctxt "kstates.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Fichiers de données au format Nexus|*.nex"
 
+#: kstates.strnoinnercomments
+msgctxt "kstates.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Commentaires internes non étayés"
+
 #: kstates.strnotexecute
 msgctxt "kstates.strnotexecute"
 msgid "Couldn't start %s program."
@@ -1701,13 +1715,11 @@ msgid "Error"
 msgstr "Erreur"
 
 #: main.strexists
-#, fuzzy,badformat
 msgctxt "main.strexists"
 msgid "File %s already exists. Overwrite?"
 msgstr "Le fichier % s existe déjà. Remplacer?"
 
 #: main.strexport
-#, fuzzy,badformat
 msgctxt "main.strexport"
 msgid "Data exported successfully to directory %s."
 msgstr "Les données ont été exportées avec succès vers le répertoire % s."
@@ -1851,6 +1863,11 @@ msgstr "Entrer le nom de la base de données:"
 msgctxt "main.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Fichiers de données au format Nexus|*.nex"
+
+#: main.strnoinnercomments
+msgctxt "main.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Commentaires internes non étayés"
 
 #: main.strnotexecute
 msgctxt "main.strnotexecute"
@@ -2352,6 +2369,11 @@ msgctxt "prepare.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Fichiers de données au format Nexus|*.nex"
 
+#: prepare.strnoinnercomments
+msgctxt "prepare.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Commentaires internes non étayés"
+
 #: prepare.strnotexecute
 msgctxt "prepare.strnotexecute"
 msgid "Couldn't start %s program."
@@ -2851,6 +2873,11 @@ msgstr "Taper le nom de la base de données:"
 msgctxt "script.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Fichiers de données au format Nexus|*.nex"
+
+#: script.strnoinnercomments
+msgctxt "script.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Commentaires internes non étayés"
 
 #: script.strnotexecute
 msgctxt "script.strnotexecute"
@@ -3587,14 +3614,6 @@ msgstr "Supprimer l'item"
 msgctxt "tmainform.editdeleteitem.hint"
 msgid "Delete selected item"
 msgstr "Supprimer l'item sélectionné"
-
-#: tmainform.editimagesitem.caption
-msgid "Images"
-msgstr "Images"
-
-#: tmainform.editimagesitem.hint
-msgid "Display images of characters or taxa"
-msgstr "Afficher des images de caractres ou de taxons"
 
 #: tmainform.editinsertcharacteritem.caption
 msgctxt "tmainform.editinsertcharacteritem.caption"
@@ -4604,6 +4623,11 @@ msgctxt "toint.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Fichiers de données au format Nexus|*.nex"
 
+#: toint.strnoinnercomments
+msgctxt "toint.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Commentaires internes non étayés"
+
 #: toint.strnotexecute
 msgctxt "toint.strnotexecute"
 msgid "Couldn't start %s program."
@@ -5103,6 +5127,11 @@ msgstr "Taper le nom de la base de données:"
 msgctxt "tokey.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Fichiers de données au format Nexus|*.nex"
+
+#: tokey.strnoinnercomments
+msgctxt "tokey.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Commentaires internes non étayés"
 
 #: tokey.strnotexecute
 msgctxt "tokey.strnotexecute"
@@ -5604,6 +5633,11 @@ msgctxt "tonat.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Fichiers de données au format Nexus|*.nex"
 
+#: tonat.strnoinnercomments
+msgctxt "tonat.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Commentaires internes non étayés"
+
 #: tonat.strnotexecute
 msgctxt "tonat.strnotexecute"
 msgid "Couldn't start %s program."
@@ -5900,7 +5934,7 @@ msgid "Omit Lower for Characters:"
 msgstr "Omettre 'inférieur' pour les caractères:"
 
 #: ttonatform.labelomitorforcharacters.caption
-msgid "Omit Or For Characters:"
+msgid "Omit Or for Characters:"
 msgstr "Omettre 'ou' pour les caractères:"
 
 #: ttonatform.labelomitperiodforcharacters.caption
@@ -6249,6 +6283,11 @@ msgctxt "viewer.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Fichiers de données au format Nexus|*.nex"
 
+#: viewer.strnoinnercomments
+msgctxt "viewer.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Commentaires internes non étayés"
+
 #: viewer.strnotexecute
 msgctxt "viewer.strnotexecute"
 msgid "Couldn't start %s program."
@@ -6433,4 +6472,3 @@ msgstr "Fichiers Excel 97-2003|*.xls"
 msgctxt "viewer.strxmlfilter"
 msgid "XML files|*.xml"
 msgstr "Fichiers XML|*.xml"
-

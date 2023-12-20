@@ -6,7 +6,7 @@
 {                                                                        }
 {                      Version 1.0, November 1994                        }
 {              Version 2.1, August 1996, Updated May 1998                }
-{    Version 3.3, June 2016, Updated July 2020, June 2021, November 2023 }
+{    Version 3.3, June 2016, Updated July 2020, June 2021, December 2023 }
 {                                                                        }
 {          Author: Mauro J. Cavalcanti, Rio de Janeiro, BRASIL           }
 {                    E-mail: <maurobio@gmail.com>                        }
@@ -127,6 +127,7 @@ procedure WriteDelta(Dataset: TDelta; const charsFile, itemsFile, specsFile: str
 
 { General-purpose routines }
 function GetSubHeadings(const specsFile: string): string;
+function GetDataBufferSize(const specsFile: string): integer;
 function ReadDirective(const specsFile, targetDirective: string;
   getValue: boolean = False): string;
 function RemoveComments(const S: string): string;
@@ -426,7 +427,8 @@ begin
           if (number > 0) then
           begin
             if (Pos('<<', Value) > 0) then
-              Value := ExtractDelimited(1, Value, ['<']);
+              //Value := ExtractDelimited(1, Value, ['<']);
+              Value := OmitInnerComments(Value);
             itemAttribute := Value;
             ItemList[itemCount - 1].itemAttributes.Insert(number -
               1, itemAttribute);
@@ -457,7 +459,7 @@ var
   infile: TextFile;
   Line, charName, stateName: string;
   charCount, RecNo: integer;
-  charsFound, isComment: boolean;
+  charsFound, isComment, stop: boolean;
   ch: char;
 
   procedure ExpandDataWhenNeeded(RecNo: integer);
@@ -471,6 +473,7 @@ var
   begin
     stateName := '';
     isComment := False;
+    stop := False;
     while not EoLn(infile) do
     begin
       repeat
@@ -512,9 +515,12 @@ var
           '<': isComment := True;
           '>': isComment := False;
         end;
+        if (ch = '/') and EoLn(infile) then
+          stop := True;
         if (ch <> '#') and (ch <> #13) and (ch <> #10) then
           stateName := Concat(stateName, ch);
-      until (((ch = '/') and not isComment) or EOF(infile));
+      until ((stop and not isComment) or EOF(infile));
+      //until (((ch = '/') and not isComment) or EOF(infile));
       //until (EoLn(infile) or EOF(infile));
       if Length(stateName) > 0 then
       begin
@@ -1057,8 +1063,8 @@ begin
   //  DataBufferSize := Size
   //else
   //  DataBufferSize := 2000;
-  if DataBufferSize = 0 then
-    DataBufferSize := 2000;
+  //if DataBufferSize = 0 then
+  //  DataBufferSize := 2000;
   WriteLn(Outfile, dataBufferSizeDirective, ' ', IntToStr(DataBufferSize));
   WriteLn(Outfile);
 
@@ -1171,7 +1177,7 @@ begin
       Buffer := Character.charNote;
       Inc(C);
       Write(Outfile, '#', IntToStr(I + 1), '.');
-      for J := 0 to L do
+      for J := 1 to L do
       begin
         Ch := Buffer[J];
         //if not (Ch in [#0, #13]) then
@@ -1201,8 +1207,9 @@ begin
   ExitCode := Dataset.ReadChars(charsFile);
   if (ExitCode < 0) then
     Result := nil;
-  Dataset.DataBufferSize := StrToIntDef(readDirective(specsFile,
-    dataBufferSizeDirective, True), 0);
+  //Dataset.DataBufferSize := StrToIntDef(readDirective(specsFile,
+  //  dataBufferSizeDirective, True), 0);
+  Dataset.DataBufferSize := GetDataBufferSize(specsFile);
   ExitCode := Dataset.ReadSpecs(specsFile, typeDirective);
   if (ExitCode < 0) then
     Result := nil;
@@ -1294,6 +1301,35 @@ begin
     Result := '';
   AList.Free;
 end;  { GetSubHeadings }
+
+{==========================================================================}
+{          Read a directive from a DELTA directives file                   }
+{==========================================================================}
+function GetDataBufferSize(const specsFile: string): integer;
+var
+  dirFile: TextFile;
+  txtLine: string;
+  Value: integer;
+
+begin
+  if not FileExists(specsFile) then
+  begin
+    Result := 0;
+    Exit;
+  end;
+  Value := 0;
+  AssignFile(dirFile, specsFile);
+  Reset(dirFile);
+  while not EOF(dirFile) do
+  begin
+    ReadLn(dirFile, txtLine);
+    if Pos(dataBufferSizeDirective, txtLine) > 0 then
+      Value := StrToIntDef(Trim(Copy(txtLine, Pos(dataBufferSizeDirective, txtLine) +
+        Length(dataBufferSizeDirective), Length(txtLine))), 2000);
+  end;
+  Result := Value;
+  CloseFile(dirFile);
+end;
 
 {==========================================================================}
 {          Read a directive from a DELTA directives file                   }

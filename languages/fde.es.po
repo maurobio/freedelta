@@ -345,6 +345,11 @@ msgctxt "chars.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Archivos de datos Nexus|*.nex"
 
+#: chars.strnoinnercomments
+msgctxt "chars.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Comentarios internos no admitidos"
+
 #: chars.strnotexecute
 msgctxt "chars.strnotexecute"
 msgid "Couldn't start %s program."
@@ -844,6 +849,11 @@ msgstr "Ingrese el título de la base de datos:"
 msgctxt "cluster.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Archivos de datos Nexus|*.nex"
+
+#: cluster.strnoinnercomments
+msgctxt "cluster.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Comentarios internos no admitidos"
 
 #: cluster.strnotexecute
 msgctxt "cluster.strnotexecute"
@@ -1345,6 +1355,11 @@ msgctxt "kstates.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Archivos de datos Nexus|*.nex"
 
+#: kstates.strnoinnercomments
+msgctxt "kstates.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Comentarios internos no admitidos"
+
 #: kstates.strnotexecute
 msgctxt "kstates.strnotexecute"
 msgid "Couldn't start %s program."
@@ -1844,6 +1859,11 @@ msgstr "Ingrese el título de la base de datos:"
 msgctxt "main.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Archivos de datos Nexus|*.nex"
+
+#: main.strnoinnercomments
+msgctxt "main.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Comentarios internos no admitidos"
 
 #: main.strnotexecute
 msgctxt "main.strnotexecute"
@@ -2345,6 +2365,11 @@ msgctxt "prepare.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Archivos de datos Nexus|*.nex"
 
+#: prepare.strnoinnercomments
+msgctxt "prepare.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Comentarios internos no admitidos"
+
 #: prepare.strnotexecute
 msgctxt "prepare.strnotexecute"
 msgid "Couldn't start %s program."
@@ -2844,6 +2869,11 @@ msgstr "Ingrese el título de la base de datos:"
 msgctxt "script.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Archivos de datos Nexus|*.nex"
+
+#: script.strnoinnercomments
+msgctxt "script.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Comentarios internos no admitidos"
 
 #: script.strnotexecute
 msgctxt "script.strnotexecute"
@@ -3580,14 +3610,6 @@ msgstr "Eliminar Item"
 msgctxt "tmainform.editdeleteitem.hint"
 msgid "Delete selected item"
 msgstr "Eliminar item seleccionado"
-
-#: tmainform.editimagesitem.caption
-msgid "Images"
-msgstr "Imágenes"
-
-#: tmainform.editimagesitem.hint
-msgid "Display images of characters or taxa"
-msgstr "Mostrar imágenes de caracteres o taxones."
 
 #: tmainform.editinsertcharacteritem.caption
 msgctxt "tmainform.editinsertcharacteritem.caption"
@@ -4597,6 +4619,11 @@ msgctxt "toint.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Archivos de datos Nexus|*.nex"
 
+#: toint.strnoinnercomments
+msgctxt "toint.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Comentarios internos no admitidos"
+
 #: toint.strnotexecute
 msgctxt "toint.strnotexecute"
 msgid "Couldn't start %s program."
@@ -5096,6 +5123,11 @@ msgstr "Ingrese el título de la base de datos:"
 msgctxt "tokey.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Archivos de datos Nexus|*.nex"
+
+#: tokey.strnoinnercomments
+msgctxt "tokey.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Comentarios internos no admitidos"
 
 #: tokey.strnotexecute
 msgctxt "tokey.strnotexecute"
@@ -5597,6 +5629,11 @@ msgctxt "tonat.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Archivos de datos Nexus|*.nex"
 
+#: tonat.strnoinnercomments
+msgctxt "tonat.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Comentarios internos no admitidos"
+
 #: tonat.strnotexecute
 msgctxt "tonat.strnotexecute"
 msgid "Couldn't start %s program."
@@ -5893,7 +5930,7 @@ msgid "Omit Lower for Characters:"
 msgstr "Omitir Inferior para Caracteres:"
 
 #: ttonatform.labelomitorforcharacters.caption
-msgid "Omit Or For Characters:"
+msgid "Omit Or for Characters:"
 msgstr "Omitir O para Caracteres:"
 
 #: ttonatform.labelomitperiodforcharacters.caption
@@ -6241,6 +6278,11 @@ msgstr "Ingrese el título de la base de datos:"
 msgctxt "viewer.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Archivos de datos Nexus|*.nex"
+
+#: viewer.strnoinnercomments
+msgctxt "viewer.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Comentarios internos no admitidos"
 
 #: viewer.strnotexecute
 msgctxt "viewer.strnotexecute"

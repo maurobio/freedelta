@@ -442,6 +442,33 @@
 {                                 - Changed call to the IntKey program to the   }
 {                                   version provided with the Open DELTA suite  }
 {                                 - Removed the Images option from the Edit menu}
+{ Version 3.30, 20 Dec, 2023      - Added automatic removal of inner comments   }
+{                                   when reading and/or importing DELTA ITEMS   }
+{                                   files.                                      }
+{                                 - Added a check to prevent the input of       }
+{                                   unsupported inner comments in the attribute }
+{                                   editor.                                     }
+{                                 - Added a check to detect missing opening     }
+{                                   or closing angle brackets in the attribute  }
+{                                   editor.                                     }
+{                                 - Changed the Save toolbat button to appear   }
+{                                   enabled when a dataset is modified, and     }
+{                                   disabled when a dataset is saved.           }
+{                                 - Fixed a bug with sometimes caused the symbol}
+{                                   '/' to be wrongly interpreted as a delimiter}
+{                                   when appearing in the middle of names of    }
+{                                   character states.                           }
+{                                 - Fixed a bug which prevented the correct     }
+{                                   export of the CNOTES file when exporting    }
+{                                   data in DELTA format.                       }
+{                                 - Fixed a bug which caused the value of the   }
+{                                   *DATA BUFFER SIZE directive not being       }
+{                                   retained when exporting data in DELTA format}
+{                                 - Fixed a bug which caused the directive      }
+{                                   *OMIT TYPESETTING MARKS not being written to}
+{                                   the TONAT output file.                      }
+{                                 - Fixed a big which sometimes caused an error }
+{                                   when deleting character states.             }
 {===============================================================================}
 unit Main;
 
@@ -607,6 +634,7 @@ type
     S6: TToolButton;
     UncodedBtn: TToolButton;
     procedure AttrEditorEditingDone(Sender: TObject);
+    procedure AttrEditorExit(Sender: TObject);
     procedure AttrEditorKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure CharacterTreeViewDblClick(Sender: TObject);
     procedure CharacterTreeViewKeyDown(Sender: TObject; var Key: word;
@@ -755,6 +783,7 @@ function ExistWordInString(const AString: PChar; const ASearchString: string;
 procedure Join(const Values: TStrings; var S: string; const sep: string);
 procedure Split(const Values: TStrings; const S: string; const Delimiters: TSysCharSet);
 procedure SplitString(Delimiter: char; Str: string; ListOfStrings: TStrings);
+procedure CreateBackup(Filename: string);
 
 implementation
 
@@ -895,6 +924,28 @@ begin
   ListOfStrings.Delimiter := Delimiter;
   ListOfStrings.StrictDelimiter := True;
   ListOfStrings.DelimitedText := Str;
+end;
+
+procedure CleanData(const filename: string);
+var
+  infile, outfile: TextFile;
+  S: string;
+begin
+  if not FileExists(filename) then
+    Exit;
+  CreateBackup(filename);
+  AssignFile(outfile, filename);
+  Rewrite(outfile);
+  AssignFile(infile, Concat(filename, '.bak'));
+  Reset(infile);
+  while not EOF(infile) do
+  begin
+    ReadLn(infile, S);
+    S := OmitInnerComments(S);
+    WriteLn(outfile, S);
+  end;
+  CloseFile(infile);
+  CloseFile(outfile);
 end;
 
 procedure CreateBackup(Filename: string);
@@ -1614,7 +1665,7 @@ begin
   MatrixClusterItem.Enabled := FileIsOpen and hasDistance;
   MatrixOrdinationItem.Enabled := FileIsOpen and hasDistance;
   MatrixParsimonyItem.Enabled := FileIsOpen;
-  SaveBtn.Enabled := FileIsOpen;
+  SaveBtn.Enabled := FileIsOpen and FileIsChanged; //and (not FileIsSaved);
   FindBtn.Enabled := FileIsOpen;
   ScriptBtn.Enabled := FileIsOpen;
   TonatBtn.Enabled := FileIsOpen;
@@ -1807,7 +1858,12 @@ begin
     begin
       Character := CharacterTreeView.Items.Add(nil, IntToStr(J + 1) +
         '. ' + Dataset.CharacterList[J].charName);
+      //try
       Attribute := Dataset.ItemList[SelectedIndex].itemAttributes[J];
+      //except
+      //  on E: Exception do
+      //     Attribute := '';
+      //end;
       if (Dataset.CharacterList[J].charType = 'UM') or
         (Dataset.CharacterList[J].charType = 'OM') then
       begin
@@ -2015,6 +2071,7 @@ begin
     SaveFile(SaveDialog.FileName);
     UpdateTitleBar(SaveDialog.FileName);
   end;
+  if SaveBtn.Enabled = True then SaveBtn.Enabled := False;;
 end;
 
 procedure TMainForm.FindDialogFind(Sender: TObject);
@@ -2219,6 +2276,10 @@ begin
       if SaveDialog.Execute then
       begin
         Screen.Cursor := crHourGlass;
+        CleanData('chars');
+        CleanData('items');
+        if FileExists('cnotes') then
+          CleanData('cnotes');
         Zipper := TZipper.Create;
         Zipper.FileName := SaveDialog.FileName;
         try
@@ -2521,6 +2582,7 @@ begin
       if RunCommand(KeyPath, ['key'], S, [poNoConsole]) then
       begin
         FileIsChanged := True;
+        SaveBtn.Enabled := True;
         Screen.Cursor := crDefault;
         with ViewerForm do
         begin
@@ -2686,6 +2748,7 @@ begin
       if not RunCommand(IntKeyPath, ['intkey.ink'], s, [poNoConsole]) then
       begin
         FileIsChanged := True;
+        SaveBtn.Enabled := True;
         Screen.Cursor := crDefault;
         MessageDlg(strError, Format(strNotExecute, ['DELTA INTKEY']),
           mtError, [mbOK], 0);
@@ -2902,6 +2965,7 @@ begin
       if RunCommand(DistPath, ['dist'], S, [poNoConsole]) then
       begin
         FileIsChanged := True;
+        SaveBtn.Enabled := True;
         Screen.Cursor := crDefault;
         hasDistance := True;
         UpdateMenuItems(self);
@@ -3074,6 +3138,7 @@ begin
     if RunCommand(ConforPath, ['tohen'], S, [poNoConsole]) then
     begin
       FileIsChanged := True;
+      SaveBtn.Enabled := True;
       ToNex(Datafile);
       Datafile := Concat(GetFileNameWithoutExt(Datafile), '.nex');
       MessageDlg(strInformation, Format(strExportFile, [ExpandFileName(Datafile)]),
@@ -3173,6 +3238,7 @@ begin
     if RunCommand(ConforPath, ['tohen'], S, [poNoConsole]) then
     begin
       FileIsChanged := True;
+      SaveBtn.Enabled := True;
       MessageDlg(strInformation, Format(strExportFile, [ExpandFileName(Datafile)]),
         mtInformation, [mbOK], 0);
       AProcess := TProcess.Create(nil);
@@ -3240,6 +3306,7 @@ begin
   end;
   LoadMatrix;
   FileIsChanged := True;
+  SaveBtn.Enabled := True;
   UpdateTitleBar(OpenDialog.FileName);
 end;
 
@@ -3271,6 +3338,7 @@ begin
   end;
   LoadMatrix;
   FileIsChanged := True;
+  SaveBtn.Enabled := True;
   UpdateTitleBar(OpenDialog.FileName);
 end;
 
@@ -3297,6 +3365,7 @@ begin
   end;
   LoadMatrix;
   FileIsChanged := True;
+  SaveBtn.Enabled := True;
   UpdateTitleBar(OpenDialog.FileName);
 end;
 
@@ -3323,6 +3392,7 @@ begin
   end;
   LoadMatrix;
   FileIsChanged := True;
+  SaveBtn.Enabled := True;
   UpdateTitleBar(OpenDialog.FileName);
 end;
 
@@ -3373,6 +3443,7 @@ begin
   if RunCommand(ConforPath, ['summary'], S, [poNoConsole]) then
   begin
     FileIsChanged := True;
+    SaveBtn.Enabled := True;
     Screen.Cursor := crDefault;
     with ViewerForm do
     begin
@@ -3539,11 +3610,11 @@ begin
       1: Extension := 'htm';
       2: Extension := 'rtf';
     end;
-    if OmitTypesettingMarks then
-      OmitTypesettingMarks := False
-    else
-    if not OmitTypesettingMarks then
-      OmitTypeSettingMarks := True;
+    //if OmitTypesettingMarks then
+    //  OmitTypesettingMarks := False
+    //else
+    //if not OmitTypesettingMarks then
+    //  OmitTypeSettingMarks := True;
     CreateTONAT('tonat', Dataset.Heading, ReplaceAngleBrackets,
       OmitCharacterNumbers,
       OmitInapplicables, OmitComments, OmitInnerComments, OmitFinalComma,
@@ -3563,6 +3634,7 @@ begin
     if RunCommand(ConforPath, ['tonat'], S, [poNoConsole]) then
     begin
       FileIsChanged := True;
+      SaveBtn.Enabled := True;
       Screen.Cursor := crDefault;
       with ViewerForm do
       begin
@@ -3627,6 +3699,7 @@ begin
   if RunCommand(ConforPath, ['uncoded'], S, [poNoConsole]) then
   begin
     FileIsChanged := True;
+    SaveBtn.Enabled := True;
     Screen.Cursor := crDefault;
     with ViewerForm do
     begin
@@ -3843,6 +3916,7 @@ begin
     Capitalize(strCharacters) + ' (' + IntToStr(Length(Dataset.CharacterList)) + ')';
   FileIsOpen := True;
   FileIsChanged := True;
+  SaveBtn.Enabled := True;
   FileIsSaved := False;
   UpdateMenuItems(Self);
   UpdateStatusBar(Self);
@@ -3877,6 +3951,7 @@ begin
   begin
     Dataset.Heading := title;
     FileIsChanged := True;
+    SaveBtn.Enabled := True;
     UpdateTitleBar(OpenDialog.FileName);
   end;
 end;
@@ -3943,6 +4018,37 @@ begin
     CharacterTreeView.Select(Node);
   CharacterTreeView.SetFocus;
   FileIsChanged := True;
+  SaveBtn.Enabled := True;
+end;
+
+procedure TMainForm.AttrEditorExit(Sender: TObject);
+var
+  J: integer;
+begin
+  if Pos('<<', AttrEditor.Lines.Text) > 0 then
+  begin
+    MessageDlg(strInformation, strNoInnerComments, mtInformation, [mbOK], 0);
+    Exit;
+  end;
+  J := CharacterTreeView.Selected.Index;
+  if J < 0 then
+    Exit;
+  if Dataset.CharacterList[J].charType = 'TE' then
+  begin
+    if AttrEditor.Lines.Text <> 'U' then
+    begin
+      if not AnsiStartsStr('<', AttrEditor.Lines.Text) then
+      begin
+        MessageDlg(strInformation, strMissingBrackets, mtInformation, [mbOK], 0);
+        Exit;
+      end;
+      if not AnsiEndsStr('>', AttrEditor.Lines.Text) then
+      begin
+        MessageDlg(strInformation, strMissingBrackets, mtInformation, [mbOK], 0);
+        Exit;
+      end;
+    end;
+  end;
 end;
 
 procedure TMainForm.AttrEditorKeyDown(Sender: TObject; var Key: word;
@@ -4481,6 +4587,7 @@ begin
           DataMatrix.Cells[charCount + 1, J] := 'U';
         DataMatrix.Refresh;
         FileIsChanged := True;
+        SaveBtn.Enabled := True;
         UpdateMenuItems(Self);
         UpdateStatusBar(Self);
         UpdateTitleBar(OpenDialog.FileName);
@@ -4532,6 +4639,7 @@ begin
     DataMatrix.Refresh;
     LoadCharacterList;
     FileIsChanged := True;
+    SaveBtn.Enabled := True;
     ItemListView.Selected := ItemListView.Items[ItemCount];
     if PageControl.TabIndex = 0 then
       ItemListView.SetFocus;
@@ -4649,6 +4757,7 @@ begin
         DataMatrix.Cells[CharIndex, 0] := CharName;
         DataMatrix.Refresh;
         FileIsChanged := True;
+        SaveBtn.Enabled := True;
         UpdateMenuItems(Self);
         UpdateTitleBar(OpenDialog.FileName);
       end;
@@ -4689,6 +4798,7 @@ begin
       DataMatrix.Cells[0, ItemIndex] := ItemName + ' ' + ItemComment;
       DataMatrix.Refresh;
       FileIsChanged := True;
+      SaveBtn.Enabled := True;
       UpdateTitleBar(OpenDialog.FileName);
       ItemListView.ItemIndex := ItemIndex;
       ItemListView.Selected;
@@ -4750,6 +4860,7 @@ begin
       LoadMatrix;
       LoadCharacterList;
       FileIsChanged := True;
+      SaveBtn.Enabled := True;
       UpdateTitleBar(OpenDialog.FileName);
     end;
   end;
@@ -4772,6 +4883,7 @@ begin
   DataMatrix.DeleteCol(CharIndex + 1);
   DataMatrix.Refresh;
   FileIsChanged := True;
+  SaveBtn.Enabled := True;
   UpdateMenuItems(Self);
   UpdateStatusBar(Self);
   UpdateTitleBar(OpenDialog.FileName);
@@ -4791,6 +4903,7 @@ begin
     DataMatrix.Refresh;
     LoadCharacterList;
     FileIsChanged := True;
+    SaveBtn.Enabled := True;
     UpdateMenuItems(Self);
     UpdateStatusBar(Self);
     UpdateTitleBar(OpenDialog.FileName);
@@ -4887,6 +5000,7 @@ begin
         LoadCharacterList;
         LoadMatrix;
         FileIsChanged := True;
+        SaveBtn.Enabled := True;
         UpdateTitleBar(OpenDialog.FileName);
       end;
     end;
@@ -4930,6 +5044,7 @@ begin
         LoadMatrix;
         LoadCharacterList(Sel.Index);
         FileIsChanged := True;
+        SaveBtn.Enabled := True;
         UpdateTitleBar(OpenDialog.FileName);
         ItemListView.Selected := ItemListView.Items[Sel.Index];
       end;
@@ -5005,6 +5120,7 @@ begin
       CharacterTreeView.SetFocus;
     ChDir(CurDir);
     FileIsChanged := True;
+    SaveBtn.Enabled := True;
     UpdateTitleBar(OpenDialog.FileName);
     ADataset.Free;
     DeleteFile('chars_new');

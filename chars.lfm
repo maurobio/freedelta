@@ -155,9 +155,9 @@ object CharacterForm: TCharacterForm
     Height = 407
     Top = 17
     Width = 336
-    ActivePage = TabSheetDepend
+    ActivePage = TabSheetCharacter
     ParentShowHint = False
-    TabIndex = 2
+    TabIndex = 0
     TabOrder = 0
     object TabSheetCharacter: TTabSheet
       Caption = 'Character'

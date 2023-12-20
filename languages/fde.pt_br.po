@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Free Delta Editor\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-10-26 09:00-0300\n"
+"PO-Revision-Date: 2023-12-19 08:21-0300\n"
 "Last-Translator: Mauro J. Cavalcanti <maurobio@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -347,6 +347,11 @@ msgstr "Entre o cabeçalho dos dados:"
 msgctxt "chars.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Arquivos de dados Nexus|*.nex"
+
+#: chars.strnoinnercomments
+msgctxt "chars.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Comentários internos não suportados"
 
 #: chars.strnotexecute
 msgctxt "chars.strnotexecute"
@@ -848,6 +853,11 @@ msgctxt "cluster.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Arquivos de dados Nexus|*.nex"
 
+#: cluster.strnoinnercomments
+msgctxt "cluster.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Comentários internos não suportados"
+
 #: cluster.strnotexecute
 msgctxt "cluster.strnotexecute"
 msgid "Couldn't start %s program."
@@ -1347,6 +1357,11 @@ msgstr "Entre o cabeçalho dos dados:"
 msgctxt "kstates.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Arquivos de dados Nexus|*.nex"
+
+#: kstates.strnoinnercomments
+msgctxt "kstates.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Comentários internos não suportados"
 
 #: kstates.strnotexecute
 msgctxt "kstates.strnotexecute"
@@ -1848,6 +1863,11 @@ msgctxt "main.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Arquivos de dados Nexus|*.nex"
 
+#: main.strnoinnercomments
+msgctxt "main.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Comentários internos não suportados"
+
 #: main.strnotexecute
 msgctxt "main.strnotexecute"
 msgid "Couldn't start %s program."
@@ -2348,6 +2368,11 @@ msgctxt "prepare.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Arquivos de dados Nexus|*.nex"
 
+#: prepare.strnoinnercomments
+msgctxt "prepare.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Comentários internos não suportados"
+
 #: prepare.strnotexecute
 msgctxt "prepare.strnotexecute"
 msgid "Couldn't start %s program."
@@ -2847,6 +2872,11 @@ msgstr "Entre o cabeçalho dos dados:"
 msgctxt "script.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Arquivos de dados Nexus|*.nex"
+
+#: script.strnoinnercomments
+msgctxt "script.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Comentários internos não suportados"
 
 #: script.strnotexecute
 msgctxt "script.strnotexecute"
@@ -3583,14 +3613,6 @@ msgstr "Excluir Item"
 msgctxt "tmainform.editdeleteitem.hint"
 msgid "Delete selected item"
 msgstr "Excluir item existente"
-
-#: tmainform.editimagesitem.caption
-msgid "Images"
-msgstr "Imagens"
-
-#: tmainform.editimagesitem.hint
-msgid "Display images of characters or taxa"
-msgstr "Exibir imagens de caracteres ou táxons"
 
 #: tmainform.editinsertcharacteritem.caption
 msgctxt "tmainform.editinsertcharacteritem.caption"
@@ -4600,6 +4622,11 @@ msgctxt "toint.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Arquivos de dados Nexus|*.nex"
 
+#: toint.strnoinnercomments
+msgctxt "toint.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Comentários internos não suportados"
+
 #: toint.strnotexecute
 msgctxt "toint.strnotexecute"
 msgid "Couldn't start %s program."
@@ -5099,6 +5126,11 @@ msgstr "Entre o cabeçalho dos dados:"
 msgctxt "tokey.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Arquivos de dados Nexus|*.nex"
+
+#: tokey.strnoinnercomments
+msgctxt "tokey.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Comentários internos não suportados"
 
 #: tokey.strnotexecute
 msgctxt "tokey.strnotexecute"
@@ -5600,6 +5632,11 @@ msgctxt "tonat.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Arquivos de dados Nexus|*.nex"
 
+#: tonat.strnoinnercomments
+msgctxt "tonat.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Comentários internos não suportados"
+
 #: tonat.strnotexecute
 msgctxt "tonat.strnotexecute"
 msgid "Couldn't start %s program."
@@ -5896,7 +5933,7 @@ msgid "Omit Lower for Characters:"
 msgstr "Omitir Valores Inferiores para Caracteres:"
 
 #: ttonatform.labelomitorforcharacters.caption
-msgid "Omit Or For Characters:"
+msgid "Omit Or for Characters:"
 msgstr "Omitir Ou para Caracteres:"
 
 #: ttonatform.labelomitperiodforcharacters.caption
@@ -6244,6 +6281,11 @@ msgstr "Entre o cabeçalho dos dados:"
 msgctxt "viewer.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr "Arquivos de dados Nexus|*.nex"
+
+#: viewer.strnoinnercomments
+msgctxt "viewer.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Comentários internos não suportados"
 
 #: viewer.strnotexecute
 msgctxt "viewer.strnotexecute"

@@ -259,6 +259,7 @@ object MainForm: TMainForm
           Align = alRight
           Anchors = [akTop, akLeft, akRight, akBottom]
           OnEditingDone = AttrEditorEditingDone
+          OnExit = AttrEditorExit
           OnKeyDown = AttrEditorKeyDown
           ScrollBars = ssAutoVertical
           TabOrder = 0

@@ -104,5 +104,6 @@ resourcestring
   strGotoLineCaption = 'Enter item/character number:';
   strInvalidSymbol = 'Invalid symbol (''/'') in character or state name';
   strMissingBrackets = 'Missing opening or closing angle brackets (''<>'')';
+  strNoInnerComments = 'Unsupported inner comments';
   strText = 'Text';
 

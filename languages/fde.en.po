@@ -347,6 +347,11 @@ msgctxt "chars.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr ""
 
+#: chars.strnoinnercomments
+msgctxt "chars.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr ""
+
 #: chars.strnotexecute
 msgctxt "chars.strnotexecute"
 msgid "Couldn't start %s program."
@@ -848,6 +853,11 @@ msgstr "Enter database title:"
 #: cluster.strnexusfilter
 msgctxt "cluster.strnexusfilter"
 msgid "Nexus data files|*.nex"
+msgstr ""
+
+#: cluster.strnoinnercomments
+msgctxt "cluster.strnoinnercomments"
+msgid "Unsupported inner comments"
 msgstr ""
 
 #: cluster.strnotexecute
@@ -1393,6 +1403,11 @@ msgctxt "kstates.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr ""
 
+#: kstates.strnoinnercomments
+msgctxt "kstates.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr ""
+
 #: kstates.strnotexecute
 #, fuzzy
 msgctxt "kstates.strnotexecute"
@@ -1916,6 +1931,11 @@ msgctxt "main.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr ""
 
+#: main.strnoinnercomments
+msgctxt "main.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr ""
+
 #: main.strnotexecute
 msgctxt "main.strnotexecute"
 msgid "Couldn't start %s program."
@@ -2419,6 +2439,11 @@ msgstr "Enter database title:"
 #: prepare.strnexusfilter
 msgctxt "prepare.strnexusfilter"
 msgid "Nexus data files|*.nex"
+msgstr ""
+
+#: prepare.strnoinnercomments
+msgctxt "prepare.strnoinnercomments"
+msgid "Unsupported inner comments"
 msgstr ""
 
 #: prepare.strnotexecute
@@ -2962,6 +2987,11 @@ msgstr "Enter database title:"
 #: script.strnexusfilter
 msgctxt "script.strnexusfilter"
 msgid "Nexus data files|*.nex"
+msgstr ""
+
+#: script.strnoinnercomments
+msgctxt "script.strnoinnercomments"
+msgid "Unsupported inner comments"
 msgstr ""
 
 #: script.strnotexecute
@@ -3755,14 +3785,6 @@ msgstr "Delete Item"
 msgctxt "tmainform.editdeleteitem.hint"
 msgid "Delete selected item"
 msgstr "Delete existing item"
-
-#: tmainform.editimagesitem.caption
-msgid "Images"
-msgstr ""
-
-#: tmainform.editimagesitem.hint
-msgid "Display images of characters or taxa"
-msgstr ""
 
 #: tmainform.editinsertcharacteritem.caption
 msgctxt "tmainform.editinsertcharacteritem.caption"
@@ -4850,6 +4872,11 @@ msgctxt "toint.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr ""
 
+#: toint.strnoinnercomments
+msgctxt "toint.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr ""
+
 #: toint.strnotexecute
 #, fuzzy
 msgctxt "toint.strnotexecute"
@@ -5408,6 +5435,11 @@ msgstr "Enter database title:"
 #: tokey.strnexusfilter
 msgctxt "tokey.strnexusfilter"
 msgid "Nexus data files|*.nex"
+msgstr ""
+
+#: tokey.strnoinnercomments
+msgctxt "tokey.strnoinnercomments"
+msgid "Unsupported inner comments"
 msgstr ""
 
 #: tokey.strnotexecute
@@ -5969,6 +6001,11 @@ msgstr "Enter database title:"
 #: tonat.strnexusfilter
 msgctxt "tonat.strnexusfilter"
 msgid "Nexus data files|*.nex"
+msgstr ""
+
+#: tonat.strnoinnercomments
+msgctxt "tonat.strnoinnercomments"
+msgid "Unsupported inner comments"
 msgstr ""
 
 #: tonat.strnotexecute
@@ -6635,6 +6672,11 @@ msgstr "Enter database title:"
 #: viewer.strnexusfilter
 msgctxt "viewer.strnexusfilter"
 msgid "Nexus data files|*.nex"
+msgstr ""
+
+#: viewer.strnoinnercomments
+msgctxt "viewer.strnoinnercomments"
+msgid "Unsupported inner comments"
 msgstr ""
 
 #: viewer.strnotexecute

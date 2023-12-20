@@ -335,6 +335,11 @@ msgctxt "chars.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr ""
 
+#: chars.strnoinnercomments
+msgctxt "chars.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr ""
+
 #: chars.strnotexecute
 msgctxt "chars.strnotexecute"
 msgid "Couldn't start %s program."
@@ -833,6 +838,11 @@ msgstr ""
 #: cluster.strnexusfilter
 msgctxt "cluster.strnexusfilter"
 msgid "Nexus data files|*.nex"
+msgstr ""
+
+#: cluster.strnoinnercomments
+msgctxt "cluster.strnoinnercomments"
+msgid "Unsupported inner comments"
 msgstr ""
 
 #: cluster.strnotexecute
@@ -1335,6 +1345,11 @@ msgctxt "kstates.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr ""
 
+#: kstates.strnoinnercomments
+msgctxt "kstates.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr ""
+
 #: kstates.strnotexecute
 msgctxt "kstates.strnotexecute"
 msgid "Couldn't start %s program."
@@ -1833,6 +1848,11 @@ msgstr ""
 #: main.strnexusfilter
 msgctxt "main.strnexusfilter"
 msgid "Nexus data files|*.nex"
+msgstr ""
+
+#: main.strnoinnercomments
+msgctxt "main.strnoinnercomments"
+msgid "Unsupported inner comments"
 msgstr ""
 
 #: main.strnotexecute
@@ -2335,6 +2355,11 @@ msgctxt "prepare.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr ""
 
+#: prepare.strnoinnercomments
+msgctxt "prepare.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr ""
+
 #: prepare.strnotexecute
 msgctxt "prepare.strnotexecute"
 msgid "Couldn't start %s program."
@@ -2833,6 +2858,11 @@ msgstr ""
 #: script.strnexusfilter
 msgctxt "script.strnexusfilter"
 msgid "Nexus data files|*.nex"
+msgstr ""
+
+#: script.strnoinnercomments
+msgctxt "script.strnoinnercomments"
+msgid "Unsupported inner comments"
 msgstr ""
 
 #: script.strnotexecute
@@ -3569,14 +3599,6 @@ msgstr ""
 #: tmainform.editdeleteitem.hint
 msgctxt "tmainform.editdeleteitem.hint"
 msgid "Delete selected item"
-msgstr ""
-
-#: tmainform.editimagesitem.caption
-msgid "Images"
-msgstr ""
-
-#: tmainform.editimagesitem.hint
-msgid "Display images of characters or taxa"
 msgstr ""
 
 #: tmainform.editinsertcharacteritem.caption
@@ -4587,6 +4609,11 @@ msgctxt "toint.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr ""
 
+#: toint.strnoinnercomments
+msgctxt "toint.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr ""
+
 #: toint.strnotexecute
 msgctxt "toint.strnotexecute"
 msgid "Couldn't start %s program."
@@ -5085,6 +5112,11 @@ msgstr ""
 #: tokey.strnexusfilter
 msgctxt "tokey.strnexusfilter"
 msgid "Nexus data files|*.nex"
+msgstr ""
+
+#: tokey.strnoinnercomments
+msgctxt "tokey.strnoinnercomments"
+msgid "Unsupported inner comments"
 msgstr ""
 
 #: tokey.strnotexecute
@@ -5587,6 +5619,11 @@ msgctxt "tonat.strnexusfilter"
 msgid "Nexus data files|*.nex"
 msgstr ""
 
+#: tonat.strnoinnercomments
+msgctxt "tonat.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr ""
+
 #: tonat.strnotexecute
 msgctxt "tonat.strnotexecute"
 msgid "Couldn't start %s program."
@@ -5883,7 +5920,7 @@ msgid "Omit Lower for Characters:"
 msgstr ""
 
 #: ttonatform.labelomitorforcharacters.caption
-msgid "Omit Or For Characters:"
+msgid "Omit Or for Characters:"
 msgstr ""
 
 #: ttonatform.labelomitperiodforcharacters.caption
@@ -6230,6 +6267,11 @@ msgstr ""
 #: viewer.strnexusfilter
 msgctxt "viewer.strnexusfilter"
 msgid "Nexus data files|*.nex"
+msgstr ""
+
+#: viewer.strnoinnercomments
+msgctxt "viewer.strnoinnercomments"
+msgid "Unsupported inner comments"
 msgstr ""
 
 #: viewer.strnotexecute
