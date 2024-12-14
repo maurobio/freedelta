@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Free Delta Editor\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-12-19 08:21-0300\n"
+"PO-Revision-Date: 2024-12-11 18:01-0300\n"
 "Last-Translator: Mauro J. Cavalcanti <maurobio@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -528,6 +528,11 @@ msgctxt "chars.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Ligação ponderada (WPGMA)"
 
+#: chars.strwriteerror
+msgctxt "chars.strwriteerror"
+msgid "Error writing file %s."
+msgstr "Erro ao gravar arquivo %s."
+
 #: chars.strxlsfilter
 msgctxt "chars.strxlsfilter"
 msgid "Excel 97-2003 files|*.xls"
@@ -1032,6 +1037,11 @@ msgstr "Esta opção está disponível apenas sob MS-Windows."
 msgctxt "cluster.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Ligação ponderada (WPGMA)"
+
+#: cluster.strwriteerror
+msgctxt "cluster.strwriteerror"
+msgid "Error writing file %s."
+msgstr "Erro ao gravar arquivo %s."
 
 #: cluster.strxlsfilter
 msgctxt "cluster.strxlsfilter"
@@ -1538,6 +1548,11 @@ msgctxt "kstates.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Ligação ponderada (WPGMA)"
 
+#: kstates.strwriteerror
+msgctxt "kstates.strwriteerror"
+msgid "Error writing file %s."
+msgstr "Erro ao gravar arquivo %s."
+
 #: kstates.strxlsfilter
 msgctxt "kstates.strxlsfilter"
 msgid "Excel 97-2003 files|*.xls"
@@ -2042,6 +2057,11 @@ msgstr "Esta opção está disponível apenas sob MS-Windows."
 msgctxt "main.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Ligação ponderada (WPGMA)"
+
+#: main.strwriteerror
+msgctxt "main.strwriteerror"
+msgid "Error writing file %s."
+msgstr "Erro ao gravar arquivo %s."
 
 #: main.strxlsfilter
 msgctxt "main.strxlsfilter"
@@ -2548,6 +2568,11 @@ msgctxt "prepare.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Ligação ponderada (WPGMA)"
 
+#: prepare.strwriteerror
+msgctxt "prepare.strwriteerror"
+msgid "Error writing file %s."
+msgstr "Erro ao gravar arquivo %s."
+
 #: prepare.strxlsfilter
 msgctxt "prepare.strxlsfilter"
 msgid "Excel 97-2003 files|*.xls"
@@ -3053,6 +3078,11 @@ msgctxt "script.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Ligação ponderada (WPGMA)"
 
+#: script.strwriteerror
+msgctxt "script.strwriteerror"
+msgid "Error writing file %s."
+msgstr "Erro ao gravar arquivo %s."
+
 #: script.strxlsfilter
 msgctxt "script.strxlsfilter"
 msgid "Excel 97-2003 files|*.xls"
@@ -3077,8 +3107,8 @@ msgid "Compiler:"
 msgstr "Compilador:"
 
 #: taboutbox.copyright.caption
-msgid "Copyright © 2000-2023 Mauro J. Cavalcanti"
-msgstr "Copyright © 2000-2023 Mauro J. Cavalcanti"
+msgid "Copyright © 2000-2024 Mauro J. Cavalcanti"
+msgstr "Copyright © 2000-2024 Mauro J. Cavalcanti"
 
 #: taboutbox.ide.caption
 msgid "IDE:"
@@ -3701,9 +3731,21 @@ msgstr "DELTA..."
 msgid "Save data in DELTA format"
 msgstr "Salvar dados no formato DELTA"
 
+#: tmainform.exportsliksitem.caption
+msgid "SLIKS"
+msgstr "SLIKS"
+
+#: tmainform.exportsliksitem.hint
+msgid "Save data in SLIKS format"
+msgstr "Salvar dados no formato SLIKS"
+
 #: tmainform.exportspreadsheetitem.caption
 msgid "Spreadsheet..."
 msgstr "Planilha..."
+
+#: tmainform.exportspreadsheetitem.hint
+msgid "Save data in Excel format"
+msgstr ""
 
 #: tmainform.exporttextitem.caption
 msgctxt "tmainform.exporttextitem.caption"
@@ -4802,6 +4844,11 @@ msgctxt "toint.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Ligação ponderada (WPGMA)"
 
+#: toint.strwriteerror
+msgctxt "toint.strwriteerror"
+msgid "Error writing file %s."
+msgstr "Erro ao gravar arquivo %s."
+
 #: toint.strxlsfilter
 msgctxt "toint.strxlsfilter"
 msgid "Excel 97-2003 files|*.xls"
@@ -5307,6 +5354,11 @@ msgctxt "tokey.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Ligação ponderada (WPGMA)"
 
+#: tokey.strwriteerror
+msgctxt "tokey.strwriteerror"
+msgid "Error writing file %s."
+msgstr "Erro ao gravar arquivo %s."
+
 #: tokey.strxlsfilter
 msgctxt "tokey.strxlsfilter"
 msgid "Excel 97-2003 files|*.xls"
@@ -5811,6 +5863,11 @@ msgstr "Esta opção está disponível apenas sob MS-Windows."
 msgctxt "tonat.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Ligação ponderada (WPGMA)"
+
+#: tonat.strwriteerror
+msgctxt "tonat.strwriteerror"
+msgid "Error writing file %s."
+msgstr "Erro ao gravar arquivo %s."
 
 #: tonat.strxlsfilter
 msgctxt "tonat.strxlsfilter"
@@ -6461,6 +6518,11 @@ msgstr "Esta opção está disponível apenas sob MS-Windows."
 msgctxt "viewer.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Ligação ponderada (WPGMA)"
+
+#: viewer.strwriteerror
+msgctxt "viewer.strwriteerror"
+msgid "Error writing file %s."
+msgstr "Erro ao gravar arquivo %s."
 
 #: viewer.strxlsfilter
 msgctxt "viewer.strxlsfilter"

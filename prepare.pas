@@ -26,6 +26,7 @@ procedure CreateTOHEN(const dirfile, header, key_states, exclude_items,
   exclude_characters, output_file: string);
 procedure CreateTONEX(const dirfile, header, key_states, exclude_items,
   exclude_characters, output_file: string);
+procedure CreateTODEL(const dirfile, header, exclude_items, exclude_characters: string);
 procedure CreateKEY(const dirfile, header: string;
   add_character_numbers, no_bracketted_key, no_tabular_key: boolean;
   number_of_confirmatory_characters: integer;
@@ -95,7 +96,7 @@ begin
   WriteLn(outfile);
   WriteLn(outfile, '*INPUT FILE items');
   CloseFile(outfile);
-end;               
+end;
 
 {--------------------------------------------------------------------------}
 {          CreateSUMMARY                                                   }
@@ -439,6 +440,48 @@ begin
   WriteLn(outfile, '#TYPESET');
   WriteLn(outfile, '#WTSET');
   WriteLn(outfile, '#END');
+  CloseFile(outfile);
+end;
+
+{--------------------------------------------------------------------------}
+{          CreateTODEL                                                     }
+{--------------------------------------------------------------------------}
+procedure CreateTODEL(const dirfile, header, exclude_items, exclude_characters: string);
+var
+  outfile: TextFile;
+begin
+  AssignFile(outfile, dirfile);
+  Rewrite(outfile);
+  WriteLn(outfile, '*SHOW ~ Translate into DELTA format');
+  WriteLn(outfile, '*SHOW Generated on ', DateTimeToStr(Now));
+  WriteLn(outfile);
+  WriteLn(outfile, '*HEADING ', header);
+  WriteLn(outfile);
+  WriteLn(outfile, '*INPUT FILE specs');
+  WriteLn(outfile);
+  if Length(exclude_items) > 0 then
+    WriteLn(outfile, WrapText('*EXCLUDE ITEMS ' + exclude_items, #13#10, [' '], 79),
+      LineEnding);
+  if Length(exclude_characters) > 0 then
+    WriteLn(outfile, WrapText('*EXCLUDE CHARACTERS ' + exclude_characters,
+      #13#10, [' '], 79));
+  WriteLn(outfile);
+  WriteLn(outfile, '*TRANSLATE INTO DELTA FORMAT');
+  WriteLn(outfile, '*OMIT TYPESETTING MARKS');
+  WriteLn(outfile, '*INSERT IMPLICIT VALUES');
+  WriteLn(outfile);
+  WriteLn(outfile, '*OUTPUT FILE chars.new');
+  WriteLn(outfile, '*OUTPUT PARAMETERS');
+  WriteLn(outfile, '#SHOW ', header);
+  WriteLn(outfile);
+  WriteLn(outfile, '#CHARACTER LIST');
+  WriteLn(outfile, '*INPUT FILE chars');
+  WriteLn(outfile);
+  WriteLn(outfile, '*OUTPUT FILE items.new');
+  WriteLn(outfile, '*OUTPUT PARAMETERS');
+  WriteLn(outfile);
+  WriteLn(outfile, '#ITEM DESCRIPTIONS');
+  WriteLn(outfile, '*INPUT FILE items');
   CloseFile(outfile);
 end;
 

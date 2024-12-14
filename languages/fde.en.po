@@ -530,6 +530,11 @@ msgctxt "chars.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Weighted linkage (WPGMA)"
 
+#: chars.strwriteerror
+msgctxt "chars.strwriteerror"
+msgid "Error writing file %s."
+msgstr ""
+
 #: chars.strxlsfilter
 msgctxt "chars.strxlsfilter"
 msgid "Excel 97-2003 files|*.xls"
@@ -1037,6 +1042,11 @@ msgstr "This option is available only under MS-Windows."
 msgctxt "cluster.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Weighted linkage (WPGMA)"
+
+#: cluster.strwriteerror
+msgctxt "cluster.strwriteerror"
+msgid "Error writing file %s."
+msgstr ""
 
 #: cluster.strxlsfilter
 msgctxt "cluster.strxlsfilter"
@@ -1606,6 +1616,11 @@ msgctxt "kstates.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Weighted linkage (WPGMA)"
 
+#: kstates.strwriteerror
+msgctxt "kstates.strwriteerror"
+msgid "Error writing file %s."
+msgstr ""
+
 #: kstates.strxlsfilter
 msgctxt "kstates.strxlsfilter"
 msgid "Excel 97-2003 files|*.xls"
@@ -2116,6 +2131,11 @@ msgctxt "main.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Weighted linkage (WPGMA)"
 
+#: main.strwriteerror
+msgctxt "main.strwriteerror"
+msgid "Error writing file %s."
+msgstr ""
+
 #: main.strxlsfilter
 msgctxt "main.strxlsfilter"
 msgid "Excel 97-2003 files|*.xls"
@@ -2623,6 +2643,11 @@ msgstr "This option is available only under MS-Windows."
 msgctxt "prepare.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Weighted linkage (WPGMA)"
+
+#: prepare.strwriteerror
+msgctxt "prepare.strwriteerror"
+msgid "Error writing file %s."
+msgstr ""
 
 #: prepare.strxlsfilter
 msgctxt "prepare.strxlsfilter"
@@ -3190,6 +3215,11 @@ msgctxt "script.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Weighted linkage (WPGMA)"
 
+#: script.strwriteerror
+msgctxt "script.strwriteerror"
+msgid "Error writing file %s."
+msgstr ""
+
 #: script.strxlsfilter
 msgctxt "script.strxlsfilter"
 msgid "Excel 97-2003 files|*.xls"
@@ -3215,7 +3245,7 @@ msgid "Compiler:"
 msgstr "Compiler:"
 
 #: taboutbox.copyright.caption
-msgid "Copyright © 2000-2023 Mauro J. Cavalcanti"
+msgid "Copyright © 2000-2024 Mauro J. Cavalcanti"
 msgstr ""
 
 #: taboutbox.ide.caption
@@ -3876,8 +3906,20 @@ msgstr "DELTA..."
 msgid "Save data in DELTA format"
 msgstr "Save data in DELTA format"
 
+#: tmainform.exportsliksitem.caption
+msgid "SLIKS"
+msgstr ""
+
+#: tmainform.exportsliksitem.hint
+msgid "Save data in SLIKS format"
+msgstr ""
+
 #: tmainform.exportspreadsheetitem.caption
 msgid "Spreadsheet..."
+msgstr ""
+
+#: tmainform.exportspreadsheetitem.hint
+msgid "Save data in Excel format"
 msgstr ""
 
 #: tmainform.exporttextitem.caption
@@ -5072,6 +5114,11 @@ msgctxt "toint.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Weighted linkage (WPGMA)"
 
+#: toint.strwriteerror
+msgctxt "toint.strwriteerror"
+msgid "Error writing file %s."
+msgstr ""
+
 #: toint.strxlsfilter
 msgctxt "toint.strxlsfilter"
 msgid "Excel 97-2003 files|*.xls"
@@ -5638,6 +5685,11 @@ msgctxt "tokey.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Weighted linkage (WPGMA)"
 
+#: tokey.strwriteerror
+msgctxt "tokey.strwriteerror"
+msgid "Error writing file %s."
+msgstr ""
+
 #: tokey.strxlsfilter
 msgctxt "tokey.strxlsfilter"
 msgid "Excel 97-2003 files|*.xls"
@@ -6203,6 +6255,11 @@ msgstr "This option is available only under MS-Windows."
 msgctxt "tonat.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Weighted linkage (WPGMA)"
+
+#: tonat.strwriteerror
+msgctxt "tonat.strwriteerror"
+msgid "Error writing file %s."
+msgstr ""
 
 #: tonat.strxlsfilter
 msgctxt "tonat.strxlsfilter"
@@ -6856,6 +6913,11 @@ msgstr "This option is available only under MS-Windows."
 msgctxt "viewer.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Weighted linkage (WPGMA)"
+
+#: viewer.strwriteerror
+msgctxt "viewer.strwriteerror"
+msgid "Error writing file %s."
+msgstr ""
 
 #: viewer.strxlsfilter
 msgctxt "viewer.strxlsfilter"

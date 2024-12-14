@@ -58,7 +58,7 @@ object AboutBox: TAboutBox
       Height = 13
       Top = 31
       Width = 221
-      Caption = 'Copyright © 2000-2023 Mauro J. Cavalcanti'
+      Caption = 'Copyright © 2000-2024 Mauro J. Cavalcanti'
       Font.Height = -11
       ParentColor = False
       ParentFont = False

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Free Delta Editor\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-12-19 08:23-0300\n"
+"PO-Revision-Date: 2024-12-11 18:04-0300\n"
 "Last-Translator: Mauro J. Cavalcanti <maurobio@gmail.com>\n"
 "Language-Team: Free Delta Development Team\n"
 "Language: fr\n"
@@ -529,6 +529,11 @@ msgctxt "chars.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
 
+#: chars.strwriteerror
+msgctxt "chars.strwriteerror"
+msgid "Error writing file %s."
+msgstr "Erreur de lecture du fichier %s."
+
 #: chars.strxlsfilter
 msgctxt "chars.strxlsfilter"
 msgid "Excel 97-2003 files|*.xls"
@@ -1033,6 +1038,11 @@ msgstr "Option disponible uniquement sous MS-Windows."
 msgctxt "cluster.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
+
+#: cluster.strwriteerror
+msgctxt "cluster.strwriteerror"
+msgid "Error writing file %s."
+msgstr "Erreur de lecture du fichier %s."
 
 #: cluster.strxlsfilter
 msgctxt "cluster.strxlsfilter"
@@ -1539,6 +1549,11 @@ msgctxt "kstates.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
 
+#: kstates.strwriteerror
+msgctxt "kstates.strwriteerror"
+msgid "Error writing file %s."
+msgstr "Erreur de lecture du fichier %s."
+
 #: kstates.strxlsfilter
 msgctxt "kstates.strxlsfilter"
 msgid "Excel 97-2003 files|*.xls"
@@ -2043,6 +2058,11 @@ msgstr "Cette option n'est disponible que sous MS-Windows."
 msgctxt "main.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Lien pondéré (WPGMA)"
+
+#: main.strwriteerror
+msgctxt "main.strwriteerror"
+msgid "Error writing file %s."
+msgstr "Erreur de lecture du fichier %s."
 
 #: main.strxlsfilter
 msgctxt "main.strxlsfilter"
@@ -2549,6 +2569,11 @@ msgctxt "prepare.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
 
+#: prepare.strwriteerror
+msgctxt "prepare.strwriteerror"
+msgid "Error writing file %s."
+msgstr "Erreur de lecture du fichier %s."
+
 #: prepare.strxlsfilter
 msgctxt "prepare.strxlsfilter"
 msgid "Excel 97-2003 files|*.xls"
@@ -3054,6 +3079,11 @@ msgctxt "script.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
 
+#: script.strwriteerror
+msgctxt "script.strwriteerror"
+msgid "Error writing file %s."
+msgstr "Erreur de lecture du fichier %s."
+
 #: script.strxlsfilter
 msgctxt "script.strxlsfilter"
 msgid "Excel 97-2003 files|*.xls"
@@ -3078,8 +3108,8 @@ msgid "Compiler:"
 msgstr "Compilateur:"
 
 #: taboutbox.copyright.caption
-msgid "Copyright © 2000-2023 Mauro J. Cavalcanti"
-msgstr "Copyright © 2000-2023 Mauro J. Cavalcanti"
+msgid "Copyright © 2000-2024 Mauro J. Cavalcanti"
+msgstr "Copyright © 2000-2024 Mauro J. Cavalcanti"
 
 #: taboutbox.ide.caption
 msgid "IDE:"
@@ -3702,9 +3732,21 @@ msgstr "DELTA..."
 msgid "Save data in DELTA format"
 msgstr "Enregistrer les données au format DELTA"
 
+#: tmainform.exportsliksitem.caption
+msgid "SLIKS"
+msgstr "SLIKS"
+
+#: tmainform.exportsliksitem.hint
+msgid "Save data in SLIKS format"
+msgstr "Enregistrer les données au format SLIKS"
+
 #: tmainform.exportspreadsheetitem.caption
 msgid "Spreadsheet..."
 msgstr "Feuille de calcul..."
+
+#: tmainform.exportspreadsheetitem.hint
+msgid "Save data in Excel format"
+msgstr ""
 
 #: tmainform.exporttextitem.caption
 msgctxt "tmainform.exporttextitem.caption"
@@ -4803,6 +4845,11 @@ msgctxt "toint.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
 
+#: toint.strwriteerror
+msgctxt "toint.strwriteerror"
+msgid "Error writing file %s."
+msgstr "Erreur de lecture du fichier %s."
+
 #: toint.strxlsfilter
 msgctxt "toint.strxlsfilter"
 msgid "Excel 97-2003 files|*.xls"
@@ -5308,6 +5355,11 @@ msgctxt "tokey.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
 
+#: tokey.strwriteerror
+msgctxt "tokey.strwriteerror"
+msgid "Error writing file %s."
+msgstr "Erreur de lecture du fichier %s."
+
 #: tokey.strxlsfilter
 msgctxt "tokey.strxlsfilter"
 msgid "Excel 97-2003 files|*.xls"
@@ -5812,6 +5864,11 @@ msgstr "Cette option n'est disponible que sous MS-Windows."
 msgctxt "tonat.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
+
+#: tonat.strwriteerror
+msgctxt "tonat.strwriteerror"
+msgid "Error writing file %s."
+msgstr "Erreur de lecture du fichier %s."
 
 #: tonat.strxlsfilter
 msgctxt "tonat.strxlsfilter"
@@ -6462,6 +6519,11 @@ msgstr "Cette option n'est disponible que sous MS-Windows."
 msgctxt "viewer.strwpgma"
 msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
+
+#: viewer.strwriteerror
+msgctxt "viewer.strwriteerror"
+msgid "Error writing file %s."
+msgstr "Erreur de lecture du fichier %s."
 
 #: viewer.strxlsfilter
 msgctxt "viewer.strxlsfilter"

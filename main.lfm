@@ -665,7 +665,13 @@ object MainForm: TMainForm
         end
         object ExportSpreadsheetItem: TMenuItem
           Caption = 'Spreadsheet...'
+          Hint = 'Save data in Excel format'
           OnClick = ExportSpreadsheetItemClick
+        end
+        object ExportSLIKSItem: TMenuItem
+          Caption = 'SLIKS'
+          Hint = 'Save data in SLIKS format'
+          OnClick = ExportSLIKSItemClick
         end
       end
       object N3: TMenuItem

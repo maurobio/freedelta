@@ -1,7 +1,7 @@
 {===============================================================================}
 {                          Free Delta Editor                                    }
 {         A software package for building taxonomic databases                   }
-{                   (c) 2000-2023 by Mauro J. Cavalcanti                        }
+{                   (c) 2000-2024 by Mauro J. Cavalcanti                        }
 {                         <maurobio@gmail.com>                                  }
 {                                                                               }
 {   This program is free software: you can redistribute it and/or modify        }
@@ -467,8 +467,14 @@
 {                                 - Fixed a bug which caused the directive      }
 {                                   *OMIT TYPESETTING MARKS not being written to}
 {                                   the TONAT output file.                      }
-{                                 - Fixed a big which sometimes caused an error }
+{                                 - Fixed a bug which sometimes caused an error }
 {                                   when deleting character states.             }
+{ Version 3.40, 14 Dec, 2024      - Added support for exporting data files in   }
+{                                   SLIKS format.                               }
+{                                 - Changed the routine which gets the dataset  }
+{                                   name from a directives file to retrieve the }
+{                                   first title when there is more than one     }
+{                                   *SHOW directive in the file.                }
 {===============================================================================}
 unit Main;
 
@@ -504,6 +510,7 @@ type
     ExportTextItem: TMenuItem;
     ExportSpreadsheetItem: TMenuItem;
     LanguageSpanishItem: TMenuItem;
+    ExportSLIKSItem: TMenuItem;
     N20: TMenuItem;
     SearchGotoLine: TMenuItem;
     SearchFindNextItem: TMenuItem;
@@ -661,6 +668,7 @@ type
     procedure EditTitleItemClick(Sender: TObject);
     procedure ExpandAllClick(Sender: TObject);
     procedure ExportDELTAItemClick(Sender: TObject);
+    procedure ExportSLIKSItemClick(Sender: TObject);
     procedure ExportSpreadsheetItemClick(Sender: TObject);
     procedure ExportTextItemClick(Sender: TObject);
     procedure ExportXDELTAItemClick(Sender: TObject);
@@ -2071,7 +2079,9 @@ begin
     SaveFile(SaveDialog.FileName);
     UpdateTitleBar(SaveDialog.FileName);
   end;
-  if SaveBtn.Enabled = True then SaveBtn.Enabled := False;;
+  if SaveBtn.Enabled = True then
+    SaveBtn.Enabled := False;
+  ;
 end;
 
 procedure TMainForm.FindDialogFind(Sender: TObject);
@@ -4124,6 +4134,156 @@ begin
     end;
     ChDir(CurDir);
   end;
+end;
+
+procedure TMainForm.ExportSLIKSItemClick(Sender: TObject);
+var
+  NewDataset: TDelta;
+  i, j: integer;
+  ret_val: integer;
+  excluded, attrib: string;
+  outfile: TextFile;
+  sPath, ConforPath: string;
+  S: ansistring;
+  Ok: boolean;
+begin
+  { Exclude numeric and text characters from character list }
+  excluded := '';
+  for i := 0 to Length(Dataset.CharacterList) - 1 do
+  begin
+    if (Dataset.CharacterList[i].charType = 'IN') or
+      (Dataset.CharacterList[i].charType = 'RN') or
+      (Dataset.CharacterList[i].charType = 'TE') then
+      excluded += IntToStr(i + 1) + ' ';
+  end;
+
+  Ok := False;
+  sPath := ExtractFilePath(Application.ExeName);
+  {$IFDEF WINDOWS}
+  ConforPath := sPath + 'confor.exe';
+  {$ELSE}
+  ConforPath := sPath + 'confor';
+  {$ENDIF}
+  if FileExists('specs') then
+    Ok := True
+  else
+    MessageDlg(strInformation, Format(strNotFound, ['SPECS']),
+      mtInformation, [mbOK], 0);
+  if FileExists('chars') then
+    Ok := True
+  else
+    MessageDlg(strInformation, Format(strNotFound, ['CHARS']),
+      mtInformation, [mbOK], 0);
+  if FileExists('items') then
+    Ok := True
+  else
+    MessageDlg(strInformation, Format(strNotFound, ['ITEMS']),
+      mtInformation, [mbOK], 0);
+  if Ok then
+  begin
+    CreateTODEL('todel', Dataset.Heading, '', excluded);
+    if not RunCommand(ConforPath, ['todel'], S, [poNoConsole]) then
+    begin
+      MessageDlg(strError, Format(strNotExecute, ['CONFOR']), mtError, [mbOK], 0);
+      ShowErrorLog(S);
+      Ok := False;
+      Exit;
+    end;
+  end;
+
+  { Open the new trimmed DELTA dataset }
+  NewDataset := TDelta.Create;
+
+  ret_val := NewDataset.ReadChars('chars.new');
+  if (ret_val < 0) then
+  begin
+    MessageDlg(strError, Format(strReadError, ['CHARS']), mtError, [mbOk], 0);
+    exit;
+  end {else ShowMessage('Characters read')};
+
+  ret_val := NewDataset.ReadItems('items.new');
+  if (ret_val < 0) then
+  begin
+    MessageDlg(strError, Format(strReadError, ['ITEMS']), mtError, [mbOk], 0);
+    exit;
+  end {else ShowMessage('Items read')};
+
+  ret_val := NewDataset.WriteSpecs('specs.new');
+  if (ret_val < 0) then
+  begin
+    MessageDlg(strError, Format(strWriteError, ['SPECS']), mtError, [mbOk], 0);
+    exit;
+  end {else ShowMessage('Specifications written')};
+
+  ret_val := NewDataset.ReadSpecs('specs.new', typeDirective);
+  if (ret_val < 0) then
+  begin
+    MessageDlg(strError, Format(strReadError, ['SPECS']), mtError, [mbOk], 0);
+    exit;
+  end {else ShowMessage('Types read')};
+
+  //NewDataset := Delta.ReadDelta('chars.new', 'items.new', 'specs.new');
+  //NewDataset := Delta.ReadDelta('chars', 'items', 'specs');
+
+  { Translate into SLIKS format }
+  AssignFile(outfile, 'data.js');
+  Rewrite(outfile);
+  WriteLn(outfile);
+  WriteLn(outfile, 'var dataset = "<h2>', Dataset.Heading, '</h2>"');
+
+  { Output characters list }
+  WriteLn(outfile);
+  WriteLn(outfile, 'var chars = [ [ "Latin Name"],');
+  for i := 0 to Length(NewDataset.CharacterList) - 1 do
+  begin
+    Write(outfile, #9, '[ "', NewDataset.CharacterList[i].charName, '", ');
+    for j := 0 to NewDataset.CharacterList[i].charStates.Count - 1 do
+    begin
+      try
+        if (j < NewDataset.CharacterList[i].charStates.Count - 1) then
+          Write(outfile, '"', NewDataset.CharacterList[i].charStates[j], '", ')
+        else
+          Write(outfile, '"', Dataset.CharacterList[i].charStates[j], '"');
+      except
+        continue;
+      end;
+    end;
+    if (i < Length(NewDataset.CharacterList) - 1) then
+      Write(outfile, '],')
+    else
+      Write(outfile, '] ]');
+    WriteLn(outfile);
+  end;
+
+  { Output data matrix }
+  WriteLn(outfile);
+  WriteLn(outfile, 'var items = [ [""],');
+  for i := 0 to Length(NewDataset.ItemList) - 1 do
+  begin
+    Write(outfile, #9, '["', NewDataset.ItemList[i].itemName, '", ');
+    for j := 0 to NewDataset.ItemList[i].itemAttributes.Count - 1 do
+    begin
+      attrib := Delta.RemoveComments(NewDataset.ItemList[i].itemAttributes[j]);
+      if (Pos('/', attrib) > 0) or (attrib = 'U') then
+        attrib := '?';
+      if (j < NewDataset.ItemList[i].itemAttributes.Count - 1) then
+        //Write(outfile, '"', NewDataset.ItemList[i].itemAttributes[j], '",')
+        Write(outfile, '"', attrib, '",')
+      else
+        //Write(outfile, '"', NewDataset.ItemList[i].itemAttributes[j], '"');
+        Write(outfile, '"', attrib, '"');
+    end;
+    if (i < Length(NewDataset.ItemList) - 1) then
+      Write(outfile, '],')
+    else
+      Write(outfile, '] ]');
+    WriteLn(outfile);
+  end;
+
+  CloseFile(outfile);
+  NewDataset.Free;
+  MessageDlg(strInformation, Format(strExportFile, ['data.js']),
+    mtInformation, [mbOK], 0);
 end;
 
 procedure TMainForm.ExportSpreadsheetItemClick(Sender: TObject);

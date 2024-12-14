@@ -281,6 +281,9 @@ begin
     if (Pos(':', title) > 0) then
       title := Copy(title, 1, Pos(':', title) - 1);
     title := Trim(title);
+    
+    break;
+    
   end;
   CloseFile(Infile);
 
@@ -1077,6 +1080,10 @@ begin
     if (Character.charType <> 'UM') then
       typeStr := Concat(typeStr, IntToStr(I + 1), ',', Character.charType, ' ');
   end;
+  
+  if Length(typeStr) = 0 then
+	typeStr := '1-' + IntToStr(Length(CharacterList)) + ',UM';
+  
   WriteLn(Outfile, WrapText(typeStr, #13#10, [' '], 79));
 
   { Write number of states }

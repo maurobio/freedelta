@@ -26,6 +26,7 @@ resourcestring
   strSave = 'Dataset has been modified. Save?';
   strSaveError = 'Failed to save file %s.';
   strReadError = 'Error reading file %s.';
+  strWriteError = 'Error writing file %s.';
   strNotFound = 'File %s not found.';
   strNotFoundDir = 'File %s not found in %s.';
   strDirNotFound = 'DELTA directory not found.';
