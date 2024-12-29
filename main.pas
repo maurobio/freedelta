@@ -3482,7 +3482,7 @@ var
   OmitLowerForCharacters, OmitOrForCharacters, OmitPeriodForCharacters,
   NewParagraphsAtCharacters, EmphasizeFeatures, ItemSubheadings,
   LinkCharacters, ReplaceSemicolonByComma, ExcludeItems, ExcludeCharacters,
-  Lang, sPath, ConforPath, Extension: string;
+  Lang, sPath, ConforPath, Extension, DefaultLang: string;
   PrintWidth: integer;
   S: ansistring;
   Vocabulary: TStringList;
@@ -3490,7 +3490,9 @@ var
 begin
   sPath := ExtractFilePath(Application.ExeName);
   Vocabulary := TStringList.Create;
-  Lang := GetDefaultLang;
+  if DefaultLang = '' then
+    SetDefaultLang('');
+  Lang := DefaultLang;
   case Lang of
     'en': Vocabulary.LoadFromFile(sPath + 'vocabulary/vocaben');
     'pt': Vocabulary.LoadFromFile(sPath + 'vocabulary/vocabpt');
