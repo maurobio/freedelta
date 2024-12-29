@@ -1714,7 +1714,7 @@ begin
   sPath := GetAppConfigDir(False);
   IniFile := TIniFile.Create(sPath + 'fde.ini');
   sLang := IniFile.ReadString('Options', 'Language', 'en'); // First default is English
-  SetDefaultLang(sLang, 'languages', True);
+  SetDefaultLang(sLang, 'languages', '', True);
   case sLang of
     'en':
     begin
