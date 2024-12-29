@@ -3482,7 +3482,7 @@ var
   OmitLowerForCharacters, OmitOrForCharacters, OmitPeriodForCharacters,
   NewParagraphsAtCharacters, EmphasizeFeatures, ItemSubheadings,
   LinkCharacters, ReplaceSemicolonByComma, ExcludeItems, ExcludeCharacters,
-  Lang, sPath, ConforPath, Extension: string;
+  Lang, sPath, ConforPath, Extension, DefaultLang: string;
   PrintWidth: integer;
   S: ansistring;
   Vocabulary: TStringList;
