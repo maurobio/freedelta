@@ -7,6 +7,7 @@
 {                      Version 1.0, November 1994                        }
 {              Version 2.1, August 1996, Updated May 1998                }
 {    Version 3.3, June 2016, Updated July 2020, June 2021, December 2023 }
+{                      Version 4.0, March 2025                           }
 {                                                                        }
 {          Author: Mauro J. Cavalcanti, Rio de Janeiro, BRASIL           }
 {                    E-mail: <maurobio@gmail.com>                        }
@@ -92,7 +93,7 @@ type
     charWeight: byte;
     charMandatory: boolean;
     charImplicit: integer;
-    charDependent: TStringList;
+    charDependent: string; {TStringList;}
     charNote: string;
     charStates: TStringList;
   end;
@@ -232,8 +233,8 @@ begin
   begin
     if CharacterList[RecNo].charStates <> nil then
       CharacterList[RecNo].charStates.Free;
-    if CharacterList[RecNo].charDependent <> nil then
-      CharacterList[RecNo].charDependent.Free;
+    {if CharacterList[RecNo].charDependent <> nil then
+      CharacterList[RecNo].charDependent.Free;}
   end;
   inherited Destroy;
 end;
@@ -302,6 +303,7 @@ var
   i, number, itemCount, NChars: integer;
   itemsFound, isComment: boolean;
   ch, aux: char;
+  bracketDepth: integer; // Added to track nested brackets
 
   procedure ExpandDataWhenNeeded(RecNo: integer);
   begin
@@ -314,6 +316,7 @@ begin
   itemCount := 0;
   itemsFound := False;
   isComment := False;
+  bracketDepth := 0; // Initialize bracket depth counter
   token := '';
   junk := '';
   Value := '';
@@ -381,9 +384,24 @@ begin
         end;
 
         { Read item attributes }
-        case ch of
+        {case ch of
           '<': isComment := True;
           '>': isComment := False;
+        end;}
+
+		{ Read item attributes - modified to handle nested brackets }
+        case ch of
+          '<': begin
+                 if not isComment then bracketDepth := 1
+                 else Inc(bracketDepth);
+                 isComment := True;
+               end;
+          '>': if isComment then
+               begin
+                 Dec(bracketDepth);
+                 if bracketDepth = 0 then
+                   isComment := False;
+               end;
         end;
 
         if ((ch = ' ') or (ch = #10) or (ch = #13)) and (not isComment) then
@@ -429,9 +447,9 @@ begin
           number := StrToIntDef(junk, 0);
           if (number > 0) then
           begin
-            if (Pos('<<', Value) > 0) then
+            //if (Pos('<<', Value) > 0) then
               //Value := ExtractDelimited(1, Value, ['<']);
-              Value := OmitInnerComments(Value);
+              //Value := OmitInnerComments(Value);
             itemAttribute := Value;
             ItemList[itemCount - 1].itemAttributes.Insert(number -
               1, itemAttribute);
@@ -509,7 +527,7 @@ var
           CharacterList[charCount - 1].charWeight := 1;
           CharacterList[charCount - 1].charMandatory := False;
           CharacterList[charCount - 1].charImplicit := 0;
-          CharacterList[charCount - 1].charDependent := TStringList.Create;
+          CharacterList[charCount - 1].charDependent := ''; {TStringList.Create;}
           CharacterList[charCount - 1].charStates := TStringList.Create;
         end;
         { Read the state names }
@@ -646,7 +664,8 @@ var
               (targetDirective = inapplicableDirective) then
             begin
               cdepend := ExtractDelimited(2, aux, [',']);
-              Character.charDependent.Add(cdepend);
+              //Character.charDependent.Add(cdepend);
+			  Character.charDependent := cdepend;
             end
             else if (targetDirective = implicitDirective) then
             begin
@@ -687,7 +706,8 @@ var
               (targetDirective = inapplicableDirective) then
             begin
               cdepend := ExtractDelimited(2, aux, [',']);
-              Character.charDependent.Add(cdepend);
+              //Character.charDependent.Add(cdepend);
+			  Character.charDependent := cdepend;
             end
             else if (targetDirective = implicitDirective) then
             begin
@@ -1134,11 +1154,14 @@ begin
   for I := 0 to Length(CharacterList) - 1 do
   begin
     Character := CharacterList[I];
-    for J := 0 to Character.charDependent.Count - 1 do
+    {for J := 0 to Character.charDependent.Count - 1 do
     begin
       depStr := Concat(depStr, IntToStr(I + 1), ',',
         Character.charDependent[J], ' ');
-    end;
+    end;}
+	if (Length(Character.charDependent) > 0) then
+      depStr := Concat(depStr, IntToStr(I + 1), ',',
+        Character.charDependent, ' ');
   end;
   WriteLn(Outfile, WrapText(depStr, #13#10, [' '], 49));
   CloseFile(Outfile);

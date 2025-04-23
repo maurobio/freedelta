@@ -1,7 +1,7 @@
 {"version":1,"strings":[
 {"hash":4691652,"name":"taboutbox.caption","sourcebytes":[65,98,111,117,116],"value":"About"},
 {"hash":6208546,"name":"taboutbox.productname.caption","sourcebytes":[70,114,101,101,32,68,101,108,116,97,32,69,100,105,116,111,114],"value":"Free Delta Editor"},
-{"hash":146736505,"name":"taboutbox.copyright.caption","sourcebytes":[67,111,112,121,114,105,103,104,116,32,194,169,32,50,48,48,48,45,50,48,50,52,32,77,97,117,114,111,32,74,46,32,67,97,118,97,108,99,97,110,116,105],"value":"Copyright \u00A9 2000-2024 Mauro J. Cavalcanti"},
+{"hash":146736249,"name":"taboutbox.copyright.caption","sourcebytes":[67,111,112,121,114,105,103,104,116,32,194,169,32,50,48,48,48,45,50,48,50,53,32,77,97,117,114,111,32,74,46,32,67,97,118,97,108,99,97,110,116,105],"value":"Copyright \u00A9 2000-2025 Mauro J. Cavalcanti"},
 {"hash":137565024,"name":"taboutbox.versionnumber.caption","sourcebytes":[118,32,48,46,48,46,48],"value":"v 0.0.0"},
 {"hash":21610,"name":"taboutbox.operatingsystem.caption","sourcebytes":[79,83,58],"value":"OS:"},
 {"hash":59021658,"name":"taboutbox.systeminformation.caption","sourcebytes":[83,121,115,116,101,109,32,73,110,102,111,114,109,97,116,105,111,110,58],"value":"System Information:"},

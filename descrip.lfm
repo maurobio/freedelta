@@ -1,0 +1,164 @@
+object DescriptionForm: TDescriptionForm
+  Left = 383
+  Height = 316
+  Top = 226
+  Width = 599
+  Caption = 'Edit Description'
+  ClientHeight = 316
+  ClientWidth = 599
+  KeyPreview = True
+  OnKeyDown = FormKeyDown
+  OnShow = FormShow
+  Position = poMainFormCenter
+  LCLVersion = '3.8.0.0'
+  object LabelItem: TLabel
+    Left = 120
+    Height = 15
+    Top = 11
+    Width = 27
+    Caption = 'Item:'
+    ParentColor = False
+  end
+  object LabelCharacter: TLabel
+    Left = 13
+    Height = 15
+    Top = 11
+    Width = 54
+    Caption = 'Character:'
+    ParentColor = False
+  end
+  object OKButton: TButton
+    Left = 424
+    Height = 25
+    Top = 279
+    Width = 75
+    Caption = 'OK'
+    ModalResult = 1
+    TabOrder = 5
+    OnClick = OKButtonClick
+  end
+  object CancelButton: TButton
+    Left = 509
+    Height = 25
+    Top = 279
+    Width = 75
+    Cancel = True
+    Caption = 'Cancel'
+    ModalResult = 2
+    TabOrder = 6
+  end
+  object LabelStatesUnit: TLabel
+    Left = 13
+    Height = 15
+    Top = 99
+    Width = 34
+    Caption = 'States:'
+    ParentColor = False
+  end
+  object ListBoxStates: TListBox
+    Left = 13
+    Height = 113
+    Top = 120
+    Width = 571
+    ItemHeight = 0
+    MultiSelect = True
+    ParentShowHint = False
+    ScrollWidth = 569
+    TabOrder = 0
+  end
+  object LabelType: TLabel
+    Left = 13
+    Height = 15
+    Top = 35
+    Width = 28
+    Caption = 'Type:'
+    ParentColor = False
+  end
+  object EditDesc: TLabeledEdit
+    Left = 80
+    Height = 23
+    Hint = 'State values, separated by ''&''=and, ''/''=or, ''-''=to, comments between ''<>'' brackets'
+    Top = 243
+    Width = 504
+    EditLabel.Height = 15
+    EditLabel.Width = 63
+    EditLabel.Caption = 'Description:'
+    EditLabel.ParentColor = False
+    LabelPosition = lpLeft
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+    OnEditingDone = EditDescEditingDone
+    OnKeyPress = EditDescKeyPress
+  end
+  object LabelItemName: TLabel
+    Left = 154
+    Height = 15
+    Top = 11
+    Width = 56
+    Caption = 'ItemName'
+    ParentColor = False
+  end
+  object LabelCharName: TLabel
+    Left = 13
+    Height = 40
+    Top = 60
+    Width = 574
+    AutoSize = False
+    Caption = 'LabelCharName'
+    ParentColor = False
+    ParentFont = False
+    WordWrap = True
+  end
+  object LabelTypeName: TLabel
+    Left = 45
+    Height = 15
+    Top = 35
+    Width = 85
+    Caption = 'LabelTypeName'
+    ParentColor = False
+  end
+  object PrevButton: TButton
+    Left = 256
+    Height = 25
+    Top = 279
+    Width = 75
+    Caption = '< Previous'
+    TabOrder = 3
+    OnClick = PrevButtonClick
+  end
+  object NextButton: TButton
+    Left = 340
+    Height = 25
+    Top = 279
+    Width = 75
+    Caption = 'Next >'
+    TabOrder = 4
+    OnClick = NextButtonClick
+  end
+  object LabelCharNo: TLabel
+    Left = 72
+    Height = 15
+    Top = 11
+    Width = 18
+    Caption = '000'
+    ParentColor = False
+  end
+  object LabelDependent: TLabel
+    Left = 376
+    Height = 15
+    Top = 11
+    Width = 86
+    Caption = 'LabelDependent'
+    ParentColor = False
+  end
+  object GoButton: TButton
+    Left = 167
+    Height = 25
+    Top = 279
+    Width = 75
+    Caption = 'Go to...'
+    TabOrder = 2
+    OnClick = GoButtonClick
+  end
+end

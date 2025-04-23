@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Free Delta Editor\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-12-11 18:04-0300\n"
+"PO-Revision-Date: 2025-03-14 10:07-0300\n"
 "Last-Translator: Mauro J. Cavalcanti <maurobio@gmail.com>\n"
 "Language-Team: Free Delta Development Team\n"
 "Language: fr\n"
@@ -100,6 +100,7 @@ msgid "Confirmation"
 msgstr "Confirmation"
 
 #: chars.strcontrol
+#, object-pascal-format
 msgctxt "chars.strcontrol"
 msgid "Controls character: %s, by state: %s"
 msgstr "Caractère de contrôle : %s, par état : %s"
@@ -135,6 +136,7 @@ msgid "Dendrogram"
 msgstr "Dendrogramme"
 
 #: chars.strdependent
+#, object-pascal-format
 msgctxt "chars.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr "Fonction du caractère : %s, état : %s"
@@ -200,16 +202,19 @@ msgid "Error"
 msgstr "Erreur"
 
 #: chars.strexists
+#, object-pascal-format
 msgctxt "chars.strexists"
 msgid "File %s already exists. Overwrite?"
 msgstr "Le fichier %s existe déjà. Le remplacer?"
 
 #: chars.strexport
+#, object-pascal-format
 msgctxt "chars.strexport"
 msgid "Data exported successfully to directory %s."
 msgstr "Donnée exportée avec succès dans le dossier %s."
 
 #: chars.strexportfile
+#, object-pascal-format
 msgctxt "chars.strexportfile"
 msgid "Data exported successfully to file %s."
 msgstr "Donnée exportée avec succès dans le fichier %s."
@@ -270,6 +275,7 @@ msgid " Histogram "
 msgstr " Histogramme "
 
 #: chars.strimport
+#, object-pascal-format
 msgctxt "chars.strimport"
 msgid "Data imported successfully to file %s."
 msgstr "Données importées avec succès dans le fichier %s."
@@ -280,6 +286,7 @@ msgid "Information"
 msgstr "Information"
 
 #: chars.strinputinteger
+#, object-pascal-format
 msgctxt "chars.strinputinteger"
 msgid "Enter an integer value between 1 and %d"
 msgstr "Entrez une valeur d’entier entre 1 et %d"
@@ -355,16 +362,19 @@ msgid "Unsupported inner comments"
 msgstr "Commentaires internes non étayés"
 
 #: chars.strnotexecute
+#, object-pascal-format
 msgctxt "chars.strnotexecute"
 msgid "Couldn't start %s program."
 msgstr "Le programme %s n'a pas pu démarrer."
 
 #: chars.strnotfound
+#, object-pascal-format
 msgctxt "chars.strnotfound"
 msgid "File %s not found."
 msgstr "Fichier %s non trouvé."
 
 #: chars.strnotfounddir
+#, object-pascal-format
 msgctxt "chars.strnotfounddir"
 msgid "File %s not found in %s."
 msgstr "Fichier %s non trouvé dans %s."
@@ -400,6 +410,7 @@ msgid "Select R directory"
 msgstr "Sélectionnez le répertoire R"
 
 #: chars.strreaderror
+#, object-pascal-format
 msgctxt "chars.strreaderror"
 msgid "Error reading file %s."
 msgstr "Erreur de lecture du fichier %s."
@@ -425,6 +436,7 @@ msgid "Save changes?"
 msgstr "Enregistrer les modifications ?"
 
 #: chars.strsaveerror
+#, object-pascal-format
 msgctxt "chars.strsaveerror"
 msgid "Failed to save file %s."
 msgstr "Fichier %s non enregistré."
@@ -505,6 +517,7 @@ msgid "Average linkage (UPGMA)"
 msgstr "Lien moyen (UPGMA)"
 
 #: chars.strvalidnumber
+#, object-pascal-format
 msgctxt "chars.strvalidnumber"
 msgid "Enter numbers only (an integer value between 1 and %d)"
 msgstr "Entrez des nombres uniquement (valeur d’entier comprise entre 1 et %d)"
@@ -530,6 +543,7 @@ msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
 
 #: chars.strwriteerror
+#, object-pascal-format
 msgctxt "chars.strwriteerror"
 msgid "Error writing file %s."
 msgstr "Erreur de lecture du fichier %s."
@@ -610,6 +624,7 @@ msgid "Confirmation"
 msgstr "Confirmation"
 
 #: cluster.strcontrol
+#, object-pascal-format
 msgctxt "cluster.strcontrol"
 msgid "Controls character: %s, by state: %s"
 msgstr "Caractère de contrôle : %s, par état : %s"
@@ -645,6 +660,7 @@ msgid "Dendrogram"
 msgstr "Dendrogramme"
 
 #: cluster.strdependent
+#, object-pascal-format
 msgctxt "cluster.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr "Fonction du caractère : %s, état : %s"
@@ -710,16 +726,19 @@ msgid "Error"
 msgstr "Erreur"
 
 #: cluster.strexists
+#, object-pascal-format
 msgctxt "cluster.strexists"
 msgid "File %s already exists. Overwrite?"
 msgstr "Le fichier %s existe déjà. Remplacer?"
 
 #: cluster.strexport
+#, object-pascal-format
 msgctxt "cluster.strexport"
 msgid "Data exported successfully to directory %s."
 msgstr "Les données ont été exportées avec succès vers le répertoire %s."
 
 #: cluster.strexportfile
+#, object-pascal-format
 msgctxt "cluster.strexportfile"
 msgid "Data exported successfully to file %s."
 msgstr "Donnée exportée avec succès dans le fichier %s."
@@ -780,6 +799,7 @@ msgid " Histogram "
 msgstr " Histogramme "
 
 #: cluster.strimport
+#, object-pascal-format
 msgctxt "cluster.strimport"
 msgid "Data imported successfully to file %s."
 msgstr "Données importées avec succès dans le fichier %s."
@@ -790,6 +810,7 @@ msgid "Information"
 msgstr "Information"
 
 #: cluster.strinputinteger
+#, object-pascal-format
 msgctxt "cluster.strinputinteger"
 msgid "Enter an integer value between 1 and %d"
 msgstr "Entrez une valeur d’entier entre 1 et %d"
@@ -865,16 +886,19 @@ msgid "Unsupported inner comments"
 msgstr "Commentaires internes non étayés"
 
 #: cluster.strnotexecute
+#, object-pascal-format
 msgctxt "cluster.strnotexecute"
 msgid "Couldn't start %s program."
 msgstr "Impossible de démarrer le programme %s."
 
 #: cluster.strnotfound
+#, object-pascal-format
 msgctxt "cluster.strnotfound"
 msgid "File %s not found."
 msgstr "Fichier %s introuvable."
 
 #: cluster.strnotfounddir
+#, object-pascal-format
 msgctxt "cluster.strnotfounddir"
 msgid "File %s not found in %s."
 msgstr "Fichier %s introuvable dans %s."
@@ -910,6 +934,7 @@ msgid "Select R directory"
 msgstr "Sélectionnez le répertoire R"
 
 #: cluster.strreaderror
+#, object-pascal-format
 msgctxt "cluster.strreaderror"
 msgid "Error reading file %s."
 msgstr "Erreur de lecture du fichier %s."
@@ -935,6 +960,7 @@ msgid "Save changes?"
 msgstr "Enregistrer les modifications ?"
 
 #: cluster.strsaveerror
+#, object-pascal-format
 msgctxt "cluster.strsaveerror"
 msgid "Failed to save file %s."
 msgstr "Échec de l'enregistrement du fichier %s."
@@ -1015,6 +1041,7 @@ msgid "Average linkage (UPGMA)"
 msgstr "Lien moyen (UPGMA)"
 
 #: cluster.strvalidnumber
+#, object-pascal-format
 msgctxt "cluster.strvalidnumber"
 msgid "Enter numbers only (an integer value between 1 and %d)"
 msgstr "Entrez des nombres uniquement (valeur d’entier comprise entre 1 et %d)"
@@ -1040,6 +1067,7 @@ msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
 
 #: cluster.strwriteerror
+#, object-pascal-format
 msgctxt "cluster.strwriteerror"
 msgid "Error writing file %s."
 msgstr "Erreur de lecture du fichier %s."
@@ -1051,6 +1079,530 @@ msgstr "Fichiers Excel 97-2003|*.xls"
 
 #: cluster.strxmlfilter
 msgctxt "cluster.strxmlfilter"
+msgid "XML files|*.xml"
+msgstr "Fichiers XML|*.xml"
+
+#: descrip.straddcharacter
+msgctxt "descrip.straddcharacter"
+msgid "Add Character"
+msgstr "Ajouter un caractère"
+
+#: descrip.stradditemcaption
+msgctxt "descrip.stradditemcaption"
+msgid "Add Item"
+msgstr "Ajouter un Item"
+
+#: descrip.stradditemprompt
+msgctxt "descrip.stradditemprompt"
+msgid "Enter item name:"
+msgstr "Taper le nom de l'item:"
+
+#: descrip.straddstatecaption
+msgctxt "descrip.straddstatecaption"
+msgid "Add State"
+msgstr "Ajouter un état"
+
+#: descrip.straddstateprompt
+msgctxt "descrip.straddstateprompt"
+msgid "Enter state description:"
+msgstr "Taper la description de l'état:"
+
+#: descrip.straxis
+msgctxt "descrip.straxis"
+msgid "Axis"
+msgstr "Axe"
+
+#: descrip.strcentroid
+msgctxt "descrip.strcentroid"
+msgid "Centroid (UPGMC)"
+msgstr "Centroide (UPGMC)"
+
+#: descrip.strcharacters
+msgctxt "descrip.strcharacters"
+msgid "characters"
+msgstr "caractères"
+
+#: descrip.strcharlistempty
+msgctxt "descrip.strcharlistempty"
+msgid "Character list empty. Enter at least one character description."
+msgstr "La liste des caractères est vide. Créer au moins un caractère."
+
+#: descrip.strclass
+msgctxt "descrip.strclass"
+msgid " Class "
+msgstr " Classe "
+
+#: descrip.strclm
+msgctxt "descrip.strclm"
+msgid "Complete linkage (CLM)"
+msgstr "Liaison complète (CLM)"
+
+#: descrip.strcloneitem
+msgctxt "descrip.strcloneitem"
+msgid "Clone of"
+msgstr "Clone de"
+
+#: descrip.strconfirmation
+msgctxt "descrip.strconfirmation"
+msgid "Confirmation"
+msgstr "Confirmation"
+
+#: descrip.strcontrol
+#, object-pascal-format
+msgctxt "descrip.strcontrol"
+msgid "Controls character: %s, by state: %s"
+msgstr "Caractère de contrôle : %s, par état : %s"
+
+#: descrip.strcopyimage
+msgctxt "descrip.strcopyimage"
+msgid "Image copied to the Clipboard"
+msgstr "Image copié dans le Clipboard"
+
+#: descrip.strcopytext
+msgctxt "descrip.strcopytext"
+msgid "Text copied to the Clipboard"
+msgstr "Texte copié dans le Clipboard"
+
+#: descrip.strcsvfilter
+msgctxt "descrip.strcsvfilter"
+msgid "Comma delimited files|*.csv"
+msgstr "Fichiers (colonnes) séparés par des virgules|*.csv"
+
+#: descrip.strdatadirectory
+msgctxt "descrip.strdatadirectory"
+msgid "Select data directory"
+msgstr "Choisir le dossier des données"
+
+#: descrip.strdeltadirectory
+msgctxt "descrip.strdeltadirectory"
+msgid "Select DELTA directory"
+msgstr "Sélectionnez le répertoire DELTA"
+
+#: descrip.strdendrogram
+msgctxt "descrip.strdendrogram"
+msgid "Dendrogram"
+msgstr "Dendrogramme"
+
+#: descrip.strdependent
+#, object-pascal-format
+msgctxt "descrip.strdependent"
+msgid "Dependent upon character: %s, state: %s"
+msgstr "Fonction du caractère : %s, état : %s"
+
+#: descrip.strdirnotfound
+msgctxt "descrip.strdirnotfound"
+msgid "DELTA directory not found."
+msgstr "Le répertoire DELTA n'a pas été trouvé."
+
+#: descrip.strdistance
+msgctxt "descrip.strdistance"
+msgid "Distance"
+msgstr "Distance"
+
+#: descrip.strdtzfilter
+msgctxt "descrip.strdtzfilter"
+msgid "FreeDelta project|*.dtz"
+msgstr "Projet FreeDelta|*.dtz"
+
+#: descrip.streditcaption
+msgctxt "descrip.streditcaption"
+msgid "Database Title"
+msgstr "Nom de la base de données"
+
+#: descrip.streditcharacter
+msgctxt "descrip.streditcharacter"
+msgid "Edit Character"
+msgstr "Editer un Caractère"
+
+#: descrip.stredititemcaption
+msgctxt "descrip.stredititemcaption"
+msgid "Edit Item"
+msgstr "Editer un Item"
+
+#: descrip.stredititemprompt
+msgctxt "descrip.stredititemprompt"
+msgid "Edit item name:"
+msgstr "Editer le nom de l'item:"
+
+#: descrip.streditprompt
+msgctxt "descrip.streditprompt"
+msgid "Edit database title:"
+msgstr "Editer le nom de la base de données:"
+
+#: descrip.streditstatecaption
+msgctxt "descrip.streditstatecaption"
+msgid "Edit State"
+msgstr "Editer l'état"
+
+#: descrip.streditstateprompt
+msgctxt "descrip.streditstateprompt"
+msgid "Edit state description:"
+msgstr "Editer la description de l'état:"
+
+#: descrip.strentercharacternumber
+msgctxt "descrip.strentercharacternumber"
+msgid "Enter character number:"
+msgstr "Entrez le numéro de caractère :"
+
+#: descrip.strerror
+msgctxt "descrip.strerror"
+msgid "Error"
+msgstr "Erreur"
+
+#: descrip.strexists
+#, object-pascal-format
+msgctxt "descrip.strexists"
+msgid "File %s already exists. Overwrite?"
+msgstr "Le fichier %s existe déjà. Le remplacer?"
+
+#: descrip.strexport
+#, object-pascal-format
+msgctxt "descrip.strexport"
+msgid "Data exported successfully to directory %s."
+msgstr "Donnée exportée avec succès dans le dossier %s."
+
+#: descrip.strexportfile
+#, object-pascal-format
+msgctxt "descrip.strexportfile"
+msgid "Data exported successfully to file %s."
+msgstr "Donnée exportée avec succès dans le fichier %s."
+
+#: descrip.strfindcharactercaption
+msgctxt "descrip.strfindcharactercaption"
+msgid "Find Character"
+msgstr "Trouver un caractère"
+
+#: descrip.strfindcharacterprompt
+msgctxt "descrip.strfindcharacterprompt"
+msgid "Enter character description:"
+msgstr "Taper la description du caractère:"
+
+#: descrip.strfinditemcaption
+msgctxt "descrip.strfinditemcaption"
+msgid "Find Item"
+msgstr "Trouver un Item"
+
+#: descrip.strfinditemprompt
+msgctxt "descrip.strfinditemprompt"
+msgid "Enter item name:"
+msgstr "Taper le nom de l'item:"
+
+#: descrip.strfindtextcaption
+msgctxt "descrip.strfindtextcaption"
+msgid "Find Text"
+msgstr "Trouver du Texte"
+
+#: descrip.strfindtextprompt
+msgctxt "descrip.strfindtextprompt"
+msgid "Enter search text:"
+msgstr "Taper le texte recherché:"
+
+#: descrip.strfrequency
+msgctxt "descrip.strfrequency"
+msgid " Freq "
+msgstr " Freq "
+
+#: descrip.strgotocharacter
+msgctxt "descrip.strgotocharacter"
+msgid "Go to character"
+msgstr "Aller au caractère"
+
+#: descrip.strgotoline
+msgctxt "descrip.strgotoline"
+msgid "Go to"
+msgstr "Aller à"
+
+#: descrip.strgotolinecaption
+msgctxt "descrip.strgotolinecaption"
+msgid "Enter item/character number:"
+msgstr "Entrez le numéro d'élément/caractère :"
+
+#: descrip.strhistogram
+msgctxt "descrip.strhistogram"
+msgid " Histogram "
+msgstr " Histogramme "
+
+#: descrip.strimport
+#, object-pascal-format
+msgctxt "descrip.strimport"
+msgid "Data imported successfully to file %s."
+msgstr "Données importées avec succès dans le fichier %s."
+
+#: descrip.strinformation
+msgctxt "descrip.strinformation"
+msgid "Information"
+msgstr "Information"
+
+#: descrip.strinputinteger
+#, object-pascal-format
+msgctxt "descrip.strinputinteger"
+msgid "Enter an integer value between 1 and %d"
+msgstr "Entrez une valeur d’entier entre 1 et %d"
+
+#: descrip.strinterval
+msgctxt "descrip.strinterval"
+msgid " Class Interval "
+msgstr " Intervalle de classe "
+
+#: descrip.strinvalidsymbol
+msgctxt "descrip.strinvalidsymbol"
+msgid "Invalid symbol ('/') in character or state name"
+msgstr "Symbole non valide ('/') dans le nom du caractère ou de l’état"
+
+#: descrip.stritemlistempty
+msgctxt "descrip.stritemlistempty"
+msgid "Item list empty. Enter at least one item name."
+msgstr "Liste des Items vide. Taper au moins un nom d'item (taxon)."
+
+#: descrip.stritems
+msgctxt "descrip.stritems"
+msgid "items"
+msgstr "items"
+
+#: descrip.stritemstatus
+msgctxt "descrip.stritemstatus"
+msgid "Item name, followed by author name and/or comment between <angle brackets>"
+msgstr "Nom de l’élément, suivi du nom de l’auteur et/ou du commentaire entre <crochets>"
+
+#: descrip.strlinux64only
+msgctxt "descrip.strlinux64only"
+msgid "This option is not available under GNU/Linux 32-bit."
+msgstr "Cette option n’est pas disponible sous GNU/Linux 32 bits."
+
+#: descrip.strmark
+msgctxt "descrip.strmark"
+msgid " Class Mark "
+msgstr " Marque de classe "
+
+#: descrip.strmedian
+msgctxt "descrip.strmedian"
+msgid "Median (WPGMC)"
+msgstr "Médiane (WPGMC)"
+
+#: descrip.strmerge
+msgctxt "descrip.strmerge"
+msgid "All characters will be treated as unordered multistate"
+msgstr "Tous les caractères seront traités comme des états multiples non ordonnés"
+
+#: descrip.strmissingbrackets
+msgctxt "descrip.strmissingbrackets"
+msgid "Missing opening or closing angle brackets ('<>')"
+msgstr "Crochets pointus ouvrants ou fermants manquants (« <> »)"
+
+#: descrip.strnewcaption
+msgctxt "descrip.strnewcaption"
+msgid "New Database"
+msgstr "Nouvelle base de données"
+
+#: descrip.strnewprompt
+msgctxt "descrip.strnewprompt"
+msgid "Enter database title:"
+msgstr "Taper le nom de la base de données:"
+
+#: descrip.strnexusfilter
+msgctxt "descrip.strnexusfilter"
+msgid "Nexus data files|*.nex"
+msgstr "Fichiers de données au format Nexus|*.nex"
+
+#: descrip.strnoinnercomments
+msgctxt "descrip.strnoinnercomments"
+msgid "Unsupported inner comments"
+msgstr "Commentaires internes non étayés"
+
+#: descrip.strnotexecute
+#, object-pascal-format
+msgctxt "descrip.strnotexecute"
+msgid "Couldn't start %s program."
+msgstr "Le programme %s n'a pas pu démarrer."
+
+#: descrip.strnotfound
+#, object-pascal-format
+msgctxt "descrip.strnotfound"
+msgid "File %s not found."
+msgstr "Fichier %s non trouvé."
+
+#: descrip.strnotfounddir
+#, object-pascal-format
+msgctxt "descrip.strnotfounddir"
+msgid "File %s not found in %s."
+msgstr "Fichier %s non trouvé dans %s."
+
+#: descrip.stropenfile
+msgctxt "descrip.stropenfile"
+msgid "Open file"
+msgstr "Ouvrir fichier"
+
+#: descrip.stroutofrange
+msgctxt "descrip.stroutofrange"
+msgid "Value out of range"
+msgstr "Valeur hors plage"
+
+#: descrip.strpaupdirectory
+msgctxt "descrip.strpaupdirectory"
+msgid "Select PAUP directory"
+msgstr "Sélectionnez le répertoire PAUP"
+
+#: descrip.strpaupnotfound
+msgctxt "descrip.strpaupnotfound"
+msgid "PAUP not installed or not found in path."
+msgstr "PAUP non installé ou introuvable dans le chemin d’accès."
+
+#: descrip.strquit
+msgctxt "descrip.strquit"
+msgid "Do you want to exit the program?"
+msgstr "Voulez-vous quitter le programme?"
+
+#: descrip.strrdirectory
+msgctxt "descrip.strrdirectory"
+msgid "Select R directory"
+msgstr "Sélectionnez le répertoire R"
+
+#: descrip.strreaderror
+#, object-pascal-format
+msgctxt "descrip.strreaderror"
+msgid "Error reading file %s."
+msgstr "Erreur de lecture du fichier %s."
+
+#: descrip.strready
+msgctxt "descrip.strready"
+msgid "Ready"
+msgstr "Prêt"
+
+#: descrip.strrnotfound
+msgctxt "descrip.strrnotfound"
+msgid "R not installed or not found in path."
+msgstr "R ne sont pas installés ou ne se trouvent pas dans le chemin."
+
+#: descrip.strsave
+msgctxt "descrip.strsave"
+msgid "Dataset has been modified. Save?"
+msgstr "Les données ont été modifiées. Enregistrer?"
+
+#: descrip.strsavechanges
+msgctxt "descrip.strsavechanges"
+msgid "Save changes?"
+msgstr "Enregistrer les modifications ?"
+
+#: descrip.strsaveerror
+#, object-pascal-format
+msgctxt "descrip.strsaveerror"
+msgid "Failed to save file %s."
+msgstr "Fichier %s non enregistré."
+
+#: descrip.strsavefile
+msgctxt "descrip.strsavefile"
+msgid "Save file as"
+msgstr "Enregistrer le fichier sous (nouveau nom)"
+
+#: descrip.strscatterplot
+msgctxt "descrip.strscatterplot"
+msgid "Scatterplot"
+msgstr "Nuage de points"
+
+#: descrip.strslm
+msgctxt "descrip.strslm"
+msgid "Single linkage (SLM)"
+msgstr "Liaison unique  (SLM)"
+
+#: descrip.strstatelistempty
+msgctxt "descrip.strstatelistempty"
+msgid "State list empty or incomplete. Enter at least two state descriptions."
+msgstr "Liste d’état vide ou incomplète. Entrez au moins deux descriptions d’état."
+
+#: descrip.strstates
+msgctxt "descrip.strstates"
+msgid "States:"
+msgstr "Etats:"
+
+#: descrip.strtext
+msgctxt "descrip.strtext"
+msgid "Text"
+msgstr "Texte"
+
+#: descrip.strtextnotfound
+msgctxt "descrip.strtextnotfound"
+msgid "Text not found!"
+msgstr "Texte non trouvé!"
+
+#: descrip.strtntdirectory
+msgctxt "descrip.strtntdirectory"
+msgid "Select TNT directory"
+msgstr "Sélectionnez le répertoire TNT"
+
+#: descrip.strtntfilter
+msgctxt "descrip.strtntfilter"
+msgid "TNT data files|*.tnt"
+msgstr "Fichier de données TNT|*.tnt"
+
+#: descrip.strtntnotfound
+msgctxt "descrip.strtntnotfound"
+msgid "TNT not installed or not found in path."
+msgstr "TNT ne sont pas installés ou ne se trouvent pas dans le chemin."
+
+#: descrip.strtxtfilter
+msgctxt "descrip.strtxtfilter"
+msgid "Text files|*.txt"
+msgstr "Fichiers texte|*.txt"
+
+#: descrip.strunit
+msgctxt "descrip.strunit"
+msgid "Unit:"
+msgstr "Unité:"
+
+#: descrip.strunitempty
+msgctxt "descrip.strunitempty"
+msgid "Measurement unit not defined for real numeric character."
+msgstr "Unité de mesure non définie pour un caractère numérique réel."
+
+#: descrip.struntitled
+msgctxt "descrip.struntitled"
+msgid "Untitled"
+msgstr "Sans titre"
+
+#: descrip.strupgma
+msgctxt "descrip.strupgma"
+msgid "Average linkage (UPGMA)"
+msgstr "Lien moyen (UPGMA)"
+
+#: descrip.strvalidnumber
+#, object-pascal-format
+msgctxt "descrip.strvalidnumber"
+msgid "Enter numbers only (an integer value between 1 and %d)"
+msgstr "Entrez des nombres uniquement (valeur d’entier comprise entre 1 et %d)"
+
+#: descrip.strward
+msgctxt "descrip.strward"
+msgid "Ward's Method"
+msgstr "Méthode de Ward"
+
+#: descrip.strwarning
+msgctxt "descrip.strwarning"
+msgid "Warning"
+msgstr "Avertissement"
+
+#: descrip.strwindowsonly
+msgctxt "descrip.strwindowsonly"
+msgid "This option is available only under MS-Windows."
+msgstr "Cette option n'est disponible que sous MS-Windows."
+
+#: descrip.strwpgma
+msgctxt "descrip.strwpgma"
+msgid "Weighted linkage (WPGMA)"
+msgstr "Liaison pondérée (WPGMA)"
+
+#: descrip.strwriteerror
+#, object-pascal-format
+msgctxt "descrip.strwriteerror"
+msgid "Error writing file %s."
+msgstr "Erreur de lecture du fichier %s."
+
+#: descrip.strxlsfilter
+msgctxt "descrip.strxlsfilter"
+msgid "Excel 97-2003 files|*.xls"
+msgstr "Fichiers Excel 97-2003|*.xls"
+
+#: descrip.strxmlfilter
+msgctxt "descrip.strxmlfilter"
 msgid "XML files|*.xml"
 msgstr "Fichiers XML|*.xml"
 
@@ -1120,6 +1672,7 @@ msgid "Confirmation"
 msgstr "Confirmation"
 
 #: kstates.strcontrol
+#, object-pascal-format
 msgctxt "kstates.strcontrol"
 msgid "Controls character: %s, by state: %s"
 msgstr "Caractère de contrôle : %s, par état : %s"
@@ -1155,6 +1708,7 @@ msgid "Dendrogram"
 msgstr "Dendrogramme"
 
 #: kstates.strdependent
+#, object-pascal-format
 msgctxt "kstates.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr "Fonction du caractère : %s, état : %s"
@@ -1220,16 +1774,19 @@ msgid "Error"
 msgstr "Erreur"
 
 #: kstates.strexists
+#, object-pascal-format
 msgctxt "kstates.strexists"
 msgid "File %s already exists. Overwrite?"
 msgstr "Le fichier %s existe déjà. Le remplacer?"
 
 #: kstates.strexport
+#, object-pascal-format
 msgctxt "kstates.strexport"
 msgid "Data exported successfully to directory %s."
 msgstr "Donnée exportée avec succès dans le dossier %s."
 
 #: kstates.strexportfile
+#, object-pascal-format
 msgctxt "kstates.strexportfile"
 msgid "Data exported successfully to file %s."
 msgstr "Donnée exportée avec succès dans le fichier %s."
@@ -1290,6 +1847,7 @@ msgid " Histogram "
 msgstr " Histogramme "
 
 #: kstates.strimport
+#, object-pascal-format
 msgctxt "kstates.strimport"
 msgid "Data imported successfully to file %s."
 msgstr "Données importées avec succès dans le fichier %s."
@@ -1300,6 +1858,7 @@ msgid "Information"
 msgstr "Information"
 
 #: kstates.strinputinteger
+#, object-pascal-format
 msgctxt "kstates.strinputinteger"
 msgid "Enter an integer value between 1 and %d"
 msgstr "Entrez une valeur d’entier entre 1 et %d"
@@ -1375,16 +1934,19 @@ msgid "Unsupported inner comments"
 msgstr "Commentaires internes non étayés"
 
 #: kstates.strnotexecute
+#, object-pascal-format
 msgctxt "kstates.strnotexecute"
 msgid "Couldn't start %s program."
 msgstr "Le programme %s n'a pas pu démarrer."
 
 #: kstates.strnotfound
+#, object-pascal-format
 msgctxt "kstates.strnotfound"
 msgid "File %s not found."
 msgstr "Fichier %s non trouvé."
 
 #: kstates.strnotfounddir
+#, object-pascal-format
 msgctxt "kstates.strnotfounddir"
 msgid "File %s not found in %s."
 msgstr "Fichier %s non trouvé dans %s."
@@ -1420,6 +1982,7 @@ msgid "Select R directory"
 msgstr "Sélectionnez le répertoire R"
 
 #: kstates.strreaderror
+#, object-pascal-format
 msgctxt "kstates.strreaderror"
 msgid "Error reading file %s."
 msgstr "Erreur de lecture du fichier %s."
@@ -1445,6 +2008,7 @@ msgid "Save changes?"
 msgstr "Enregistrer les modifications ?"
 
 #: kstates.strsaveerror
+#, object-pascal-format
 msgctxt "kstates.strsaveerror"
 msgid "Failed to save file %s."
 msgstr "Fichier %s non enregistré."
@@ -1525,6 +2089,7 @@ msgid "Average linkage (UPGMA)"
 msgstr "Lien moyen (UPGMA)"
 
 #: kstates.strvalidnumber
+#, object-pascal-format
 msgctxt "kstates.strvalidnumber"
 msgid "Enter numbers only (an integer value between 1 and %d)"
 msgstr "Entrez des nombres uniquement (valeur d’entier comprise entre 1 et %d)"
@@ -1550,6 +2115,7 @@ msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
 
 #: kstates.strwriteerror
+#, object-pascal-format
 msgctxt "kstates.strwriteerror"
 msgid "Error writing file %s."
 msgstr "Erreur de lecture du fichier %s."
@@ -1630,6 +2196,7 @@ msgid "Confirmation"
 msgstr "Confirmation"
 
 #: main.strcontrol
+#, object-pascal-format
 msgctxt "main.strcontrol"
 msgid "Controls character: %s, by state: %s"
 msgstr "Caractère de contrôle : %s, par état : %s"
@@ -1665,6 +2232,7 @@ msgid "Dendrogram"
 msgstr "Dendrogramme"
 
 #: main.strdependent
+#, object-pascal-format
 msgctxt "main.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr "Fonction du caractère : %s, état : %s"
@@ -1730,16 +2298,19 @@ msgid "Error"
 msgstr "Erreur"
 
 #: main.strexists
+#, object-pascal-format
 msgctxt "main.strexists"
 msgid "File %s already exists. Overwrite?"
-msgstr "Le fichier % s existe déjà. Remplacer?"
+msgstr "Le fichier %s existe déjà. Remplacer?"
 
 #: main.strexport
+#, object-pascal-format
 msgctxt "main.strexport"
 msgid "Data exported successfully to directory %s."
-msgstr "Les données ont été exportées avec succès vers le répertoire % s."
+msgstr "Les données ont été exportées avec succès vers le répertoire %s."
 
 #: main.strexportfile
+#, object-pascal-format
 msgctxt "main.strexportfile"
 msgid "Data exported successfully to file %s."
 msgstr "Donnée exportée avec succès dans le fichier %s."
@@ -1800,6 +2371,7 @@ msgid " Histogram "
 msgstr " Histogramme "
 
 #: main.strimport
+#, object-pascal-format
 msgctxt "main.strimport"
 msgid "Data imported successfully to file %s."
 msgstr "Données importées avec succès dans le fichier %s."
@@ -1810,6 +2382,7 @@ msgid "Information"
 msgstr "Information"
 
 #: main.strinputinteger
+#, object-pascal-format
 msgctxt "main.strinputinteger"
 msgid "Enter an integer value between 1 and %d"
 msgstr "Entrez une valeur d’entier entre 1 et %d"
@@ -1885,16 +2458,19 @@ msgid "Unsupported inner comments"
 msgstr "Commentaires internes non étayés"
 
 #: main.strnotexecute
+#, object-pascal-format
 msgctxt "main.strnotexecute"
 msgid "Couldn't start %s program."
 msgstr "Impossible de démarrer les programme %s ."
 
 #: main.strnotfound
+#, object-pascal-format
 msgctxt "main.strnotfound"
 msgid "File %s not found."
 msgstr "Fichier %s non trouvé."
 
 #: main.strnotfounddir
+#, object-pascal-format
 msgctxt "main.strnotfounddir"
 msgid "File %s not found in %s."
 msgstr "Fichier %s non trouvé dans %s."
@@ -1930,6 +2506,7 @@ msgid "Select R directory"
 msgstr "Sélectionnez le répertoire R"
 
 #: main.strreaderror
+#, object-pascal-format
 msgctxt "main.strreaderror"
 msgid "Error reading file %s."
 msgstr "Erreur de lecture du fichier %s."
@@ -1955,6 +2532,7 @@ msgid "Save changes?"
 msgstr "Enregistrer les modifications ?"
 
 #: main.strsaveerror
+#, object-pascal-format
 msgctxt "main.strsaveerror"
 msgid "Failed to save file %s."
 msgstr "Fichier %s non sauvegardé."
@@ -2035,6 +2613,7 @@ msgid "Average linkage (UPGMA)"
 msgstr "Lien moyen (UPGMA)"
 
 #: main.strvalidnumber
+#, object-pascal-format
 msgctxt "main.strvalidnumber"
 msgid "Enter numbers only (an integer value between 1 and %d)"
 msgstr "Entrez des nombres uniquement (valeur d’entier comprise entre 1 et %d)"
@@ -2060,6 +2639,7 @@ msgid "Weighted linkage (WPGMA)"
 msgstr "Lien pondéré (WPGMA)"
 
 #: main.strwriteerror
+#, object-pascal-format
 msgctxt "main.strwriteerror"
 msgid "Error writing file %s."
 msgstr "Erreur de lecture du fichier %s."
@@ -2140,6 +2720,7 @@ msgid "Confirmation"
 msgstr "Confirmation"
 
 #: prepare.strcontrol
+#, object-pascal-format
 msgctxt "prepare.strcontrol"
 msgid "Controls character: %s, by state: %s"
 msgstr "Caractère de contrôle : %s, par état : %s"
@@ -2175,6 +2756,7 @@ msgid "Dendrogram"
 msgstr "Dendrogramme"
 
 #: prepare.strdependent
+#, object-pascal-format
 msgctxt "prepare.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr "Fonction du caractère : %s, état : %s"
@@ -2240,16 +2822,19 @@ msgid "Error"
 msgstr "Erreur"
 
 #: prepare.strexists
+#, object-pascal-format
 msgctxt "prepare.strexists"
 msgid "File %s already exists. Overwrite?"
 msgstr "Le fichier %s existe déjà. Remplacer?"
 
 #: prepare.strexport
+#, object-pascal-format
 msgctxt "prepare.strexport"
 msgid "Data exported successfully to directory %s."
 msgstr "Les données ont été exportées avec succès vers le répertoire %s."
 
 #: prepare.strexportfile
+#, object-pascal-format
 msgctxt "prepare.strexportfile"
 msgid "Data exported successfully to file %s."
 msgstr "Donnée exportée avec succès dans le fichier %s."
@@ -2310,6 +2895,7 @@ msgid " Histogram "
 msgstr " Histogramme "
 
 #: prepare.strimport
+#, object-pascal-format
 msgctxt "prepare.strimport"
 msgid "Data imported successfully to file %s."
 msgstr "Données importées avec succès dans le fichier %s."
@@ -2320,6 +2906,7 @@ msgid "Information"
 msgstr "Information"
 
 #: prepare.strinputinteger
+#, object-pascal-format
 msgctxt "prepare.strinputinteger"
 msgid "Enter an integer value between 1 and %d"
 msgstr "Entrez une valeur d’entier entre 1 et %d"
@@ -2395,16 +2982,19 @@ msgid "Unsupported inner comments"
 msgstr "Commentaires internes non étayés"
 
 #: prepare.strnotexecute
+#, object-pascal-format
 msgctxt "prepare.strnotexecute"
 msgid "Couldn't start %s program."
 msgstr "Impossible de démarrer le programme %s."
 
 #: prepare.strnotfound
+#, object-pascal-format
 msgctxt "prepare.strnotfound"
 msgid "File %s not found."
 msgstr "Fichier %s introuvable."
 
 #: prepare.strnotfounddir
+#, object-pascal-format
 msgctxt "prepare.strnotfounddir"
 msgid "File %s not found in %s."
 msgstr "Le fichier %s est introuvable dans %s."
@@ -2440,6 +3030,7 @@ msgid "Select R directory"
 msgstr "Sélectionnez le répertoire R"
 
 #: prepare.strreaderror
+#, object-pascal-format
 msgctxt "prepare.strreaderror"
 msgid "Error reading file %s."
 msgstr "Erreur de lecture du fichier %s."
@@ -2465,6 +3056,7 @@ msgid "Save changes?"
 msgstr "Enregistrer les modifications ?"
 
 #: prepare.strsaveerror
+#, object-pascal-format
 msgctxt "prepare.strsaveerror"
 msgid "Failed to save file %s."
 msgstr "Échec de l'enregistrement du fichier %s."
@@ -2545,6 +3137,7 @@ msgid "Average linkage (UPGMA)"
 msgstr "Lien moyen (UPGMA)"
 
 #: prepare.strvalidnumber
+#, object-pascal-format
 msgctxt "prepare.strvalidnumber"
 msgid "Enter numbers only (an integer value between 1 and %d)"
 msgstr "Entrez des nombres uniquement (valeur d’entier comprise entre 1 et %d)"
@@ -2570,6 +3163,7 @@ msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
 
 #: prepare.strwriteerror
+#, object-pascal-format
 msgctxt "prepare.strwriteerror"
 msgid "Error writing file %s."
 msgstr "Erreur de lecture du fichier %s."
@@ -2650,6 +3244,7 @@ msgid "Confirmation"
 msgstr "Confirmation"
 
 #: script.strcontrol
+#, object-pascal-format
 msgctxt "script.strcontrol"
 msgid "Controls character: %s, by state: %s"
 msgstr "Caractère de contrôle : %s, par état : %s"
@@ -2685,6 +3280,7 @@ msgid "Dendrogram"
 msgstr "Dendrogramme"
 
 #: script.strdependent
+#, object-pascal-format
 msgctxt "script.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr "Fonction du caractère : %s, état : %s"
@@ -2750,16 +3346,19 @@ msgid "Error"
 msgstr "Erreur"
 
 #: script.strexists
+#, object-pascal-format
 msgctxt "script.strexists"
 msgid "File %s already exists. Overwrite?"
 msgstr "Le fichier %s existe déjà. Le remplacer?"
 
 #: script.strexport
+#, object-pascal-format
 msgctxt "script.strexport"
 msgid "Data exported successfully to directory %s."
 msgstr "Donnée exportée avec succès dans le dossier %s."
 
 #: script.strexportfile
+#, object-pascal-format
 msgctxt "script.strexportfile"
 msgid "Data exported successfully to file %s."
 msgstr "Donnée exportée avec succès dans le fichier %s."
@@ -2820,6 +3419,7 @@ msgid " Histogram "
 msgstr " Histogramme "
 
 #: script.strimport
+#, object-pascal-format
 msgctxt "script.strimport"
 msgid "Data imported successfully to file %s."
 msgstr "Données importées avec succès dans le fichier %s."
@@ -2830,6 +3430,7 @@ msgid "Information"
 msgstr "Information"
 
 #: script.strinputinteger
+#, object-pascal-format
 msgctxt "script.strinputinteger"
 msgid "Enter an integer value between 1 and %d"
 msgstr "Entrez une valeur d’entier entre 1 et %d"
@@ -2905,16 +3506,19 @@ msgid "Unsupported inner comments"
 msgstr "Commentaires internes non étayés"
 
 #: script.strnotexecute
+#, object-pascal-format
 msgctxt "script.strnotexecute"
 msgid "Couldn't start %s program."
 msgstr "Le programme %s n'a pas pu démarrer."
 
 #: script.strnotfound
+#, object-pascal-format
 msgctxt "script.strnotfound"
 msgid "File %s not found."
 msgstr "Fichier %s non trouvé."
 
 #: script.strnotfounddir
+#, object-pascal-format
 msgctxt "script.strnotfounddir"
 msgid "File %s not found in %s."
 msgstr "Fichier %s non trouvé dans %s."
@@ -2950,6 +3554,7 @@ msgid "Select R directory"
 msgstr "Sélectionnez le répertoire R"
 
 #: script.strreaderror
+#, object-pascal-format
 msgctxt "script.strreaderror"
 msgid "Error reading file %s."
 msgstr "Erreur de lecture du fichier %s."
@@ -2975,6 +3580,7 @@ msgid "Save changes?"
 msgstr "Enregistrer les modifications ?"
 
 #: script.strsaveerror
+#, object-pascal-format
 msgctxt "script.strsaveerror"
 msgid "Failed to save file %s."
 msgstr "Fichier %s non enregistré."
@@ -3055,6 +3661,7 @@ msgid "Average linkage (UPGMA)"
 msgstr "Lien moyen (UPGMA)"
 
 #: script.strvalidnumber
+#, object-pascal-format
 msgctxt "script.strvalidnumber"
 msgid "Enter numbers only (an integer value between 1 and %d)"
 msgstr "Entrez des nombres uniquement (valeur d’entier comprise entre 1 et %d)"
@@ -3080,6 +3687,7 @@ msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
 
 #: script.strwriteerror
+#, object-pascal-format
 msgctxt "script.strwriteerror"
 msgid "Error writing file %s."
 msgstr "Erreur de lecture du fichier %s."
@@ -3108,7 +3716,7 @@ msgid "Compiler:"
 msgstr "Compilateur:"
 
 #: taboutbox.copyright.caption
-msgid "Copyright © 2000-2024 Mauro J. Cavalcanti"
+msgid "Copyright © 2000-2025 Mauro J. Cavalcanti"
 msgstr "Copyright © 2000-2024 Mauro J. Cavalcanti"
 
 #: taboutbox.ide.caption
@@ -3267,6 +3875,77 @@ msgstr "Méthode:"
 msgctxt "tclusterform.okbutton.caption"
 msgid "OK"
 msgstr "OK"
+
+#: tdescriptionform.cancelbutton.caption
+msgctxt "tdescriptionform.cancelbutton.caption"
+msgid "Cancel"
+msgstr "Annuler"
+
+#: tdescriptionform.caption
+msgid "Edit Description"
+msgstr "Editer Description"
+
+#: tdescriptionform.editdesc.editlabel.caption
+msgid "Description:"
+msgstr "Description:"
+
+#: tdescriptionform.editdesc.hint
+msgid "State values, separated by '&'=and, '/'=or, '-'=to, comments between '<>' brackets"
+msgstr "Valeurs de l'État, séparées par '&'=et, '/'=ou, '-'=à, commentaires entre crochets '<>'"
+
+#: tdescriptionform.gobutton.caption
+msgid "Go to..."
+msgstr "Aller à"
+
+#: tdescriptionform.labelcharacter.caption
+msgid "Character:"
+msgstr "Caractère"
+
+#: tdescriptionform.labelcharname.caption
+msgid "LabelCharName"
+msgstr ""
+
+#: tdescriptionform.labelcharno.caption
+msgid "000"
+msgstr ""
+
+#: tdescriptionform.labeldependent.caption
+msgid "LabelDependent"
+msgstr ""
+
+#: tdescriptionform.labelitem.caption
+msgid "Item:"
+msgstr "Item:"
+
+#: tdescriptionform.labelitemname.caption
+msgid "ItemName"
+msgstr ""
+
+#: tdescriptionform.labelstatesunit.caption
+msgctxt "tdescriptionform.labelstatesunit.caption"
+msgid "States:"
+msgstr "Etats:"
+
+#: tdescriptionform.labeltype.caption
+msgid "Type:"
+msgstr "Type :"
+
+#: tdescriptionform.labeltypename.caption
+msgid "LabelTypeName"
+msgstr ""
+
+#: tdescriptionform.nextbutton.caption
+msgid "Next >"
+msgstr "Suivant >"
+
+#: tdescriptionform.okbutton.caption
+msgctxt "tdescriptionform.okbutton.caption"
+msgid "OK"
+msgstr "OK"
+
+#: tdescriptionform.prevbutton.caption
+msgid "< Previous"
+msgstr "< Précédent"
 
 #: tdistform.cancelbutton.caption
 msgctxt "tdistform.cancelbutton.caption"
@@ -3462,6 +4141,7 @@ msgid "Key States"
 msgstr "Etats des caractères continus"
 
 #: tkeystatesform.labelcharacters.caption
+msgctxt "tkeystatesform.labelcharacters.caption"
 msgid "Characters:"
 msgstr "Caractères:"
 
@@ -3509,14 +4189,15 @@ msgctxt "tmainform.additem.hint"
 msgid "Create new item"
 msgstr "Create new item"
 
-#: tmainform.attrlabel.caption
-msgid "Value:"
-msgstr "Valeur:"
-
 #: tmainform.caption
 msgctxt "tmainform.caption"
 msgid "Free Delta Editor"
 msgstr "Éditeur Delta gratuit"
+
+#: tmainform.characterlistview.columns[0].caption
+msgctxt "tmainform.characterlistview.columns[0].caption"
+msgid "Characters:"
+msgstr "Caractères:"
 
 #: tmainform.cloneitem.caption
 msgctxt "tmainform.cloneitem.caption"
@@ -3537,14 +4218,6 @@ msgstr "Analyse par grappes"
 msgctxt "tmainform.clusterbtn.hint"
 msgid "Agglomerative clustering by combinatorial strategies"
 msgstr "Analyse de clusters|Clusters agglomératifs par stratégies combinatoires"
-
-#: tmainform.collapseall.caption
-msgid "Collapse all"
-msgstr "Tout réduire"
-
-#: tmainform.collapseall.hint
-msgid "Hide all nodes of character tree"
-msgstr "Masquer tous les nœuds de l’arbre de caractère"
 
 #: tmainform.deletecharacter.caption
 msgid "Delete character"
@@ -3645,6 +4318,14 @@ msgctxt "tmainform.editdeleteitem.hint"
 msgid "Delete selected item"
 msgstr "Supprimer l'item sélectionné"
 
+#: tmainform.editdescriptionitem.caption
+msgid "Item Description..."
+msgstr "Description d'item..."
+
+#: tmainform.editdescriptionitem.hint
+msgid "Edit selected item description"
+msgstr "Modifier l'item sélectionné"
+
 #: tmainform.editinsertcharacteritem.caption
 msgctxt "tmainform.editinsertcharacteritem.caption"
 msgid "Insert Character..."
@@ -3715,14 +4396,6 @@ msgctxt "tmainform.exitbtn.hint"
 msgid "Exit from program"
 msgstr "Quitter|Quitter le programme"
 
-#: tmainform.expandall.caption
-msgid "Expand all"
-msgstr "Développer tout"
-
-#: tmainform.expandall.hint
-msgid "Show all nodes of character tree"
-msgstr "Afficher tous les noeuds de l'arborescence des caractres"
-
 #: tmainform.exportdeltaitem.caption
 msgctxt "tmainform.exportdeltaitem.caption"
 msgid "DELTA..."
@@ -3746,7 +4419,7 @@ msgstr "Feuille de calcul..."
 
 #: tmainform.exportspreadsheetitem.hint
 msgid "Save data in Excel format"
-msgstr ""
+msgstr "Enregistrer les données au format Excel"
 
 #: tmainform.exporttextitem.caption
 msgctxt "tmainform.exporttextitem.caption"
@@ -3868,10 +4541,6 @@ msgctxt "tmainform.findbtn.hint"
 msgid "Find specified text"
 msgstr "Rechercher|Rechercher le texte spécifié"
 
-#: tmainform.headertreeview.sections[0].text
-msgid "Characters"
-msgstr "Caractères"
-
 #: tmainform.helpaboutitem.caption
 msgid "A&bout"
 msgstr "A&bout"
@@ -3894,7 +4563,7 @@ msgstr "Afficher l’index des rubriques d’aide"
 
 #: tmainform.hint
 msgid "|Ready"
-msgstr ""
+msgstr "Prêt"
 
 #: tmainform.importdeltaitem.caption
 msgctxt "tmainform.importdeltaitem.caption"
@@ -4012,7 +4681,7 @@ msgstr "Exibir a interface em português"
 
 #: tmainform.languagespanishitem.caption
 msgid "Español"
-msgstr ""
+msgstr "Espagnol"
 
 #: tmainform.languagespanishitem.hint
 msgid "Mostrar la interfaz en español"
@@ -4180,10 +4849,6 @@ msgstr "Analyse des coordonnées principales|Analyse des coordonnées principale
 
 #: tmainform.panel1.caption
 msgid "Panel1"
-msgstr ""
-
-#: tmainform.panel3.caption
-msgid "Panel3"
 msgstr ""
 
 #: tmainform.panel4.caption
@@ -4416,6 +5081,7 @@ msgid "Confirmation"
 msgstr "Confirmation"
 
 #: toint.strcontrol
+#, object-pascal-format
 msgctxt "toint.strcontrol"
 msgid "Controls character: %s, by state: %s"
 msgstr "Caractère de contrôle : %s, par état : %s"
@@ -4451,6 +5117,7 @@ msgid "Dendrogram"
 msgstr "Dendrogramme"
 
 #: toint.strdependent
+#, object-pascal-format
 msgctxt "toint.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr "Fonction du caractère : %s, état : %s"
@@ -4516,16 +5183,19 @@ msgid "Error"
 msgstr "Erreur"
 
 #: toint.strexists
+#, object-pascal-format
 msgctxt "toint.strexists"
 msgid "File %s already exists. Overwrite?"
 msgstr "Le fichier %s existe déjà. Le remplacer?"
 
 #: toint.strexport
+#, object-pascal-format
 msgctxt "toint.strexport"
 msgid "Data exported successfully to directory %s."
 msgstr "Donnée exportée avec succès dans le dossier %s."
 
 #: toint.strexportfile
+#, object-pascal-format
 msgctxt "toint.strexportfile"
 msgid "Data exported successfully to file %s."
 msgstr "Donnée exportée avec succès dans le fichier %s."
@@ -4586,6 +5256,7 @@ msgid " Histogram "
 msgstr " Histogramme "
 
 #: toint.strimport
+#, object-pascal-format
 msgctxt "toint.strimport"
 msgid "Data imported successfully to file %s."
 msgstr "Données importées avec succès dans le fichier %s."
@@ -4596,6 +5267,7 @@ msgid "Information"
 msgstr "Information"
 
 #: toint.strinputinteger
+#, object-pascal-format
 msgctxt "toint.strinputinteger"
 msgid "Enter an integer value between 1 and %d"
 msgstr "Entrez une valeur d’entier entre 1 et %d"
@@ -4671,16 +5343,19 @@ msgid "Unsupported inner comments"
 msgstr "Commentaires internes non étayés"
 
 #: toint.strnotexecute
+#, object-pascal-format
 msgctxt "toint.strnotexecute"
 msgid "Couldn't start %s program."
 msgstr "Le programme %s n'a pas pu démarrer."
 
 #: toint.strnotfound
+#, object-pascal-format
 msgctxt "toint.strnotfound"
 msgid "File %s not found."
 msgstr "Fichier %s non trouvé."
 
 #: toint.strnotfounddir
+#, object-pascal-format
 msgctxt "toint.strnotfounddir"
 msgid "File %s not found in %s."
 msgstr "Fichier %s non trouvé dans %s."
@@ -4716,6 +5391,7 @@ msgid "Select R directory"
 msgstr "Sélectionnez le répertoire R"
 
 #: toint.strreaderror
+#, object-pascal-format
 msgctxt "toint.strreaderror"
 msgid "Error reading file %s."
 msgstr "Erreur de lecture du fichier %s."
@@ -4741,6 +5417,7 @@ msgid "Save changes?"
 msgstr "Enregistrer les modifications ?"
 
 #: toint.strsaveerror
+#, object-pascal-format
 msgctxt "toint.strsaveerror"
 msgid "Failed to save file %s."
 msgstr "Fichier %s non enregistré."
@@ -4821,6 +5498,7 @@ msgid "Average linkage (UPGMA)"
 msgstr "Lien moyen (UPGMA)"
 
 #: toint.strvalidnumber
+#, object-pascal-format
 msgctxt "toint.strvalidnumber"
 msgid "Enter numbers only (an integer value between 1 and %d)"
 msgstr "Entrez des nombres uniquement (valeur d’entier comprise entre 1 et %d)"
@@ -4846,6 +5524,7 @@ msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
 
 #: toint.strwriteerror
+#, object-pascal-format
 msgctxt "toint.strwriteerror"
 msgid "Error writing file %s."
 msgstr "Erreur de lecture du fichier %s."
@@ -4926,6 +5605,7 @@ msgid "Confirmation"
 msgstr "Confirmation"
 
 #: tokey.strcontrol
+#, object-pascal-format
 msgctxt "tokey.strcontrol"
 msgid "Controls character: %s, by state: %s"
 msgstr "Caractère de contrôle : %s, par état : %s"
@@ -4961,6 +5641,7 @@ msgid "Dendrogram"
 msgstr "Dendrogramme"
 
 #: tokey.strdependent
+#, object-pascal-format
 msgctxt "tokey.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr "Fonction du caractère : %s, état : %s"
@@ -5026,16 +5707,19 @@ msgid "Error"
 msgstr "Erreur"
 
 #: tokey.strexists
+#, object-pascal-format
 msgctxt "tokey.strexists"
 msgid "File %s already exists. Overwrite?"
 msgstr "Le fichier %s existe déjà. Le remplacer?"
 
 #: tokey.strexport
+#, object-pascal-format
 msgctxt "tokey.strexport"
 msgid "Data exported successfully to directory %s."
 msgstr "Donnée exportée avec succès dans le dossier %s."
 
 #: tokey.strexportfile
+#, object-pascal-format
 msgctxt "tokey.strexportfile"
 msgid "Data exported successfully to file %s."
 msgstr "Donnée exportée avec succès dans le fichier %s."
@@ -5096,6 +5780,7 @@ msgid " Histogram "
 msgstr " Histogramme "
 
 #: tokey.strimport
+#, object-pascal-format
 msgctxt "tokey.strimport"
 msgid "Data imported successfully to file %s."
 msgstr "Données importées avec succès dans le fichier %s."
@@ -5106,6 +5791,7 @@ msgid "Information"
 msgstr "Information"
 
 #: tokey.strinputinteger
+#, object-pascal-format
 msgctxt "tokey.strinputinteger"
 msgid "Enter an integer value between 1 and %d"
 msgstr "Entrez une valeur d’entier entre 1 et %d"
@@ -5181,16 +5867,19 @@ msgid "Unsupported inner comments"
 msgstr "Commentaires internes non étayés"
 
 #: tokey.strnotexecute
+#, object-pascal-format
 msgctxt "tokey.strnotexecute"
 msgid "Couldn't start %s program."
 msgstr "Le programme %s n'a pas pu démarrer."
 
 #: tokey.strnotfound
+#, object-pascal-format
 msgctxt "tokey.strnotfound"
 msgid "File %s not found."
 msgstr "Fichier %s non trouvé."
 
 #: tokey.strnotfounddir
+#, object-pascal-format
 msgctxt "tokey.strnotfounddir"
 msgid "File %s not found in %s."
 msgstr "Fichier %s non trouvé dans %s."
@@ -5226,6 +5915,7 @@ msgid "Select R directory"
 msgstr "Sélectionnez le répertoire R"
 
 #: tokey.strreaderror
+#, object-pascal-format
 msgctxt "tokey.strreaderror"
 msgid "Error reading file %s."
 msgstr "Erreur de lecture du fichier %s."
@@ -5251,6 +5941,7 @@ msgid "Save changes?"
 msgstr "Enregistrer les modifications ?"
 
 #: tokey.strsaveerror
+#, object-pascal-format
 msgctxt "tokey.strsaveerror"
 msgid "Failed to save file %s."
 msgstr "Fichier %s non enregistré."
@@ -5331,6 +6022,7 @@ msgid "Average linkage (UPGMA)"
 msgstr "Lien moyen (UPGMA)"
 
 #: tokey.strvalidnumber
+#, object-pascal-format
 msgctxt "tokey.strvalidnumber"
 msgid "Enter numbers only (an integer value between 1 and %d)"
 msgstr "Entrez des nombres uniquement (valeur d’entier comprise entre 1 et %d)"
@@ -5356,6 +6048,7 @@ msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
 
 #: tokey.strwriteerror
+#, object-pascal-format
 msgctxt "tokey.strwriteerror"
 msgid "Error writing file %s."
 msgstr "Erreur de lecture du fichier %s."
@@ -5436,6 +6129,7 @@ msgid "Confirmation"
 msgstr "Confirmation"
 
 #: tonat.strcontrol
+#, object-pascal-format
 msgctxt "tonat.strcontrol"
 msgid "Controls character: %s, by state: %s"
 msgstr "Caractère de contrôle : %s, par état : %s"
@@ -5471,6 +6165,7 @@ msgid "Dendrogram"
 msgstr "Dendrogramme"
 
 #: tonat.strdependent
+#, object-pascal-format
 msgctxt "tonat.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr "Fonction du caractère : %s, état : %s"
@@ -5536,16 +6231,19 @@ msgid "Error"
 msgstr "Erreur"
 
 #: tonat.strexists
+#, object-pascal-format
 msgctxt "tonat.strexists"
 msgid "File %s already exists. Overwrite?"
 msgstr "Le fichier %s existe déjà. Le remplacer?"
 
 #: tonat.strexport
+#, object-pascal-format
 msgctxt "tonat.strexport"
 msgid "Data exported successfully to directory %s."
 msgstr "Donnée exportée avec succès dans le dossier %s."
 
 #: tonat.strexportfile
+#, object-pascal-format
 msgctxt "tonat.strexportfile"
 msgid "Data exported successfully to file %s."
 msgstr "Donnée exportée avec succès dans le fichier %s."
@@ -5606,6 +6304,7 @@ msgid " Histogram "
 msgstr " Histogramme "
 
 #: tonat.strimport
+#, object-pascal-format
 msgctxt "tonat.strimport"
 msgid "Data imported successfully to file %s."
 msgstr "Données importées avec succès dans le fichier %s."
@@ -5616,6 +6315,7 @@ msgid "Information"
 msgstr "Information"
 
 #: tonat.strinputinteger
+#, object-pascal-format
 msgctxt "tonat.strinputinteger"
 msgid "Enter an integer value between 1 and %d"
 msgstr "Entrez une valeur d’entier entre 1 et %d"
@@ -5691,16 +6391,19 @@ msgid "Unsupported inner comments"
 msgstr "Commentaires internes non étayés"
 
 #: tonat.strnotexecute
+#, object-pascal-format
 msgctxt "tonat.strnotexecute"
 msgid "Couldn't start %s program."
 msgstr "Le programme %s n'a pas pu démarrer."
 
 #: tonat.strnotfound
+#, object-pascal-format
 msgctxt "tonat.strnotfound"
 msgid "File %s not found."
 msgstr "Fichier %s non trouvé."
 
 #: tonat.strnotfounddir
+#, object-pascal-format
 msgctxt "tonat.strnotfounddir"
 msgid "File %s not found in %s."
 msgstr "Fichier %s non trouvé dans %s."
@@ -5736,6 +6439,7 @@ msgid "Select R directory"
 msgstr "Sélectionnez le répertoire R"
 
 #: tonat.strreaderror
+#, object-pascal-format
 msgctxt "tonat.strreaderror"
 msgid "Error reading file %s."
 msgstr "Erreur de lecture du fichier %s."
@@ -5761,6 +6465,7 @@ msgid "Save changes?"
 msgstr "Enregistrer les modifications ?"
 
 #: tonat.strsaveerror
+#, object-pascal-format
 msgctxt "tonat.strsaveerror"
 msgid "Failed to save file %s."
 msgstr "Fichier %s non enregistré."
@@ -5841,6 +6546,7 @@ msgid "Average linkage (UPGMA)"
 msgstr "Lien moyen (UPGMA)"
 
 #: tonat.strvalidnumber
+#, object-pascal-format
 msgctxt "tonat.strvalidnumber"
 msgid "Enter numbers only (an integer value between 1 and %d)"
 msgstr "Entrez des nombres uniquement (valeur d’entier comprise entre 1 et %d)"
@@ -5866,6 +6572,7 @@ msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
 
 #: tonat.strwriteerror
+#, object-pascal-format
 msgctxt "tonat.strwriteerror"
 msgid "Error writing file %s."
 msgstr "Erreur de lecture du fichier %s."
@@ -6019,11 +6726,11 @@ msgstr "OK"
 
 #: tviewerform.closebtn.caption
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 #: tviewerform.copybtn.caption
 msgid "Copy"
-msgstr ""
+msgstr "Copier"
 
 #: viewer.straddcharacter
 msgctxt "viewer.straddcharacter"
@@ -6091,6 +6798,7 @@ msgid "Confirmation"
 msgstr "Confirmation"
 
 #: viewer.strcontrol
+#, object-pascal-format
 msgctxt "viewer.strcontrol"
 msgid "Controls character: %s, by state: %s"
 msgstr "Caractère de contrôle : %s, par état : %s"
@@ -6126,6 +6834,7 @@ msgid "Dendrogram"
 msgstr "Dendrogramme"
 
 #: viewer.strdependent
+#, object-pascal-format
 msgctxt "viewer.strdependent"
 msgid "Dependent upon character: %s, state: %s"
 msgstr "Fonction du caractère : %s, état : %s"
@@ -6191,16 +6900,19 @@ msgid "Error"
 msgstr "Erreur"
 
 #: viewer.strexists
+#, object-pascal-format
 msgctxt "viewer.strexists"
 msgid "File %s already exists. Overwrite?"
 msgstr "Le fichier %s existe déjà. Remplacer?"
 
 #: viewer.strexport
+#, object-pascal-format
 msgctxt "viewer.strexport"
 msgid "Data exported successfully to directory %s."
 msgstr "Les données ont été exportées avec succès vers le répertoire %s."
 
 #: viewer.strexportfile
+#, object-pascal-format
 msgctxt "viewer.strexportfile"
 msgid "Data exported successfully to file %s."
 msgstr "Donnée exportée avec succès dans le fichier %s."
@@ -6261,6 +6973,7 @@ msgid " Histogram "
 msgstr " Histogramme "
 
 #: viewer.strimport
+#, object-pascal-format
 msgctxt "viewer.strimport"
 msgid "Data imported successfully to file %s."
 msgstr "Données importées avec succès dans le fichier %s."
@@ -6271,6 +6984,7 @@ msgid "Information"
 msgstr "Information"
 
 #: viewer.strinputinteger
+#, object-pascal-format
 msgctxt "viewer.strinputinteger"
 msgid "Enter an integer value between 1 and %d"
 msgstr "Entrez une valeur d’entier entre 1 et %d"
@@ -6346,16 +7060,19 @@ msgid "Unsupported inner comments"
 msgstr "Commentaires internes non étayés"
 
 #: viewer.strnotexecute
+#, object-pascal-format
 msgctxt "viewer.strnotexecute"
 msgid "Couldn't start %s program."
 msgstr "Impossible de démarrer le programme %s."
 
 #: viewer.strnotfound
+#, object-pascal-format
 msgctxt "viewer.strnotfound"
 msgid "File %s not found."
 msgstr "Fichier %s non trouvé."
 
 #: viewer.strnotfounddir
+#, object-pascal-format
 msgctxt "viewer.strnotfounddir"
 msgid "File %s not found in %s."
 msgstr "Fichier %s non trouvé dans %s."
@@ -6391,6 +7108,7 @@ msgid "Select R directory"
 msgstr "Sélectionnez le répertoire R"
 
 #: viewer.strreaderror
+#, object-pascal-format
 msgctxt "viewer.strreaderror"
 msgid "Error reading file %s."
 msgstr "Erreur de lecture du fichier %s."
@@ -6416,6 +7134,7 @@ msgid "Save changes?"
 msgstr "Enregistrer les modifications ?"
 
 #: viewer.strsaveerror
+#, object-pascal-format
 msgctxt "viewer.strsaveerror"
 msgid "Failed to save file %s."
 msgstr "Échec de l'enregistrement du fichier %s."
@@ -6496,6 +7215,7 @@ msgid "Average linkage (UPGMA)"
 msgstr "Lien moyen (UPGMA)"
 
 #: viewer.strvalidnumber
+#, object-pascal-format
 msgctxt "viewer.strvalidnumber"
 msgid "Enter numbers only (an integer value between 1 and %d)"
 msgstr "Entrez des nombres uniquement (valeur d’entier comprise entre 1 et %d)"
@@ -6521,6 +7241,7 @@ msgid "Weighted linkage (WPGMA)"
 msgstr "Liaison pondérée (WPGMA)"
 
 #: viewer.strwriteerror
+#, object-pascal-format
 msgctxt "viewer.strwriteerror"
 msgid "Error writing file %s."
 msgstr "Erreur de lecture du fichier %s."

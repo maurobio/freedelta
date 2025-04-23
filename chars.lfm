@@ -149,7 +149,7 @@ object CharacterForm: TCharacterForm
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poMainFormCenter
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '3.6.0.0'
   object PageControl: TPageControl
     Left = 12
     Height = 407
@@ -178,52 +178,52 @@ object CharacterForm: TCharacterForm
         Left = 8
         Height = 19
         Top = 52
-        Width = 76
+        Width = 74
         Caption = 'Unordered'
         Checked = True
-        OnClick = rbUMClick
         TabOrder = 1
         TabStop = True
+        OnClick = rbUMClick
       end
       object rbOM: TRadioButton
         Left = 104
         Height = 19
         Top = 52
-        Width = 63
+        Width = 61
         Caption = 'Ordered'
-        OnClick = rbOMClick
         TabOrder = 2
         TabStop = True
+        OnClick = rbOMClick
       end
       object rbIN: TRadioButton
         Left = 174
         Height = 19
         Top = 52
-        Width = 57
+        Width = 55
         Caption = 'Integer'
-        OnClick = rbINClick
         TabOrder = 3
         TabStop = True
+        OnClick = rbINClick
       end
       object rbRN: TRadioButton
         Left = 232
         Height = 19
         Top = 52
-        Width = 42
+        Width = 40
         Caption = 'Real'
-        OnClick = rbRNClick
         TabOrder = 4
         TabStop = True
+        OnClick = rbRNClick
       end
       object rbTE: TRadioButton
         Left = 274
         Height = 19
         Top = 52
-        Width = 42
+        Width = 40
         Caption = 'Text'
-        OnClick = rbTEClick
         TabOrder = 5
         TabStop = True
+        OnClick = rbTEClick
       end
       object LabelStates: TLabel
         Left = 8
@@ -239,20 +239,20 @@ object CharacterForm: TCharacterForm
         Top = 96
         Width = 308
         ItemHeight = 0
-        OnSelectionChange = ListStatesSelectionChange
         ParentShowHint = False
         ScrollWidth = 306
         TabOrder = 6
+        OnSelectionChange = ListStatesSelectionChange
       end
       object CheckImplicit: TCheckBox
         Left = 74
         Height = 19
         Top = 310
-        Width = 60
+        Width = 58
         AllowGrayed = True
         Caption = 'Implicit'
-        OnClick = CheckImplicitClick
         TabOrder = 7
+        OnClick = CheckImplicitClick
       end
       object IncludeBtn: TSpeedButton
         Left = 142
@@ -566,8 +566,8 @@ object CharacterForm: TCharacterForm
         Top = 26
         Width = 311
         ItemHeight = 15
-        OnChange = ComboAttributesChange
         TabOrder = 0
+        OnChange = ComboAttributesChange
       end
       object LabelAttributes: TLabel
         Left = 9
@@ -605,8 +605,8 @@ object CharacterForm: TCharacterForm
     Width = 75
     Caption = 'OK'
     ModalResult = 1
-    OnClick = OKButtonClick
     TabOrder = 1
+    OnClick = OKButtonClick
   end
   object CancelButton: TButton
     Left = 273

@@ -1,7 +1,7 @@
 {===============================================================================}
 {                          Free Delta Editor                                    }
 {         A software package for building taxonomic databases                   }
-{                   (c) 2000-2024 by Mauro J. Cavalcanti                        }
+{                   (c) 2000-2025 by Mauro J. Cavalcanti                        }
 {                         <maurobio@gmail.com>                                  }
 {                                                                               }
 {   This program is free software: you can redistribute it and/or modify        }
@@ -475,6 +475,12 @@
 {                                   name from a directives file to retrieve the }
 {                                   first title when there is more than one     }
 {                                   *SHOW directive in the file.                }
+{ Version 4.06, 23 Apr, 2025      - Changed interface to replace the character  }
+{                                   tree with a simple list view.               }
+{                                 - Removed from main screen the edit box for   }
+{                                   editing item descriptions.                  }
+{                                 - Restored the Item Descriptions dialog box   }
+{                                   from previous version 2.4.0                 }
 {===============================================================================}
 unit Main;
 
@@ -486,7 +492,7 @@ uses
   LCLIntf, LCLType, Classes, SysUtils, StrUtils, FileUtil, Forms, Controls,
   Graphics, Dialogs, ComCtrls, Menus, Clipbrd, IniFiles, HistoryFiles,
   CheckLst, LCLTranslator, ExtCtrls, StdCtrls, Grids, Zipper, Process,
-  Math, Delta, Types;
+  Math, Delta, Types, GetText;
 
 const
   Checked = 20;
@@ -505,12 +511,14 @@ type
     FindDialog: TFindDialog;
     HelpMenuItem: TMenuItem;
     EditScriptItem: TMenuItem;
+    CharacterListView: TListView;
     MatrixParsimonyItemTNT: TMenuItem;
     MatrixParsimonyItemPAUP: TMenuItem;
     ExportTextItem: TMenuItem;
     ExportSpreadsheetItem: TMenuItem;
     LanguageSpanishItem: TMenuItem;
     ExportSLIKSItem: TMenuItem;
+    EditDescriptionItem: TMenuItem;
     N20: TMenuItem;
     SearchGotoLine: TMenuItem;
     SearchFindNextItem: TMenuItem;
@@ -549,11 +557,9 @@ type
     EditChangeCharacterItem: TMenuItem;
     EditDeleteCharacterItem: TMenuItem;
     EditDeleteItem: TMenuItem;
-    HeaderTreeView: THeaderControl;
     KeyMenu: TMenuItem;
     KeyConventionalItem: TMenuItem;
     KeyInteractiveItem: TMenuItem;
-    AttrLabel: TLabel;
     FeatureLabel: TLabel;
     ItemsMenu: TPopupMenu;
     AddItem: TMenuItem;
@@ -563,9 +569,6 @@ type
     AddCharacter: TMenuItem;
     EditCharacter: TMenuItem;
     DeleteCharacter: TMenuItem;
-    N32: TMenuItem;
-    ExpandAll: TMenuItem;
-    CollapseAll: TMenuItem;
     ListTab: TTabSheet;
     ItemListView: TListView;
     MatrixMenu: TMenuItem;
@@ -573,12 +576,10 @@ type
     MatrixDistanceItem: TMenuItem;
     MatrixClusterItem: TMenuItem;
     MatrixTab: TTabSheet;
-    AttrEditor: TMemo;
     N10: TMenuItem;
     EditTitleItem: TMenuItem;
     PageControl: TPageControl;
     Panel1: TPanel;
-    Panel3: TPanel;
     Panel4: TPanel;
     Panel5: TPanel;
     DataMatrix: TStringGrid;
@@ -618,7 +619,6 @@ type
     OpenDialog: TOpenDialog;
     SaveDialog: TSaveDialog;
     StatusLine: TStatusBar;
-    CharacterTreeView: TTreeView;
     ToolBar: TToolBar;
     NewBtn: TToolButton;
     OpenBtn: TToolButton;
@@ -640,14 +640,11 @@ type
     ScriptBtn: TToolButton;
     S6: TToolButton;
     UncodedBtn: TToolButton;
-    procedure AttrEditorEditingDone(Sender: TObject);
-    procedure AttrEditorExit(Sender: TObject);
-    procedure AttrEditorKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
-    procedure CharacterTreeViewDblClick(Sender: TObject);
-    procedure CharacterTreeViewKeyDown(Sender: TObject; var Key: word;
+    procedure CharacterListViewDblClick(Sender: TObject);
+    procedure CharacterListViewKeyDown(Sender: TObject; var Key: word;
       Shift: TShiftState);
-    procedure CharacterTreeViewSelectionChanged(Sender: TObject);
-    procedure CollapseAllClick(Sender: TObject);
+    procedure CharacterListViewMouseMove(Sender: TObject; Shift: TShiftState;
+      X, Y: integer);
     procedure DataMatrixDrawCell(Sender: TObject; aCol, aRow: integer;
       aRect: TRect; aState: TGridDrawState);
     procedure DataMatrixPrepareCanvas(Sender: TObject; aCol, aRow: integer;
@@ -661,12 +658,12 @@ type
     procedure EditCloneItemClick(Sender: TObject);
     procedure EditDeleteCharacterItemClick(Sender: TObject);
     procedure EditDeleteItemClick(Sender: TObject);
+    procedure EditDescriptionItemClick(Sender: TObject);
     procedure EditInsertCharacterItemClick(Sender: TObject);
     procedure EditInsertItemClick(Sender: TObject);
     procedure EditMergeCharacterItemClick(Sender: TObject);
     procedure EditScriptItemClick(Sender: TObject);
     procedure EditTitleItemClick(Sender: TObject);
-    procedure ExpandAllClick(Sender: TObject);
     procedure ExportDELTAItemClick(Sender: TObject);
     procedure ExportSLIKSItemClick(Sender: TObject);
     procedure ExportSpreadsheetItemClick(Sender: TObject);
@@ -693,8 +690,6 @@ type
     procedure ItemListViewDblClick(Sender: TObject);
     procedure ItemListViewKeyDown(Sender: TObject; var Key: word;
       Shift: TShiftState);
-    procedure ItemListViewSelectItem(Sender: TObject; Item: TListItem;
-      Selected: boolean);
     procedure KeyConventionalItemClick(Sender: TObject);
     procedure KeyInteractiveItemClick(Sender: TObject);
     procedure LanguageEnglishItemClick(Sender: TObject);
@@ -728,24 +723,17 @@ type
     FoundPos: integer;
     HasDistance: boolean;
     SelectedChar: integer;
+    FLastHintItem: TListItem;
     function LocateR: boolean;
     function FindR: string;
     function SearchListView(LV: TListView; const S: string; Column: integer;
       P: integer): TListItem;
-    function SearchTree(TV: TTreeView; SearchItem: string; P: integer): TTreeNode;
-    function GetRootCount(TV: TTreeView): integer;
-    function GetRootItem(TV: TTreeView; Index: integer): TTreeNode;
-    {function GetNodeAtUpperLevelByIndex(Nodes: TTreeNodes; Index: integer): TTreeNode;}
-    function IsTreeviewFullyExpanded(tv: TTreeview): boolean;
-    function IsTreeviewFullyCollapsed(tv: TTreeview): boolean;
     function FindCol(SG: TStringGrid; C: integer; sFind: string; P: integer): integer;
     function CheckCharacters(Dir: string): boolean;
     function CheckItems(Dir: string): boolean;
     procedure AdjustWidth;
-    procedure SetAllChildState(AParent: TTreeNode; State: integer);
     procedure ListInapplicables(const depChar: string; const Deps: TStrings);
     procedure CheckInapplicables(SelectedIndex: integer);
-    procedure DifferentIconChildState(FeatureIndex: integer);
     procedure UpdateMenuItems(Sender: TObject);
     procedure UpdateStatusBar(Sender: TObject);
     procedure UpdateTitleBar(Filename: string);
@@ -784,10 +772,12 @@ var
 { Helper routines }
 function IsWindows: boolean;
 function Is32bit: boolean;
+function IsDigit(Ch: char): boolean;
 function GetFileNameWithoutExt(Filenametouse: string): string;
 function Capitalize(s: string): string;
 function ExistWordInString(const AString: PChar; const ASearchString: string;
   ASearchOptions: TStringSearchOptions): boolean;
+function ContainsChars(const Str: string; const Chars: TSysCharSet): boolean;
 procedure Join(const Values: TStrings; var S: string; const sep: string);
 procedure Split(const Values: TStrings; const S: string; const Delimiters: TSysCharSet);
 procedure SplitString(Delimiter: char; Str: string; ListOfStrings: TStrings);
@@ -795,11 +785,12 @@ procedure CreateBackup(Filename: string);
 
 implementation
 
-uses About, Prepare, Tonat, Tokey, Toint, Todis, Cluster, Chars,
+uses About, Prepare, Tonat, Tokey, Toint, Todis, Cluster, Chars, Descrip,
   Viewer, Phylogen, Script;
 
-{$R *.lfm}
-{$I resources.inc}
+  {$R *.lfm}
+
+  {$I resources.inc}
 
 function IsWindows: boolean;
 begin
@@ -819,6 +810,11 @@ begin
   {$IFDEF CPU64}
   Result := False;
   {$ENDIF}
+end;
+
+function IsDigit(Ch: char): boolean;
+begin
+  IsDigit := Ch in ['0'..'9'];
 end;
 
 function GetFileNameWithoutExt(Filenametouse: string): string;
@@ -899,6 +895,21 @@ begin
   end;
 end;
 
+function ContainsChars(const Str: string; const Chars: TSysCharSet): boolean;
+var
+  i: integer;
+begin
+  Result := False;
+  for i := 1 to Length(Str) do
+  begin
+    if Str[i] in Chars then
+    begin
+      Result := True;
+      Exit;
+    end;
+  end;
+end;
+
 procedure Split(const Values: TStrings; const S: string; const Delimiters: TSysCharSet);
 var
   L: integer;
@@ -965,10 +976,8 @@ begin
 end;
 
 procedure ToNex(Inputfile: string);
-
 const
   missDefault = '?';
-
 var
   title, Outputfile: string;
   infile, outfile: TextFile;
@@ -1184,7 +1193,6 @@ function TMainForm.FindR: string;
 const
   FN = 'bin\RScript.exe';
   P = 'C:\Program Files\R';
-
 var
   I: integer;
   LSearchResult: TStringList;
@@ -1263,118 +1271,6 @@ begin
   end;
 end;
 
-function TMainForm.SearchTree(TV: TTreeView; SearchItem: string; P: integer): TTreeNode;
-var
-  Node: TTreeNode;
-  Options: TStringSearchOptions;
-begin
-  Options := [soDown];
-  if frMatchCase in FindDialog.Options then
-    Options += [soMatchCase];
-  if frWholeWord in FindDialog.Options then
-    Options += [soWholeWord];
-  Result := nil;
-  if TV.Items.Count = 0 then
-    exit;
-  if P = TV.Items.Count - 1 then
-    P := -1;
-  Node := TV.Items.Item[P + 1];
-  while Node.AbsoluteIndex < TV.Items.Count do
-  begin
-    if ExistWordInString(PChar(Node.Text), SearchItem, Options) then
-    begin
-      Result := Node;
-      Result.MakeVisible;
-      Break;
-    end
-    else if Node.AbsoluteIndex = TV.Items.Count - 1 then
-      break
-    else
-      Node := Node.GetNext;
-  end;
-  if Result = nil then
-  begin
-    if P >= 0 then
-      Result := SearchTree(TV, SearchItem, -1);
-  end;
-end;
-
-function TMainForm.GetRootCount(TV: TTreeView): integer;
-var
-  Node: TTreeNode;
-begin
-  Result := 0;
-  Node := TV.Items.GetFirstNode;
-  while Assigned(Node) do
-  begin
-    Inc(Result);
-    Node := Node.GetNextSibling;
-  end;
-end;
-
-function TMainForm.GetRootItem(TV: TTreeView; Index: integer): TTreeNode;
-var
-  Node: TTreeNode;
-begin
-  Result := TV.Items.GetFirstNode;
-  while Assigned(Node) and (Index > 0) do
-  begin
-    Result := Result.GetNextSibling;
-    Dec(Index);
-  end;
-end;
-
-{function TMainForm.GetNodeAtUpperLevelByIndex(Nodes: TTreeNodes;
-  Index: integer): TTreeNode;
-begin
-  if (Nodes = nil) or (Index < 0) then
-    Exit(nil);
-  Result := Nodes.GetFirstNode;
-  while (Index > 0) and (Result <> nil) do
-  begin
-    Dec(Index);
-    Result := Result.GetNextSibling;
-  end;
-end;}
-
-function TMainForm.IsTreeviewFullyExpanded(tv: TTreeView): boolean;
-var
-  Node: TTreeNode;
-begin
-  Assert(Assigned(tv));
-  if tv.Items.Count > 0 then
-  begin
-    Node := tv.Items[0];
-    Result := True;
-    while Result and Assigned(Node) do
-    begin
-      Result := Node.Expanded or not Node.HasChildren;
-      Node := Node.GetNext;
-    end;
-  end
-  else
-    Result := False;
-end;
-
-function TMainForm.IsTreeviewFullyCollapsed(tv: TTreeView): boolean;
-var
-  Node: TTreeNode;
-begin
-  Assert(Assigned(tv));
-  if tv.Items.Count > 0 then
-  begin
-    Node := tv.Items[0];
-    Result := True;
-    while Result and Assigned(Node) do
-    begin
-      Result := not (Node.Expanded and Node.HasChildren);
-      Node := Node.GetNext;
-    end;
-  end
-  else
-    Result := False;
-end;
-
 function TMainForm.FindCol(SG: TStringGrid; C: integer; sFind: string;
   P: integer): integer;
 var
@@ -1438,20 +1334,6 @@ begin
     MessageDlg(strError, Format(strNotExecute, ['DELTA CONFOR']), mtError, [mbOK], 0);
     ShowErrorLog(S);
     Result := False;
-  end;
-end;
-
-procedure TMainForm.SetAllChildState(AParent: TTreeNode; State: integer);
-var
-  NodeItem: TTreeNode;
-begin
-  if AParent = nil then
-    Exit;
-  NodeItem := AParent.GetFirstChild;
-  while NodeItem <> nil do
-  begin
-    NodeItem.StateIndex := State;
-    NodeItem := NodeItem.GetNextSibling;
   end;
 end;
 
@@ -1572,58 +1454,38 @@ begin
   Values.Free;
 end;
 
-procedure TMainForm.CheckInapplicables(SelectedIndex: integer);
+procedure TMainForm.CheckInapplicables(SelectedIndex: longint);
 var
-  i, j, k, StateNo: integer;
-  Deps: TStringList;
+  S, Aux: string;
+  I, J, CharNo, First, Last: integer;
+  Values: TStringList;
+  LParent: TTreeNode;
 begin
-  if SelectedIndex >= 0 then
+  for J := 0 to Length(Dataset.CharacterList) - 1 do
   begin
-    for j := 0 to Length(Dataset.CharacterList) - 1 do
+    if Length(Dataset.CharacterList[J].charDependent) > 0 then
     begin
-      for i := 0 to Dataset.CharacterList[j].charDependent.Count - 1 do
+      Values := TStringList.Create;
+      Split(Values, Dataset.CharacterList[J].charDependent, [':']);
+      for I := 1 to Values.Count - 1 do
       begin
-        if TryStrToInt(Dataset.CharacterList[j].charDependent[i].Split([':'])
-          [0], StateNo) then
+        Aux := Values[I];
+        if (Pos('-', Aux) > 0) then
         begin
-          Deps := TStringList.Create;
-          ListInapplicables(Dataset.CharacterList[j].charDependent[i], Deps);
-          if Deps.Count > 0 then
-          begin
-            for k := 0 to Deps.Count - 1 do
-              if (StrToIntDef(Dataset.ItemList[SelectedIndex].itemAttributes[j], 0) =
-                StateNo) then
-                DifferentIconChildState(StrToIntDef(Deps[k], 0));
-          end;
-          Deps.Free;
+          S := ExtractDelimited(1, Aux, [':']);
+          First := StrToIntDef(Copy(S, 1, Pos('-', S) - 1), -1);
+          Last := StrToIntDef(Copy(S, Pos('-', S) + 1, Length(S)), -1);
+          if (First < 0) or (Last < 0) then
+            Exit;
+        end
+        else
+        begin
+          CharNo := StrToIntDef(ExtractDelimited(1, Aux, [':']), -1);
+          if CharNo < 0 then
+            Exit;
         end;
       end;
-    end;
-  end;
-end;
-
-procedure TMainForm.DifferentIconChildState(FeatureIndex: integer);
-var
-  I, fid: integer;
-  node, subnode: TTreeNode;
-begin
-  fid := 0;
-  for I := 0 to CharacterTreeView.Items.Count - 1 do
-  begin
-    node := CharacterTreeView.Items.Item[I];
-    if node.Parent = nil then
-    begin
-      Inc(fid);
-      if fid = FeatureIndex then
-      begin
-        subnode := node.GetFirstChild;
-        while subnode <> nil do
-        begin
-          subnode.StateIndex := Inapplicable;
-          subnode := subnode.GetNextSibling;
-        end;
-        break;
-      end;
+      Values.Free;
     end;
   end;
 end;
@@ -1654,6 +1516,7 @@ begin
   EditChangeItem.Enabled := FileIsOpen;
   EditDeleteItem.Enabled := FileIsOpen;
   EditCloneItem.Enabled := FileIsOpen;
+  EditDescriptionItem.Enabled := FileIsOpen;
   EditAddCharacterItem.Enabled := FileIsOpen;
   EditInsertCharacterItem.Enabled := FileIsOpen;
   EditChangeCharacterItem.Enabled := FileIsOpen;
@@ -1714,7 +1577,11 @@ begin
   sPath := GetAppConfigDir(False);
   IniFile := TIniFile.Create(sPath + 'fde.ini');
   sLang := IniFile.ReadString('Options', 'Language', 'en'); // First default is English
+  {$IFDEF VER3}
+  SetDefaultLang(sLang, 'languages', '', True);
+  {$ELSE}
   SetDefaultLang(sLang, 'languages', True);
+  {$ENDIF}
   case sLang of
     'en':
     begin
@@ -1780,10 +1647,6 @@ begin
   IniFile.WriteInteger('MainWindow', 'Height', Height);
   IniFile.WriteInteger('MainWindow', 'State', integer(WindowState));
   IniFile.WriteInteger('MainWindow', 'ActivePage', PageControl.TabIndex);
-  if IsTreeviewFullyExpanded(CharacterTreeView) then
-    TreeState := 1
-  else if IsTreeViewFullyCollapsed(CharacterTreeView) then
-    TreeState := 0;
   IniFile.WriteInteger('MainWindow', 'TreeState', TreeState);
   IniFile.Free;
 end;
@@ -1851,107 +1714,30 @@ end;
 
 procedure TMainForm.LoadCharacterList(SelectedIndex: integer = 0);
 var
-  J, K, Check: integer;
-  Character, State: TTreeNode;
-  Attribute: string;
-  Values: TStringList;
+  J: integer;
+  Character: TListItem;
 begin
-  HeaderTreeView.Sections[0].Text :=
+  CharacterListView.Columns[0].Caption :=
     Capitalize(strCharacters) + ' (' + IntToStr(Length(Dataset.CharacterList)) + ')';
-  CharacterTreeView.BeginUpdate;
-  CharacterTreeView.Items.Clear;
+  CharacterListView.Items.Clear;
   if SelectedIndex >= 0 then
   begin
     for J := 0 to Length(Dataset.CharacterList) - 1 do
     begin
-      Character := CharacterTreeView.Items.Add(nil, IntToStr(J + 1) +
-        '. ' + Dataset.CharacterList[J].charName);
-      //try
-      Attribute := Dataset.ItemList[SelectedIndex].itemAttributes[J];
-      //except
-      //  on E: Exception do
-      //     Attribute := '';
-      //end;
-      if (Dataset.CharacterList[J].charType = 'UM') or
-        (Dataset.CharacterList[J].charType = 'OM') then
-      begin
-        if (Dataset.CharacterList[J].charType = 'UM') then
-          Character.ImageIndex := 18
-        else if (Dataset.CharacterList[J].charType = 'OM') then
-          Character.ImageIndex := 28;
-        Values := TStringList.Create;
-        try
-          Split(Values, Delta.RemoveComments(Attribute), ['/', '&', '-']);
-        except
-          on E: EStringListError do
-            Values.Add('');
-        end;
-        for K := 0 to Dataset.CharacterList[J].charStates.Count - 1 do
-        begin
-          State := CharacterTreeView.Items.AddChild(Character,
-            IntToStr(K + 1) + '. ' + Dataset.CharacterList[J].charStates[K]);
-          if Values.Count > 1 then
-          begin
-            try
-              if (StrToIntDef(Values[k], 0) = k + 1) then
-              begin
-                if (Dataset.CharacterList[j].charImplicit = k + 1) then
-                  check := Implicit
-                else
-                  check := Checked;
-              end
-              else
-                check := Unchecked;
-            except
-              Check := Unchecked;
-            end;
-          end
-          else if Values.Count = 1 then
-          begin
-            try
-              if (StrToIntDef(Values[0], 0) = K + 1) then
-              begin
-                if (Dataset.CharacterList[j].charImplicit = k + 1) then
-                  check := Implicit
-                else
-                  check := Checked;
-              end
-              else
-                check := Unchecked;
-            except
-              Check := Unchecked;
-            end;
-          end
-          else if Values.Count = 0 then
-            Check := Unchecked;
-          State.StateIndex := Check;
-        end;
-        Values.Free;
-      end
-      else if (Dataset.CharacterList[J].charType = 'IN') or
-        (Dataset.CharacterList[J].charType = 'RN') then
-      begin
-        if (Dataset.CharacterList[J].charType = 'IN') then
-          Character.ImageIndex := 17
-        else if (Dataset.CharacterList[J].charType = 'RN') then
-          Character.ImageIndex := 27;
-        State := CharacterTreeView.Items.AddChild(Character,
-          Dataset.ItemList[SelectedIndex].itemAttributes[J] + ' ' +
-          IfThen(Attribute <> 'U', Dataset.CharacterList[J].charUnit, ''));
-        if Attribute <> 'U' then
-          Attribute := Concat(Attribute, ' ', Dataset.CharacterList[J].charUnit);
-      end
+      Character := CharacterListView.Items.Add;
+      Character.Caption := IntToStr(J + 1) + '. ' + Dataset.CharacterList[J].charName;
+      if (Dataset.CharacterList[J].charType = 'UM') then
+        Character.ImageIndex := 18
+      else if (Dataset.CharacterList[J].charType = 'OM') then
+        Character.ImageIndex := 28
+      else if (Dataset.CharacterList[J].charType = 'IN') then
+        Character.ImageIndex := 17
+      else if (Dataset.CharacterList[J].charType = 'RN') then
+        Character.ImageIndex := 27
       else if (Dataset.CharacterList[J].charType = 'TE') then
-      begin
         Character.ImageIndex := 19;
-        State := CharacterTreeView.Items.AddChild(Character,
-          Dataset.ItemList[SelectedIndex].itemAttributes[j]);
-      end;
-      Character.SelectedIndex := Character.ImageIndex;
     end;
   end;
-  CheckInapplicables(SelectedIndex);
-  CharacterTreeView.EndUpdate;
 end;
 
 procedure TMainForm.LoadFile(Filename: string);
@@ -1978,8 +1764,8 @@ begin
     I := ItemListView.Selected.Index
   else
     I := 0;
-  if CharacterTreeView.Selected <> nil then
-    SelectedChar := CharacterTreeView.Selected.Index
+  if CharacterListView.Selected <> nil then
+    SelectedChar := CharacterListView.Selected.Index
   else
     SelectedChar := 0;
   LoadCharacterList(I);
@@ -1992,10 +1778,6 @@ begin
   UpdateMenuItems(Self);
   UpdateStatusBar(Self);
   UpdateTitleBar(Filename);
-  if TreeState = 0 then
-    CharacterTreeView.FullCollapse
-  else if TreeState = 1 then
-    CharacterTreeView.FullExpand;
   ItemListView.Selected := ItemListView.Items[0];
 end;
 
@@ -2087,7 +1869,6 @@ end;
 procedure TMainForm.FindDialogFind(Sender: TObject);
 var
   Item: TListItem;
-  Node: TTreeNode;
 begin
   FindDialog.CloseDialog;
   if ItemListView.Focused then
@@ -2106,20 +1887,21 @@ begin
     else
       MessageDlg(strInformation, strTextNotFound, mtInformation, [mbOK], 0);
   end
-  else if CharacterTreeView.Focused then
+  else if CharacterListView.Focused then
   begin
-    if CharacterTreeView.Selected.Index >= 0 then
-      FoundPos := CharacterTreeView.Selected.AbsoluteIndex
+    if CharacterListView.ItemIndex >= 0 then
+      FoundPos := CharacterListView.ItemIndex
     else
       FoundPos := -1;
-    Node := SearchTree(CharacterTreeView, FindDialog.FindText, FoundPos);
-    if Node <> nil then
+    Item := SearchListView(CharacterListView, FindDialog.FindText, 0, FoundPos);
+    if Item <> nil then
     begin
-      CharacterTreeView.SetFocus;
-      CharacterTreeView.Selected := Node;
+      CharacterListView.Selected := Item;
+      Item.MakeVisible(True);
+      CharacterListView.SetFocus;
     end
     else
-      MessageDlg(strInformation, strTextNotFound, mtInformation, [mbOK], 0);
+      MessageDlg(strInformation, strTextNotFound, mtInformation, [mbOK], 0);////}
   end
   else if DataMatrix.Focused then
   begin
@@ -2180,8 +1962,6 @@ end;
 procedure TMainForm.FormDestroy(Sender: TObject);
 begin
   WriteSettings(Self);
-  if CharacterForm.DependentChar <> nil then
-    CharacterForm.DependentChar.Free;
   if Dataset <> nil then
     Dataset.Free;
 end;
@@ -2432,31 +2212,6 @@ begin
     EditChangeItemClick(Self);
 end;
 
-procedure TMainForm.ItemListViewSelectItem(Sender: TObject; Item: TListItem;
-  Selected: boolean);
-var
-  I: integer;
-  Attribute: string;
-begin
-  if Selected then
-  begin
-    LoadCharacterList(ItemListView.Selected.Index);
-    I := ItemListView.Selected.Index;
-    if (SelectedChar < 0) then
-      SelectedChar := 0;
-    try
-      Attribute := Dataset.ItemList[I].itemAttributes[SelectedChar];
-    except
-      Attribute := 'U';
-    end;
-    AttrEditor.Clear;
-    //AttrEditor.Lines.AddText(Attribute);
-    AttrEditor.Lines.Text := StringReplace(Attribute, #13#10, '', [rfReplaceAll]);
-    //AttrEditor.SelStart := 0;
-    AttrEditor.SelStart := Length(Attribute);
-  end;
-end;
-
 procedure TMainForm.KeyConventionalItemClick(Sender: TObject);
 var
   UseNormalValues, CharacterReliabilities, KeyStates, IncludeItems,
@@ -2660,7 +2415,11 @@ end;
 procedure TMainForm.KeyInteractiveItemClick(Sender: TObject);
 var
   CharacterReliabilities, IncludeItems, IncludeCharacters: string;
-  sPath, ConforPath {IntKeyPath}, ImagePath {HlpFile, Lang}: string;
+  sPath, ConforPath, ImagePath, HlpFile, Lang
+  {$IFDEF VER3}
+  , DefaultLang
+  {$ENDIF}
+  : string;
   RBase, Varywt: double;
   s: ansistring;
 begin
@@ -2744,7 +2503,13 @@ begin
         CreateTIMAGES('timages');
       if not FileExists('cimages') then
         CreateCIMAGES('cimages');
-      {Lang := GetDefaultLang;
+      {.$IFDEF VER3}
+      {if DefaultLang = '' then
+        SetDefaultLang('');
+      Lang := DefaultLang;
+      {.$ELSE}
+      Lang := GetDefaultLang;
+      {.$ENDIF}
       case Lang of
         'en': HlpFile := 'intken.hin';
         'pt': HlpFile := 'intkpt.hin';
@@ -2788,7 +2553,11 @@ begin
   LanguageSpanishItem.Checked := False;
   sPath := GetAppConfigDir(False);
   IniFile := TIniFile.Create(sPath + 'fde.ini');
-  SetDefaultLang('en', 'language', True);
+  {$IFDEF VER3}
+  SetDefaultLang(sLang, 'languages', '', True);
+  {$ELSE}
+  SetDefaultLang(sLang, 'languages', True);
+  {$ENDIF}
   IniFile.WriteString('Options', 'Language', 'en');
   IniFile.Free;
 end;
@@ -2805,7 +2574,11 @@ begin
   LanguageSpanishItem.Checked := False;
   sPath := GetAppConfigDir(False);
   IniFile := TIniFile.Create(sPath + 'fde.ini');
-  SetDefaultLang('fr', 'language', True);
+  {$IFDEF VER3}
+  SetDefaultLang(sLang, 'languages', '', True);
+  {$ELSE}
+  SetDefaultLang(sLang, 'languages', True);
+  {$ENDIF}
   IniFile.WriteString('Options', 'Language', 'fr');
   IniFile.Free;
 end;
@@ -2822,7 +2595,11 @@ begin
   LanguageSpanishItem.Checked := False;
   sPath := GetAppConfigDir(False);
   IniFile := TIniFile.Create(sPath + 'fde.ini');
-  SetDefaultLang('pt_br', 'language', True);
+  {$IFDEF VER3}
+  SetDefaultLang(sLang, 'languages', '', True);
+  {$ELSE}
+  SetDefaultLang(sLang, 'languages', True);
+  {$ENDIF}
   IniFile.WriteString('Options', 'Language', 'pt_br');
   IniFile.Free;
 end;
@@ -2839,7 +2616,11 @@ begin
   LanguageEnglishItem.Checked := False;
   sPath := GetAppConfigDir(False);
   IniFile := TIniFile.Create(sPath + 'fde.ini');
-  SetDefaultLang('es', 'language', True);
+  {$IFDEF VER3}
+  SetDefaultLang(sLang, 'languages', '', True);
+  {$ELSE}
+  SetDefaultLang(sLang, 'languages', True);
+  {$ENDIF}
   IniFile.WriteString('Options', 'Language', 'es');
   IniFile.Free;
 end;
@@ -3289,30 +3070,25 @@ procedure TMainForm.MoveCharacterDownClick(Sender: TObject);
 var
   I, J: integer;
   CharStr: string;
-  SelectedNode: TTreeNode;
+  Selected: TListItem;
 begin
-  SelectedNode := CharacterTreeView.Selected;
-  if (SelectedNode = nil) or (SelectedNode.GetNextSibling = nil) then
+  Selected := CharacterListView.Selected;
+  if Assigned(Selected) then
     Exit;
-  if SelectedNode.GetNextSibling.GetNextSibling <> nil then
-    SelectedNode.MoveTo(SelectedNode.GetNextSibling.GetNextSibling, naInsert)
-  else
-    SelectedNode.MoveTo(SelectedNode.GetNextSibling, naAdd);
-  if CharacterTreeView.Selected.Index + 1 < CharacterTreeView.Items.Count then
+  if CharacterListView.Selected.Index + 1 < CharacterListView.Items.Count then
   begin
-    ExchangeCharacters(CharacterTreeView.Selected.Index,
-      CharacterTreeView.Selected.Index - 1);
+    ExchangeCharacters(CharacterListView.Selected.Index,
+      CharacterListView.Selected.Index - 1);
     for I := 0 to Length(Dataset.ItemList) - 1 do
-      Dataset.ItemList[I].itemAttributes.Exchange(CharacterTreeView.Selected.Index,
-        CharacterTreeView.Selected.Index - 1);
+      Dataset.ItemList[I].itemAttributes.Exchange(CharacterListView.Selected.Index,
+        CharacterListView.Selected.Index - 1);
   end;
-  for J := 0 to GetRootCount(CharacterTreeView) - 1 do
+  for J := 0 to CharacterListView.Items.Count - 1 do
   begin
-    with GetRootItem(CharacterTreeView, J) do
-    begin
-      CharStr := Copy(Text, Pos('.', Text) + 1, Length(Text));
-      Text := IntToStr(J + 1) + '. ' + CharStr;
-    end;
+    CharStr := Copy(CharacterListView.Items[J].Caption,
+      Pos('.', CharacterListView.Items[J].Caption) + 1,
+      Length(CharacterListView.Items[J].Caption));
+    CharacterListView.Items[J].Caption := IntToStr(J + 1) + '. ' + CharStr;
   end;
   LoadMatrix;
   FileIsChanged := True;
@@ -3324,27 +3100,26 @@ procedure TMainForm.MoveCharacterUpClick(Sender: TObject);
 var
   I, J: integer;
   CharStr: string;
-  SelectedNode: TTreeNode;
+  Selected: TListItem;
 begin
-  SelectedNode := CharacterTreeView.Selected;
-  if (SelectedNode = nil) or (SelectedNode.GetPrevSibling = nil) then
-    Exit;
-  SelectedNode.MoveTo(SelectedNode.GetPrevSibling, naInsert);
-  if CharacterTreeView.Selected.Index - 1 >= 0 then
-  begin
-    ExchangeCharacters(CharacterTreeView.Selected.Index,
-      CharacterTreeView.Selected.Index + 1);
-    for I := 0 to Length(Dataset.ItemList) - 1 do
-      Dataset.ItemList[I].itemAttributes.Exchange(CharacterTreeView.Selected.Index,
-        CharacterTreeView.Selected.Index + 1);
-  end;
-  for J := 0 to GetRootCount(CharacterTreeView) - 1 do
-  begin
-    with GetRootItem(CharacterTreeView, J) do
+  Selected := CharacterListView.Selected;
+  if Assigned(Selected) then
+    if CharacterListView.Selected.Index - 1 >= 0 then
     begin
-      CharStr := Copy(Text, Pos('.', Text) + 1, Length(Text));
-      Text := IntToStr(J + 1) + '. ' + CharStr;
-    end;
+      ExchangeCharacters(CharacterListView.Selected.Index,
+        CharacterListView.Selected.Index + 1);
+      for I := 0 to Length(Dataset.ItemList) - 1 do
+        Dataset.ItemList[I].itemAttributes.Exchange(CharacterListView.Selected.Index,
+          CharacterListView.Selected.Index + 1);
+    end
+    else
+      Exit;
+  for J := 0 to CharacterListView.Items.Count - 1 do
+  begin
+    CharStr := Copy(CharacterListView.Items[I].Caption,
+      Pos('.', CharacterListView.Items[I].Caption) + 1,
+      Length(CharacterListView.Items[I].Caption));
+    CharacterListView.Items[J].Caption := IntToStr(J + 1) + '. ' + CharStr;
   end;
   LoadMatrix;
   FileIsChanged := True;
@@ -3354,14 +3129,14 @@ end;
 
 procedure TMainForm.MoveItemDownClick(Sender: TObject);
 var
-  Sel: TListItem;
+  Selected: TListItem;
   ItemStr: string;
   I: integer;
 begin
-  Sel := ItemListView.Selected;
-  if Assigned(Sel) then
-    if Sel.Index + 1 < ItemListView.Items.Count then
-      ExchangeItems(Sel.Index, Sel.Index + 1)
+  Selected := ItemListView.Selected;
+  if Assigned(Selected) then
+    if Selected.Index + 1 < ItemListView.Items.Count then
+      ExchangeItems(Selected.Index, Selected.Index + 1)
     else
       Exit;
   if PageControl.TabIndex = 0 then
@@ -3381,14 +3156,14 @@ end;
 
 procedure TMainForm.MoveItemUpClick(Sender: TObject);
 var
-  Sel: TListItem;
+  Selected: TListItem;
   ItemStr: string;
   I: integer;
 begin
-  Sel := ItemListView.Selected;
-  if Assigned(Sel) then
-    if Sel.Index - 1 >= 0 then
-      ExchangeItems(Sel.Index, Sel.Index - 1)
+  Selected := ItemListView.Selected;
+  if Assigned(Selected) then
+    if Selected.Index - 1 >= 0 then
+      ExchangeItems(Selected.Index, Selected.Index - 1)
     else
       Exit;
   if PageControl.TabIndex = 0 then
@@ -3424,8 +3199,8 @@ begin
       ARow := ItemListView.Selected.Index + 1
     else
       ARow := 1;
-    if CharacterTreeView.Selected <> nil then
-      ACol := CharacterTreeView.Selected.Index + 1
+    if CharacterListView.Selected <> nil then
+      ACol := CharacterListView.Selected.Index + 1
     else
       ACol := 1;
     DataMatrix.Row := ARow;
@@ -3482,7 +3257,11 @@ var
   OmitLowerForCharacters, OmitOrForCharacters, OmitPeriodForCharacters,
   NewParagraphsAtCharacters, EmphasizeFeatures, ItemSubheadings,
   LinkCharacters, ReplaceSemicolonByComma, ExcludeItems, ExcludeCharacters,
-  Lang, sPath, ConforPath, Extension: string;
+  Lang, sPath, ConforPath, Extension
+  {$IFDEF VER3}
+  , DefaultLang
+  {$ENDIF}
+  : string;
   PrintWidth: integer;
   S: ansistring;
   Vocabulary: TStringList;
@@ -3490,7 +3269,7 @@ var
 begin
   sPath := ExtractFilePath(Application.ExeName);
   Vocabulary := TStringList.Create;
-  Lang := GetDefaultLang;
+  GetLanguageIDs(Lang, DefaultLang);
   case Lang of
     'en': Vocabulary.LoadFromFile(sPath + 'vocabulary/vocaben');
     'pt': Vocabulary.LoadFromFile(sPath + 'vocabulary/vocabpt');
@@ -3739,9 +3518,9 @@ begin
   CreatePRINTC('printc', Dataset.Heading);
   {$IFDEF WINDOWS}
   ConforPath := sPath + 'confor.exe';
-    {$ELSE}
+  {$ELSE}
   ConforPath := sPath + 'confor';
-    {$ENDIF}
+  {$ENDIF}
   if FileExists('characters.txt') then
     DeleteFile('characters.txt');
   if RunCommand(ConforPath, ['printc'], S, [poNoConsole]) then
@@ -3773,9 +3552,9 @@ begin
   CreatePRINTI('printi', Dataset.Heading);
   {$IFDEF WINDOWS}
   ConforPath := sPath + 'confor.exe';
-    {$ELSE}
+  {$ELSE}
   ConforPath := sPath + 'confor';
-    {$ENDIF}
+  {$ENDIF}
   if FileExists('items.txt') then
     DeleteFile('items.txt');
   if RunCommand(ConforPath, ['printi'], S, [poNoConsole]) then
@@ -3807,9 +3586,9 @@ begin
   CreatePRINTN('printn', Dataset.Heading);
   {$IFDEF WINDOWS}
   ConforPath := sPath + 'confor.exe';
-    {$ELSE}
+  {$ELSE}
   ConforPath := sPath + 'confor';
-    {$ENDIF}
+  {$ENDIF}
   if FileExists('names.txt') then
     DeleteFile('names.txt');
   if RunCommand(ConforPath, ['printn'], S, [poNoConsole]) then
@@ -3836,8 +3615,8 @@ procedure TMainForm.SearchFindItemClick(Sender: TObject);
 begin
   if ItemListView.Focused then
     FoundPos := ItemListView.Selected.Index
-  else if CharacterTreeView.Focused then
-    FoundPos := CharacterTreeView.Selected.Index
+  else if CharacterListView.Focused then
+    FoundPos := CharacterListView.Selected.Index
   else if DataMatrix.Focused then
     FoundPos := DataMatrix.Row
   else
@@ -3856,7 +3635,6 @@ end;
 procedure TMainForm.SearchGotoLineClick(Sender: TObject);
 var
   linenumber: integer;
-  Node: TTreeNode;
 begin
   linenumber := StrToIntDef(InputBox(strGotoLine, strGotoLineCaption, '1'), 1);
   if ItemListView.Focused then
@@ -3866,16 +3644,12 @@ begin
     else
       ItemListView.ItemIndex := linenumber - 1;
   end
-  else if CharacterTreeView.Focused then
+  else if CharacterListView.Focused then
   begin
     if (linenumber = 0) or (linenumber > Length(Dataset.CharacterList)) then
       MessageDlg(strInformation, strOutOfRange, mtInformation, [mbOK], 0)
     else
-    begin
-      Node := GetRootItem(CharacterTreeView, linenumber - 1);
-      if Node <> nil then
-        CharacterTreeView.Select(Node);
-    end;
+      CharacterListView.ItemIndex := linenumber - 1;
   end
   else if DataMatrix.Focused then
   begin
@@ -3912,8 +3686,7 @@ begin
   PageControl.Visible := True;
   PageControl.ActivePage := ListTab;
   ItemListView.Items.Clear;
-  CharacterTreeView.Items.Clear;
-  AttrEditor.Lines.Clear;
+  CharacterListView.Items.Clear;
   DataMatrix.Clean;
   DataMatrix.RowCount := 1;
   DataMatrix.ColCount := 1;
@@ -3922,7 +3695,7 @@ begin
   StatesMemo.Lines.Clear;
   ItemListView.Columns[0].Caption :=
     Capitalize(strItems) + ' (' + IntToStr(Length(Dataset.ItemList)) + ')';
-  HeaderTreeView.Sections[0].Text :=
+  CharacterListView.Columns[0].Caption :=
     Capitalize(strCharacters) + ' (' + IntToStr(Length(Dataset.CharacterList)) + ')';
   FileIsOpen := True;
   FileIsChanged := True;
@@ -3966,123 +3739,94 @@ begin
   end;
 end;
 
-procedure TMainForm.CharacterTreeViewSelectionChanged(Sender: TObject);
-var
-  I: integer;
-  Attribute: string;
-begin
-  if (ItemListView.Selected <> nil) and (CharacterTreeView.Selected <> nil) then
-  begin
-    I := ItemListView.Selected.Index;
-    SelectedChar := CharacterTreeView.Selected.Index;
-    if CharacterTreeView.Selected.Level = 0 then
-    begin
-      Attribute := Dataset.ItemList[I].itemAttributes[SelectedChar];
-      AttrEditor.Clear;
-      //AttrEditor.Lines.AddText(Attribute);
-      AttrEditor.Lines.Text := StringReplace(Attribute, #13#10, '', [rfReplaceAll]);
-      //AttrEditor.SelStart := 0;
-      AttrEditor.SelStart := Length(Attribute);
-    end;
-  end;
-end;
-
-procedure TMainForm.CharacterTreeViewDblClick(Sender: TObject);
+procedure TMainForm.CharacterListViewDblClick(Sender: TObject);
 begin
   EditChangeCharacterItemClick(Self);
 end;
 
-procedure TMainForm.AttrEditorEditingDone(Sender: TObject);
-var
-  I, J: integer;
-  Node: TTreeNode;
-begin
-  I := ItemListView.Selected.Index;
-  if I < 0 then
-    Exit;
-  J := CharacterTreeView.Selected.Index;
-  if J < 0 then
-    Exit;
-  if IsEmptyStr(AttrEditor.Lines.Text, [' ']) then
-    AttrEditor.Lines.Text := 'U';
-  {if Dataset.CharacterList[J].charType = 'TE' then
-  begin
-    if AttrEditor.Lines.Text <> 'U' then
-    begin
-      if not AnsiStartsStr('<', AttrEditor.Lines.Text) then
-      begin
-        MessageDlg(strInformation, strMissingBrackets, mtInformation, [mbOK], 0);
-        Exit;
-      end;
-      if not AnsiEndsStr('>', AttrEditor.Lines.Text) then
-      begin
-        MessageDlg(strInformation, strMissingBrackets, mtInformation, [mbOK], 0);
-        Exit;
-      end;
-    end;
-  end;}
-  Dataset.ItemList[I].itemAttributes[J] := AttrEditor.Lines.Text;
-  LoadCharacterList(I);
-  Node := GetRootItem(CharacterTreeView, J);
-  if Node <> nil then
-    CharacterTreeView.Select(Node);
-  CharacterTreeView.SetFocus;
-  FileIsChanged := True;
-  SaveBtn.Enabled := True;
-end;
-
-procedure TMainForm.AttrEditorExit(Sender: TObject);
-var
-  J: integer;
-begin
-  if Pos('<<', AttrEditor.Lines.Text) > 0 then
-  begin
-    MessageDlg(strInformation, strNoInnerComments, mtInformation, [mbOK], 0);
-    Exit;
-  end;
-  J := CharacterTreeView.Selected.Index;
-  if J < 0 then
-    Exit;
-  if Dataset.CharacterList[J].charType = 'TE' then
-  begin
-    if AttrEditor.Lines.Text <> 'U' then
-    begin
-      if not AnsiStartsStr('<', AttrEditor.Lines.Text) then
-      begin
-        MessageDlg(strInformation, strMissingBrackets, mtInformation, [mbOK], 0);
-        Exit;
-      end;
-      if not AnsiEndsStr('>', AttrEditor.Lines.Text) then
-      begin
-        MessageDlg(strInformation, strMissingBrackets, mtInformation, [mbOK], 0);
-        Exit;
-      end;
-    end;
-  end;
-end;
-
-procedure TMainForm.AttrEditorKeyDown(Sender: TObject; var Key: word;
-  Shift: TShiftState);
-begin
-  if Key = VK_RETURN then
-  begin
-    AttrEditorEditingDone(Sender);
-    Key := 0;
-  end;
-end;
-
-procedure TMainForm.CharacterTreeViewKeyDown(Sender: TObject;
+procedure TMainForm.CharacterListViewKeyDown(Sender: TObject;
   var Key: word; Shift: TShiftState);
 begin
   if Key = VK_RETURN then
     EditChangeCharacterItemClick(Self);
 end;
 
-procedure TMainForm.ExpandAllClick(Sender: TObject);
+procedure TMainForm.CharacterListViewMouseMove(Sender: TObject;
+  Shift: TShiftState; X, Y: integer);
+var
+  Item: TListItem;
+  I, J, K, L: integer;
+  Attribute, States: string;
+  Values: TStringList;
+  CharSet: TSysCharSet;
 begin
-  Screen.Cursor := crHourGlass;
-  CharacterTreeView.FullExpand;
-  Screen.Cursor := crDefault;
+  CharSet := ['/', '&', '-'];
+
+  if (ItemListView.Selected <> nil) then
+    I := ItemListView.Selected.Index
+  else
+    I := 0;
+
+  Item := CharacterListView.GetItemAt(X, Y);
+
+  if (Item <> nil) and (Item <> FLastHintItem) then
+  begin
+    J := StrToIntDef(Copy(Item.Caption, 1, Pos('.', Item.Caption) - 1), 0) - 1;
+    //CharacterListView.Hint := 'Details: ' + Item.Caption;
+    Attribute := Delta.OmitTypesettingMarks(Dataset.ItemList[I].itemAttributes[J]);
+
+    if (Dataset.CharacterList[J].charType = 'UM') or
+      (Dataset.CharacterList[J].charType = 'OM') then
+    begin
+      if (not ContainsChars(Attribute, CharSet)) then
+      begin
+        try
+          K := StrToInt(Attribute);
+          CharacterListView.Hint :=
+            Delta.OmitTypesettingMarks(Dataset.ItemList[I].itemAttributes[J]) +
+            ' ' + Dataset.CharacterList[J].charStates[K - 1];
+        except
+          CharacterListView.Hint := Delta.RemoveComments(Attribute);
+        end;
+      end
+      else
+      begin
+        Values := TStringList.Create;
+        try
+          Split(Values, Delta.RemoveComments(Attribute), ['/', '&', '-']);
+        except
+          on E: EStringListError do
+            Values.Add('');
+        end;
+        States := '';
+        for L := 0 to Values.Count - 1 do
+        try
+          begin
+            K := StrToInt(Values[L]);
+            States := States + ' ' + IntToStr(K) + ' ' + Delta.RemoveComments(
+              Dataset.CharacterList[J].charStates[K - 1]);
+          end;
+        except
+          ;
+        end;
+        Values.Free;
+        CharacterListView.Hint := States;
+      end;
+    end
+
+    else if (Dataset.CharacterList[J].charType = 'IN') or
+      (Dataset.CharacterList[J].charType = 'RN') then
+      CharacterListView.Hint :=
+        Delta.OmitTypesettingMarks(Dataset.ItemList[I].itemAttributes[J]) +
+        ' ' + Dataset.CharacterList[J].charUnit
+
+    else if (Dataset.CharacterList[J].charType = 'TE') then
+      CharacterListView.Hint :=
+        Delta.OmitTypesettingMarks(Dataset.ItemList[I].itemAttributes[J]);
+
+    Application.ActivateHint(Mouse.CursorPos);
+    FLastHintItem := Item;
+  end;
 end;
 
 procedure TMainForm.ExportDELTAItemClick(Sender: TObject);
@@ -4197,28 +3941,28 @@ begin
   ret_val := NewDataset.ReadChars('chars.new');
   if (ret_val < 0) then
   begin
-    MessageDlg(strError, Format(strReadError, ['CHARS']), mtError, [mbOk], 0);
+    MessageDlg(strError, Format(strReadError, ['CHARS']), mtError, [mbOK], 0);
     exit;
   end {else ShowMessage('Characters read')};
 
   ret_val := NewDataset.ReadItems('items.new');
   if (ret_val < 0) then
   begin
-    MessageDlg(strError, Format(strReadError, ['ITEMS']), mtError, [mbOk], 0);
+    MessageDlg(strError, Format(strReadError, ['ITEMS']), mtError, [mbOK], 0);
     exit;
   end {else ShowMessage('Items read')};
 
   ret_val := NewDataset.WriteSpecs('specs.new');
   if (ret_val < 0) then
   begin
-    MessageDlg(strError, Format(strWriteError, ['SPECS']), mtError, [mbOk], 0);
+    MessageDlg(strError, Format(strWriteError, ['SPECS']), mtError, [mbOK], 0);
     exit;
   end {else ShowMessage('Specifications written')};
 
   ret_val := NewDataset.ReadSpecs('specs.new', typeDirective);
   if (ret_val < 0) then
   begin
-    MessageDlg(strError, Format(strReadError, ['SPECS']), mtError, [mbOk], 0);
+    MessageDlg(strError, Format(strReadError, ['SPECS']), mtError, [mbOK], 0);
     exit;
   end {else ShowMessage('Types read')};
 
@@ -4494,13 +4238,6 @@ begin
   UpdateMenuItems(Self);
 end;
 
-procedure TMainForm.CollapseAllClick(Sender: TObject);
-begin
-  Screen.Cursor := crHourGlass;
-  CharacterTreeView.FullCollapse;
-  Screen.Cursor := crDefault;
-end;
-
 procedure TMainForm.DataMatrixDrawCell(Sender: TObject; aCol, aRow: integer;
   aRect: TRect; aState: TGridDrawState);
 var
@@ -4628,7 +4365,7 @@ var
   CharName, CharType, CharUnit, CharNote, Rule: string;
   CharCount, CharImplicit, I, N, J, K, M: integer;
   StatesList: TStringList;
-  CharNode, StateNode: TTreeNode;
+  CharNode: TListItem;
   Character: Delta.TCharacter;
 begin
   with CharacterForm do
@@ -4649,19 +4386,6 @@ begin
   end;
   if CharacterForm.ShowModal = mrOk then
   begin
-    if CharacterForm.DependentChar.Count > 0 then
-    begin
-      for I := 0 to CharacterForm.DependentChar.Count - 1 do
-      begin
-        N := StrToInt(ExtractDelimited(1, CharacterForm.DependentChar[I], [',']));
-        Rule := ExtractDelimited(2, CharacterForm.DependentChar[I], [',']);
-        Character := Dataset.CharacterList[N - 1];
-        Character.charDependent := TStringList.Create;
-        Character.charDependent.Sorted := True;
-        Character.charDependent.Duplicates := dupIgnore;
-        Character.charDependent.Add(Rule);
-      end;
-    end;
     with CharacterForm do
     begin
       CharName := EditChar.Text;
@@ -4703,11 +4427,12 @@ begin
         Dataset.CharacterList[CharCount].charDependent := DependentChar;
         for J := 0 to Length(Dataset.ItemList) - 1 do
           Dataset.ItemList[J].itemAttributes.Add('U');
-        HeaderTreeView.Sections[0].Text :=
+        CharacterListView.Columns[0].Caption :=
           Capitalize(strCharacters) + ' (' +
           IntToStr(Length(Dataset.CharacterList)) + ')';
-        CharNode := CharacterTreeView.Items.Add(nil, IntToStr(charCount + 1) +
-          '. ' + Dataset.CharacterList[charCount].charName);
+        CharNode := CharacterListView.Items.Add;
+        CharNode.Caption := IntToStr(charCount + 1) + '. ' +
+          Dataset.CharacterList[charCount].charName;
         case Dataset.CharacterList[charCount].charType of
           'UM', 'OM':
           begin
@@ -4715,18 +4440,6 @@ begin
               CharNode.ImageIndex := 18
             else if (Dataset.CharacterList[charCount].charType = 'OM') then
               CharNode.ImageIndex := 28;
-            for K := 0 to Dataset.CharacterList[charCount].charStates.Count - 1 do
-            begin
-              StateNode := CharacterTreeView.Items.AddChild(CharNode,
-                IntToStr(K + 1) + '. ' + Dataset.CharacterList[charCount].charStates[K]);
-              for M := 0 to Dataset.CharacterList[charCount].charDependent.Count - 1 do
-              begin
-                if Length(Dataset.CharacterList[charCount].charDependent[M]) > 0 then
-                  StateNode.StateIndex := Inapplicable
-                else
-                  StateNode.StateIndex := Unchecked;
-              end;
-            end;
           end;
           'IN', 'RN':
           begin
@@ -4734,13 +4447,10 @@ begin
               CharNode.ImageIndex := 17
             else if (Dataset.CharacterList[charCount].charType = 'RN') then
               CharNode.ImageIndex := 27;
-            StateNode := CharacterTreeView.Items.AddChild(CharNode,
-              Dataset.CharacterList[charCount].charUnit);
           end;
           'TE':
             CharNode.ImageIndex := 19;
         end;
-        CharNode.SelectedIndex := CharNode.ImageIndex;
         DataMatrix.ColCount := DataMatrix.ColCount + 1;
         DataMatrix.Cells[charCount + 1, 0] := CharName;
         for J := 1 to DataMatrix.RowCount - 1 do
@@ -4751,7 +4461,7 @@ begin
         UpdateMenuItems(Self);
         UpdateStatusBar(Self);
         UpdateTitleBar(OpenDialog.FileName);
-        CharacterTreeView.Selected := CharNode;
+        CharacterListView.Selected := CharacterListView.Items[charCount];
       end;
     end;
   end;
@@ -4813,115 +4523,101 @@ end;
 procedure TMainForm.EditChangeCharacterItemClick(Sender: TObject);
 var
   CharName, CharType, CharUnit, CharNote, Rule: string;
-  CharNode: TTreeNode;
   CharIndex, CharImplicit, I, N: integer;
   StatesList: TStringList;
   Character: TCharacter;
 begin
-  CharNode := CharacterTreeView.Selected;
-  if (CharNode = nil) or (CharNode.Level > 0) then
-    Exit;
-  if CharNode.Level = 0 then
-    CharIndex := CharacterTreeView.Selected.Index;
-  CharIndex := CharacterTreeView.Selected.Index;
-  with CharacterForm do
+  CharIndex := CharacterListView.ItemIndex;
+  if CharIndex >= 0 then
   begin
-    CharNumber := CharIndex;
-    Caption := strEditCharacter;
-    EditChar.Text := Dataset.CharacterList[CharIndex].charName;
-    EditNote.Lines.AddText(Dataset.CharacterList[CharIndex].charNote);
-    if (Dataset.CharacterList[CharIndex].charType = 'UM') then
-      rbUM.Checked := True
-    else
-      rbUM.Checked := False;
-    if (Dataset.CharacterList[CharIndex].charType = 'OM') then
-      rbOM.Checked := True
-    else
-      rbOM.Checked := False;
-    if (Dataset.CharacterList[CharIndex].charType = 'IN') then
-      rbIN.Checked := True
-    else
-      rbIN.Checked := False;
-    if (Dataset.CharacterList[CharIndex].charType = 'RN') then
-      rbRN.Checked := True
-    else
-      rbRN.Checked := False;
-    if (Dataset.CharacterList[CharIndex].charType = 'TE') then
-      rbTE.Checked := True
-    else
-      rbTE.Checked := False;
-    ListStates.Items.Clear;
-    if (Dataset.CharacterList[CharIndex].charType = 'UM') or
-      (Dataset.CharacterList[CharIndex].charType = 'OM') then
-      ListStates.Items.Assign(Dataset.CharacterList[CharIndex].charStates);
-    EditUnit.Text := Dataset.CharacterList[CharIndex].charUnit;
-    if Dataset.CharacterList[CharIndex].charImplicit > 0 then
-    begin
-      CheckImplicit.Checked := True;
-      StateImplicit := Dataset.CharacterList[CharIndex].charImplicit;
-    end;
-  end;
-  if CharacterForm.ShowModal = mrOk then
-  begin
-    if CharacterForm.DependentChar.Count > 0 then
-    begin
-      for I := 0 to CharacterForm.DependentChar.Count - 1 do
-      begin
-        N := StrToInt(ExtractDelimited(1, CharacterForm.DependentChar[I], [',']));
-        Rule := ExtractDelimited(2, CharacterForm.DependentChar[I], [',']);
-        Character := Dataset.CharacterList[N - 1];
-        Character.charDependent.Sorted := True;
-        Character.charDependent.Duplicates := dupIgnore;
-        Character.charDependent.Add(Rule);
-      end;
-    end;
     with CharacterForm do
     begin
-      CharName := EditChar.Text;
-      CharNote := EditNote.Lines.Text;
-      if not IsEmptyStr(CharName, [' ']) then
+      CharNumber := CharIndex;
+      Caption := strEditCharacter;
+      EditChar.Text := Dataset.CharacterList[CharIndex].charName;
+      EditNote.Lines.AddText(Dataset.CharacterList[CharIndex].charNote);
+      if (Dataset.CharacterList[CharIndex].charType = 'UM') then
+        rbUM.Checked := True
+      else
+        rbUM.Checked := False;
+      if (Dataset.CharacterList[CharIndex].charType = 'OM') then
+        rbOM.Checked := True
+      else
+        rbOM.Checked := False;
+      if (Dataset.CharacterList[CharIndex].charType = 'IN') then
+        rbIN.Checked := True
+      else
+        rbIN.Checked := False;
+      if (Dataset.CharacterList[CharIndex].charType = 'RN') then
+        rbRN.Checked := True
+      else
+        rbRN.Checked := False;
+      if (Dataset.CharacterList[CharIndex].charType = 'TE') then
+        rbTE.Checked := True
+      else
+        rbTE.Checked := False;
+      ListStates.Items.Clear;
+      if (Dataset.CharacterList[CharIndex].charType = 'UM') or
+        (Dataset.CharacterList[CharIndex].charType = 'OM') then
+        ListStates.Items.Assign(Dataset.CharacterList[CharIndex].charStates);
+      EditUnit.Text := Dataset.CharacterList[CharIndex].charUnit;
+      if Dataset.CharacterList[CharIndex].charImplicit > 0 then
       begin
-        if rbUM.Checked then
-          CharType := 'UM'
-        else if rbOM.Checked then
-          CharType := 'OM'
-        else if rbIN.Checked then
-          CharType := 'IN'
-        else if rbRN.Checked then
-          CharType := 'RN'
-        else if rbTE.Checked then
-          CharType := 'TE';
-        if (CharType = 'IN') or (CharType = 'RN') then
-          CharUnit := EditUnit.Text;
-        if (CharType = 'UM') or (CharType = 'OM') then
-        begin
-          if ListStates.Items.Count > 0 then
-          begin
-            StatesList := TStringList.Create;
-            StatesList.Assign(ListStates.Items);
-          end;
-        end;
-        if StateImplicit > 0 then
-          CharImplicit := StateImplicit;
-        if EditNote.Lines.Count > 0 then
-          CharNote := EditNote.Text;
-        Dataset.CharacterList[CharIndex].charName := CharName;
-        Dataset.CharacterList[CharIndex].charType := CharType;
-        Dataset.CharacterList[CharIndex].charUnit := CharUnit;
-        Dataset.CharacterList[CharIndex].charImplicit := CharImplicit;
-        Dataset.CharacterList[CharIndex].charNote := CharNote;
-        Dataset.CharacterList[CharIndex].charDependent := DependentChar;
-        if ListStates.Items.Count > 0 then
-          Dataset.CharacterList[CharIndex].charStates := StatesList;
-        LoadCharacterList(CharIndex);
-        DataMatrix.Cells[CharIndex, 0] := CharName;
-        DataMatrix.Refresh;
-        FileIsChanged := True;
-        SaveBtn.Enabled := True;
-        UpdateMenuItems(Self);
-        UpdateTitleBar(OpenDialog.FileName);
+        CheckImplicit.Checked := True;
+        StateImplicit := Dataset.CharacterList[CharIndex].charImplicit;
       end;
-      //CharacterTreeView.Selected := CharNode;
+    end;
+    if CharacterForm.ShowModal = mrOk then
+    begin
+      with CharacterForm do
+      begin
+        CharName := EditChar.Text;
+        CharNote := EditNote.Lines.Text;
+        if not IsEmptyStr(CharName, [' ']) then
+        begin
+          if rbUM.Checked then
+            CharType := 'UM'
+          else if rbOM.Checked then
+            CharType := 'OM'
+          else if rbIN.Checked then
+            CharType := 'IN'
+          else if rbRN.Checked then
+            CharType := 'RN'
+          else if rbTE.Checked then
+            CharType := 'TE';
+          if (CharType = 'IN') or (CharType = 'RN') then
+            CharUnit := EditUnit.Text;
+          if (CharType = 'UM') or (CharType = 'OM') then
+          begin
+            if ListStates.Items.Count > 0 then
+            begin
+              StatesList := TStringList.Create;
+              StatesList.Assign(ListStates.Items);
+            end;
+          end;
+          if StateImplicit > 0 then
+            CharImplicit := StateImplicit;
+          if EditNote.Lines.Count > 0 then
+            CharNote := EditNote.Text;
+          Dataset.CharacterList[CharIndex].charName := CharName;
+          Dataset.CharacterList[CharIndex].charType := CharType;
+          Dataset.CharacterList[CharIndex].charUnit := CharUnit;
+          Dataset.CharacterList[CharIndex].charImplicit := CharImplicit;
+          Dataset.CharacterList[CharIndex].charNote := CharNote;
+          Dataset.CharacterList[CharIndex].charDependent := DependentChar;
+          if ListStates.Items.Count > 0 then
+            Dataset.CharacterList[CharIndex].charStates := StatesList;
+          LoadCharacterList(CharIndex);
+          DataMatrix.Cells[CharIndex, 0] := CharName;
+          DataMatrix.Refresh;
+          FileIsChanged := True;
+          SaveBtn.Enabled := True;
+          UpdateMenuItems(Self);
+          UpdateTitleBar(OpenDialog.FileName);
+        end;
+        CharacterListView.ItemIndex := CharIndex;
+        CharacterListView.Selected;
+      end;
     end;
   end;
 end;
@@ -5028,25 +4724,28 @@ end;
 
 procedure TMainForm.EditDeleteCharacterItemClick(Sender: TObject);
 var
-  CharNode: TTreeNode;
-  CharIndex, I: integer;
+  CharIndex, J: integer;
 begin
-  CharNode := CharacterTreeView.Selected;
-  if CharNode = nil then
-    Exit;
-  CharIndex := CharacterTreeView.Selected.Index;
-  CharacterTreeView.Selected.Delete;
-  DeleteOneCharacter(Dataset.CharacterList, CharIndex);
-  for I := 0 to Length(Dataset.ItemList) - 1 do
-    Dataset.ItemList[I].itemAttributes.Delete(CharIndex);
-  LoadCharacterList;
-  DataMatrix.DeleteCol(CharIndex + 1);
-  DataMatrix.Refresh;
-  FileIsChanged := True;
-  SaveBtn.Enabled := True;
-  UpdateMenuItems(Self);
-  UpdateStatusBar(Self);
-  UpdateTitleBar(OpenDialog.FileName);
+  CharIndex := CharacterListView.ItemIndex;
+  if CharIndex >= 0 then
+  begin
+    CharacterListView.Items.Delete(CharIndex);
+    DeleteOneCharacter(Dataset.CharacterList, CharIndex);
+    for J := 0 to Length(Dataset.CharacterList) - 1 do
+      Dataset.CharacterList[J].charStates.Delete(CharIndex);
+    LoadCharacterList;
+    DataMatrix.DeleteCol(CharIndex + 1);
+    DataMatrix.Refresh;
+    FileIsChanged := True;
+    SaveBtn.Enabled := True;
+    UpdateMenuItems(Self);
+    UpdateStatusBar(Self);
+    UpdateTitleBar(OpenDialog.FileName);
+    CharacterListView.ItemIndex := CharIndex - 1;
+    CharacterListView.Selected;
+    if PageControl.TabIndex = 0 then
+      CharacterListView.SetFocus;
+  end;
 end;
 
 procedure TMainForm.EditDeleteItemClick(Sender: TObject);
@@ -5074,94 +4773,93 @@ begin
   end;
 end;
 
+procedure TMainForm.EditDescriptionItemClick(Sender: TObject);
+begin
+  if DescriptionForm.ShowModal = mrOk then
+  begin
+    DataMatrix.Refresh;
+    LoadCharacterList;
+  end;
+end;
+
 procedure TMainForm.EditInsertCharacterItemClick(Sender: TObject);
 var
   Character: Delta.TCharacter;
   CharName, CharType, CharUnit, CharNote, Rule: string;
   CharImplicit, I, J, N: integer;
   StatesList: TStringList;
-  SelectedNode: TTreeNode;
+  Selected: TListItem;
 begin
-  SelectedNode := CharacterTreeView.Selected;
-  if (SelectedNode = nil) or (SelectedNode.Level > 0) then
-    Exit;
-  //if (SelectedNode = nil) then
-  //  Exit;
-  with CharacterForm do
+  Selected := CharacterListView.Selected;
+  if Assigned(Selected) then
   begin
-    CharNumber := Length(Dataset.CharacterList) + 1;
-    Caption := strAddCharacter;
-    EditChar.Text := '';
-    EditNote.Lines.Clear;
-    rbUM.Checked := True;
-    rbOM.Checked := False;
-    rbIN.Checked := False;
-    rbRN.Checked := False;
-    rbTE.Checked := False;
-    ListStates.Clear;
-    CheckImplicit.Checked := False;
-    EditUnit.Text := '';
-    StateImplicit := 0;
-  end;
-  if CharacterForm.ShowModal = mrOk then
-  begin
-    if CharacterForm.DependentChar.Count > 0 then
+    if (Selected.Index >= 0) then
     begin
-      for I := 0 to CharacterForm.DependentChar.Count - 1 do
+      with CharacterForm do
       begin
-        N := StrToInt(ExtractDelimited(1, CharacterForm.DependentChar[I], [',']));
-        Rule := ExtractDelimited(2, CharacterForm.DependentChar[I], [',']);
-        Character := Dataset.CharacterList[N - 1];
-        Character.charDependent.Sorted := True;
-        Character.charDependent.Duplicates := dupIgnore;
-        Character.charDependent.Add(Rule);
+        CharNumber := Length(Dataset.CharacterList) + 1;
+        Caption := strAddCharacter;
+        EditChar.Text := '';
+        EditNote.Lines.Clear;
+        rbUM.Checked := True;
+        rbOM.Checked := False;
+        rbIN.Checked := False;
+        rbRN.Checked := False;
+        rbTE.Checked := False;
+        ListStates.Clear;
+        CheckImplicit.Checked := False;
+        EditUnit.Text := '';
+        StateImplicit := 0;
       end;
-    end;
-    with CharacterForm do
-    begin
-      CharName := EditChar.Text;
-      CharNote := EditNote.Lines.Text;
-      if not IsEmptyStr(CharName, [' ']) then
+      if CharacterForm.ShowModal = mrOk then
       begin
-        if rbUM.Checked then
-          CharType := 'UM'
-        else if rbOM.Checked then
-          CharType := 'OM'
-        else if rbIN.Checked then
-          CharType := 'IN'
-        else if rbRN.Checked then
-          CharType := 'RN'
-        else if rbTE.Checked then
-          CharType := 'TE';
-        if (CharType = 'UM') or (CharType = 'OM') then
+        with CharacterForm do
         begin
-          if ListStates.Items.Count > 0 then
+          CharName := EditChar.Text;
+          CharNote := EditNote.Lines.Text;
+          if not IsEmptyStr(CharName, [' ']) then
           begin
-            StatesList := TStringList.Create;
-            StatesList.Assign(ListStates.Items);
+            if rbUM.Checked then
+              CharType := 'UM'
+            else if rbOM.Checked then
+              CharType := 'OM'
+            else if rbIN.Checked then
+              CharType := 'IN'
+            else if rbRN.Checked then
+              CharType := 'RN'
+            else if rbTE.Checked then
+              CharType := 'TE';
+            if (CharType = 'UM') or (CharType = 'OM') then
+            begin
+              if ListStates.Items.Count > 0 then
+              begin
+                StatesList := TStringList.Create;
+                StatesList.Assign(ListStates.Items);
+              end;
+            end;
+            if (CharType = 'IN') or (CharType = 'RN') then
+              CharUnit := EditUnit.Text;
+            if EditNote.Lines.Count > 0 then
+              CharNote := EditNote.Text;
+            if StateImplicit > 0 then
+              CharImplicit := StateImplicit;
+            Character.charName := CharName;
+            Character.charType := CharType;
+            Character.charUnit := CharUnit;
+            Character.charImplicit := CharImplicit;
+            Character.charNote := CharNote;
+            Character.charStates := StatesList;
+            Character.charDependent := DependentChar;
+            InsertOneCharacter(Dataset.CharacterList, Selected.Index, Character);
+            for J := 0 to Length(Dataset.ItemList) - 1 do
+              Dataset.ItemList[J].itemAttributes.Insert(Selected.Index, 'U');
+            LoadCharacterList;
+            LoadMatrix;
+            FileIsChanged := True;
+            SaveBtn.Enabled := True;
+            UpdateTitleBar(OpenDialog.FileName);
           end;
         end;
-        if (CharType = 'IN') or (CharType = 'RN') then
-          CharUnit := EditUnit.Text;
-        if EditNote.Lines.Count > 0 then
-          CharNote := EditNote.Text;
-        if StateImplicit > 0 then
-          CharImplicit := StateImplicit;
-        Character.charName := CharName;
-        Character.charType := CharType;
-        Character.charUnit := CharUnit;
-        Character.charImplicit := CharImplicit;
-        Character.charNote := CharNote;
-        Character.charStates := StatesList;
-        Character.charDependent := DependentChar;
-        InsertOneCharacter(Dataset.CharacterList, SelectedNode.Index, Character);
-        for J := 0 to Length(Dataset.ItemList) - 1 do
-          Dataset.ItemList[J].itemAttributes.Insert(SelectedNode.Index, 'U');
-        LoadCharacterList;
-        LoadMatrix;
-        FileIsChanged := True;
-        SaveBtn.Enabled := True;
-        UpdateTitleBar(OpenDialog.FileName);
       end;
     end;
   end;
@@ -5172,14 +4870,14 @@ var
   ItemStr, ItemName, ItemComment, TempStr: string;
   J: integer;
   Item: Delta.TItem;
-  Sel: TListItem;
+  Selected: TListItem;
 begin
   TempStr := StatusLine.SimpleText;
   StatusLine.SimpleText := strItemStatus;
-  Sel := ItemListView.Selected;
-  if Assigned(Sel) then
+  Selected := ItemListView.Selected;
+  if Assigned(Selected) then
   begin
-    if Sel.Index >= 0 then
+    if Selected.Index >= 0 then
     begin
       ItemStr := InputBox(strAddItemCaption, strAddItemPrompt, '');
       if not IsEmptyStr(ItemStr, [' ']) then
@@ -5199,14 +4897,14 @@ begin
         Item.itemAttributes := TStringList.Create;
         for J := 0 to Length(Dataset.CharacterList) - 1 do
           Item.itemAttributes.Add('U');
-        InsertOneItem(Dataset.ItemList, Sel.Index, Item);
+        InsertOneItem(Dataset.ItemList, Selected.Index, Item);
         LoadItemList;
         LoadMatrix;
-        LoadCharacterList(Sel.Index);
+        LoadCharacterList(Selected.Index);
         FileIsChanged := True;
         SaveBtn.Enabled := True;
         UpdateTitleBar(OpenDialog.FileName);
-        ItemListView.Selected := ItemListView.Items[Sel.Index];
+        ItemListView.Selected := ItemListView.Items[Selected.Index];
       end;
     end;
   end;
@@ -5277,7 +4975,7 @@ begin
     LoadMatrix;
     Screen.Cursor := crDefault;
     if PageControl.TabIndex = 0 then
-      CharacterTreeView.SetFocus;
+      CharacterListView.SetFocus;
     ChDir(CurDir);
     FileIsChanged := True;
     SaveBtn.Enabled := True;

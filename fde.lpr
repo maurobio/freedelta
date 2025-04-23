@@ -23,14 +23,14 @@ uses {$IFDEF UNIX} {$IFDEF UseCThreads}
   KStates,
   Phylogen,
   Script,
-  Toint;
+  Toint, Descrip;
 
 {$R *.res}
 
 begin
   RequireDerivedFormResource := True;
   Application.Title:='FreeDelta Editor';
-  Application.Scaled := True;
+  Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
   Application.CreateForm(TAboutBox, AboutBox);
@@ -45,5 +45,6 @@ begin
   Application.CreateForm(TPhyloForm, PhyloForm);
   Application.CreateForm(TScriptForm, ScriptForm);
   Application.CreateForm(TIntKeyForm, IntKeyForm);
+  Application.CreateForm(TDescriptionForm, DescriptionForm);
   Application.Run;
 end.

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="11"/>
+    <Version Value="12"/>
     <PathDelim Value="\"/>
     <General>
+      <Flags>
+        <CompatibilityMode Value="True"/>
+      </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <MainUnit Value="0"/>
       <Title Value="FreeDelta Editor"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
@@ -23,8 +25,8 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
-      <MajorVersionNr Value="3"/>
-      <MinorVersionNr Value="4"/>
+      <MajorVersionNr Value="4"/>
+      <RevisionNr Value="6"/>
       <CharSet Value="04B0"/>
       <StringTable Comments="Build configured for Win Linux and Darwin" CompanyName="Ecoinformatics Studio" FileDescription="FreeDelta Editor" InternalName="FreeDelta Editor" LegalCopyright="(c) 2000-2020 Mauro J. Cavalcanti" LegalTrademarks="GPL3" OriginalFilename="fde" ProductName="Lazarus and Freepascal" ProductVersion="1.x and 3.x"/>
     </VersionInfo>
@@ -64,7 +66,7 @@
         <PackageName Value="LCL"/>
       </Item7>
     </RequiredPackages>
-    <Units Count="18">
+    <Units Count="19">
       <Unit0>
         <Filename Value="fde.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -192,6 +194,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Toint"/>
       </Unit17>
+      <Unit18>
+        <Filename Value="descrip.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DescriptionForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Descrip"/>
+      </Unit18>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

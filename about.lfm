@@ -12,7 +12,7 @@ object AboutBox: TAboutBox
   Font.Name = 'MS Sans Serif'
   OnShow = FormShow
   Position = poMainFormCenter
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '3.6.0.0'
   object Panel1: TPanel
     Left = 8
     Height = 264
@@ -21,6 +21,7 @@ object AboutBox: TAboutBox
     BevelOuter = bvNone
     ClientHeight = 264
     ClientWidth = 433
+    ParentBackground = False
     TabOrder = 0
     object ProgramIcon: TImage
       Left = 0
@@ -58,7 +59,7 @@ object AboutBox: TAboutBox
       Height = 13
       Top = 31
       Width = 221
-      Caption = 'Copyright © 2000-2024 Mauro J. Cavalcanti'
+      Caption = 'Copyright © 2000-2025 Mauro J. Cavalcanti'
       Font.Height = -11
       ParentColor = False
       ParentFont = False

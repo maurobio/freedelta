@@ -1,26 +1,14 @@
 msgid ""
-msgstr ""
-"Project-Id-Version: Free Delta Editor\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: Mauro J. Cavalcanti <maurobio@gmail.com>\n"
-"Language-Team: \n"
-"Language: en\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.0.1\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+msgstr "Content-Type: text/plain; charset=UTF-8"
 
 #: about.strcomments
 msgid "This application is an open-source, cross platform desktop tool for building taxonomic descriptive databases, natural-language descriptions, identification keys, and numerical classifications, based on the DELTA (DEscription Language for TAxonomy) format."
-msgstr "This application is an open-source, cross platform desktop tool for building taxonomic descriptive databases, natural-language descriptions, identification keys, and numerical classifications, based on the DELTA (DEscription Language for TAxonomy) format."
+msgstr ""
 
 #: about.strcompiler
 msgctxt "about.strcompiler"
 msgid "Compiler:"
-msgstr "Compiler:"
+msgstr ""
 
 #: about.strplatform
 msgctxt "about.strplatform"
@@ -30,52 +18,52 @@ msgstr ""
 #: about.strwebsite
 msgctxt "about.strwebsite"
 msgid "FreeDelta website"
-msgstr "FreeDelta website"
+msgstr ""
 
 #: chars.straddcharacter
 msgctxt "chars.straddcharacter"
 msgid "Add Character"
-msgstr "Add Character"
+msgstr ""
 
 #: chars.stradditemcaption
 msgctxt "chars.stradditemcaption"
 msgid "Add Item"
-msgstr "Add Item"
+msgstr ""
 
 #: chars.stradditemprompt
 msgctxt "chars.stradditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: chars.straddstatecaption
 msgctxt "chars.straddstatecaption"
 msgid "Add State"
-msgstr "Add State"
+msgstr ""
 
 #: chars.straddstateprompt
 msgctxt "chars.straddstateprompt"
 msgid "Enter state description:"
-msgstr "Enter state description:"
+msgstr ""
 
 #: chars.straxis
 msgctxt "chars.straxis"
 msgid "Axis"
-msgstr "Axis"
+msgstr ""
 
 #: chars.strcentroid
 msgctxt "chars.strcentroid"
 msgid "Centroid (UPGMC)"
-msgstr "Centroid (UPGMC)"
+msgstr ""
 
 #: chars.strcharacters
 msgctxt "chars.strcharacters"
 msgid "characters"
-msgstr "characters"
+msgstr ""
 
 #: chars.strcharlistempty
 msgctxt "chars.strcharlistempty"
 msgid "Character list empty. Enter at least one character description."
-msgstr "Character list empty. Enter at least one character description."
+msgstr ""
 
 #: chars.strclass
 msgctxt "chars.strclass"
@@ -85,7 +73,7 @@ msgstr ""
 #: chars.strclm
 msgctxt "chars.strclm"
 msgid "Complete linkage (CLM)"
-msgstr "Complete linkage (CLM)"
+msgstr ""
 
 #: chars.strcloneitem
 msgctxt "chars.strcloneitem"
@@ -95,7 +83,7 @@ msgstr ""
 #: chars.strconfirmation
 msgctxt "chars.strconfirmation"
 msgid "Confirmation"
-msgstr "Confirmation"
+msgstr ""
 
 #: chars.strcontrol
 #, object-pascal-format
@@ -111,17 +99,17 @@ msgstr ""
 #: chars.strcopytext
 msgctxt "chars.strcopytext"
 msgid "Text copied to the Clipboard"
-msgstr "Text copied to the Clipboard"
+msgstr ""
 
 #: chars.strcsvfilter
 msgctxt "chars.strcsvfilter"
 msgid "Comma delimited files|*.csv"
-msgstr "Comma delimited files|*.csv"
+msgstr ""
 
 #: chars.strdatadirectory
 msgctxt "chars.strdatadirectory"
 msgid "Select data directory"
-msgstr "Select data directory"
+msgstr ""
 
 #: chars.strdeltadirectory
 msgctxt "chars.strdeltadirectory"
@@ -131,7 +119,7 @@ msgstr ""
 #: chars.strdendrogram
 msgctxt "chars.strdendrogram"
 msgid "Dendrogram"
-msgstr "Dendrogram"
+msgstr ""
 
 #: chars.strdependent
 #, object-pascal-format
@@ -147,47 +135,47 @@ msgstr ""
 #: chars.strdistance
 msgctxt "chars.strdistance"
 msgid "Distance"
-msgstr "Distance"
+msgstr ""
 
 #: chars.strdtzfilter
 msgctxt "chars.strdtzfilter"
 msgid "FreeDelta project|*.dtz"
-msgstr "FreeDelta project|*.dtz"
+msgstr ""
 
 #: chars.streditcaption
 msgctxt "chars.streditcaption"
 msgid "Database Title"
-msgstr "Database Title"
+msgstr ""
 
 #: chars.streditcharacter
 msgctxt "chars.streditcharacter"
 msgid "Edit Character"
-msgstr "Edit Character"
+msgstr ""
 
 #: chars.stredititemcaption
 msgctxt "chars.stredititemcaption"
 msgid "Edit Item"
-msgstr "Edit Item"
+msgstr ""
 
 #: chars.stredititemprompt
 msgctxt "chars.stredititemprompt"
 msgid "Edit item name:"
-msgstr "Edit item name:"
+msgstr ""
 
 #: chars.streditprompt
 msgctxt "chars.streditprompt"
 msgid "Edit database title:"
-msgstr "Edit database title:"
+msgstr ""
 
 #: chars.streditstatecaption
 msgctxt "chars.streditstatecaption"
 msgid "Edit State"
-msgstr "Edit State"
+msgstr ""
 
 #: chars.streditstateprompt
 msgctxt "chars.streditstateprompt"
 msgid "Edit state description:"
-msgstr "Edit state description:"
+msgstr ""
 
 #: chars.strentercharacternumber
 msgctxt "chars.strentercharacternumber"
@@ -197,19 +185,19 @@ msgstr ""
 #: chars.strerror
 msgctxt "chars.strerror"
 msgid "Error"
-msgstr "Error"
+msgstr ""
 
 #: chars.strexists
 #, object-pascal-format
 msgctxt "chars.strexists"
 msgid "File %s already exists. Overwrite?"
-msgstr "File %s already exists. Overwrite?"
+msgstr ""
 
 #: chars.strexport
 #, object-pascal-format
 msgctxt "chars.strexport"
 msgid "Data exported successfully to directory %s."
-msgstr "Data exported successfully to directory %s."
+msgstr ""
 
 #: chars.strexportfile
 #, object-pascal-format
@@ -220,32 +208,32 @@ msgstr ""
 #: chars.strfindcharactercaption
 msgctxt "chars.strfindcharactercaption"
 msgid "Find Character"
-msgstr "Find Character"
+msgstr ""
 
 #: chars.strfindcharacterprompt
 msgctxt "chars.strfindcharacterprompt"
 msgid "Enter character description:"
-msgstr "Enter character description:"
+msgstr ""
 
 #: chars.strfinditemcaption
 msgctxt "chars.strfinditemcaption"
 msgid "Find Item"
-msgstr "Find Item"
+msgstr ""
 
 #: chars.strfinditemprompt
 msgctxt "chars.strfinditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: chars.strfindtextcaption
 msgctxt "chars.strfindtextcaption"
 msgid "Find Text"
-msgstr "Find Text"
+msgstr ""
 
 #: chars.strfindtextprompt
 msgctxt "chars.strfindtextprompt"
 msgid "Enter search text:"
-msgstr "Enter search text:"
+msgstr ""
 
 #: chars.strfrequency
 msgctxt "chars.strfrequency"
@@ -276,12 +264,12 @@ msgstr ""
 #, object-pascal-format
 msgctxt "chars.strimport"
 msgid "Data imported successfully to file %s."
-msgstr "Data imported successfully to file %s."
+msgstr ""
 
 #: chars.strinformation
 msgctxt "chars.strinformation"
 msgid "Information"
-msgstr "Information"
+msgstr ""
 
 #: chars.strinputinteger
 #, object-pascal-format
@@ -302,12 +290,12 @@ msgstr ""
 #: chars.stritemlistempty
 msgctxt "chars.stritemlistempty"
 msgid "Item list empty. Enter at least one item name."
-msgstr "Item list empty. Enter at least one item name."
+msgstr ""
 
 #: chars.stritems
 msgctxt "chars.stritems"
 msgid "items"
-msgstr "items"
+msgstr ""
 
 #: chars.stritemstatus
 msgctxt "chars.stritemstatus"
@@ -327,7 +315,7 @@ msgstr ""
 #: chars.strmedian
 msgctxt "chars.strmedian"
 msgid "Median (WPGMC)"
-msgstr "Median (WPGMC)"
+msgstr ""
 
 #: chars.strmerge
 msgctxt "chars.strmerge"
@@ -342,12 +330,12 @@ msgstr ""
 #: chars.strnewcaption
 msgctxt "chars.strnewcaption"
 msgid "New Database"
-msgstr "New Database"
+msgstr ""
 
 #: chars.strnewprompt
 msgctxt "chars.strnewprompt"
 msgid "Enter database title:"
-msgstr "Enter database title:"
+msgstr ""
 
 #: chars.strnexusfilter
 msgctxt "chars.strnexusfilter"
@@ -363,24 +351,24 @@ msgstr ""
 #, object-pascal-format
 msgctxt "chars.strnotexecute"
 msgid "Couldn't start %s program."
-msgstr "Couldn't start %s program."
+msgstr ""
 
 #: chars.strnotfound
 #, object-pascal-format
 msgctxt "chars.strnotfound"
 msgid "File %s not found."
-msgstr "File %s not found."
+msgstr ""
 
 #: chars.strnotfounddir
 #, object-pascal-format
 msgctxt "chars.strnotfounddir"
 msgid "File %s not found in %s."
-msgstr "File %s not found in %s."
+msgstr ""
 
 #: chars.stropenfile
 msgctxt "chars.stropenfile"
 msgid "Open file"
-msgstr "Open file"
+msgstr ""
 
 #: chars.stroutofrange
 msgctxt "chars.stroutofrange"
@@ -400,7 +388,7 @@ msgstr ""
 #: chars.strquit
 msgctxt "chars.strquit"
 msgid "Do you want to exit the program?"
-msgstr "Do you want to exit the program?"
+msgstr ""
 
 #: chars.strrdirectory
 msgctxt "chars.strrdirectory"
@@ -426,7 +414,7 @@ msgstr ""
 #: chars.strsave
 msgctxt "chars.strsave"
 msgid "Dataset has been modified. Save?"
-msgstr "Dataset has been modified. Save?"
+msgstr ""
 
 #: chars.strsavechanges
 msgctxt "chars.strsavechanges"
@@ -437,45 +425,42 @@ msgstr ""
 #, object-pascal-format
 msgctxt "chars.strsaveerror"
 msgid "Failed to save file %s."
-msgstr "Failed to save file %s."
+msgstr ""
 
 #: chars.strsavefile
 msgctxt "chars.strsavefile"
 msgid "Save file as"
-msgstr "Save file as"
+msgstr ""
 
 #: chars.strscatterplot
 msgctxt "chars.strscatterplot"
 msgid "Scatterplot"
-msgstr "Scatterplot"
+msgstr ""
 
 #: chars.strslm
 msgctxt "chars.strslm"
 msgid "Single linkage (SLM)"
-msgstr "Single linkage (SLM)"
+msgstr ""
 
 #: chars.strstatelistempty
-#, fuzzy
-#| msgid "State list empty. Enter at least one state description."
 msgctxt "chars.strstatelistempty"
 msgid "State list empty or incomplete. Enter at least two state descriptions."
-msgstr "State list empty. Enter at least one state description."
+msgstr ""
 
 #: chars.strstates
 msgctxt "chars.strstates"
 msgid "States:"
-msgstr "States:"
+msgstr ""
 
 #: chars.strtext
-#, fuzzy
 msgctxt "chars.strtext"
 msgid "Text"
-msgstr "Text"
+msgstr ""
 
 #: chars.strtextnotfound
 msgctxt "chars.strtextnotfound"
 msgid "Text not found!"
-msgstr "Text not found!"
+msgstr ""
 
 #: chars.strtntdirectory
 msgctxt "chars.strtntdirectory"
@@ -495,17 +480,17 @@ msgstr ""
 #: chars.strtxtfilter
 msgctxt "chars.strtxtfilter"
 msgid "Text files|*.txt"
-msgstr "Text files|*.txt"
+msgstr ""
 
 #: chars.strunit
 msgctxt "chars.strunit"
 msgid "Unit:"
-msgstr "Unit:"
+msgstr ""
 
 #: chars.strunitempty
 msgctxt "chars.strunitempty"
 msgid "Measurement unit not defined for real numeric character."
-msgstr "Measurement unit not defined for real numeric character."
+msgstr ""
 
 #: chars.struntitled
 msgctxt "chars.struntitled"
@@ -515,7 +500,7 @@ msgstr ""
 #: chars.strupgma
 msgctxt "chars.strupgma"
 msgid "Average linkage (UPGMA)"
-msgstr "Average linkage (UPGMA)"
+msgstr ""
 
 #: chars.strvalidnumber
 #, object-pascal-format
@@ -526,22 +511,22 @@ msgstr ""
 #: chars.strward
 msgctxt "chars.strward"
 msgid "Ward's Method"
-msgstr "Ward's Method"
+msgstr ""
 
 #: chars.strwarning
 msgctxt "chars.strwarning"
 msgid "Warning"
-msgstr "Warning"
+msgstr ""
 
 #: chars.strwindowsonly
 msgctxt "chars.strwindowsonly"
 msgid "This option is available only under MS-Windows."
-msgstr "This option is available only under MS-Windows."
+msgstr ""
 
 #: chars.strwpgma
 msgctxt "chars.strwpgma"
 msgid "Weighted linkage (WPGMA)"
-msgstr "Weighted linkage (WPGMA)"
+msgstr ""
 
 #: chars.strwriteerror
 #, object-pascal-format
@@ -562,47 +547,47 @@ msgstr ""
 #: cluster.straddcharacter
 msgctxt "cluster.straddcharacter"
 msgid "Add Character"
-msgstr "Add Character"
+msgstr ""
 
 #: cluster.stradditemcaption
 msgctxt "cluster.stradditemcaption"
 msgid "Add Item"
-msgstr "Add Item"
+msgstr ""
 
 #: cluster.stradditemprompt
 msgctxt "cluster.stradditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: cluster.straddstatecaption
 msgctxt "cluster.straddstatecaption"
 msgid "Add State"
-msgstr "Add State"
+msgstr ""
 
 #: cluster.straddstateprompt
 msgctxt "cluster.straddstateprompt"
 msgid "Enter state description:"
-msgstr "Enter state description:"
+msgstr ""
 
 #: cluster.straxis
 msgctxt "cluster.straxis"
 msgid "Axis"
-msgstr "Axis"
+msgstr ""
 
 #: cluster.strcentroid
 msgctxt "cluster.strcentroid"
 msgid "Centroid (UPGMC)"
-msgstr "Centroid (UPGMC)"
+msgstr ""
 
 #: cluster.strcharacters
 msgctxt "cluster.strcharacters"
 msgid "characters"
-msgstr "characters"
+msgstr ""
 
 #: cluster.strcharlistempty
 msgctxt "cluster.strcharlistempty"
 msgid "Character list empty. Enter at least one character description."
-msgstr "Character list empty. Enter at least one character description."
+msgstr ""
 
 #: cluster.strclass
 msgctxt "cluster.strclass"
@@ -612,7 +597,7 @@ msgstr ""
 #: cluster.strclm
 msgctxt "cluster.strclm"
 msgid "Complete linkage (CLM)"
-msgstr "Complete linkage (CLM)"
+msgstr ""
 
 #: cluster.strcloneitem
 msgctxt "cluster.strcloneitem"
@@ -622,7 +607,7 @@ msgstr ""
 #: cluster.strconfirmation
 msgctxt "cluster.strconfirmation"
 msgid "Confirmation"
-msgstr "Confirmation"
+msgstr ""
 
 #: cluster.strcontrol
 #, object-pascal-format
@@ -638,17 +623,17 @@ msgstr ""
 #: cluster.strcopytext
 msgctxt "cluster.strcopytext"
 msgid "Text copied to the Clipboard"
-msgstr "Text copied to the Clipboard"
+msgstr ""
 
 #: cluster.strcsvfilter
 msgctxt "cluster.strcsvfilter"
 msgid "Comma delimited files|*.csv"
-msgstr "Comma delimited files|*.csv"
+msgstr ""
 
 #: cluster.strdatadirectory
 msgctxt "cluster.strdatadirectory"
 msgid "Select data directory"
-msgstr "Select data directory"
+msgstr ""
 
 #: cluster.strdeltadirectory
 msgctxt "cluster.strdeltadirectory"
@@ -658,7 +643,7 @@ msgstr ""
 #: cluster.strdendrogram
 msgctxt "cluster.strdendrogram"
 msgid "Dendrogram"
-msgstr "Dendrogram"
+msgstr ""
 
 #: cluster.strdependent
 #, object-pascal-format
@@ -674,47 +659,47 @@ msgstr ""
 #: cluster.strdistance
 msgctxt "cluster.strdistance"
 msgid "Distance"
-msgstr "Distance"
+msgstr ""
 
 #: cluster.strdtzfilter
 msgctxt "cluster.strdtzfilter"
 msgid "FreeDelta project|*.dtz"
-msgstr "FreeDelta project|*.dtz"
+msgstr ""
 
 #: cluster.streditcaption
 msgctxt "cluster.streditcaption"
 msgid "Database Title"
-msgstr "Database Title"
+msgstr ""
 
 #: cluster.streditcharacter
 msgctxt "cluster.streditcharacter"
 msgid "Edit Character"
-msgstr "Edit Character"
+msgstr ""
 
 #: cluster.stredititemcaption
 msgctxt "cluster.stredititemcaption"
 msgid "Edit Item"
-msgstr "Edit Item"
+msgstr ""
 
 #: cluster.stredititemprompt
 msgctxt "cluster.stredititemprompt"
 msgid "Edit item name:"
-msgstr "Edit item name:"
+msgstr ""
 
 #: cluster.streditprompt
 msgctxt "cluster.streditprompt"
 msgid "Edit database title:"
-msgstr "Edit database title:"
+msgstr ""
 
 #: cluster.streditstatecaption
 msgctxt "cluster.streditstatecaption"
 msgid "Edit State"
-msgstr "Edit State"
+msgstr ""
 
 #: cluster.streditstateprompt
 msgctxt "cluster.streditstateprompt"
 msgid "Edit state description:"
-msgstr "Edit state description:"
+msgstr ""
 
 #: cluster.strentercharacternumber
 msgctxt "cluster.strentercharacternumber"
@@ -724,19 +709,19 @@ msgstr ""
 #: cluster.strerror
 msgctxt "cluster.strerror"
 msgid "Error"
-msgstr "Error"
+msgstr ""
 
 #: cluster.strexists
 #, object-pascal-format
 msgctxt "cluster.strexists"
 msgid "File %s already exists. Overwrite?"
-msgstr "File %s already exists. Overwrite?"
+msgstr ""
 
 #: cluster.strexport
 #, object-pascal-format
 msgctxt "cluster.strexport"
 msgid "Data exported successfully to directory %s."
-msgstr "Data exported successfully to directory %s."
+msgstr ""
 
 #: cluster.strexportfile
 #, object-pascal-format
@@ -747,32 +732,32 @@ msgstr ""
 #: cluster.strfindcharactercaption
 msgctxt "cluster.strfindcharactercaption"
 msgid "Find Character"
-msgstr "Find Character"
+msgstr ""
 
 #: cluster.strfindcharacterprompt
 msgctxt "cluster.strfindcharacterprompt"
 msgid "Enter character description:"
-msgstr "Enter character description:"
+msgstr ""
 
 #: cluster.strfinditemcaption
 msgctxt "cluster.strfinditemcaption"
 msgid "Find Item"
-msgstr "Find Item"
+msgstr ""
 
 #: cluster.strfinditemprompt
 msgctxt "cluster.strfinditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: cluster.strfindtextcaption
 msgctxt "cluster.strfindtextcaption"
 msgid "Find Text"
-msgstr "Find Text"
+msgstr ""
 
 #: cluster.strfindtextprompt
 msgctxt "cluster.strfindtextprompt"
 msgid "Enter search text:"
-msgstr "Enter search text:"
+msgstr ""
 
 #: cluster.strfrequency
 msgctxt "cluster.strfrequency"
@@ -803,12 +788,12 @@ msgstr ""
 #, object-pascal-format
 msgctxt "cluster.strimport"
 msgid "Data imported successfully to file %s."
-msgstr "Data imported successfully to file %s."
+msgstr ""
 
 #: cluster.strinformation
 msgctxt "cluster.strinformation"
 msgid "Information"
-msgstr "Information"
+msgstr ""
 
 #: cluster.strinputinteger
 #, object-pascal-format
@@ -829,12 +814,12 @@ msgstr ""
 #: cluster.stritemlistempty
 msgctxt "cluster.stritemlistempty"
 msgid "Item list empty. Enter at least one item name."
-msgstr "Item list empty. Enter at least one item name."
+msgstr ""
 
 #: cluster.stritems
 msgctxt "cluster.stritems"
 msgid "items"
-msgstr "items"
+msgstr ""
 
 #: cluster.stritemstatus
 msgctxt "cluster.stritemstatus"
@@ -854,7 +839,7 @@ msgstr ""
 #: cluster.strmedian
 msgctxt "cluster.strmedian"
 msgid "Median (WPGMC)"
-msgstr "Median (WPGMC)"
+msgstr ""
 
 #: cluster.strmerge
 msgctxt "cluster.strmerge"
@@ -869,12 +854,12 @@ msgstr ""
 #: cluster.strnewcaption
 msgctxt "cluster.strnewcaption"
 msgid "New Database"
-msgstr "New Database"
+msgstr ""
 
 #: cluster.strnewprompt
 msgctxt "cluster.strnewprompt"
 msgid "Enter database title:"
-msgstr "Enter database title:"
+msgstr ""
 
 #: cluster.strnexusfilter
 msgctxt "cluster.strnexusfilter"
@@ -890,24 +875,24 @@ msgstr ""
 #, object-pascal-format
 msgctxt "cluster.strnotexecute"
 msgid "Couldn't start %s program."
-msgstr "Couldn't start %s program."
+msgstr ""
 
 #: cluster.strnotfound
 #, object-pascal-format
 msgctxt "cluster.strnotfound"
 msgid "File %s not found."
-msgstr "File %s not found."
+msgstr ""
 
 #: cluster.strnotfounddir
 #, object-pascal-format
 msgctxt "cluster.strnotfounddir"
 msgid "File %s not found in %s."
-msgstr "File %s not found in %s."
+msgstr ""
 
 #: cluster.stropenfile
 msgctxt "cluster.stropenfile"
 msgid "Open file"
-msgstr "Open file"
+msgstr ""
 
 #: cluster.stroutofrange
 msgctxt "cluster.stroutofrange"
@@ -927,7 +912,7 @@ msgstr ""
 #: cluster.strquit
 msgctxt "cluster.strquit"
 msgid "Do you want to exit the program?"
-msgstr "Do you want to exit the program?"
+msgstr ""
 
 #: cluster.strrdirectory
 msgctxt "cluster.strrdirectory"
@@ -953,7 +938,7 @@ msgstr ""
 #: cluster.strsave
 msgctxt "cluster.strsave"
 msgid "Dataset has been modified. Save?"
-msgstr "Dataset has been modified. Save?"
+msgstr ""
 
 #: cluster.strsavechanges
 msgctxt "cluster.strsavechanges"
@@ -964,45 +949,42 @@ msgstr ""
 #, object-pascal-format
 msgctxt "cluster.strsaveerror"
 msgid "Failed to save file %s."
-msgstr "Failed to save file %s."
+msgstr ""
 
 #: cluster.strsavefile
 msgctxt "cluster.strsavefile"
 msgid "Save file as"
-msgstr "Save file as"
+msgstr ""
 
 #: cluster.strscatterplot
 msgctxt "cluster.strscatterplot"
 msgid "Scatterplot"
-msgstr "Scatterplot"
+msgstr ""
 
 #: cluster.strslm
 msgctxt "cluster.strslm"
 msgid "Single linkage (SLM)"
-msgstr "Single linkage (SLM)"
+msgstr ""
 
 #: cluster.strstatelistempty
-#, fuzzy
-#| msgid "State list empty. Enter at least one state description."
 msgctxt "cluster.strstatelistempty"
 msgid "State list empty or incomplete. Enter at least two state descriptions."
-msgstr "State list empty. Enter at least one state description."
+msgstr ""
 
 #: cluster.strstates
 msgctxt "cluster.strstates"
 msgid "States:"
-msgstr "States:"
+msgstr ""
 
 #: cluster.strtext
-#, fuzzy
 msgctxt "cluster.strtext"
 msgid "Text"
-msgstr "Text"
+msgstr ""
 
 #: cluster.strtextnotfound
 msgctxt "cluster.strtextnotfound"
 msgid "Text not found!"
-msgstr "Text not found!"
+msgstr ""
 
 #: cluster.strtntdirectory
 msgctxt "cluster.strtntdirectory"
@@ -1022,17 +1004,17 @@ msgstr ""
 #: cluster.strtxtfilter
 msgctxt "cluster.strtxtfilter"
 msgid "Text files|*.txt"
-msgstr "Text files|*.txt"
+msgstr ""
 
 #: cluster.strunit
 msgctxt "cluster.strunit"
 msgid "Unit:"
-msgstr "Unit:"
+msgstr ""
 
 #: cluster.strunitempty
 msgctxt "cluster.strunitempty"
 msgid "Measurement unit not defined for real numeric character."
-msgstr "Measurement unit not defined for real numeric character."
+msgstr ""
 
 #: cluster.struntitled
 msgctxt "cluster.struntitled"
@@ -1042,7 +1024,7 @@ msgstr ""
 #: cluster.strupgma
 msgctxt "cluster.strupgma"
 msgid "Average linkage (UPGMA)"
-msgstr "Average linkage (UPGMA)"
+msgstr ""
 
 #: cluster.strvalidnumber
 #, object-pascal-format
@@ -1053,22 +1035,22 @@ msgstr ""
 #: cluster.strward
 msgctxt "cluster.strward"
 msgid "Ward's Method"
-msgstr "Ward's Method"
+msgstr ""
 
 #: cluster.strwarning
 msgctxt "cluster.strwarning"
 msgid "Warning"
-msgstr "Warning"
+msgstr ""
 
 #: cluster.strwindowsonly
 msgctxt "cluster.strwindowsonly"
 msgid "This option is available only under MS-Windows."
-msgstr "This option is available only under MS-Windows."
+msgstr ""
 
 #: cluster.strwpgma
 msgctxt "cluster.strwpgma"
 msgid "Weighted linkage (WPGMA)"
-msgstr "Weighted linkage (WPGMA)"
+msgstr ""
 
 #: cluster.strwriteerror
 #, object-pascal-format
@@ -1087,58 +1069,49 @@ msgid "XML files|*.xml"
 msgstr ""
 
 #: descrip.straddcharacter
-#, fuzzy
 msgctxt "descrip.straddcharacter"
 msgid "Add Character"
-msgstr "Add Character"
+msgstr ""
 
 #: descrip.stradditemcaption
-#, fuzzy
 msgctxt "descrip.stradditemcaption"
 msgid "Add Item"
-msgstr "Add Item"
+msgstr ""
 
 #: descrip.stradditemprompt
-#, fuzzy
 msgctxt "descrip.stradditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: descrip.straddstatecaption
-#, fuzzy
 msgctxt "descrip.straddstatecaption"
 msgid "Add State"
-msgstr "Add State"
+msgstr ""
 
 #: descrip.straddstateprompt
-#, fuzzy
 msgctxt "descrip.straddstateprompt"
 msgid "Enter state description:"
-msgstr "Enter state description:"
+msgstr ""
 
 #: descrip.straxis
-#, fuzzy
 msgctxt "descrip.straxis"
 msgid "Axis"
-msgstr "Axis"
+msgstr ""
 
 #: descrip.strcentroid
-#, fuzzy
 msgctxt "descrip.strcentroid"
 msgid "Centroid (UPGMC)"
-msgstr "Centroid (UPGMC)"
+msgstr ""
 
 #: descrip.strcharacters
-#, fuzzy
 msgctxt "descrip.strcharacters"
 msgid "characters"
-msgstr "characters"
+msgstr ""
 
 #: descrip.strcharlistempty
-#, fuzzy
 msgctxt "descrip.strcharlistempty"
 msgid "Character list empty. Enter at least one character description."
-msgstr "Character list empty. Enter at least one character description."
+msgstr ""
 
 #: descrip.strclass
 msgctxt "descrip.strclass"
@@ -1146,10 +1119,9 @@ msgid " Class "
 msgstr ""
 
 #: descrip.strclm
-#, fuzzy
 msgctxt "descrip.strclm"
 msgid "Complete linkage (CLM)"
-msgstr "Complete linkage (CLM)"
+msgstr ""
 
 #: descrip.strcloneitem
 msgctxt "descrip.strcloneitem"
@@ -1157,10 +1129,9 @@ msgid "Clone of"
 msgstr ""
 
 #: descrip.strconfirmation
-#, fuzzy
 msgctxt "descrip.strconfirmation"
 msgid "Confirmation"
-msgstr "Confirmation"
+msgstr ""
 
 #: descrip.strcontrol
 #, object-pascal-format
@@ -1174,22 +1145,19 @@ msgid "Image copied to the Clipboard"
 msgstr ""
 
 #: descrip.strcopytext
-#, fuzzy
 msgctxt "descrip.strcopytext"
 msgid "Text copied to the Clipboard"
-msgstr "Text copied to the Clipboard"
+msgstr ""
 
 #: descrip.strcsvfilter
-#, fuzzy
 msgctxt "descrip.strcsvfilter"
 msgid "Comma delimited files|*.csv"
-msgstr "Comma delimited files|*.csv"
+msgstr ""
 
 #: descrip.strdatadirectory
-#, fuzzy
 msgctxt "descrip.strdatadirectory"
 msgid "Select data directory"
-msgstr "Select data directory"
+msgstr ""
 
 #: descrip.strdeltadirectory
 msgctxt "descrip.strdeltadirectory"
@@ -1197,10 +1165,9 @@ msgid "Select DELTA directory"
 msgstr ""
 
 #: descrip.strdendrogram
-#, fuzzy
 msgctxt "descrip.strdendrogram"
 msgid "Dendrogram"
-msgstr "Dendrogram"
+msgstr ""
 
 #: descrip.strdependent
 #, object-pascal-format
@@ -1214,58 +1181,49 @@ msgid "DELTA directory not found."
 msgstr ""
 
 #: descrip.strdistance
-#, fuzzy
 msgctxt "descrip.strdistance"
 msgid "Distance"
-msgstr "Distance"
+msgstr ""
 
 #: descrip.strdtzfilter
-#, fuzzy
 msgctxt "descrip.strdtzfilter"
 msgid "FreeDelta project|*.dtz"
-msgstr "FreeDelta project|*.dtz"
+msgstr ""
 
 #: descrip.streditcaption
-#, fuzzy
 msgctxt "descrip.streditcaption"
 msgid "Database Title"
-msgstr "Database Title"
+msgstr ""
 
 #: descrip.streditcharacter
-#, fuzzy
 msgctxt "descrip.streditcharacter"
 msgid "Edit Character"
-msgstr "Edit Character"
+msgstr ""
 
 #: descrip.stredititemcaption
-#, fuzzy
 msgctxt "descrip.stredititemcaption"
 msgid "Edit Item"
-msgstr "Edit Item"
+msgstr ""
 
 #: descrip.stredititemprompt
-#, fuzzy
 msgctxt "descrip.stredititemprompt"
 msgid "Edit item name:"
-msgstr "Edit item name:"
+msgstr ""
 
 #: descrip.streditprompt
-#, fuzzy
 msgctxt "descrip.streditprompt"
 msgid "Edit database title:"
-msgstr "Edit database title:"
+msgstr ""
 
 #: descrip.streditstatecaption
-#, fuzzy
 msgctxt "descrip.streditstatecaption"
 msgid "Edit State"
-msgstr "Edit State"
+msgstr ""
 
 #: descrip.streditstateprompt
-#, fuzzy
 msgctxt "descrip.streditstateprompt"
 msgid "Edit state description:"
-msgstr "Edit state description:"
+msgstr ""
 
 #: descrip.strentercharacternumber
 msgctxt "descrip.strentercharacternumber"
@@ -1273,22 +1231,21 @@ msgid "Enter character number:"
 msgstr ""
 
 #: descrip.strerror
-#, fuzzy
 msgctxt "descrip.strerror"
 msgid "Error"
-msgstr "Error"
+msgstr ""
 
 #: descrip.strexists
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "descrip.strexists"
 msgid "File %s already exists. Overwrite?"
-msgstr "File %s already exists. Overwrite?"
+msgstr ""
 
 #: descrip.strexport
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "descrip.strexport"
 msgid "Data exported successfully to directory %s."
-msgstr "Data exported successfully to directory %s."
+msgstr ""
 
 #: descrip.strexportfile
 #, object-pascal-format
@@ -1297,40 +1254,34 @@ msgid "Data exported successfully to file %s."
 msgstr ""
 
 #: descrip.strfindcharactercaption
-#, fuzzy
 msgctxt "descrip.strfindcharactercaption"
 msgid "Find Character"
-msgstr "Find Character"
+msgstr ""
 
 #: descrip.strfindcharacterprompt
-#, fuzzy
 msgctxt "descrip.strfindcharacterprompt"
 msgid "Enter character description:"
-msgstr "Enter character description:"
+msgstr ""
 
 #: descrip.strfinditemcaption
-#, fuzzy
 msgctxt "descrip.strfinditemcaption"
 msgid "Find Item"
-msgstr "Find Item"
+msgstr ""
 
 #: descrip.strfinditemprompt
-#, fuzzy
 msgctxt "descrip.strfinditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: descrip.strfindtextcaption
-#, fuzzy
 msgctxt "descrip.strfindtextcaption"
 msgid "Find Text"
-msgstr "Find Text"
+msgstr ""
 
 #: descrip.strfindtextprompt
-#, fuzzy
 msgctxt "descrip.strfindtextprompt"
 msgid "Enter search text:"
-msgstr "Enter search text:"
+msgstr ""
 
 #: descrip.strfrequency
 msgctxt "descrip.strfrequency"
@@ -1358,16 +1309,15 @@ msgid " Histogram "
 msgstr ""
 
 #: descrip.strimport
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "descrip.strimport"
 msgid "Data imported successfully to file %s."
-msgstr "Data imported successfully to file %s."
+msgstr ""
 
 #: descrip.strinformation
-#, fuzzy
 msgctxt "descrip.strinformation"
 msgid "Information"
-msgstr "Information"
+msgstr ""
 
 #: descrip.strinputinteger
 #, object-pascal-format
@@ -1386,16 +1336,14 @@ msgid "Invalid symbol ('/') in character or state name"
 msgstr ""
 
 #: descrip.stritemlistempty
-#, fuzzy
 msgctxt "descrip.stritemlistempty"
 msgid "Item list empty. Enter at least one item name."
-msgstr "Item list empty. Enter at least one item name."
+msgstr ""
 
 #: descrip.stritems
-#, fuzzy
 msgctxt "descrip.stritems"
 msgid "items"
-msgstr "items"
+msgstr ""
 
 #: descrip.stritemstatus
 msgctxt "descrip.stritemstatus"
@@ -1413,10 +1361,9 @@ msgid " Class Mark "
 msgstr ""
 
 #: descrip.strmedian
-#, fuzzy
 msgctxt "descrip.strmedian"
 msgid "Median (WPGMC)"
-msgstr "Median (WPGMC)"
+msgstr ""
 
 #: descrip.strmerge
 msgctxt "descrip.strmerge"
@@ -1429,16 +1376,14 @@ msgid "Missing opening or closing angle brackets ('<>')"
 msgstr ""
 
 #: descrip.strnewcaption
-#, fuzzy
 msgctxt "descrip.strnewcaption"
 msgid "New Database"
-msgstr "New Database"
+msgstr ""
 
 #: descrip.strnewprompt
-#, fuzzy
 msgctxt "descrip.strnewprompt"
 msgid "Enter database title:"
-msgstr "Enter database title:"
+msgstr ""
 
 #: descrip.strnexusfilter
 msgctxt "descrip.strnexusfilter"
@@ -1451,28 +1396,27 @@ msgid "Unsupported inner comments"
 msgstr ""
 
 #: descrip.strnotexecute
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "descrip.strnotexecute"
 msgid "Couldn't start %s program."
-msgstr "Couldn't start %s program."
+msgstr ""
 
 #: descrip.strnotfound
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "descrip.strnotfound"
 msgid "File %s not found."
-msgstr "File %s not found."
+msgstr ""
 
 #: descrip.strnotfounddir
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "descrip.strnotfounddir"
 msgid "File %s not found in %s."
-msgstr "File %s not found in %s."
+msgstr ""
 
 #: descrip.stropenfile
-#, fuzzy
 msgctxt "descrip.stropenfile"
 msgid "Open file"
-msgstr "Open file"
+msgstr ""
 
 #: descrip.stroutofrange
 msgctxt "descrip.stroutofrange"
@@ -1490,10 +1434,9 @@ msgid "PAUP not installed or not found in path."
 msgstr ""
 
 #: descrip.strquit
-#, fuzzy
 msgctxt "descrip.strquit"
 msgid "Do you want to exit the program?"
-msgstr "Do you want to exit the program?"
+msgstr ""
 
 #: descrip.strrdirectory
 msgctxt "descrip.strrdirectory"
@@ -1517,10 +1460,9 @@ msgid "R not installed or not found in path."
 msgstr ""
 
 #: descrip.strsave
-#, fuzzy
 msgctxt "descrip.strsave"
 msgid "Dataset has been modified. Save?"
-msgstr "Dataset has been modified. Save?"
+msgstr ""
 
 #: descrip.strsavechanges
 msgctxt "descrip.strsavechanges"
@@ -1528,28 +1470,25 @@ msgid "Save changes?"
 msgstr ""
 
 #: descrip.strsaveerror
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "descrip.strsaveerror"
 msgid "Failed to save file %s."
-msgstr "Failed to save file %s."
+msgstr ""
 
 #: descrip.strsavefile
-#, fuzzy
 msgctxt "descrip.strsavefile"
 msgid "Save file as"
-msgstr "Save file as"
+msgstr ""
 
 #: descrip.strscatterplot
-#, fuzzy
 msgctxt "descrip.strscatterplot"
 msgid "Scatterplot"
-msgstr "Scatterplot"
+msgstr ""
 
 #: descrip.strslm
-#, fuzzy
 msgctxt "descrip.strslm"
 msgid "Single linkage (SLM)"
-msgstr "Single linkage (SLM)"
+msgstr ""
 
 #: descrip.strstatelistempty
 msgctxt "descrip.strstatelistempty"
@@ -1557,10 +1496,9 @@ msgid "State list empty or incomplete. Enter at least two state descriptions."
 msgstr ""
 
 #: descrip.strstates
-#, fuzzy
 msgctxt "descrip.strstates"
 msgid "States:"
-msgstr "States:"
+msgstr ""
 
 #: descrip.strtext
 msgctxt "descrip.strtext"
@@ -1568,10 +1506,9 @@ msgid "Text"
 msgstr ""
 
 #: descrip.strtextnotfound
-#, fuzzy
 msgctxt "descrip.strtextnotfound"
 msgid "Text not found!"
-msgstr "Text not found!"
+msgstr ""
 
 #: descrip.strtntdirectory
 msgctxt "descrip.strtntdirectory"
@@ -1589,22 +1526,19 @@ msgid "TNT not installed or not found in path."
 msgstr ""
 
 #: descrip.strtxtfilter
-#, fuzzy
 msgctxt "descrip.strtxtfilter"
 msgid "Text files|*.txt"
-msgstr "Text files|*.txt"
+msgstr ""
 
 #: descrip.strunit
-#, fuzzy
 msgctxt "descrip.strunit"
 msgid "Unit:"
-msgstr "Unit:"
+msgstr ""
 
 #: descrip.strunitempty
-#, fuzzy
 msgctxt "descrip.strunitempty"
 msgid "Measurement unit not defined for real numeric character."
-msgstr "Measurement unit not defined for real numeric character."
+msgstr ""
 
 #: descrip.struntitled
 msgctxt "descrip.struntitled"
@@ -1612,10 +1546,9 @@ msgid "Untitled"
 msgstr ""
 
 #: descrip.strupgma
-#, fuzzy
 msgctxt "descrip.strupgma"
 msgid "Average linkage (UPGMA)"
-msgstr "Average linkage (UPGMA)"
+msgstr ""
 
 #: descrip.strvalidnumber
 #, object-pascal-format
@@ -1624,28 +1557,24 @@ msgid "Enter numbers only (an integer value between 1 and %d)"
 msgstr ""
 
 #: descrip.strward
-#, fuzzy
 msgctxt "descrip.strward"
 msgid "Ward's Method"
-msgstr "Ward's Method"
+msgstr ""
 
 #: descrip.strwarning
-#, fuzzy
 msgctxt "descrip.strwarning"
 msgid "Warning"
-msgstr "Warning"
+msgstr ""
 
 #: descrip.strwindowsonly
-#, fuzzy
 msgctxt "descrip.strwindowsonly"
 msgid "This option is available only under MS-Windows."
-msgstr "This option is available only under MS-Windows."
+msgstr ""
 
 #: descrip.strwpgma
-#, fuzzy
 msgctxt "descrip.strwpgma"
 msgid "Weighted linkage (WPGMA)"
-msgstr "Weighted linkage (WPGMA)"
+msgstr ""
 
 #: descrip.strwriteerror
 #, object-pascal-format
@@ -1664,58 +1593,49 @@ msgid "XML files|*.xml"
 msgstr ""
 
 #: kstates.straddcharacter
-#, fuzzy
 msgctxt "kstates.straddcharacter"
 msgid "Add Character"
-msgstr "Add Character"
+msgstr ""
 
 #: kstates.stradditemcaption
-#, fuzzy
 msgctxt "kstates.stradditemcaption"
 msgid "Add Item"
-msgstr "Add Item"
+msgstr ""
 
 #: kstates.stradditemprompt
-#, fuzzy
 msgctxt "kstates.stradditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: kstates.straddstatecaption
-#, fuzzy
 msgctxt "kstates.straddstatecaption"
 msgid "Add State"
-msgstr "Add State"
+msgstr ""
 
 #: kstates.straddstateprompt
-#, fuzzy
 msgctxt "kstates.straddstateprompt"
 msgid "Enter state description:"
-msgstr "Enter state description:"
+msgstr ""
 
 #: kstates.straxis
-#, fuzzy
 msgctxt "kstates.straxis"
 msgid "Axis"
-msgstr "Axis"
+msgstr ""
 
 #: kstates.strcentroid
-#, fuzzy
 msgctxt "kstates.strcentroid"
 msgid "Centroid (UPGMC)"
-msgstr "Centroid (UPGMC)"
+msgstr ""
 
 #: kstates.strcharacters
-#, fuzzy
 msgctxt "kstates.strcharacters"
 msgid "characters"
-msgstr "characters"
+msgstr ""
 
 #: kstates.strcharlistempty
-#, fuzzy
 msgctxt "kstates.strcharlistempty"
 msgid "Character list empty. Enter at least one character description."
-msgstr "Character list empty. Enter at least one character description."
+msgstr ""
 
 #: kstates.strclass
 msgctxt "kstates.strclass"
@@ -1723,10 +1643,9 @@ msgid " Class "
 msgstr ""
 
 #: kstates.strclm
-#, fuzzy
 msgctxt "kstates.strclm"
 msgid "Complete linkage (CLM)"
-msgstr "Complete linkage (CLM)"
+msgstr ""
 
 #: kstates.strcloneitem
 msgctxt "kstates.strcloneitem"
@@ -1734,10 +1653,9 @@ msgid "Clone of"
 msgstr ""
 
 #: kstates.strconfirmation
-#, fuzzy
 msgctxt "kstates.strconfirmation"
 msgid "Confirmation"
-msgstr "Confirmation"
+msgstr ""
 
 #: kstates.strcontrol
 #, object-pascal-format
@@ -1751,22 +1669,19 @@ msgid "Image copied to the Clipboard"
 msgstr ""
 
 #: kstates.strcopytext
-#, fuzzy
 msgctxt "kstates.strcopytext"
 msgid "Text copied to the Clipboard"
-msgstr "Text copied to the Clipboard"
+msgstr ""
 
 #: kstates.strcsvfilter
-#, fuzzy
 msgctxt "kstates.strcsvfilter"
 msgid "Comma delimited files|*.csv"
-msgstr "Comma delimited files|*.csv"
+msgstr ""
 
 #: kstates.strdatadirectory
-#, fuzzy
 msgctxt "kstates.strdatadirectory"
 msgid "Select data directory"
-msgstr "Select data directory"
+msgstr ""
 
 #: kstates.strdeltadirectory
 msgctxt "kstates.strdeltadirectory"
@@ -1774,10 +1689,9 @@ msgid "Select DELTA directory"
 msgstr ""
 
 #: kstates.strdendrogram
-#, fuzzy
 msgctxt "kstates.strdendrogram"
 msgid "Dendrogram"
-msgstr "Dendrogram"
+msgstr ""
 
 #: kstates.strdependent
 #, object-pascal-format
@@ -1791,58 +1705,49 @@ msgid "DELTA directory not found."
 msgstr ""
 
 #: kstates.strdistance
-#, fuzzy
 msgctxt "kstates.strdistance"
 msgid "Distance"
-msgstr "Distance"
+msgstr ""
 
 #: kstates.strdtzfilter
-#, fuzzy
 msgctxt "kstates.strdtzfilter"
 msgid "FreeDelta project|*.dtz"
-msgstr "FreeDelta project|*.dtz"
+msgstr ""
 
 #: kstates.streditcaption
-#, fuzzy
 msgctxt "kstates.streditcaption"
 msgid "Database Title"
-msgstr "Database Title"
+msgstr ""
 
 #: kstates.streditcharacter
-#, fuzzy
 msgctxt "kstates.streditcharacter"
 msgid "Edit Character"
-msgstr "Edit Character"
+msgstr ""
 
 #: kstates.stredititemcaption
-#, fuzzy
 msgctxt "kstates.stredititemcaption"
 msgid "Edit Item"
-msgstr "Edit Item"
+msgstr ""
 
 #: kstates.stredititemprompt
-#, fuzzy
 msgctxt "kstates.stredititemprompt"
 msgid "Edit item name:"
-msgstr "Edit item name:"
+msgstr ""
 
 #: kstates.streditprompt
-#, fuzzy
 msgctxt "kstates.streditprompt"
 msgid "Edit database title:"
-msgstr "Edit database title:"
+msgstr ""
 
 #: kstates.streditstatecaption
-#, fuzzy
 msgctxt "kstates.streditstatecaption"
 msgid "Edit State"
-msgstr "Edit State"
+msgstr ""
 
 #: kstates.streditstateprompt
-#, fuzzy
 msgctxt "kstates.streditstateprompt"
 msgid "Edit state description:"
-msgstr "Edit state description:"
+msgstr ""
 
 #: kstates.strentercharacternumber
 msgctxt "kstates.strentercharacternumber"
@@ -1850,22 +1755,21 @@ msgid "Enter character number:"
 msgstr ""
 
 #: kstates.strerror
-#, fuzzy
 msgctxt "kstates.strerror"
 msgid "Error"
-msgstr "Error"
+msgstr ""
 
 #: kstates.strexists
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "kstates.strexists"
 msgid "File %s already exists. Overwrite?"
-msgstr "File %s already exists. Overwrite?"
+msgstr ""
 
 #: kstates.strexport
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "kstates.strexport"
 msgid "Data exported successfully to directory %s."
-msgstr "Data exported successfully to directory %s."
+msgstr ""
 
 #: kstates.strexportfile
 #, object-pascal-format
@@ -1874,40 +1778,34 @@ msgid "Data exported successfully to file %s."
 msgstr ""
 
 #: kstates.strfindcharactercaption
-#, fuzzy
 msgctxt "kstates.strfindcharactercaption"
 msgid "Find Character"
-msgstr "Find Character"
+msgstr ""
 
 #: kstates.strfindcharacterprompt
-#, fuzzy
 msgctxt "kstates.strfindcharacterprompt"
 msgid "Enter character description:"
-msgstr "Enter character description:"
+msgstr ""
 
 #: kstates.strfinditemcaption
-#, fuzzy
 msgctxt "kstates.strfinditemcaption"
 msgid "Find Item"
-msgstr "Find Item"
+msgstr ""
 
 #: kstates.strfinditemprompt
-#, fuzzy
 msgctxt "kstates.strfinditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: kstates.strfindtextcaption
-#, fuzzy
 msgctxt "kstates.strfindtextcaption"
 msgid "Find Text"
-msgstr "Find Text"
+msgstr ""
 
 #: kstates.strfindtextprompt
-#, fuzzy
 msgctxt "kstates.strfindtextprompt"
 msgid "Enter search text:"
-msgstr "Enter search text:"
+msgstr ""
 
 #: kstates.strfrequency
 msgctxt "kstates.strfrequency"
@@ -1935,16 +1833,15 @@ msgid " Histogram "
 msgstr ""
 
 #: kstates.strimport
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "kstates.strimport"
 msgid "Data imported successfully to file %s."
-msgstr "Data imported successfully to file %s."
+msgstr ""
 
 #: kstates.strinformation
-#, fuzzy
 msgctxt "kstates.strinformation"
 msgid "Information"
-msgstr "Information"
+msgstr ""
 
 #: kstates.strinputinteger
 #, object-pascal-format
@@ -1963,16 +1860,14 @@ msgid "Invalid symbol ('/') in character or state name"
 msgstr ""
 
 #: kstates.stritemlistempty
-#, fuzzy
 msgctxt "kstates.stritemlistempty"
 msgid "Item list empty. Enter at least one item name."
-msgstr "Item list empty. Enter at least one item name."
+msgstr ""
 
 #: kstates.stritems
-#, fuzzy
 msgctxt "kstates.stritems"
 msgid "items"
-msgstr "items"
+msgstr ""
 
 #: kstates.stritemstatus
 msgctxt "kstates.stritemstatus"
@@ -1990,10 +1885,9 @@ msgid " Class Mark "
 msgstr ""
 
 #: kstates.strmedian
-#, fuzzy
 msgctxt "kstates.strmedian"
 msgid "Median (WPGMC)"
-msgstr "Median (WPGMC)"
+msgstr ""
 
 #: kstates.strmerge
 msgctxt "kstates.strmerge"
@@ -2006,16 +1900,14 @@ msgid "Missing opening or closing angle brackets ('<>')"
 msgstr ""
 
 #: kstates.strnewcaption
-#, fuzzy
 msgctxt "kstates.strnewcaption"
 msgid "New Database"
-msgstr "New Database"
+msgstr ""
 
 #: kstates.strnewprompt
-#, fuzzy
 msgctxt "kstates.strnewprompt"
 msgid "Enter database title:"
-msgstr "Enter database title:"
+msgstr ""
 
 #: kstates.strnexusfilter
 msgctxt "kstates.strnexusfilter"
@@ -2028,28 +1920,27 @@ msgid "Unsupported inner comments"
 msgstr ""
 
 #: kstates.strnotexecute
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "kstates.strnotexecute"
 msgid "Couldn't start %s program."
-msgstr "Couldn't start %s program."
+msgstr ""
 
 #: kstates.strnotfound
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "kstates.strnotfound"
 msgid "File %s not found."
-msgstr "File %s not found."
+msgstr ""
 
 #: kstates.strnotfounddir
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "kstates.strnotfounddir"
 msgid "File %s not found in %s."
-msgstr "File %s not found in %s."
+msgstr ""
 
 #: kstates.stropenfile
-#, fuzzy
 msgctxt "kstates.stropenfile"
 msgid "Open file"
-msgstr "Open file"
+msgstr ""
 
 #: kstates.stroutofrange
 msgctxt "kstates.stroutofrange"
@@ -2067,10 +1958,9 @@ msgid "PAUP not installed or not found in path."
 msgstr ""
 
 #: kstates.strquit
-#, fuzzy
 msgctxt "kstates.strquit"
 msgid "Do you want to exit the program?"
-msgstr "Do you want to exit the program?"
+msgstr ""
 
 #: kstates.strrdirectory
 msgctxt "kstates.strrdirectory"
@@ -2094,10 +1984,9 @@ msgid "R not installed or not found in path."
 msgstr ""
 
 #: kstates.strsave
-#, fuzzy
 msgctxt "kstates.strsave"
 msgid "Dataset has been modified. Save?"
-msgstr "Dataset has been modified. Save?"
+msgstr ""
 
 #: kstates.strsavechanges
 msgctxt "kstates.strsavechanges"
@@ -2105,53 +1994,45 @@ msgid "Save changes?"
 msgstr ""
 
 #: kstates.strsaveerror
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "kstates.strsaveerror"
 msgid "Failed to save file %s."
-msgstr "Failed to save file %s."
+msgstr ""
 
 #: kstates.strsavefile
-#, fuzzy
 msgctxt "kstates.strsavefile"
 msgid "Save file as"
-msgstr "Save file as"
+msgstr ""
 
 #: kstates.strscatterplot
-#, fuzzy
 msgctxt "kstates.strscatterplot"
 msgid "Scatterplot"
-msgstr "Scatterplot"
+msgstr ""
 
 #: kstates.strslm
-#, fuzzy
 msgctxt "kstates.strslm"
 msgid "Single linkage (SLM)"
-msgstr "Single linkage (SLM)"
+msgstr ""
 
 #: kstates.strstatelistempty
-#, fuzzy
-#| msgid "State list empty. Enter at least one state description."
 msgctxt "kstates.strstatelistempty"
 msgid "State list empty or incomplete. Enter at least two state descriptions."
-msgstr "State list empty. Enter at least one state description."
+msgstr ""
 
 #: kstates.strstates
-#, fuzzy
 msgctxt "kstates.strstates"
 msgid "States:"
-msgstr "States:"
+msgstr ""
 
 #: kstates.strtext
-#, fuzzy
 msgctxt "kstates.strtext"
 msgid "Text"
-msgstr "Text"
+msgstr ""
 
 #: kstates.strtextnotfound
-#, fuzzy
 msgctxt "kstates.strtextnotfound"
 msgid "Text not found!"
-msgstr "Text not found!"
+msgstr ""
 
 #: kstates.strtntdirectory
 msgctxt "kstates.strtntdirectory"
@@ -2169,22 +2050,19 @@ msgid "TNT not installed or not found in path."
 msgstr ""
 
 #: kstates.strtxtfilter
-#, fuzzy
 msgctxt "kstates.strtxtfilter"
 msgid "Text files|*.txt"
-msgstr "Text files|*.txt"
+msgstr ""
 
 #: kstates.strunit
-#, fuzzy
 msgctxt "kstates.strunit"
 msgid "Unit:"
-msgstr "Unit:"
+msgstr ""
 
 #: kstates.strunitempty
-#, fuzzy
 msgctxt "kstates.strunitempty"
 msgid "Measurement unit not defined for real numeric character."
-msgstr "Measurement unit not defined for real numeric character."
+msgstr ""
 
 #: kstates.struntitled
 msgctxt "kstates.struntitled"
@@ -2192,10 +2070,9 @@ msgid "Untitled"
 msgstr ""
 
 #: kstates.strupgma
-#, fuzzy
 msgctxt "kstates.strupgma"
 msgid "Average linkage (UPGMA)"
-msgstr "Average linkage (UPGMA)"
+msgstr ""
 
 #: kstates.strvalidnumber
 #, object-pascal-format
@@ -2204,28 +2081,24 @@ msgid "Enter numbers only (an integer value between 1 and %d)"
 msgstr ""
 
 #: kstates.strward
-#, fuzzy
 msgctxt "kstates.strward"
 msgid "Ward's Method"
-msgstr "Ward's Method"
+msgstr ""
 
 #: kstates.strwarning
-#, fuzzy
 msgctxt "kstates.strwarning"
 msgid "Warning"
-msgstr "Warning"
+msgstr ""
 
 #: kstates.strwindowsonly
-#, fuzzy
 msgctxt "kstates.strwindowsonly"
 msgid "This option is available only under MS-Windows."
-msgstr "This option is available only under MS-Windows."
+msgstr ""
 
 #: kstates.strwpgma
-#, fuzzy
 msgctxt "kstates.strwpgma"
 msgid "Weighted linkage (WPGMA)"
-msgstr "Weighted linkage (WPGMA)"
+msgstr ""
 
 #: kstates.strwriteerror
 #, object-pascal-format
@@ -2246,47 +2119,47 @@ msgstr ""
 #: main.straddcharacter
 msgctxt "main.straddcharacter"
 msgid "Add Character"
-msgstr "Add Character"
+msgstr ""
 
 #: main.stradditemcaption
 msgctxt "main.stradditemcaption"
 msgid "Add Item"
-msgstr "Add Item"
+msgstr ""
 
 #: main.stradditemprompt
 msgctxt "main.stradditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: main.straddstatecaption
 msgctxt "main.straddstatecaption"
 msgid "Add State"
-msgstr "Add State"
+msgstr ""
 
 #: main.straddstateprompt
 msgctxt "main.straddstateprompt"
 msgid "Enter state description:"
-msgstr "Enter state description:"
+msgstr ""
 
 #: main.straxis
 msgctxt "main.straxis"
 msgid "Axis"
-msgstr "Axis"
+msgstr ""
 
 #: main.strcentroid
 msgctxt "main.strcentroid"
 msgid "Centroid (UPGMC)"
-msgstr "Centroid (UPGMC)"
+msgstr ""
 
 #: main.strcharacters
 msgctxt "main.strcharacters"
 msgid "characters"
-msgstr "characters"
+msgstr ""
 
 #: main.strcharlistempty
 msgctxt "main.strcharlistempty"
 msgid "Character list empty. Enter at least one character description."
-msgstr "Character list empty. Enter at least one character description."
+msgstr ""
 
 #: main.strclass
 msgctxt "main.strclass"
@@ -2296,7 +2169,7 @@ msgstr ""
 #: main.strclm
 msgctxt "main.strclm"
 msgid "Complete linkage (CLM)"
-msgstr "Complete linkage (CLM)"
+msgstr ""
 
 #: main.strcloneitem
 msgctxt "main.strcloneitem"
@@ -2306,7 +2179,7 @@ msgstr ""
 #: main.strconfirmation
 msgctxt "main.strconfirmation"
 msgid "Confirmation"
-msgstr "Confirmation"
+msgstr ""
 
 #: main.strcontrol
 #, object-pascal-format
@@ -2322,17 +2195,17 @@ msgstr ""
 #: main.strcopytext
 msgctxt "main.strcopytext"
 msgid "Text copied to the Clipboard"
-msgstr "Text copied to the Clipboard"
+msgstr ""
 
 #: main.strcsvfilter
 msgctxt "main.strcsvfilter"
 msgid "Comma delimited files|*.csv"
-msgstr "Comma delimited files|*.csv"
+msgstr ""
 
 #: main.strdatadirectory
 msgctxt "main.strdatadirectory"
 msgid "Select data directory"
-msgstr "Select data directory"
+msgstr ""
 
 #: main.strdeltadirectory
 msgctxt "main.strdeltadirectory"
@@ -2342,7 +2215,7 @@ msgstr ""
 #: main.strdendrogram
 msgctxt "main.strdendrogram"
 msgid "Dendrogram"
-msgstr "Dendrogram"
+msgstr ""
 
 #: main.strdependent
 #, object-pascal-format
@@ -2358,47 +2231,47 @@ msgstr ""
 #: main.strdistance
 msgctxt "main.strdistance"
 msgid "Distance"
-msgstr "Distance"
+msgstr ""
 
 #: main.strdtzfilter
 msgctxt "main.strdtzfilter"
 msgid "FreeDelta project|*.dtz"
-msgstr "FreeDelta project|*.dtz"
+msgstr ""
 
 #: main.streditcaption
 msgctxt "main.streditcaption"
 msgid "Database Title"
-msgstr "Database Title"
+msgstr ""
 
 #: main.streditcharacter
 msgctxt "main.streditcharacter"
 msgid "Edit Character"
-msgstr "Edit Character"
+msgstr ""
 
 #: main.stredititemcaption
 msgctxt "main.stredititemcaption"
 msgid "Edit Item"
-msgstr "Edit Item"
+msgstr ""
 
 #: main.stredititemprompt
 msgctxt "main.stredititemprompt"
 msgid "Edit item name:"
-msgstr "Edit item name:"
+msgstr ""
 
 #: main.streditprompt
 msgctxt "main.streditprompt"
 msgid "Edit database title:"
-msgstr "Edit database title:"
+msgstr ""
 
 #: main.streditstatecaption
 msgctxt "main.streditstatecaption"
 msgid "Edit State"
-msgstr "Edit State"
+msgstr ""
 
 #: main.streditstateprompt
 msgctxt "main.streditstateprompt"
 msgid "Edit state description:"
-msgstr "Edit state description:"
+msgstr ""
 
 #: main.strentercharacternumber
 msgctxt "main.strentercharacternumber"
@@ -2408,19 +2281,19 @@ msgstr ""
 #: main.strerror
 msgctxt "main.strerror"
 msgid "Error"
-msgstr "Error"
+msgstr ""
 
 #: main.strexists
 #, object-pascal-format
 msgctxt "main.strexists"
 msgid "File %s already exists. Overwrite?"
-msgstr "File %s already exists. Overwrite?"
+msgstr ""
 
 #: main.strexport
 #, object-pascal-format
 msgctxt "main.strexport"
 msgid "Data exported successfully to directory %s."
-msgstr "Data exported successfully to directory %s."
+msgstr ""
 
 #: main.strexportfile
 #, object-pascal-format
@@ -2431,32 +2304,32 @@ msgstr ""
 #: main.strfindcharactercaption
 msgctxt "main.strfindcharactercaption"
 msgid "Find Character"
-msgstr "Find Character"
+msgstr ""
 
 #: main.strfindcharacterprompt
 msgctxt "main.strfindcharacterprompt"
 msgid "Enter character description:"
-msgstr "Enter character description:"
+msgstr ""
 
 #: main.strfinditemcaption
 msgctxt "main.strfinditemcaption"
 msgid "Find Item"
-msgstr "Find Item"
+msgstr ""
 
 #: main.strfinditemprompt
 msgctxt "main.strfinditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: main.strfindtextcaption
 msgctxt "main.strfindtextcaption"
 msgid "Find Text"
-msgstr "Find Text"
+msgstr ""
 
 #: main.strfindtextprompt
 msgctxt "main.strfindtextprompt"
 msgid "Enter search text:"
-msgstr "Enter search text:"
+msgstr ""
 
 #: main.strfrequency
 msgctxt "main.strfrequency"
@@ -2487,12 +2360,12 @@ msgstr ""
 #, object-pascal-format
 msgctxt "main.strimport"
 msgid "Data imported successfully to file %s."
-msgstr "Data imported successfully to file %s."
+msgstr ""
 
 #: main.strinformation
 msgctxt "main.strinformation"
 msgid "Information"
-msgstr "Information"
+msgstr ""
 
 #: main.strinputinteger
 #, object-pascal-format
@@ -2513,12 +2386,12 @@ msgstr ""
 #: main.stritemlistempty
 msgctxt "main.stritemlistempty"
 msgid "Item list empty. Enter at least one item name."
-msgstr "Item list empty. Enter at least one item name."
+msgstr ""
 
 #: main.stritems
 msgctxt "main.stritems"
 msgid "items"
-msgstr "items"
+msgstr ""
 
 #: main.stritemstatus
 msgctxt "main.stritemstatus"
@@ -2538,7 +2411,7 @@ msgstr ""
 #: main.strmedian
 msgctxt "main.strmedian"
 msgid "Median (WPGMC)"
-msgstr "Median (WPGMC)"
+msgstr ""
 
 #: main.strmerge
 msgctxt "main.strmerge"
@@ -2553,12 +2426,12 @@ msgstr ""
 #: main.strnewcaption
 msgctxt "main.strnewcaption"
 msgid "New Database"
-msgstr "New Database"
+msgstr ""
 
 #: main.strnewprompt
 msgctxt "main.strnewprompt"
 msgid "Enter database title:"
-msgstr "Enter database title:"
+msgstr ""
 
 #: main.strnexusfilter
 msgctxt "main.strnexusfilter"
@@ -2574,24 +2447,24 @@ msgstr ""
 #, object-pascal-format
 msgctxt "main.strnotexecute"
 msgid "Couldn't start %s program."
-msgstr "Couldn't start %s program."
+msgstr ""
 
 #: main.strnotfound
 #, object-pascal-format
 msgctxt "main.strnotfound"
 msgid "File %s not found."
-msgstr "File %s not found."
+msgstr ""
 
 #: main.strnotfounddir
 #, object-pascal-format
 msgctxt "main.strnotfounddir"
 msgid "File %s not found in %s."
-msgstr "File %s not found in %s."
+msgstr ""
 
 #: main.stropenfile
 msgctxt "main.stropenfile"
 msgid "Open file"
-msgstr "Open file"
+msgstr ""
 
 #: main.stroutofrange
 msgctxt "main.stroutofrange"
@@ -2611,7 +2484,7 @@ msgstr ""
 #: main.strquit
 msgctxt "main.strquit"
 msgid "Do you want to exit the program?"
-msgstr "Do you want to exit the program?"
+msgstr ""
 
 #: main.strrdirectory
 msgctxt "main.strrdirectory"
@@ -2637,7 +2510,7 @@ msgstr ""
 #: main.strsave
 msgctxt "main.strsave"
 msgid "Dataset has been modified. Save?"
-msgstr "Dataset has been modified. Save?"
+msgstr ""
 
 #: main.strsavechanges
 msgctxt "main.strsavechanges"
@@ -2648,47 +2521,42 @@ msgstr ""
 #, object-pascal-format
 msgctxt "main.strsaveerror"
 msgid "Failed to save file %s."
-msgstr "Failed to save file %s."
+msgstr ""
 
 #: main.strsavefile
-#, fuzzy
-#| msgid "Failed to save file %s."
 msgctxt "main.strsavefile"
 msgid "Save file as"
-msgstr "Failed to save file %s."
+msgstr ""
 
 #: main.strscatterplot
 msgctxt "main.strscatterplot"
 msgid "Scatterplot"
-msgstr "Scatterplot"
+msgstr ""
 
 #: main.strslm
 msgctxt "main.strslm"
 msgid "Single linkage (SLM)"
-msgstr "Single linkage (SLM)"
+msgstr ""
 
 #: main.strstatelistempty
-#, fuzzy
-#| msgid "State list empty. Enter at least one state description."
 msgctxt "main.strstatelistempty"
 msgid "State list empty or incomplete. Enter at least two state descriptions."
-msgstr "State list empty. Enter at least one state description."
+msgstr ""
 
 #: main.strstates
 msgctxt "main.strstates"
 msgid "States:"
-msgstr "States:"
+msgstr ""
 
 #: main.strtext
-#, fuzzy
 msgctxt "main.strtext"
 msgid "Text"
-msgstr "Text"
+msgstr ""
 
 #: main.strtextnotfound
 msgctxt "main.strtextnotfound"
 msgid "Text not found!"
-msgstr "Text not found!"
+msgstr ""
 
 #: main.strtntdirectory
 msgctxt "main.strtntdirectory"
@@ -2708,17 +2576,17 @@ msgstr ""
 #: main.strtxtfilter
 msgctxt "main.strtxtfilter"
 msgid "Text files|*.txt"
-msgstr "Text files|*.txt"
+msgstr ""
 
 #: main.strunit
 msgctxt "main.strunit"
 msgid "Unit:"
-msgstr "Unit:"
+msgstr ""
 
 #: main.strunitempty
 msgctxt "main.strunitempty"
 msgid "Measurement unit not defined for real numeric character."
-msgstr "Measurement unit not defined for real numeric character."
+msgstr ""
 
 #: main.struntitled
 msgctxt "main.struntitled"
@@ -2728,7 +2596,7 @@ msgstr ""
 #: main.strupgma
 msgctxt "main.strupgma"
 msgid "Average linkage (UPGMA)"
-msgstr "Average linkage (UPGMA)"
+msgstr ""
 
 #: main.strvalidnumber
 #, object-pascal-format
@@ -2739,22 +2607,22 @@ msgstr ""
 #: main.strward
 msgctxt "main.strward"
 msgid "Ward's Method"
-msgstr "Ward's Method"
+msgstr ""
 
 #: main.strwarning
 msgctxt "main.strwarning"
 msgid "Warning"
-msgstr "Warning"
+msgstr ""
 
 #: main.strwindowsonly
 msgctxt "main.strwindowsonly"
 msgid "This option is available only under MS-Windows."
-msgstr "This option is available only under MS-Windows."
+msgstr ""
 
 #: main.strwpgma
 msgctxt "main.strwpgma"
 msgid "Weighted linkage (WPGMA)"
-msgstr "Weighted linkage (WPGMA)"
+msgstr ""
 
 #: main.strwriteerror
 #, object-pascal-format
@@ -2775,47 +2643,47 @@ msgstr ""
 #: prepare.straddcharacter
 msgctxt "prepare.straddcharacter"
 msgid "Add Character"
-msgstr "Add Character"
+msgstr ""
 
 #: prepare.stradditemcaption
 msgctxt "prepare.stradditemcaption"
 msgid "Add Item"
-msgstr "Add Item"
+msgstr ""
 
 #: prepare.stradditemprompt
 msgctxt "prepare.stradditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: prepare.straddstatecaption
 msgctxt "prepare.straddstatecaption"
 msgid "Add State"
-msgstr "Add State"
+msgstr ""
 
 #: prepare.straddstateprompt
 msgctxt "prepare.straddstateprompt"
 msgid "Enter state description:"
-msgstr "Enter state description:"
+msgstr ""
 
 #: prepare.straxis
 msgctxt "prepare.straxis"
 msgid "Axis"
-msgstr "Axis"
+msgstr ""
 
 #: prepare.strcentroid
 msgctxt "prepare.strcentroid"
 msgid "Centroid (UPGMC)"
-msgstr "Centroid (UPGMC)"
+msgstr ""
 
 #: prepare.strcharacters
 msgctxt "prepare.strcharacters"
 msgid "characters"
-msgstr "characters"
+msgstr ""
 
 #: prepare.strcharlistempty
 msgctxt "prepare.strcharlistempty"
 msgid "Character list empty. Enter at least one character description."
-msgstr "Character list empty. Enter at least one character description."
+msgstr ""
 
 #: prepare.strclass
 msgctxt "prepare.strclass"
@@ -2825,7 +2693,7 @@ msgstr ""
 #: prepare.strclm
 msgctxt "prepare.strclm"
 msgid "Complete linkage (CLM)"
-msgstr "Complete linkage (CLM)"
+msgstr ""
 
 #: prepare.strcloneitem
 msgctxt "prepare.strcloneitem"
@@ -2835,7 +2703,7 @@ msgstr ""
 #: prepare.strconfirmation
 msgctxt "prepare.strconfirmation"
 msgid "Confirmation"
-msgstr "Confirmation"
+msgstr ""
 
 #: prepare.strcontrol
 #, object-pascal-format
@@ -2851,17 +2719,17 @@ msgstr ""
 #: prepare.strcopytext
 msgctxt "prepare.strcopytext"
 msgid "Text copied to the Clipboard"
-msgstr "Text copied to the Clipboard"
+msgstr ""
 
 #: prepare.strcsvfilter
 msgctxt "prepare.strcsvfilter"
 msgid "Comma delimited files|*.csv"
-msgstr "Comma delimited files|*.csv"
+msgstr ""
 
 #: prepare.strdatadirectory
 msgctxt "prepare.strdatadirectory"
 msgid "Select data directory"
-msgstr "Select data directory"
+msgstr ""
 
 #: prepare.strdeltadirectory
 msgctxt "prepare.strdeltadirectory"
@@ -2871,7 +2739,7 @@ msgstr ""
 #: prepare.strdendrogram
 msgctxt "prepare.strdendrogram"
 msgid "Dendrogram"
-msgstr "Dendrogram"
+msgstr ""
 
 #: prepare.strdependent
 #, object-pascal-format
@@ -2887,47 +2755,47 @@ msgstr ""
 #: prepare.strdistance
 msgctxt "prepare.strdistance"
 msgid "Distance"
-msgstr "Distance"
+msgstr ""
 
 #: prepare.strdtzfilter
 msgctxt "prepare.strdtzfilter"
 msgid "FreeDelta project|*.dtz"
-msgstr "FreeDelta project|*.dtz"
+msgstr ""
 
 #: prepare.streditcaption
 msgctxt "prepare.streditcaption"
 msgid "Database Title"
-msgstr "Database Title"
+msgstr ""
 
 #: prepare.streditcharacter
 msgctxt "prepare.streditcharacter"
 msgid "Edit Character"
-msgstr "Edit Character"
+msgstr ""
 
 #: prepare.stredititemcaption
 msgctxt "prepare.stredititemcaption"
 msgid "Edit Item"
-msgstr "Edit Item"
+msgstr ""
 
 #: prepare.stredititemprompt
 msgctxt "prepare.stredititemprompt"
 msgid "Edit item name:"
-msgstr "Edit item name:"
+msgstr ""
 
 #: prepare.streditprompt
 msgctxt "prepare.streditprompt"
 msgid "Edit database title:"
-msgstr "Edit database title:"
+msgstr ""
 
 #: prepare.streditstatecaption
 msgctxt "prepare.streditstatecaption"
 msgid "Edit State"
-msgstr "Edit State"
+msgstr ""
 
 #: prepare.streditstateprompt
 msgctxt "prepare.streditstateprompt"
 msgid "Edit state description:"
-msgstr "Edit state description:"
+msgstr ""
 
 #: prepare.strentercharacternumber
 msgctxt "prepare.strentercharacternumber"
@@ -2937,19 +2805,19 @@ msgstr ""
 #: prepare.strerror
 msgctxt "prepare.strerror"
 msgid "Error"
-msgstr "Error"
+msgstr ""
 
 #: prepare.strexists
 #, object-pascal-format
 msgctxt "prepare.strexists"
 msgid "File %s already exists. Overwrite?"
-msgstr "File %s already exists. Overwrite?"
+msgstr ""
 
 #: prepare.strexport
 #, object-pascal-format
 msgctxt "prepare.strexport"
 msgid "Data exported successfully to directory %s."
-msgstr "Data exported successfully to directory %s."
+msgstr ""
 
 #: prepare.strexportfile
 #, object-pascal-format
@@ -2960,32 +2828,32 @@ msgstr ""
 #: prepare.strfindcharactercaption
 msgctxt "prepare.strfindcharactercaption"
 msgid "Find Character"
-msgstr "Find Character"
+msgstr ""
 
 #: prepare.strfindcharacterprompt
 msgctxt "prepare.strfindcharacterprompt"
 msgid "Enter character description:"
-msgstr "Enter character description:"
+msgstr ""
 
 #: prepare.strfinditemcaption
 msgctxt "prepare.strfinditemcaption"
 msgid "Find Item"
-msgstr "Find Item"
+msgstr ""
 
 #: prepare.strfinditemprompt
 msgctxt "prepare.strfinditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: prepare.strfindtextcaption
 msgctxt "prepare.strfindtextcaption"
 msgid "Find Text"
-msgstr "Find Text"
+msgstr ""
 
 #: prepare.strfindtextprompt
 msgctxt "prepare.strfindtextprompt"
 msgid "Enter search text:"
-msgstr "Enter search text:"
+msgstr ""
 
 #: prepare.strfrequency
 msgctxt "prepare.strfrequency"
@@ -3016,12 +2884,12 @@ msgstr ""
 #, object-pascal-format
 msgctxt "prepare.strimport"
 msgid "Data imported successfully to file %s."
-msgstr "Data imported successfully to file %s."
+msgstr ""
 
 #: prepare.strinformation
 msgctxt "prepare.strinformation"
 msgid "Information"
-msgstr "Information"
+msgstr ""
 
 #: prepare.strinputinteger
 #, object-pascal-format
@@ -3042,12 +2910,12 @@ msgstr ""
 #: prepare.stritemlistempty
 msgctxt "prepare.stritemlistempty"
 msgid "Item list empty. Enter at least one item name."
-msgstr "Item list empty. Enter at least one item name."
+msgstr ""
 
 #: prepare.stritems
 msgctxt "prepare.stritems"
 msgid "items"
-msgstr "items"
+msgstr ""
 
 #: prepare.stritemstatus
 msgctxt "prepare.stritemstatus"
@@ -3067,7 +2935,7 @@ msgstr ""
 #: prepare.strmedian
 msgctxt "prepare.strmedian"
 msgid "Median (WPGMC)"
-msgstr "Median (WPGMC)"
+msgstr ""
 
 #: prepare.strmerge
 msgctxt "prepare.strmerge"
@@ -3082,12 +2950,12 @@ msgstr ""
 #: prepare.strnewcaption
 msgctxt "prepare.strnewcaption"
 msgid "New Database"
-msgstr "New Database"
+msgstr ""
 
 #: prepare.strnewprompt
 msgctxt "prepare.strnewprompt"
 msgid "Enter database title:"
-msgstr "Enter database title:"
+msgstr ""
 
 #: prepare.strnexusfilter
 msgctxt "prepare.strnexusfilter"
@@ -3103,24 +2971,24 @@ msgstr ""
 #, object-pascal-format
 msgctxt "prepare.strnotexecute"
 msgid "Couldn't start %s program."
-msgstr "Couldn't start %s program."
+msgstr ""
 
 #: prepare.strnotfound
 #, object-pascal-format
 msgctxt "prepare.strnotfound"
 msgid "File %s not found."
-msgstr "File %s not found."
+msgstr ""
 
 #: prepare.strnotfounddir
 #, object-pascal-format
 msgctxt "prepare.strnotfounddir"
 msgid "File %s not found in %s."
-msgstr "File %s not found in %s."
+msgstr ""
 
 #: prepare.stropenfile
 msgctxt "prepare.stropenfile"
 msgid "Open file"
-msgstr "Open file"
+msgstr ""
 
 #: prepare.stroutofrange
 msgctxt "prepare.stroutofrange"
@@ -3140,7 +3008,7 @@ msgstr ""
 #: prepare.strquit
 msgctxt "prepare.strquit"
 msgid "Do you want to exit the program?"
-msgstr "Do you want to exit the program?"
+msgstr ""
 
 #: prepare.strrdirectory
 msgctxt "prepare.strrdirectory"
@@ -3166,7 +3034,7 @@ msgstr ""
 #: prepare.strsave
 msgctxt "prepare.strsave"
 msgid "Dataset has been modified. Save?"
-msgstr "Dataset has been modified. Save?"
+msgstr ""
 
 #: prepare.strsavechanges
 msgctxt "prepare.strsavechanges"
@@ -3177,45 +3045,42 @@ msgstr ""
 #, object-pascal-format
 msgctxt "prepare.strsaveerror"
 msgid "Failed to save file %s."
-msgstr "Failed to save file %s."
+msgstr ""
 
 #: prepare.strsavefile
 msgctxt "prepare.strsavefile"
 msgid "Save file as"
-msgstr "Save file as"
+msgstr ""
 
 #: prepare.strscatterplot
 msgctxt "prepare.strscatterplot"
 msgid "Scatterplot"
-msgstr "Scatterplot"
+msgstr ""
 
 #: prepare.strslm
 msgctxt "prepare.strslm"
 msgid "Single linkage (SLM)"
-msgstr "Single linkage (SLM)"
+msgstr ""
 
 #: prepare.strstatelistempty
-#, fuzzy
-#| msgid "State list empty. Enter at least one state description."
 msgctxt "prepare.strstatelistempty"
 msgid "State list empty or incomplete. Enter at least two state descriptions."
-msgstr "State list empty. Enter at least one state description."
+msgstr ""
 
 #: prepare.strstates
 msgctxt "prepare.strstates"
 msgid "States:"
-msgstr "States:"
+msgstr ""
 
 #: prepare.strtext
-#, fuzzy
 msgctxt "prepare.strtext"
 msgid "Text"
-msgstr "Text"
+msgstr ""
 
 #: prepare.strtextnotfound
 msgctxt "prepare.strtextnotfound"
 msgid "Text not found!"
-msgstr "Text not found!"
+msgstr ""
 
 #: prepare.strtntdirectory
 msgctxt "prepare.strtntdirectory"
@@ -3235,17 +3100,17 @@ msgstr ""
 #: prepare.strtxtfilter
 msgctxt "prepare.strtxtfilter"
 msgid "Text files|*.txt"
-msgstr "Text files|*.txt"
+msgstr ""
 
 #: prepare.strunit
 msgctxt "prepare.strunit"
 msgid "Unit:"
-msgstr "Unit:"
+msgstr ""
 
 #: prepare.strunitempty
 msgctxt "prepare.strunitempty"
 msgid "Measurement unit not defined for real numeric character."
-msgstr "Measurement unit not defined for real numeric character."
+msgstr ""
 
 #: prepare.struntitled
 msgctxt "prepare.struntitled"
@@ -3255,7 +3120,7 @@ msgstr ""
 #: prepare.strupgma
 msgctxt "prepare.strupgma"
 msgid "Average linkage (UPGMA)"
-msgstr "Average linkage (UPGMA)"
+msgstr ""
 
 #: prepare.strvalidnumber
 #, object-pascal-format
@@ -3266,22 +3131,22 @@ msgstr ""
 #: prepare.strward
 msgctxt "prepare.strward"
 msgid "Ward's Method"
-msgstr "Ward's Method"
+msgstr ""
 
 #: prepare.strwarning
 msgctxt "prepare.strwarning"
 msgid "Warning"
-msgstr "Warning"
+msgstr ""
 
 #: prepare.strwindowsonly
 msgctxt "prepare.strwindowsonly"
 msgid "This option is available only under MS-Windows."
-msgstr "This option is available only under MS-Windows."
+msgstr ""
 
 #: prepare.strwpgma
 msgctxt "prepare.strwpgma"
 msgid "Weighted linkage (WPGMA)"
-msgstr "Weighted linkage (WPGMA)"
+msgstr ""
 
 #: prepare.strwriteerror
 #, object-pascal-format
@@ -3300,58 +3165,49 @@ msgid "XML files|*.xml"
 msgstr ""
 
 #: script.straddcharacter
-#, fuzzy
 msgctxt "script.straddcharacter"
 msgid "Add Character"
-msgstr "Add Character"
+msgstr ""
 
 #: script.stradditemcaption
-#, fuzzy
 msgctxt "script.stradditemcaption"
 msgid "Add Item"
-msgstr "Add Item"
+msgstr ""
 
 #: script.stradditemprompt
-#, fuzzy
 msgctxt "script.stradditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: script.straddstatecaption
-#, fuzzy
 msgctxt "script.straddstatecaption"
 msgid "Add State"
-msgstr "Add State"
+msgstr ""
 
 #: script.straddstateprompt
-#, fuzzy
 msgctxt "script.straddstateprompt"
 msgid "Enter state description:"
-msgstr "Enter state description:"
+msgstr ""
 
 #: script.straxis
-#, fuzzy
 msgctxt "script.straxis"
 msgid "Axis"
-msgstr "Axis"
+msgstr ""
 
 #: script.strcentroid
-#, fuzzy
 msgctxt "script.strcentroid"
 msgid "Centroid (UPGMC)"
-msgstr "Centroid (UPGMC)"
+msgstr ""
 
 #: script.strcharacters
-#, fuzzy
 msgctxt "script.strcharacters"
 msgid "characters"
-msgstr "characters"
+msgstr ""
 
 #: script.strcharlistempty
-#, fuzzy
 msgctxt "script.strcharlistempty"
 msgid "Character list empty. Enter at least one character description."
-msgstr "Character list empty. Enter at least one character description."
+msgstr ""
 
 #: script.strclass
 msgctxt "script.strclass"
@@ -3359,10 +3215,9 @@ msgid " Class "
 msgstr ""
 
 #: script.strclm
-#, fuzzy
 msgctxt "script.strclm"
 msgid "Complete linkage (CLM)"
-msgstr "Complete linkage (CLM)"
+msgstr ""
 
 #: script.strcloneitem
 msgctxt "script.strcloneitem"
@@ -3370,10 +3225,9 @@ msgid "Clone of"
 msgstr ""
 
 #: script.strconfirmation
-#, fuzzy
 msgctxt "script.strconfirmation"
 msgid "Confirmation"
-msgstr "Confirmation"
+msgstr ""
 
 #: script.strcontrol
 #, object-pascal-format
@@ -3387,22 +3241,19 @@ msgid "Image copied to the Clipboard"
 msgstr ""
 
 #: script.strcopytext
-#, fuzzy
 msgctxt "script.strcopytext"
 msgid "Text copied to the Clipboard"
-msgstr "Text copied to the Clipboard"
+msgstr ""
 
 #: script.strcsvfilter
-#, fuzzy
 msgctxt "script.strcsvfilter"
 msgid "Comma delimited files|*.csv"
-msgstr "Comma delimited files|*.csv"
+msgstr ""
 
 #: script.strdatadirectory
-#, fuzzy
 msgctxt "script.strdatadirectory"
 msgid "Select data directory"
-msgstr "Select data directory"
+msgstr ""
 
 #: script.strdeltadirectory
 msgctxt "script.strdeltadirectory"
@@ -3410,10 +3261,9 @@ msgid "Select DELTA directory"
 msgstr ""
 
 #: script.strdendrogram
-#, fuzzy
 msgctxt "script.strdendrogram"
 msgid "Dendrogram"
-msgstr "Dendrogram"
+msgstr ""
 
 #: script.strdependent
 #, object-pascal-format
@@ -3427,58 +3277,49 @@ msgid "DELTA directory not found."
 msgstr ""
 
 #: script.strdistance
-#, fuzzy
 msgctxt "script.strdistance"
 msgid "Distance"
-msgstr "Distance"
+msgstr ""
 
 #: script.strdtzfilter
-#, fuzzy
 msgctxt "script.strdtzfilter"
 msgid "FreeDelta project|*.dtz"
-msgstr "FreeDelta project|*.dtz"
+msgstr ""
 
 #: script.streditcaption
-#, fuzzy
 msgctxt "script.streditcaption"
 msgid "Database Title"
-msgstr "Database Title"
+msgstr ""
 
 #: script.streditcharacter
-#, fuzzy
 msgctxt "script.streditcharacter"
 msgid "Edit Character"
-msgstr "Edit Character"
+msgstr ""
 
 #: script.stredititemcaption
-#, fuzzy
 msgctxt "script.stredititemcaption"
 msgid "Edit Item"
-msgstr "Edit Item"
+msgstr ""
 
 #: script.stredititemprompt
-#, fuzzy
 msgctxt "script.stredititemprompt"
 msgid "Edit item name:"
-msgstr "Edit item name:"
+msgstr ""
 
 #: script.streditprompt
-#, fuzzy
 msgctxt "script.streditprompt"
 msgid "Edit database title:"
-msgstr "Edit database title:"
+msgstr ""
 
 #: script.streditstatecaption
-#, fuzzy
 msgctxt "script.streditstatecaption"
 msgid "Edit State"
-msgstr "Edit State"
+msgstr ""
 
 #: script.streditstateprompt
-#, fuzzy
 msgctxt "script.streditstateprompt"
 msgid "Edit state description:"
-msgstr "Edit state description:"
+msgstr ""
 
 #: script.strentercharacternumber
 msgctxt "script.strentercharacternumber"
@@ -3486,22 +3327,21 @@ msgid "Enter character number:"
 msgstr ""
 
 #: script.strerror
-#, fuzzy
 msgctxt "script.strerror"
 msgid "Error"
-msgstr "Error"
+msgstr ""
 
 #: script.strexists
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "script.strexists"
 msgid "File %s already exists. Overwrite?"
-msgstr "File %s already exists. Overwrite?"
+msgstr ""
 
 #: script.strexport
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "script.strexport"
 msgid "Data exported successfully to directory %s."
-msgstr "Data exported successfully to directory %s."
+msgstr ""
 
 #: script.strexportfile
 #, object-pascal-format
@@ -3510,40 +3350,34 @@ msgid "Data exported successfully to file %s."
 msgstr ""
 
 #: script.strfindcharactercaption
-#, fuzzy
 msgctxt "script.strfindcharactercaption"
 msgid "Find Character"
-msgstr "Find Character"
+msgstr ""
 
 #: script.strfindcharacterprompt
-#, fuzzy
 msgctxt "script.strfindcharacterprompt"
 msgid "Enter character description:"
-msgstr "Enter character description:"
+msgstr ""
 
 #: script.strfinditemcaption
-#, fuzzy
 msgctxt "script.strfinditemcaption"
 msgid "Find Item"
-msgstr "Find Item"
+msgstr ""
 
 #: script.strfinditemprompt
-#, fuzzy
 msgctxt "script.strfinditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: script.strfindtextcaption
-#, fuzzy
 msgctxt "script.strfindtextcaption"
 msgid "Find Text"
-msgstr "Find Text"
+msgstr ""
 
 #: script.strfindtextprompt
-#, fuzzy
 msgctxt "script.strfindtextprompt"
 msgid "Enter search text:"
-msgstr "Enter search text:"
+msgstr ""
 
 #: script.strfrequency
 msgctxt "script.strfrequency"
@@ -3571,16 +3405,15 @@ msgid " Histogram "
 msgstr ""
 
 #: script.strimport
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "script.strimport"
 msgid "Data imported successfully to file %s."
-msgstr "Data imported successfully to file %s."
+msgstr ""
 
 #: script.strinformation
-#, fuzzy
 msgctxt "script.strinformation"
 msgid "Information"
-msgstr "Information"
+msgstr ""
 
 #: script.strinputinteger
 #, object-pascal-format
@@ -3599,16 +3432,14 @@ msgid "Invalid symbol ('/') in character or state name"
 msgstr ""
 
 #: script.stritemlistempty
-#, fuzzy
 msgctxt "script.stritemlistempty"
 msgid "Item list empty. Enter at least one item name."
-msgstr "Item list empty. Enter at least one item name."
+msgstr ""
 
 #: script.stritems
-#, fuzzy
 msgctxt "script.stritems"
 msgid "items"
-msgstr "items"
+msgstr ""
 
 #: script.stritemstatus
 msgctxt "script.stritemstatus"
@@ -3626,10 +3457,9 @@ msgid " Class Mark "
 msgstr ""
 
 #: script.strmedian
-#, fuzzy
 msgctxt "script.strmedian"
 msgid "Median (WPGMC)"
-msgstr "Median (WPGMC)"
+msgstr ""
 
 #: script.strmerge
 msgctxt "script.strmerge"
@@ -3642,16 +3472,14 @@ msgid "Missing opening or closing angle brackets ('<>')"
 msgstr ""
 
 #: script.strnewcaption
-#, fuzzy
 msgctxt "script.strnewcaption"
 msgid "New Database"
-msgstr "New Database"
+msgstr ""
 
 #: script.strnewprompt
-#, fuzzy
 msgctxt "script.strnewprompt"
 msgid "Enter database title:"
-msgstr "Enter database title:"
+msgstr ""
 
 #: script.strnexusfilter
 msgctxt "script.strnexusfilter"
@@ -3664,28 +3492,27 @@ msgid "Unsupported inner comments"
 msgstr ""
 
 #: script.strnotexecute
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "script.strnotexecute"
 msgid "Couldn't start %s program."
-msgstr "Couldn't start %s program."
+msgstr ""
 
 #: script.strnotfound
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "script.strnotfound"
 msgid "File %s not found."
-msgstr "File %s not found."
+msgstr ""
 
 #: script.strnotfounddir
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "script.strnotfounddir"
 msgid "File %s not found in %s."
-msgstr "File %s not found in %s."
+msgstr ""
 
 #: script.stropenfile
-#, fuzzy
 msgctxt "script.stropenfile"
 msgid "Open file"
-msgstr "Open file"
+msgstr ""
 
 #: script.stroutofrange
 msgctxt "script.stroutofrange"
@@ -3703,10 +3530,9 @@ msgid "PAUP not installed or not found in path."
 msgstr ""
 
 #: script.strquit
-#, fuzzy
 msgctxt "script.strquit"
 msgid "Do you want to exit the program?"
-msgstr "Do you want to exit the program?"
+msgstr ""
 
 #: script.strrdirectory
 msgctxt "script.strrdirectory"
@@ -3730,10 +3556,9 @@ msgid "R not installed or not found in path."
 msgstr ""
 
 #: script.strsave
-#, fuzzy
 msgctxt "script.strsave"
 msgid "Dataset has been modified. Save?"
-msgstr "Dataset has been modified. Save?"
+msgstr ""
 
 #: script.strsavechanges
 msgctxt "script.strsavechanges"
@@ -3741,28 +3566,25 @@ msgid "Save changes?"
 msgstr ""
 
 #: script.strsaveerror
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "script.strsaveerror"
 msgid "Failed to save file %s."
-msgstr "Failed to save file %s."
+msgstr ""
 
 #: script.strsavefile
-#, fuzzy
 msgctxt "script.strsavefile"
 msgid "Save file as"
-msgstr "Save file as"
+msgstr ""
 
 #: script.strscatterplot
-#, fuzzy
 msgctxt "script.strscatterplot"
 msgid "Scatterplot"
-msgstr "Scatterplot"
+msgstr ""
 
 #: script.strslm
-#, fuzzy
 msgctxt "script.strslm"
 msgid "Single linkage (SLM)"
-msgstr "Single linkage (SLM)"
+msgstr ""
 
 #: script.strstatelistempty
 msgctxt "script.strstatelistempty"
@@ -3770,22 +3592,19 @@ msgid "State list empty or incomplete. Enter at least two state descriptions."
 msgstr ""
 
 #: script.strstates
-#, fuzzy
 msgctxt "script.strstates"
 msgid "States:"
-msgstr "States:"
+msgstr ""
 
 #: script.strtext
-#, fuzzy
 msgctxt "script.strtext"
 msgid "Text"
-msgstr "Text"
+msgstr ""
 
 #: script.strtextnotfound
-#, fuzzy
 msgctxt "script.strtextnotfound"
 msgid "Text not found!"
-msgstr "Text not found!"
+msgstr ""
 
 #: script.strtntdirectory
 msgctxt "script.strtntdirectory"
@@ -3803,22 +3622,19 @@ msgid "TNT not installed or not found in path."
 msgstr ""
 
 #: script.strtxtfilter
-#, fuzzy
 msgctxt "script.strtxtfilter"
 msgid "Text files|*.txt"
-msgstr "Text files|*.txt"
+msgstr ""
 
 #: script.strunit
-#, fuzzy
 msgctxt "script.strunit"
 msgid "Unit:"
-msgstr "Unit:"
+msgstr ""
 
 #: script.strunitempty
-#, fuzzy
 msgctxt "script.strunitempty"
 msgid "Measurement unit not defined for real numeric character."
-msgstr "Measurement unit not defined for real numeric character."
+msgstr ""
 
 #: script.struntitled
 msgctxt "script.struntitled"
@@ -3826,10 +3642,9 @@ msgid "Untitled"
 msgstr ""
 
 #: script.strupgma
-#, fuzzy
 msgctxt "script.strupgma"
 msgid "Average linkage (UPGMA)"
-msgstr "Average linkage (UPGMA)"
+msgstr ""
 
 #: script.strvalidnumber
 #, object-pascal-format
@@ -3838,28 +3653,24 @@ msgid "Enter numbers only (an integer value between 1 and %d)"
 msgstr ""
 
 #: script.strward
-#, fuzzy
 msgctxt "script.strward"
 msgid "Ward's Method"
-msgstr "Ward's Method"
+msgstr ""
 
 #: script.strwarning
-#, fuzzy
 msgctxt "script.strwarning"
 msgid "Warning"
-msgstr "Warning"
+msgstr ""
 
 #: script.strwindowsonly
-#, fuzzy
 msgctxt "script.strwindowsonly"
 msgid "This option is available only under MS-Windows."
-msgstr "This option is available only under MS-Windows."
+msgstr ""
 
 #: script.strwpgma
-#, fuzzy
 msgctxt "script.strwpgma"
 msgid "Weighted linkage (WPGMA)"
-msgstr "Weighted linkage (WPGMA)"
+msgstr ""
 
 #: script.strwriteerror
 #, object-pascal-format
@@ -3886,10 +3697,9 @@ msgid "Comments"
 msgstr ""
 
 #: taboutbox.compiler.caption
-#, fuzzy
 msgctxt "taboutbox.compiler.caption"
 msgid "Compiler:"
-msgstr "Compiler:"
+msgstr ""
 
 #: taboutbox.copyright.caption
 msgid "Copyright © 2000-2025 Mauro J. Cavalcanti"
@@ -3927,10 +3737,9 @@ msgid "v 0.0.0"
 msgstr ""
 
 #: taboutbox.website.caption
-#, fuzzy
 msgctxt "taboutbox.website.caption"
 msgid "FreeDelta website"
-msgstr "FreeDelta website"
+msgstr ""
 
 #: tcharacterform.cancelbutton.caption
 msgctxt "tcharacterform.cancelbutton.caption"
@@ -3938,10 +3747,9 @@ msgid "Cancel"
 msgstr ""
 
 #: tcharacterform.caption
-#, fuzzy
 msgctxt "tcharacterform.caption"
 msgid "Edit Character"
-msgstr "Edit Character"
+msgstr ""
 
 #: tcharacterform.checkimplicit.caption
 msgid "Implicit"
@@ -3964,10 +3772,9 @@ msgid "Character Description:"
 msgstr ""
 
 #: tcharacterform.editunit.editlabel.caption
-#, fuzzy
 msgctxt "tcharacterform.editunit.editlabel.caption"
 msgid "Unit:"
-msgstr "Unit:"
+msgstr ""
 
 #: tcharacterform.excludebtn.hint
 msgid "Delete a state"
@@ -3986,10 +3793,9 @@ msgid "Controlling Attributes:"
 msgstr ""
 
 #: tcharacterform.labelstates.caption
-#, fuzzy
 msgctxt "tcharacterform.labelstates.caption"
 msgid "States:"
-msgstr "States:"
+msgstr ""
 
 #: tcharacterform.okbutton.caption
 msgctxt "tcharacterform.okbutton.caption"
@@ -4043,10 +3849,9 @@ msgid "Clustering"
 msgstr ""
 
 #: tclusterform.comboboxmethod.text
-#, fuzzy
 msgctxt "tclusterform.comboboxmethod.text"
 msgid "Average linkage (UPGMA)"
-msgstr "Average linkage (UPGMA)"
+msgstr ""
 
 #: tclusterform.labelmethod.caption
 msgid "Method:"
@@ -4103,10 +3908,9 @@ msgid "ItemName"
 msgstr ""
 
 #: tdescriptionform.labelstatesunit.caption
-#, fuzzy
 msgctxt "tdescriptionform.labelstatesunit.caption"
 msgid "States:"
-msgstr "States:"
+msgstr ""
 
 #: tdescriptionform.labeltype.caption
 msgid "Type:"
@@ -4355,31 +4159,25 @@ msgstr ""
 
 #: tmainform.addcharacter.caption
 msgid "Add character..."
-msgstr "Add character..."
+msgstr ""
 
 #: tmainform.addcharacter.hint
-#, fuzzy
-#| msgid "Create new character"
 msgctxt "tmainform.addcharacter.hint"
 msgid "Append new character at the end of list"
-msgstr "Create new character"
+msgstr ""
 
 #: tmainform.additem.caption
 msgid "Add item..."
-msgstr "Add item..."
+msgstr ""
 
 #: tmainform.additem.hint
-#, fuzzy
-msgctxt "tmainform.additem.hint"
 msgid "Create new item"
-msgstr "Create new item"
+msgstr ""
 
 #: tmainform.caption
-#, fuzzy
-#| msgid "FreeDelta"
 msgctxt "tmainform.caption"
 msgid "Free Delta Editor"
-msgstr "FreeDelta"
+msgstr ""
 
 #: tmainform.characterlistview.columns[0].caption
 msgctxt "tmainform.characterlistview.columns[0].caption"
@@ -4397,45 +4195,35 @@ msgid "Clone selected item"
 msgstr ""
 
 #: tmainform.clusterbtn.caption
-#, fuzzy
 msgctxt "tmainform.clusterbtn.caption"
 msgid "Cluster Analysis"
-msgstr "Cluster Analysis"
+msgstr ""
 
 #: tmainform.clusterbtn.hint
-#, fuzzy
-#| msgid "Cluster Analysis|Agglomerative clustering by combinatorial strategies"
 msgctxt "tmainform.clusterbtn.hint"
 msgid "Agglomerative clustering by combinatorial strategies"
-msgstr "Cluster Analysis|Agglomerative clustering by combinatorial strategies"
+msgstr ""
 
 #: tmainform.deletecharacter.caption
 msgid "Delete character"
-msgstr "Delete character"
+msgstr ""
 
 #: tmainform.deletecharacter.hint
-#, fuzzy
-#| msgid "Delete existing character"
 msgctxt "tmainform.deletecharacter.hint"
 msgid "Delete selected character"
-msgstr "Delete existing character"
+msgstr ""
 
 #: tmainform.deleteitem.caption
 msgid "Delete item"
-msgstr "Delete item"
+msgstr ""
 
 #: tmainform.deleteitem.hint
-#, fuzzy
-msgctxt "tmainform.deleteitem.hint"
 msgid "Delete existing item"
-msgstr "Delete existing item"
+msgstr ""
 
 #: tmainform.describeitem.caption
-#, fuzzy
-#| msgid "Item Description..."
-msgctxt "tmainform.describeitem.caption"
 msgid "Item description..."
-msgstr "Item Description..."
+msgstr ""
 
 #: tmainform.describeitem.hint
 msgid "Describe item for all characters"
@@ -4443,57 +4231,46 @@ msgstr ""
 
 #: tmainform.editaddcharacteritem.caption
 msgid "Add Character..."
-msgstr "Add Character..."
+msgstr ""
 
 #: tmainform.editaddcharacteritem.hint
-#, fuzzy
-#| msgid "Create new character"
 msgctxt "tmainform.editaddcharacteritem.hint"
 msgid "Append new character at the end of list"
-msgstr "Create new character"
+msgstr ""
 
 #: tmainform.editadditem.caption
 msgid "Add Item..."
-msgstr "Add Item..."
+msgstr ""
 
 #: tmainform.editadditem.hint
-#, fuzzy
-#| msgid "Create new item"
-msgctxt "tmainform.editadditem.hint"
 msgid "Append new item at the end of list"
-msgstr "Create new item"
+msgstr ""
 
 #: tmainform.editchangecharacteritem.caption
 msgid "Edit Character..."
-msgstr "Edit Character..."
+msgstr ""
 
 #: tmainform.editchangecharacteritem.hint
-#, fuzzy
-#| msgid "Edit existing character"
 msgctxt "tmainform.editchangecharacteritem.hint"
 msgid "Edit selected character"
-msgstr "Edit existing character"
+msgstr ""
 
 #: tmainform.editchangeitem.caption
 msgid "Edit Item..."
-msgstr "Edit Item..."
+msgstr ""
 
 #: tmainform.editchangeitem.hint
-#, fuzzy
-#| msgid "Edit existing item"
 msgid "Edit selected item"
-msgstr "Edit existing item"
+msgstr ""
 
 #: tmainform.editcharacter.caption
 msgid "Edit character..."
-msgstr "Edit character..."
+msgstr ""
 
 #: tmainform.editcharacter.hint
-#, fuzzy
-#| msgid "Edit existing character"
 msgctxt "tmainform.editcharacter.hint"
 msgid "Edit selected character"
-msgstr "Edit existing character"
+msgstr ""
 
 #: tmainform.editcloneitem.caption
 msgctxt "tmainform.editcloneitem.caption"
@@ -4507,25 +4284,20 @@ msgstr ""
 
 #: tmainform.editdeletecharacteritem.caption
 msgid "Delete Character"
-msgstr "Delete Character"
+msgstr ""
 
 #: tmainform.editdeletecharacteritem.hint
-#, fuzzy
-#| msgid "Delete existing character"
 msgctxt "tmainform.editdeletecharacteritem.hint"
 msgid "Delete selected character"
-msgstr "Delete existing character"
+msgstr ""
 
 #: tmainform.editdeleteitem.caption
 msgid "Delete Item"
-msgstr "Delete Item"
+msgstr ""
 
 #: tmainform.editdeleteitem.hint
-#, fuzzy
-#| msgid "Delete existing item"
-msgctxt "tmainform.editdeleteitem.hint"
 msgid "Delete selected item"
-msgstr "Delete existing item"
+msgstr ""
 
 #: tmainform.editdescriptionitem.caption
 msgid "Item Description..."
@@ -4536,7 +4308,6 @@ msgid "Edit selected item description"
 msgstr ""
 
 #: tmainform.editinsertcharacteritem.caption
-msgctxt "tmainform.editinsertcharacteritem.caption"
 msgid "Insert Character..."
 msgstr ""
 
@@ -4557,7 +4328,7 @@ msgstr ""
 
 #: tmainform.edititem.caption
 msgid "Edit item..."
-msgstr "Edit item..."
+msgstr ""
 
 #: tmainform.edititem.hint
 msgid "Edit existing item name"
@@ -4565,10 +4336,9 @@ msgstr ""
 
 #: tmainform.editmenu.caption
 msgid "&Edit"
-msgstr "&Edit"
+msgstr ""
 
 #: tmainform.editmergecharacteritem.caption
-msgctxt "tmainform.editmergecharacteritem.caption"
 msgid "Merge Character Lists..."
 msgstr ""
 
@@ -4589,33 +4359,30 @@ msgstr ""
 
 #: tmainform.edittitleitem.caption
 msgid "Database Title..."
-msgstr "Database Title..."
+msgstr ""
 
 #: tmainform.edittitleitem.hint
 msgid "Change database title"
-msgstr "Change database title"
+msgstr ""
 
 #: tmainform.exitbtn.caption
-#, fuzzy
 msgctxt "tmainform.exitbtn.caption"
 msgid "&Quit"
-msgstr "&Quit"
+msgstr ""
 
 #: tmainform.exitbtn.hint
-#, fuzzy
-#| msgid "Exit|Exit from program"
 msgctxt "tmainform.exitbtn.hint"
 msgid "Exit from program"
-msgstr "Exit|Exit from program"
+msgstr ""
 
 #: tmainform.exportdeltaitem.caption
 msgctxt "tmainform.exportdeltaitem.caption"
 msgid "DELTA..."
-msgstr "DELTA..."
+msgstr ""
 
 #: tmainform.exportdeltaitem.hint
 msgid "Save data in DELTA format"
-msgstr "Save data in DELTA format"
+msgstr ""
 
 #: tmainform.exportsliksitem.caption
 msgid "SLIKS"
@@ -4634,10 +4401,9 @@ msgid "Save data in Excel format"
 msgstr ""
 
 #: tmainform.exporttextitem.caption
-#, fuzzy
 msgctxt "tmainform.exporttextitem.caption"
 msgid "Text..."
-msgstr "Text..."
+msgstr ""
 
 #: tmainform.exporttextitem.hint
 msgid "Export data to delimited text file"
@@ -4657,117 +4423,113 @@ msgstr ""
 
 #: tmainform.fileclearmruitem.caption
 msgid "C&lear Recent Files List"
-msgstr "C&lear Recent Files List"
+msgstr ""
 
 #: tmainform.fileclearmruitem.hint
 msgid "Clear list of most recently used files"
-msgstr "Clear list of most recently used files"
+msgstr ""
 
 #: tmainform.filecloseitem.caption
 msgid "&Close"
-msgstr "&Close"
+msgstr ""
 
 #: tmainform.filecloseitem.hint
 msgid "Close current file"
-msgstr "Close current file"
+msgstr ""
 
 #: tmainform.fileexititem.caption
 msgctxt "tmainform.fileexititem.caption"
 msgid "&Quit"
-msgstr "&Quit"
+msgstr ""
 
 #: tmainform.fileexititem.hint
 msgctxt "tmainform.fileexititem.hint"
 msgid "Exit from program"
-msgstr "Exit from program"
+msgstr ""
 
 #: tmainform.fileexportitem.caption
 msgid "&Export"
-msgstr "&Export"
+msgstr ""
 
 #: tmainform.fileexportitem.hint
 msgid "Export data"
-msgstr "Export data"
+msgstr ""
 
 #: tmainform.fileimportitem.caption
 msgid "&Import"
-msgstr "&Import"
+msgstr ""
 
 #: tmainform.fileimportitem.hint
 msgid "Import data"
-msgstr "Import data"
+msgstr ""
 
 #: tmainform.filemenu.caption
 msgid "&File"
-msgstr "&File"
+msgstr ""
 
 #: tmainform.filenewitem.caption
 msgctxt "tmainform.filenewitem.caption"
 msgid "&New"
-msgstr "&New"
+msgstr ""
 
 #: tmainform.filenewitem.hint
 msgctxt "tmainform.filenewitem.hint"
 msgid "Create new file"
-msgstr "Create new file"
+msgstr ""
 
 #: tmainform.fileopenitem.caption
 msgctxt "tmainform.fileopenitem.caption"
 msgid "&Open..."
-msgstr "&Open..."
+msgstr ""
 
 #: tmainform.fileopenitem.hint
 msgctxt "tmainform.fileopenitem.hint"
 msgid "Load existing file"
-msgstr "Load existing file"
+msgstr ""
 
 #: tmainform.fileprintitem.caption
-msgctxt "tmainform.fileprintitem.caption"
 msgid "Print"
 msgstr ""
 
 #: tmainform.filesaveasitem.caption
 msgid "Save &As..."
-msgstr "Save &As..."
+msgstr ""
 
 #: tmainform.filesaveasitem.hint
 msgid "Save current file with a new name"
-msgstr "Save current file with a new name"
+msgstr ""
 
 #: tmainform.filesaveitem.caption
 msgctxt "tmainform.filesaveitem.caption"
 msgid "&Save"
-msgstr "&Save"
+msgstr ""
 
 #: tmainform.filesaveitem.hint
 msgctxt "tmainform.filesaveitem.hint"
 msgid "Save current file and continue editing"
-msgstr "Save current file and continue editing"
+msgstr ""
 
 #: tmainform.findbtn.caption
-#, fuzzy
 msgctxt "tmainform.findbtn.caption"
 msgid "&Find..."
-msgstr "&Find..."
+msgstr ""
 
 #: tmainform.findbtn.hint
-#, fuzzy
-#| msgid "Find|Find specified text"
 msgctxt "tmainform.findbtn.hint"
 msgid "Find specified text"
-msgstr "Find|Find specified text"
+msgstr ""
 
 #: tmainform.helpaboutitem.caption
 msgid "A&bout"
-msgstr "A&bout"
+msgstr ""
 
 #: tmainform.helpaboutitem.hint
 msgid "Show version and system information"
-msgstr "Show version and system information"
+msgstr ""
 
 #: tmainform.helpmenu.caption
 msgid "&Help"
-msgstr "&Help"
+msgstr ""
 
 #: tmainform.helpmenuitem.caption
 msgid "Index"
@@ -4784,23 +4546,22 @@ msgstr ""
 #: tmainform.importdeltaitem.caption
 msgctxt "tmainform.importdeltaitem.caption"
 msgid "DELTA..."
-msgstr "DELTA..."
+msgstr ""
 
 #: tmainform.importdeltaitem.hint
 msgid "Import data from DELTA files"
-msgstr "Import data from DELTA files"
+msgstr ""
 
 #: tmainform.importtextitem.caption
 msgctxt "tmainform.importtextitem.caption"
 msgid "Text..."
-msgstr "Text..."
+msgstr ""
 
 #: tmainform.importtextitem.hint
 msgid "Import data from delimited text file"
-msgstr "Import data from delimited text file"
+msgstr ""
 
 #: tmainform.insertcharacter.caption
-msgctxt "tmainform.insertcharacter.caption"
 msgid "Insert character..."
 msgstr ""
 
@@ -4820,66 +4581,60 @@ msgid "Insert new item at the current position"
 msgstr ""
 
 #: tmainform.intkeybtn.caption
-#, fuzzy
 msgctxt "tmainform.intkeybtn.caption"
 msgid "Interactive Key"
-msgstr "Interactive Key"
+msgstr ""
 
 #: tmainform.intkeybtn.hint
-#, fuzzy
-#| msgid "Interactive Key|Interactive identification and information retrieval"
 msgctxt "tmainform.intkeybtn.hint"
 msgid "Interactive identification and information retrieval"
-msgstr "Interactive Key|Interactive identification and information retrieval"
+msgstr ""
 
 #: tmainform.itemlistview.columns[0].caption
 msgid "Items"
-msgstr "Items"
+msgstr ""
 
 #: tmainform.keybtn.caption
-#, fuzzy
 msgctxt "tmainform.keybtn.caption"
 msgid "Conventional Key"
-msgstr "Conventional Key"
+msgstr ""
 
 #: tmainform.keybtn.hint
-#, fuzzy
-#| msgid "Conventional Key|Generate bracketed and tabular keys"
 msgctxt "tmainform.keybtn.hint"
 msgid "Generated bracketed and tabular keys"
-msgstr "Conventional Key|Generate bracketed and tabular keys"
+msgstr ""
 
 #: tmainform.keyconventionalitem.caption
 msgctxt "tmainform.keyconventionalitem.caption"
 msgid "Conventional Key"
-msgstr "Conventional Key"
+msgstr ""
 
 #: tmainform.keyconventionalitem.hint
 msgctxt "tmainform.keyconventionalitem.hint"
 msgid "Generated bracketed and tabular keys"
-msgstr "Generated bracketed and tabular keys"
+msgstr ""
 
 #: tmainform.keyinteractiveitem.caption
 msgctxt "tmainform.keyinteractiveitem.caption"
 msgid "Interactive Key"
-msgstr "Interactive Key"
+msgstr ""
 
 #: tmainform.keyinteractiveitem.hint
 msgctxt "tmainform.keyinteractiveitem.hint"
 msgid "Interactive identification and information retrieval"
-msgstr "Interactive identification and information retrieval"
+msgstr ""
 
 #: tmainform.keymenu.caption
 msgid "&Keys"
-msgstr "&Keys"
+msgstr ""
 
 #: tmainform.languageenglishitem.caption
 msgid "English"
-msgstr "English"
+msgstr ""
 
 #: tmainform.languageenglishitem.hint
 msgid "Show the interface in English"
-msgstr "Show the interface in English"
+msgstr ""
 
 #: tmainform.languagefrenchitem.caption
 msgid "Français"
@@ -4891,7 +4646,7 @@ msgstr ""
 
 #: tmainform.languagemenu.caption
 msgid "&Language"
-msgstr "&Language"
+msgstr ""
 
 #: tmainform.languageportugueseitem.caption
 msgid "Português"
@@ -4911,54 +4666,51 @@ msgstr ""
 
 #: tmainform.listtab.caption
 msgid "List View"
-msgstr "List View"
+msgstr ""
 
 #: tmainform.matrixbtn.caption
-#, fuzzy
 msgctxt "tmainform.matrixbtn.caption"
 msgid "Distance Matrix"
-msgstr "Distance Matrix"
+msgstr ""
 
 #: tmainform.matrixbtn.hint
-#, fuzzy
-#| msgid "Distance Matrix|Generate distance matrix"
 msgctxt "tmainform.matrixbtn.hint"
 msgid "Generate distance matrix"
-msgstr "Distance Matrix|Generate distance matrix"
+msgstr ""
 
 #: tmainform.matrixclusteritem.caption
 msgctxt "tmainform.matrixclusteritem.caption"
 msgid "Cluster Analysis"
-msgstr "Cluster Analysis"
+msgstr ""
 
 #: tmainform.matrixclusteritem.hint
 msgctxt "tmainform.matrixclusteritem.hint"
 msgid "Agglomerative clustering by combinatorial strategies"
-msgstr "Agglomerative clustering by combinatorial strategies"
+msgstr ""
 
 #: tmainform.matrixdistanceitem.caption
 msgctxt "tmainform.matrixdistanceitem.caption"
 msgid "Distance Matrix"
-msgstr "Distance Matrix"
+msgstr ""
 
 #: tmainform.matrixdistanceitem.hint
 msgctxt "tmainform.matrixdistanceitem.hint"
 msgid "Generate distance matrix"
-msgstr "Generate distance matrix"
+msgstr ""
 
 #: tmainform.matrixmenu.caption
 msgid "&Matrix"
-msgstr "&Matrix"
+msgstr ""
 
 #: tmainform.matrixordinationitem.caption
 msgctxt "tmainform.matrixordinationitem.caption"
 msgid "Principal Coordinates Analysis"
-msgstr "Principal Coordinates Analysis"
+msgstr ""
 
 #: tmainform.matrixordinationitem.hint
 msgctxt "tmainform.matrixordinationitem.hint"
 msgid "Principal coordinates analysis"
-msgstr "Principal coordinates analysis"
+msgstr ""
 
 #: tmainform.matrixparsimonyitem.caption
 msgid "Parsimony Analysis"
@@ -4989,7 +4741,6 @@ msgid "MatrixView"
 msgstr ""
 
 #: tmainform.mergecharacter.caption
-msgctxt "tmainform.mergecharacter.caption"
 msgid "Merge character lists..."
 msgstr ""
 
@@ -5039,47 +4790,38 @@ msgid "Move item up"
 msgstr ""
 
 #: tmainform.newbtn.caption
-#, fuzzy
 msgctxt "tmainform.newbtn.caption"
 msgid "&New"
-msgstr "&New"
+msgstr ""
 
 #: tmainform.newbtn.hint
-#, fuzzy
-#| msgid "New|Create new file"
 msgctxt "tmainform.newbtn.hint"
 msgid "Create new file"
-msgstr "New|Create new file"
+msgstr ""
 
 #: tmainform.openbtn.caption
-#, fuzzy
 msgctxt "tmainform.openbtn.caption"
 msgid "&Open..."
-msgstr "&Open..."
+msgstr ""
 
 #: tmainform.openbtn.hint
-#, fuzzy
-#| msgid "Open|Load existing file"
 msgctxt "tmainform.openbtn.hint"
 msgid "Load existing file"
-msgstr "Open|Load existing file"
+msgstr ""
 
 #: tmainform.opendialog.title
 msgid "Open existing file"
-msgstr "Open existing file"
+msgstr ""
 
 #: tmainform.ordinationbtn.caption
-#, fuzzy
 msgctxt "tmainform.ordinationbtn.caption"
 msgid "Principal Coordinates Analysis"
-msgstr "Principal Coordinates Analysis"
+msgstr ""
 
 #: tmainform.ordinationbtn.hint
-#, fuzzy
-#| msgid "Principal Coordinates Analysis|Principal coordinates analysis"
 msgctxt "tmainform.ordinationbtn.hint"
 msgid "Principal coordinates analysis"
-msgstr "Principal Coordinates Analysis|Principal coordinates analysis"
+msgstr ""
 
 #: tmainform.panel1.caption
 msgid "Panel1"
@@ -5095,37 +4837,37 @@ msgstr ""
 
 #: tmainform.preparemenu.caption
 msgid "&Descriptions"
-msgstr "&Descriptions"
+msgstr ""
 
 #: tmainform.preparesummaryitem.caption
 msgctxt "tmainform.preparesummaryitem.caption"
 msgid "Character Summary"
-msgstr "Character Summary"
+msgstr ""
 
 #: tmainform.preparesummaryitem.hint
 msgctxt "tmainform.preparesummaryitem.hint"
 msgid "Display a summary of the data"
-msgstr "Display a summary of the data"
+msgstr ""
 
 #: tmainform.preparetonatitem.caption
 msgctxt "tmainform.preparetonatitem.caption"
 msgid "Natural Language"
-msgstr "Natural Language"
+msgstr ""
 
 #: tmainform.preparetonatitem.hint
 msgctxt "tmainform.preparetonatitem.hint"
 msgid "Translate into natural language"
-msgstr "Translate into natural language"
+msgstr ""
 
 #: tmainform.prepareuncodeditem.caption
 msgctxt "tmainform.prepareuncodeditem.caption"
 msgid "Uncoded Characters"
-msgstr "Uncoded Characters"
+msgstr ""
 
 #: tmainform.prepareuncodeditem.hint
 msgctxt "tmainform.prepareuncodeditem.hint"
 msgid "Report on missing data"
-msgstr "Report on missing data"
+msgstr ""
 
 #: tmainform.printcharactersitem.caption
 msgid "Characters..."
@@ -5156,21 +4898,18 @@ msgid "S6"
 msgstr ""
 
 #: tmainform.savebtn.caption
-#, fuzzy
 msgctxt "tmainform.savebtn.caption"
 msgid "&Save"
-msgstr "&Save"
+msgstr ""
 
 #: tmainform.savebtn.hint
-#, fuzzy
-#| msgid "Save|Save current file and continue editing"
 msgctxt "tmainform.savebtn.hint"
 msgid "Save current file and continue editing"
-msgstr "Save|Save current file and continue editing"
+msgstr ""
 
 #: tmainform.savedialog.title
 msgid "Save as"
-msgstr "Save as"
+msgstr ""
 
 #: tmainform.scriptbtn.caption
 msgctxt "tmainform.scriptbtn.caption"
@@ -5185,12 +4924,12 @@ msgstr ""
 #: tmainform.searchfinditem.caption
 msgctxt "tmainform.searchfinditem.caption"
 msgid "&Find..."
-msgstr "&Find..."
+msgstr ""
 
 #: tmainform.searchfinditem.hint
 msgctxt "tmainform.searchfinditem.hint"
 msgid "Find specified text"
-msgstr "Find specified text"
+msgstr ""
 
 #: tmainform.searchfindnextitem.caption
 msgid "Find &Next"
@@ -5210,12 +4949,12 @@ msgstr ""
 
 #: tmainform.searchmenu.caption
 msgid "&Search"
-msgstr "&Search"
+msgstr ""
 
 #: tmainform.selectdirectorydialog.title
 msgctxt "tmainform.selectdirectorydialog.title"
 msgid "Select data directory"
-msgstr "Select data directory"
+msgstr ""
 
 #: tmainform.statusline.simpletext
 msgctxt "tmainform.statusline.simpletext"
@@ -5223,97 +4962,79 @@ msgid "Ready"
 msgstr ""
 
 #: tmainform.summarybtn.caption
-#, fuzzy
 msgctxt "tmainform.summarybtn.caption"
 msgid "Character Summary"
-msgstr "Character Summary"
+msgstr ""
 
 #: tmainform.summarybtn.hint
-#, fuzzy
-#| msgid "Character Summary|Display a summary of the data"
 msgctxt "tmainform.summarybtn.hint"
 msgid "Display a summary of the data"
-msgstr "Character Summary|Display a summary of the data"
+msgstr ""
 
 #: tmainform.tonatbtn.caption
-#, fuzzy
 msgctxt "tmainform.tonatbtn.caption"
 msgid "Natural Language"
-msgstr "Natural Language"
+msgstr ""
 
 #: tmainform.tonatbtn.hint
-#, fuzzy
-#| msgid "Natural Language|Translate into natural language"
 msgctxt "tmainform.tonatbtn.hint"
 msgid "Translate into natural language"
-msgstr "Natural Language|Translate into natural language"
+msgstr ""
 
 #: tmainform.uncodedbtn.caption
-#, fuzzy
 msgctxt "tmainform.uncodedbtn.caption"
 msgid "Uncoded Characters"
-msgstr "Uncoded Characters"
+msgstr ""
 
 #: tmainform.uncodedbtn.hint
-#, fuzzy
-#| msgid "Uncoded Characters|Report on missing data"
 msgctxt "tmainform.uncodedbtn.hint"
 msgid "Report on missing data"
-msgstr "Uncoded Characters|Report on missing data"
+msgstr ""
 
 #: toint.straddcharacter
-#, fuzzy
 msgctxt "toint.straddcharacter"
 msgid "Add Character"
-msgstr "Add Character"
+msgstr ""
 
 #: toint.stradditemcaption
-#, fuzzy
 msgctxt "toint.stradditemcaption"
 msgid "Add Item"
-msgstr "Add Item"
+msgstr ""
 
 #: toint.stradditemprompt
-#, fuzzy
 msgctxt "toint.stradditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: toint.straddstatecaption
-#, fuzzy
 msgctxt "toint.straddstatecaption"
 msgid "Add State"
-msgstr "Add State"
+msgstr ""
 
 #: toint.straddstateprompt
-#, fuzzy
 msgctxt "toint.straddstateprompt"
 msgid "Enter state description:"
-msgstr "Enter state description:"
+msgstr ""
 
 #: toint.straxis
-#, fuzzy
 msgctxt "toint.straxis"
 msgid "Axis"
-msgstr "Axis"
+msgstr ""
 
 #: toint.strcentroid
-#, fuzzy
 msgctxt "toint.strcentroid"
 msgid "Centroid (UPGMC)"
-msgstr "Centroid (UPGMC)"
+msgstr ""
 
 #: toint.strcharacters
-#, fuzzy
 msgctxt "toint.strcharacters"
 msgid "characters"
-msgstr "characters"
+msgstr ""
 
 #: toint.strcharlistempty
-#, fuzzy
 msgctxt "toint.strcharlistempty"
 msgid "Character list empty. Enter at least one character description."
-msgstr "Character list empty. Enter at least one character description."
+msgstr ""
 
 #: toint.strclass
 msgctxt "toint.strclass"
@@ -5321,10 +5042,9 @@ msgid " Class "
 msgstr ""
 
 #: toint.strclm
-#, fuzzy
 msgctxt "toint.strclm"
 msgid "Complete linkage (CLM)"
-msgstr "Complete linkage (CLM)"
+msgstr ""
 
 #: toint.strcloneitem
 msgctxt "toint.strcloneitem"
@@ -5332,10 +5052,9 @@ msgid "Clone of"
 msgstr ""
 
 #: toint.strconfirmation
-#, fuzzy
 msgctxt "toint.strconfirmation"
 msgid "Confirmation"
-msgstr "Confirmation"
+msgstr ""
 
 #: toint.strcontrol
 #, object-pascal-format
@@ -5349,22 +5068,19 @@ msgid "Image copied to the Clipboard"
 msgstr ""
 
 #: toint.strcopytext
-#, fuzzy
 msgctxt "toint.strcopytext"
 msgid "Text copied to the Clipboard"
-msgstr "Text copied to the Clipboard"
+msgstr ""
 
 #: toint.strcsvfilter
-#, fuzzy
 msgctxt "toint.strcsvfilter"
 msgid "Comma delimited files|*.csv"
-msgstr "Comma delimited files|*.csv"
+msgstr ""
 
 #: toint.strdatadirectory
-#, fuzzy
 msgctxt "toint.strdatadirectory"
 msgid "Select data directory"
-msgstr "Select data directory"
+msgstr ""
 
 #: toint.strdeltadirectory
 msgctxt "toint.strdeltadirectory"
@@ -5372,10 +5088,9 @@ msgid "Select DELTA directory"
 msgstr ""
 
 #: toint.strdendrogram
-#, fuzzy
 msgctxt "toint.strdendrogram"
 msgid "Dendrogram"
-msgstr "Dendrogram"
+msgstr ""
 
 #: toint.strdependent
 #, object-pascal-format
@@ -5389,58 +5104,49 @@ msgid "DELTA directory not found."
 msgstr ""
 
 #: toint.strdistance
-#, fuzzy
 msgctxt "toint.strdistance"
 msgid "Distance"
-msgstr "Distance"
+msgstr ""
 
 #: toint.strdtzfilter
-#, fuzzy
 msgctxt "toint.strdtzfilter"
 msgid "FreeDelta project|*.dtz"
-msgstr "FreeDelta project|*.dtz"
+msgstr ""
 
 #: toint.streditcaption
-#, fuzzy
 msgctxt "toint.streditcaption"
 msgid "Database Title"
-msgstr "Database Title"
+msgstr ""
 
 #: toint.streditcharacter
-#, fuzzy
 msgctxt "toint.streditcharacter"
 msgid "Edit Character"
-msgstr "Edit Character"
+msgstr ""
 
 #: toint.stredititemcaption
-#, fuzzy
 msgctxt "toint.stredititemcaption"
 msgid "Edit Item"
-msgstr "Edit Item"
+msgstr ""
 
 #: toint.stredititemprompt
-#, fuzzy
 msgctxt "toint.stredititemprompt"
 msgid "Edit item name:"
-msgstr "Edit item name:"
+msgstr ""
 
 #: toint.streditprompt
-#, fuzzy
 msgctxt "toint.streditprompt"
 msgid "Edit database title:"
-msgstr "Edit database title:"
+msgstr ""
 
 #: toint.streditstatecaption
-#, fuzzy
 msgctxt "toint.streditstatecaption"
 msgid "Edit State"
-msgstr "Edit State"
+msgstr ""
 
 #: toint.streditstateprompt
-#, fuzzy
 msgctxt "toint.streditstateprompt"
 msgid "Edit state description:"
-msgstr "Edit state description:"
+msgstr ""
 
 #: toint.strentercharacternumber
 msgctxt "toint.strentercharacternumber"
@@ -5448,22 +5154,21 @@ msgid "Enter character number:"
 msgstr ""
 
 #: toint.strerror
-#, fuzzy
 msgctxt "toint.strerror"
 msgid "Error"
-msgstr "Error"
+msgstr ""
 
 #: toint.strexists
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "toint.strexists"
 msgid "File %s already exists. Overwrite?"
-msgstr "File %s already exists. Overwrite?"
+msgstr ""
 
 #: toint.strexport
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "toint.strexport"
 msgid "Data exported successfully to directory %s."
-msgstr "Data exported successfully to directory %s."
+msgstr ""
 
 #: toint.strexportfile
 #, object-pascal-format
@@ -5472,40 +5177,34 @@ msgid "Data exported successfully to file %s."
 msgstr ""
 
 #: toint.strfindcharactercaption
-#, fuzzy
 msgctxt "toint.strfindcharactercaption"
 msgid "Find Character"
-msgstr "Find Character"
+msgstr ""
 
 #: toint.strfindcharacterprompt
-#, fuzzy
 msgctxt "toint.strfindcharacterprompt"
 msgid "Enter character description:"
-msgstr "Enter character description:"
+msgstr ""
 
 #: toint.strfinditemcaption
-#, fuzzy
 msgctxt "toint.strfinditemcaption"
 msgid "Find Item"
-msgstr "Find Item"
+msgstr ""
 
 #: toint.strfinditemprompt
-#, fuzzy
 msgctxt "toint.strfinditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: toint.strfindtextcaption
-#, fuzzy
 msgctxt "toint.strfindtextcaption"
 msgid "Find Text"
-msgstr "Find Text"
+msgstr ""
 
 #: toint.strfindtextprompt
-#, fuzzy
 msgctxt "toint.strfindtextprompt"
 msgid "Enter search text:"
-msgstr "Enter search text:"
+msgstr ""
 
 #: toint.strfrequency
 msgctxt "toint.strfrequency"
@@ -5533,16 +5232,15 @@ msgid " Histogram "
 msgstr ""
 
 #: toint.strimport
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "toint.strimport"
 msgid "Data imported successfully to file %s."
-msgstr "Data imported successfully to file %s."
+msgstr ""
 
 #: toint.strinformation
-#, fuzzy
 msgctxt "toint.strinformation"
 msgid "Information"
-msgstr "Information"
+msgstr ""
 
 #: toint.strinputinteger
 #, object-pascal-format
@@ -5561,16 +5259,14 @@ msgid "Invalid symbol ('/') in character or state name"
 msgstr ""
 
 #: toint.stritemlistempty
-#, fuzzy
 msgctxt "toint.stritemlistempty"
 msgid "Item list empty. Enter at least one item name."
-msgstr "Item list empty. Enter at least one item name."
+msgstr ""
 
 #: toint.stritems
-#, fuzzy
 msgctxt "toint.stritems"
 msgid "items"
-msgstr "items"
+msgstr ""
 
 #: toint.stritemstatus
 msgctxt "toint.stritemstatus"
@@ -5588,10 +5284,9 @@ msgid " Class Mark "
 msgstr ""
 
 #: toint.strmedian
-#, fuzzy
 msgctxt "toint.strmedian"
 msgid "Median (WPGMC)"
-msgstr "Median (WPGMC)"
+msgstr ""
 
 #: toint.strmerge
 msgctxt "toint.strmerge"
@@ -5604,16 +5299,14 @@ msgid "Missing opening or closing angle brackets ('<>')"
 msgstr ""
 
 #: toint.strnewcaption
-#, fuzzy
 msgctxt "toint.strnewcaption"
 msgid "New Database"
-msgstr "New Database"
+msgstr ""
 
 #: toint.strnewprompt
-#, fuzzy
 msgctxt "toint.strnewprompt"
 msgid "Enter database title:"
-msgstr "Enter database title:"
+msgstr ""
 
 #: toint.strnexusfilter
 msgctxt "toint.strnexusfilter"
@@ -5626,28 +5319,27 @@ msgid "Unsupported inner comments"
 msgstr ""
 
 #: toint.strnotexecute
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "toint.strnotexecute"
 msgid "Couldn't start %s program."
-msgstr "Couldn't start %s program."
+msgstr ""
 
 #: toint.strnotfound
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "toint.strnotfound"
 msgid "File %s not found."
-msgstr "File %s not found."
+msgstr ""
 
 #: toint.strnotfounddir
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "toint.strnotfounddir"
 msgid "File %s not found in %s."
-msgstr "File %s not found in %s."
+msgstr ""
 
 #: toint.stropenfile
-#, fuzzy
 msgctxt "toint.stropenfile"
 msgid "Open file"
-msgstr "Open file"
+msgstr ""
 
 #: toint.stroutofrange
 msgctxt "toint.stroutofrange"
@@ -5665,10 +5357,9 @@ msgid "PAUP not installed or not found in path."
 msgstr ""
 
 #: toint.strquit
-#, fuzzy
 msgctxt "toint.strquit"
 msgid "Do you want to exit the program?"
-msgstr "Do you want to exit the program?"
+msgstr ""
 
 #: toint.strrdirectory
 msgctxt "toint.strrdirectory"
@@ -5692,10 +5383,9 @@ msgid "R not installed or not found in path."
 msgstr ""
 
 #: toint.strsave
-#, fuzzy
 msgctxt "toint.strsave"
 msgid "Dataset has been modified. Save?"
-msgstr "Dataset has been modified. Save?"
+msgstr ""
 
 #: toint.strsavechanges
 msgctxt "toint.strsavechanges"
@@ -5703,28 +5393,25 @@ msgid "Save changes?"
 msgstr ""
 
 #: toint.strsaveerror
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "toint.strsaveerror"
 msgid "Failed to save file %s."
-msgstr "Failed to save file %s."
+msgstr ""
 
 #: toint.strsavefile
-#, fuzzy
 msgctxt "toint.strsavefile"
 msgid "Save file as"
-msgstr "Save file as"
+msgstr ""
 
 #: toint.strscatterplot
-#, fuzzy
 msgctxt "toint.strscatterplot"
 msgid "Scatterplot"
-msgstr "Scatterplot"
+msgstr ""
 
 #: toint.strslm
-#, fuzzy
 msgctxt "toint.strslm"
 msgid "Single linkage (SLM)"
-msgstr "Single linkage (SLM)"
+msgstr ""
 
 #: toint.strstatelistempty
 msgctxt "toint.strstatelistempty"
@@ -5732,10 +5419,9 @@ msgid "State list empty or incomplete. Enter at least two state descriptions."
 msgstr ""
 
 #: toint.strstates
-#, fuzzy
 msgctxt "toint.strstates"
 msgid "States:"
-msgstr "States:"
+msgstr ""
 
 #: toint.strtext
 msgctxt "toint.strtext"
@@ -5743,10 +5429,9 @@ msgid "Text"
 msgstr ""
 
 #: toint.strtextnotfound
-#, fuzzy
 msgctxt "toint.strtextnotfound"
 msgid "Text not found!"
-msgstr "Text not found!"
+msgstr ""
 
 #: toint.strtntdirectory
 msgctxt "toint.strtntdirectory"
@@ -5764,22 +5449,19 @@ msgid "TNT not installed or not found in path."
 msgstr ""
 
 #: toint.strtxtfilter
-#, fuzzy
 msgctxt "toint.strtxtfilter"
 msgid "Text files|*.txt"
-msgstr "Text files|*.txt"
+msgstr ""
 
 #: toint.strunit
-#, fuzzy
 msgctxt "toint.strunit"
 msgid "Unit:"
-msgstr "Unit:"
+msgstr ""
 
 #: toint.strunitempty
-#, fuzzy
 msgctxt "toint.strunitempty"
 msgid "Measurement unit not defined for real numeric character."
-msgstr "Measurement unit not defined for real numeric character."
+msgstr ""
 
 #: toint.struntitled
 msgctxt "toint.struntitled"
@@ -5787,10 +5469,9 @@ msgid "Untitled"
 msgstr ""
 
 #: toint.strupgma
-#, fuzzy
 msgctxt "toint.strupgma"
 msgid "Average linkage (UPGMA)"
-msgstr "Average linkage (UPGMA)"
+msgstr ""
 
 #: toint.strvalidnumber
 #, object-pascal-format
@@ -5799,28 +5480,24 @@ msgid "Enter numbers only (an integer value between 1 and %d)"
 msgstr ""
 
 #: toint.strward
-#, fuzzy
 msgctxt "toint.strward"
 msgid "Ward's Method"
-msgstr "Ward's Method"
+msgstr ""
 
 #: toint.strwarning
-#, fuzzy
 msgctxt "toint.strwarning"
 msgid "Warning"
-msgstr "Warning"
+msgstr ""
 
 #: toint.strwindowsonly
-#, fuzzy
 msgctxt "toint.strwindowsonly"
 msgid "This option is available only under MS-Windows."
-msgstr "This option is available only under MS-Windows."
+msgstr ""
 
 #: toint.strwpgma
-#, fuzzy
 msgctxt "toint.strwpgma"
 msgid "Weighted linkage (WPGMA)"
-msgstr "Weighted linkage (WPGMA)"
+msgstr ""
 
 #: toint.strwriteerror
 #, object-pascal-format
@@ -5839,58 +5516,49 @@ msgid "XML files|*.xml"
 msgstr ""
 
 #: tokey.straddcharacter
-#, fuzzy
 msgctxt "tokey.straddcharacter"
 msgid "Add Character"
-msgstr "Add Character"
+msgstr ""
 
 #: tokey.stradditemcaption
-#, fuzzy
 msgctxt "tokey.stradditemcaption"
 msgid "Add Item"
-msgstr "Add Item"
+msgstr ""
 
 #: tokey.stradditemprompt
-#, fuzzy
 msgctxt "tokey.stradditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: tokey.straddstatecaption
-#, fuzzy
 msgctxt "tokey.straddstatecaption"
 msgid "Add State"
-msgstr "Add State"
+msgstr ""
 
 #: tokey.straddstateprompt
-#, fuzzy
 msgctxt "tokey.straddstateprompt"
 msgid "Enter state description:"
-msgstr "Enter state description:"
+msgstr ""
 
 #: tokey.straxis
-#, fuzzy
 msgctxt "tokey.straxis"
 msgid "Axis"
-msgstr "Axis"
+msgstr ""
 
 #: tokey.strcentroid
-#, fuzzy
 msgctxt "tokey.strcentroid"
 msgid "Centroid (UPGMC)"
-msgstr "Centroid (UPGMC)"
+msgstr ""
 
 #: tokey.strcharacters
-#, fuzzy
 msgctxt "tokey.strcharacters"
 msgid "characters"
-msgstr "characters"
+msgstr ""
 
 #: tokey.strcharlistempty
-#, fuzzy
 msgctxt "tokey.strcharlistempty"
 msgid "Character list empty. Enter at least one character description."
-msgstr "Character list empty. Enter at least one character description."
+msgstr ""
 
 #: tokey.strclass
 msgctxt "tokey.strclass"
@@ -5898,10 +5566,9 @@ msgid " Class "
 msgstr ""
 
 #: tokey.strclm
-#, fuzzy
 msgctxt "tokey.strclm"
 msgid "Complete linkage (CLM)"
-msgstr "Complete linkage (CLM)"
+msgstr ""
 
 #: tokey.strcloneitem
 msgctxt "tokey.strcloneitem"
@@ -5909,10 +5576,9 @@ msgid "Clone of"
 msgstr ""
 
 #: tokey.strconfirmation
-#, fuzzy
 msgctxt "tokey.strconfirmation"
 msgid "Confirmation"
-msgstr "Confirmation"
+msgstr ""
 
 #: tokey.strcontrol
 #, object-pascal-format
@@ -5926,22 +5592,19 @@ msgid "Image copied to the Clipboard"
 msgstr ""
 
 #: tokey.strcopytext
-#, fuzzy
 msgctxt "tokey.strcopytext"
 msgid "Text copied to the Clipboard"
-msgstr "Text copied to the Clipboard"
+msgstr ""
 
 #: tokey.strcsvfilter
-#, fuzzy
 msgctxt "tokey.strcsvfilter"
 msgid "Comma delimited files|*.csv"
-msgstr "Comma delimited files|*.csv"
+msgstr ""
 
 #: tokey.strdatadirectory
-#, fuzzy
 msgctxt "tokey.strdatadirectory"
 msgid "Select data directory"
-msgstr "Select data directory"
+msgstr ""
 
 #: tokey.strdeltadirectory
 msgctxt "tokey.strdeltadirectory"
@@ -5949,10 +5612,9 @@ msgid "Select DELTA directory"
 msgstr ""
 
 #: tokey.strdendrogram
-#, fuzzy
 msgctxt "tokey.strdendrogram"
 msgid "Dendrogram"
-msgstr "Dendrogram"
+msgstr ""
 
 #: tokey.strdependent
 #, object-pascal-format
@@ -5966,58 +5628,49 @@ msgid "DELTA directory not found."
 msgstr ""
 
 #: tokey.strdistance
-#, fuzzy
 msgctxt "tokey.strdistance"
 msgid "Distance"
-msgstr "Distance"
+msgstr ""
 
 #: tokey.strdtzfilter
-#, fuzzy
 msgctxt "tokey.strdtzfilter"
 msgid "FreeDelta project|*.dtz"
-msgstr "FreeDelta project|*.dtz"
+msgstr ""
 
 #: tokey.streditcaption
-#, fuzzy
 msgctxt "tokey.streditcaption"
 msgid "Database Title"
-msgstr "Database Title"
+msgstr ""
 
 #: tokey.streditcharacter
-#, fuzzy
 msgctxt "tokey.streditcharacter"
 msgid "Edit Character"
-msgstr "Edit Character"
+msgstr ""
 
 #: tokey.stredititemcaption
-#, fuzzy
 msgctxt "tokey.stredititemcaption"
 msgid "Edit Item"
-msgstr "Edit Item"
+msgstr ""
 
 #: tokey.stredititemprompt
-#, fuzzy
 msgctxt "tokey.stredititemprompt"
 msgid "Edit item name:"
-msgstr "Edit item name:"
+msgstr ""
 
 #: tokey.streditprompt
-#, fuzzy
 msgctxt "tokey.streditprompt"
 msgid "Edit database title:"
-msgstr "Edit database title:"
+msgstr ""
 
 #: tokey.streditstatecaption
-#, fuzzy
 msgctxt "tokey.streditstatecaption"
 msgid "Edit State"
-msgstr "Edit State"
+msgstr ""
 
 #: tokey.streditstateprompt
-#, fuzzy
 msgctxt "tokey.streditstateprompt"
 msgid "Edit state description:"
-msgstr "Edit state description:"
+msgstr ""
 
 #: tokey.strentercharacternumber
 msgctxt "tokey.strentercharacternumber"
@@ -6025,22 +5678,21 @@ msgid "Enter character number:"
 msgstr ""
 
 #: tokey.strerror
-#, fuzzy
 msgctxt "tokey.strerror"
 msgid "Error"
-msgstr "Error"
+msgstr ""
 
 #: tokey.strexists
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "tokey.strexists"
 msgid "File %s already exists. Overwrite?"
-msgstr "File %s already exists. Overwrite?"
+msgstr ""
 
 #: tokey.strexport
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "tokey.strexport"
 msgid "Data exported successfully to directory %s."
-msgstr "Data exported successfully to directory %s."
+msgstr ""
 
 #: tokey.strexportfile
 #, object-pascal-format
@@ -6049,40 +5701,34 @@ msgid "Data exported successfully to file %s."
 msgstr ""
 
 #: tokey.strfindcharactercaption
-#, fuzzy
 msgctxt "tokey.strfindcharactercaption"
 msgid "Find Character"
-msgstr "Find Character"
+msgstr ""
 
 #: tokey.strfindcharacterprompt
-#, fuzzy
 msgctxt "tokey.strfindcharacterprompt"
 msgid "Enter character description:"
-msgstr "Enter character description:"
+msgstr ""
 
 #: tokey.strfinditemcaption
-#, fuzzy
 msgctxt "tokey.strfinditemcaption"
 msgid "Find Item"
-msgstr "Find Item"
+msgstr ""
 
 #: tokey.strfinditemprompt
-#, fuzzy
 msgctxt "tokey.strfinditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: tokey.strfindtextcaption
-#, fuzzy
 msgctxt "tokey.strfindtextcaption"
 msgid "Find Text"
-msgstr "Find Text"
+msgstr ""
 
 #: tokey.strfindtextprompt
-#, fuzzy
 msgctxt "tokey.strfindtextprompt"
 msgid "Enter search text:"
-msgstr "Enter search text:"
+msgstr ""
 
 #: tokey.strfrequency
 msgctxt "tokey.strfrequency"
@@ -6110,16 +5756,15 @@ msgid " Histogram "
 msgstr ""
 
 #: tokey.strimport
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "tokey.strimport"
 msgid "Data imported successfully to file %s."
-msgstr "Data imported successfully to file %s."
+msgstr ""
 
 #: tokey.strinformation
-#, fuzzy
 msgctxt "tokey.strinformation"
 msgid "Information"
-msgstr "Information"
+msgstr ""
 
 #: tokey.strinputinteger
 #, object-pascal-format
@@ -6138,16 +5783,14 @@ msgid "Invalid symbol ('/') in character or state name"
 msgstr ""
 
 #: tokey.stritemlistempty
-#, fuzzy
 msgctxt "tokey.stritemlistempty"
 msgid "Item list empty. Enter at least one item name."
-msgstr "Item list empty. Enter at least one item name."
+msgstr ""
 
 #: tokey.stritems
-#, fuzzy
 msgctxt "tokey.stritems"
 msgid "items"
-msgstr "items"
+msgstr ""
 
 #: tokey.stritemstatus
 msgctxt "tokey.stritemstatus"
@@ -6165,10 +5808,9 @@ msgid " Class Mark "
 msgstr ""
 
 #: tokey.strmedian
-#, fuzzy
 msgctxt "tokey.strmedian"
 msgid "Median (WPGMC)"
-msgstr "Median (WPGMC)"
+msgstr ""
 
 #: tokey.strmerge
 msgctxt "tokey.strmerge"
@@ -6181,16 +5823,14 @@ msgid "Missing opening or closing angle brackets ('<>')"
 msgstr ""
 
 #: tokey.strnewcaption
-#, fuzzy
 msgctxt "tokey.strnewcaption"
 msgid "New Database"
-msgstr "New Database"
+msgstr ""
 
 #: tokey.strnewprompt
-#, fuzzy
 msgctxt "tokey.strnewprompt"
 msgid "Enter database title:"
-msgstr "Enter database title:"
+msgstr ""
 
 #: tokey.strnexusfilter
 msgctxt "tokey.strnexusfilter"
@@ -6203,28 +5843,27 @@ msgid "Unsupported inner comments"
 msgstr ""
 
 #: tokey.strnotexecute
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "tokey.strnotexecute"
 msgid "Couldn't start %s program."
-msgstr "Couldn't start %s program."
+msgstr ""
 
 #: tokey.strnotfound
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "tokey.strnotfound"
 msgid "File %s not found."
-msgstr "File %s not found."
+msgstr ""
 
 #: tokey.strnotfounddir
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "tokey.strnotfounddir"
 msgid "File %s not found in %s."
-msgstr "File %s not found in %s."
+msgstr ""
 
 #: tokey.stropenfile
-#, fuzzy
 msgctxt "tokey.stropenfile"
 msgid "Open file"
-msgstr "Open file"
+msgstr ""
 
 #: tokey.stroutofrange
 msgctxt "tokey.stroutofrange"
@@ -6242,10 +5881,9 @@ msgid "PAUP not installed or not found in path."
 msgstr ""
 
 #: tokey.strquit
-#, fuzzy
 msgctxt "tokey.strquit"
 msgid "Do you want to exit the program?"
-msgstr "Do you want to exit the program?"
+msgstr ""
 
 #: tokey.strrdirectory
 msgctxt "tokey.strrdirectory"
@@ -6269,10 +5907,9 @@ msgid "R not installed or not found in path."
 msgstr ""
 
 #: tokey.strsave
-#, fuzzy
 msgctxt "tokey.strsave"
 msgid "Dataset has been modified. Save?"
-msgstr "Dataset has been modified. Save?"
+msgstr ""
 
 #: tokey.strsavechanges
 msgctxt "tokey.strsavechanges"
@@ -6280,28 +5917,25 @@ msgid "Save changes?"
 msgstr ""
 
 #: tokey.strsaveerror
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "tokey.strsaveerror"
 msgid "Failed to save file %s."
-msgstr "Failed to save file %s."
+msgstr ""
 
 #: tokey.strsavefile
-#, fuzzy
 msgctxt "tokey.strsavefile"
 msgid "Save file as"
-msgstr "Save file as"
+msgstr ""
 
 #: tokey.strscatterplot
-#, fuzzy
 msgctxt "tokey.strscatterplot"
 msgid "Scatterplot"
-msgstr "Scatterplot"
+msgstr ""
 
 #: tokey.strslm
-#, fuzzy
 msgctxt "tokey.strslm"
 msgid "Single linkage (SLM)"
-msgstr "Single linkage (SLM)"
+msgstr ""
 
 #: tokey.strstatelistempty
 msgctxt "tokey.strstatelistempty"
@@ -6309,22 +5943,19 @@ msgid "State list empty or incomplete. Enter at least two state descriptions."
 msgstr ""
 
 #: tokey.strstates
-#, fuzzy
 msgctxt "tokey.strstates"
 msgid "States:"
-msgstr "States:"
+msgstr ""
 
 #: tokey.strtext
-#, fuzzy
 msgctxt "tokey.strtext"
 msgid "Text"
-msgstr "Text"
+msgstr ""
 
 #: tokey.strtextnotfound
-#, fuzzy
 msgctxt "tokey.strtextnotfound"
 msgid "Text not found!"
-msgstr "Text not found!"
+msgstr ""
 
 #: tokey.strtntdirectory
 msgctxt "tokey.strtntdirectory"
@@ -6342,22 +5973,19 @@ msgid "TNT not installed or not found in path."
 msgstr ""
 
 #: tokey.strtxtfilter
-#, fuzzy
 msgctxt "tokey.strtxtfilter"
 msgid "Text files|*.txt"
-msgstr "Text files|*.txt"
+msgstr ""
 
 #: tokey.strunit
-#, fuzzy
 msgctxt "tokey.strunit"
 msgid "Unit:"
-msgstr "Unit:"
+msgstr ""
 
 #: tokey.strunitempty
-#, fuzzy
 msgctxt "tokey.strunitempty"
 msgid "Measurement unit not defined for real numeric character."
-msgstr "Measurement unit not defined for real numeric character."
+msgstr ""
 
 #: tokey.struntitled
 msgctxt "tokey.struntitled"
@@ -6365,10 +5993,9 @@ msgid "Untitled"
 msgstr ""
 
 #: tokey.strupgma
-#, fuzzy
 msgctxt "tokey.strupgma"
 msgid "Average linkage (UPGMA)"
-msgstr "Average linkage (UPGMA)"
+msgstr ""
 
 #: tokey.strvalidnumber
 #, object-pascal-format
@@ -6377,28 +6004,24 @@ msgid "Enter numbers only (an integer value between 1 and %d)"
 msgstr ""
 
 #: tokey.strward
-#, fuzzy
 msgctxt "tokey.strward"
 msgid "Ward's Method"
-msgstr "Ward's Method"
+msgstr ""
 
 #: tokey.strwarning
-#, fuzzy
 msgctxt "tokey.strwarning"
 msgid "Warning"
-msgstr "Warning"
+msgstr ""
 
 #: tokey.strwindowsonly
-#, fuzzy
 msgctxt "tokey.strwindowsonly"
 msgid "This option is available only under MS-Windows."
-msgstr "This option is available only under MS-Windows."
+msgstr ""
 
 #: tokey.strwpgma
-#, fuzzy
 msgctxt "tokey.strwpgma"
 msgid "Weighted linkage (WPGMA)"
-msgstr "Weighted linkage (WPGMA)"
+msgstr ""
 
 #: tokey.strwriteerror
 #, object-pascal-format
@@ -6417,58 +6040,49 @@ msgid "XML files|*.xml"
 msgstr ""
 
 #: tonat.straddcharacter
-#, fuzzy
 msgctxt "tonat.straddcharacter"
 msgid "Add Character"
-msgstr "Add Character"
+msgstr ""
 
 #: tonat.stradditemcaption
-#, fuzzy
 msgctxt "tonat.stradditemcaption"
 msgid "Add Item"
-msgstr "Add Item"
+msgstr ""
 
 #: tonat.stradditemprompt
-#, fuzzy
 msgctxt "tonat.stradditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: tonat.straddstatecaption
-#, fuzzy
 msgctxt "tonat.straddstatecaption"
 msgid "Add State"
-msgstr "Add State"
+msgstr ""
 
 #: tonat.straddstateprompt
-#, fuzzy
 msgctxt "tonat.straddstateprompt"
 msgid "Enter state description:"
-msgstr "Enter state description:"
+msgstr ""
 
 #: tonat.straxis
-#, fuzzy
 msgctxt "tonat.straxis"
 msgid "Axis"
-msgstr "Axis"
+msgstr ""
 
 #: tonat.strcentroid
-#, fuzzy
 msgctxt "tonat.strcentroid"
 msgid "Centroid (UPGMC)"
-msgstr "Centroid (UPGMC)"
+msgstr ""
 
 #: tonat.strcharacters
-#, fuzzy
 msgctxt "tonat.strcharacters"
 msgid "characters"
-msgstr "characters"
+msgstr ""
 
 #: tonat.strcharlistempty
-#, fuzzy
 msgctxt "tonat.strcharlistempty"
 msgid "Character list empty. Enter at least one character description."
-msgstr "Character list empty. Enter at least one character description."
+msgstr ""
 
 #: tonat.strclass
 msgctxt "tonat.strclass"
@@ -6476,10 +6090,9 @@ msgid " Class "
 msgstr ""
 
 #: tonat.strclm
-#, fuzzy
 msgctxt "tonat.strclm"
 msgid "Complete linkage (CLM)"
-msgstr "Complete linkage (CLM)"
+msgstr ""
 
 #: tonat.strcloneitem
 msgctxt "tonat.strcloneitem"
@@ -6487,10 +6100,9 @@ msgid "Clone of"
 msgstr ""
 
 #: tonat.strconfirmation
-#, fuzzy
 msgctxt "tonat.strconfirmation"
 msgid "Confirmation"
-msgstr "Confirmation"
+msgstr ""
 
 #: tonat.strcontrol
 #, object-pascal-format
@@ -6504,22 +6116,19 @@ msgid "Image copied to the Clipboard"
 msgstr ""
 
 #: tonat.strcopytext
-#, fuzzy
 msgctxt "tonat.strcopytext"
 msgid "Text copied to the Clipboard"
-msgstr "Text copied to the Clipboard"
+msgstr ""
 
 #: tonat.strcsvfilter
-#, fuzzy
 msgctxt "tonat.strcsvfilter"
 msgid "Comma delimited files|*.csv"
-msgstr "Comma delimited files|*.csv"
+msgstr ""
 
 #: tonat.strdatadirectory
-#, fuzzy
 msgctxt "tonat.strdatadirectory"
 msgid "Select data directory"
-msgstr "Select data directory"
+msgstr ""
 
 #: tonat.strdeltadirectory
 msgctxt "tonat.strdeltadirectory"
@@ -6527,10 +6136,9 @@ msgid "Select DELTA directory"
 msgstr ""
 
 #: tonat.strdendrogram
-#, fuzzy
 msgctxt "tonat.strdendrogram"
 msgid "Dendrogram"
-msgstr "Dendrogram"
+msgstr ""
 
 #: tonat.strdependent
 #, object-pascal-format
@@ -6544,58 +6152,49 @@ msgid "DELTA directory not found."
 msgstr ""
 
 #: tonat.strdistance
-#, fuzzy
 msgctxt "tonat.strdistance"
 msgid "Distance"
-msgstr "Distance"
+msgstr ""
 
 #: tonat.strdtzfilter
-#, fuzzy
 msgctxt "tonat.strdtzfilter"
 msgid "FreeDelta project|*.dtz"
-msgstr "FreeDelta project|*.dtz"
+msgstr ""
 
 #: tonat.streditcaption
-#, fuzzy
 msgctxt "tonat.streditcaption"
 msgid "Database Title"
-msgstr "Database Title"
+msgstr ""
 
 #: tonat.streditcharacter
-#, fuzzy
 msgctxt "tonat.streditcharacter"
 msgid "Edit Character"
-msgstr "Edit Character"
+msgstr ""
 
 #: tonat.stredititemcaption
-#, fuzzy
 msgctxt "tonat.stredititemcaption"
 msgid "Edit Item"
-msgstr "Edit Item"
+msgstr ""
 
 #: tonat.stredititemprompt
-#, fuzzy
 msgctxt "tonat.stredititemprompt"
 msgid "Edit item name:"
-msgstr "Edit item name:"
+msgstr ""
 
 #: tonat.streditprompt
-#, fuzzy
 msgctxt "tonat.streditprompt"
 msgid "Edit database title:"
-msgstr "Edit database title:"
+msgstr ""
 
 #: tonat.streditstatecaption
-#, fuzzy
 msgctxt "tonat.streditstatecaption"
 msgid "Edit State"
-msgstr "Edit State"
+msgstr ""
 
 #: tonat.streditstateprompt
-#, fuzzy
 msgctxt "tonat.streditstateprompt"
 msgid "Edit state description:"
-msgstr "Edit state description:"
+msgstr ""
 
 #: tonat.strentercharacternumber
 msgctxt "tonat.strentercharacternumber"
@@ -6603,22 +6202,21 @@ msgid "Enter character number:"
 msgstr ""
 
 #: tonat.strerror
-#, fuzzy
 msgctxt "tonat.strerror"
 msgid "Error"
-msgstr "Error"
+msgstr ""
 
 #: tonat.strexists
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "tonat.strexists"
 msgid "File %s already exists. Overwrite?"
-msgstr "File %s already exists. Overwrite?"
+msgstr ""
 
 #: tonat.strexport
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "tonat.strexport"
 msgid "Data exported successfully to directory %s."
-msgstr "Data exported successfully to directory %s."
+msgstr ""
 
 #: tonat.strexportfile
 #, object-pascal-format
@@ -6627,40 +6225,34 @@ msgid "Data exported successfully to file %s."
 msgstr ""
 
 #: tonat.strfindcharactercaption
-#, fuzzy
 msgctxt "tonat.strfindcharactercaption"
 msgid "Find Character"
-msgstr "Find Character"
+msgstr ""
 
 #: tonat.strfindcharacterprompt
-#, fuzzy
 msgctxt "tonat.strfindcharacterprompt"
 msgid "Enter character description:"
-msgstr "Enter character description:"
+msgstr ""
 
 #: tonat.strfinditemcaption
-#, fuzzy
 msgctxt "tonat.strfinditemcaption"
 msgid "Find Item"
-msgstr "Find Item"
+msgstr ""
 
 #: tonat.strfinditemprompt
-#, fuzzy
 msgctxt "tonat.strfinditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: tonat.strfindtextcaption
-#, fuzzy
 msgctxt "tonat.strfindtextcaption"
 msgid "Find Text"
-msgstr "Find Text"
+msgstr ""
 
 #: tonat.strfindtextprompt
-#, fuzzy
 msgctxt "tonat.strfindtextprompt"
 msgid "Enter search text:"
-msgstr "Enter search text:"
+msgstr ""
 
 #: tonat.strfrequency
 msgctxt "tonat.strfrequency"
@@ -6688,16 +6280,15 @@ msgid " Histogram "
 msgstr ""
 
 #: tonat.strimport
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "tonat.strimport"
 msgid "Data imported successfully to file %s."
-msgstr "Data imported successfully to file %s."
+msgstr ""
 
 #: tonat.strinformation
-#, fuzzy
 msgctxt "tonat.strinformation"
 msgid "Information"
-msgstr "Information"
+msgstr ""
 
 #: tonat.strinputinteger
 #, object-pascal-format
@@ -6716,16 +6307,14 @@ msgid "Invalid symbol ('/') in character or state name"
 msgstr ""
 
 #: tonat.stritemlistempty
-#, fuzzy
 msgctxt "tonat.stritemlistempty"
 msgid "Item list empty. Enter at least one item name."
-msgstr "Item list empty. Enter at least one item name."
+msgstr ""
 
 #: tonat.stritems
-#, fuzzy
 msgctxt "tonat.stritems"
 msgid "items"
-msgstr "items"
+msgstr ""
 
 #: tonat.stritemstatus
 msgctxt "tonat.stritemstatus"
@@ -6743,10 +6332,9 @@ msgid " Class Mark "
 msgstr ""
 
 #: tonat.strmedian
-#, fuzzy
 msgctxt "tonat.strmedian"
 msgid "Median (WPGMC)"
-msgstr "Median (WPGMC)"
+msgstr ""
 
 #: tonat.strmerge
 msgctxt "tonat.strmerge"
@@ -6759,16 +6347,14 @@ msgid "Missing opening or closing angle brackets ('<>')"
 msgstr ""
 
 #: tonat.strnewcaption
-#, fuzzy
 msgctxt "tonat.strnewcaption"
 msgid "New Database"
-msgstr "New Database"
+msgstr ""
 
 #: tonat.strnewprompt
-#, fuzzy
 msgctxt "tonat.strnewprompt"
 msgid "Enter database title:"
-msgstr "Enter database title:"
+msgstr ""
 
 #: tonat.strnexusfilter
 msgctxt "tonat.strnexusfilter"
@@ -6781,28 +6367,27 @@ msgid "Unsupported inner comments"
 msgstr ""
 
 #: tonat.strnotexecute
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "tonat.strnotexecute"
 msgid "Couldn't start %s program."
-msgstr "Couldn't start %s program."
+msgstr ""
 
 #: tonat.strnotfound
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "tonat.strnotfound"
 msgid "File %s not found."
-msgstr "File %s not found."
+msgstr ""
 
 #: tonat.strnotfounddir
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "tonat.strnotfounddir"
 msgid "File %s not found in %s."
-msgstr "File %s not found in %s."
+msgstr ""
 
 #: tonat.stropenfile
-#, fuzzy
 msgctxt "tonat.stropenfile"
 msgid "Open file"
-msgstr "Open file"
+msgstr ""
 
 #: tonat.stroutofrange
 msgctxt "tonat.stroutofrange"
@@ -6820,10 +6405,9 @@ msgid "PAUP not installed or not found in path."
 msgstr ""
 
 #: tonat.strquit
-#, fuzzy
 msgctxt "tonat.strquit"
 msgid "Do you want to exit the program?"
-msgstr "Do you want to exit the program?"
+msgstr ""
 
 #: tonat.strrdirectory
 msgctxt "tonat.strrdirectory"
@@ -6847,10 +6431,9 @@ msgid "R not installed or not found in path."
 msgstr ""
 
 #: tonat.strsave
-#, fuzzy
 msgctxt "tonat.strsave"
 msgid "Dataset has been modified. Save?"
-msgstr "Dataset has been modified. Save?"
+msgstr ""
 
 #: tonat.strsavechanges
 msgctxt "tonat.strsavechanges"
@@ -6858,28 +6441,25 @@ msgid "Save changes?"
 msgstr ""
 
 #: tonat.strsaveerror
-#, object-pascal-format, fuzzy
+#, object-pascal-format
 msgctxt "tonat.strsaveerror"
 msgid "Failed to save file %s."
-msgstr "Failed to save file %s."
+msgstr ""
 
 #: tonat.strsavefile
-#, fuzzy
 msgctxt "tonat.strsavefile"
 msgid "Save file as"
-msgstr "Save file as"
+msgstr ""
 
 #: tonat.strscatterplot
-#, fuzzy
 msgctxt "tonat.strscatterplot"
 msgid "Scatterplot"
-msgstr "Scatterplot"
+msgstr ""
 
 #: tonat.strslm
-#, fuzzy
 msgctxt "tonat.strslm"
 msgid "Single linkage (SLM)"
-msgstr "Single linkage (SLM)"
+msgstr ""
 
 #: tonat.strstatelistempty
 msgctxt "tonat.strstatelistempty"
@@ -6887,22 +6467,19 @@ msgid "State list empty or incomplete. Enter at least two state descriptions."
 msgstr ""
 
 #: tonat.strstates
-#, fuzzy
 msgctxt "tonat.strstates"
 msgid "States:"
-msgstr "States:"
+msgstr ""
 
 #: tonat.strtext
-#, fuzzy
 msgctxt "tonat.strtext"
 msgid "Text"
-msgstr "Text"
+msgstr ""
 
 #: tonat.strtextnotfound
-#, fuzzy
 msgctxt "tonat.strtextnotfound"
 msgid "Text not found!"
-msgstr "Text not found!"
+msgstr ""
 
 #: tonat.strtntdirectory
 msgctxt "tonat.strtntdirectory"
@@ -6920,22 +6497,19 @@ msgid "TNT not installed or not found in path."
 msgstr ""
 
 #: tonat.strtxtfilter
-#, fuzzy
 msgctxt "tonat.strtxtfilter"
 msgid "Text files|*.txt"
-msgstr "Text files|*.txt"
+msgstr ""
 
 #: tonat.strunit
-#, fuzzy
 msgctxt "tonat.strunit"
 msgid "Unit:"
-msgstr "Unit:"
+msgstr ""
 
 #: tonat.strunitempty
-#, fuzzy
 msgctxt "tonat.strunitempty"
 msgid "Measurement unit not defined for real numeric character."
-msgstr "Measurement unit not defined for real numeric character."
+msgstr ""
 
 #: tonat.struntitled
 msgctxt "tonat.struntitled"
@@ -6943,10 +6517,9 @@ msgid "Untitled"
 msgstr ""
 
 #: tonat.strupgma
-#, fuzzy
 msgctxt "tonat.strupgma"
 msgid "Average linkage (UPGMA)"
-msgstr "Average linkage (UPGMA)"
+msgstr ""
 
 #: tonat.strvalidnumber
 #, object-pascal-format
@@ -6955,28 +6528,24 @@ msgid "Enter numbers only (an integer value between 1 and %d)"
 msgstr ""
 
 #: tonat.strward
-#, fuzzy
 msgctxt "tonat.strward"
 msgid "Ward's Method"
-msgstr "Ward's Method"
+msgstr ""
 
 #: tonat.strwarning
-#, fuzzy
 msgctxt "tonat.strwarning"
 msgid "Warning"
-msgstr "Warning"
+msgstr ""
 
 #: tonat.strwindowsonly
-#, fuzzy
 msgctxt "tonat.strwindowsonly"
 msgid "This option is available only under MS-Windows."
-msgstr "This option is available only under MS-Windows."
+msgstr ""
 
 #: tonat.strwpgma
-#, fuzzy
 msgctxt "tonat.strwpgma"
 msgid "Weighted linkage (WPGMA)"
-msgstr "Weighted linkage (WPGMA)"
+msgstr ""
 
 #: tonat.strwriteerror
 #, object-pascal-format
@@ -7142,47 +6711,47 @@ msgstr ""
 #: viewer.straddcharacter
 msgctxt "viewer.straddcharacter"
 msgid "Add Character"
-msgstr "Add Character"
+msgstr ""
 
 #: viewer.stradditemcaption
 msgctxt "viewer.stradditemcaption"
 msgid "Add Item"
-msgstr "Add Item"
+msgstr ""
 
 #: viewer.stradditemprompt
 msgctxt "viewer.stradditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: viewer.straddstatecaption
 msgctxt "viewer.straddstatecaption"
 msgid "Add State"
-msgstr "Add State"
+msgstr ""
 
 #: viewer.straddstateprompt
 msgctxt "viewer.straddstateprompt"
 msgid "Enter state description:"
-msgstr "Enter state description:"
+msgstr ""
 
 #: viewer.straxis
 msgctxt "viewer.straxis"
 msgid "Axis"
-msgstr "Axis"
+msgstr ""
 
 #: viewer.strcentroid
 msgctxt "viewer.strcentroid"
 msgid "Centroid (UPGMC)"
-msgstr "Centroid (UPGMC)"
+msgstr ""
 
 #: viewer.strcharacters
 msgctxt "viewer.strcharacters"
 msgid "characters"
-msgstr "characters"
+msgstr ""
 
 #: viewer.strcharlistempty
 msgctxt "viewer.strcharlistempty"
 msgid "Character list empty. Enter at least one character description."
-msgstr "Character list empty. Enter at least one character description."
+msgstr ""
 
 #: viewer.strclass
 msgctxt "viewer.strclass"
@@ -7192,7 +6761,7 @@ msgstr ""
 #: viewer.strclm
 msgctxt "viewer.strclm"
 msgid "Complete linkage (CLM)"
-msgstr "Complete linkage (CLM)"
+msgstr ""
 
 #: viewer.strcloneitem
 msgctxt "viewer.strcloneitem"
@@ -7202,7 +6771,7 @@ msgstr ""
 #: viewer.strconfirmation
 msgctxt "viewer.strconfirmation"
 msgid "Confirmation"
-msgstr "Confirmation"
+msgstr ""
 
 #: viewer.strcontrol
 #, object-pascal-format
@@ -7218,17 +6787,17 @@ msgstr ""
 #: viewer.strcopytext
 msgctxt "viewer.strcopytext"
 msgid "Text copied to the Clipboard"
-msgstr "Text copied to the Clipboard"
+msgstr ""
 
 #: viewer.strcsvfilter
 msgctxt "viewer.strcsvfilter"
 msgid "Comma delimited files|*.csv"
-msgstr "Comma delimited files|*.csv"
+msgstr ""
 
 #: viewer.strdatadirectory
 msgctxt "viewer.strdatadirectory"
 msgid "Select data directory"
-msgstr "Select data directory"
+msgstr ""
 
 #: viewer.strdeltadirectory
 msgctxt "viewer.strdeltadirectory"
@@ -7238,7 +6807,7 @@ msgstr ""
 #: viewer.strdendrogram
 msgctxt "viewer.strdendrogram"
 msgid "Dendrogram"
-msgstr "Dendrogram"
+msgstr ""
 
 #: viewer.strdependent
 #, object-pascal-format
@@ -7254,47 +6823,47 @@ msgstr ""
 #: viewer.strdistance
 msgctxt "viewer.strdistance"
 msgid "Distance"
-msgstr "Distance"
+msgstr ""
 
 #: viewer.strdtzfilter
 msgctxt "viewer.strdtzfilter"
 msgid "FreeDelta project|*.dtz"
-msgstr "FreeDelta project|*.dtz"
+msgstr ""
 
 #: viewer.streditcaption
 msgctxt "viewer.streditcaption"
 msgid "Database Title"
-msgstr "Database Title"
+msgstr ""
 
 #: viewer.streditcharacter
 msgctxt "viewer.streditcharacter"
 msgid "Edit Character"
-msgstr "Edit Character"
+msgstr ""
 
 #: viewer.stredititemcaption
 msgctxt "viewer.stredititemcaption"
 msgid "Edit Item"
-msgstr "Edit Item"
+msgstr ""
 
 #: viewer.stredititemprompt
 msgctxt "viewer.stredititemprompt"
 msgid "Edit item name:"
-msgstr "Edit item name:"
+msgstr ""
 
 #: viewer.streditprompt
 msgctxt "viewer.streditprompt"
 msgid "Edit database title:"
-msgstr "Edit database title:"
+msgstr ""
 
 #: viewer.streditstatecaption
 msgctxt "viewer.streditstatecaption"
 msgid "Edit State"
-msgstr "Edit State"
+msgstr ""
 
 #: viewer.streditstateprompt
 msgctxt "viewer.streditstateprompt"
 msgid "Edit state description:"
-msgstr "Edit state description:"
+msgstr ""
 
 #: viewer.strentercharacternumber
 msgctxt "viewer.strentercharacternumber"
@@ -7304,19 +6873,19 @@ msgstr ""
 #: viewer.strerror
 msgctxt "viewer.strerror"
 msgid "Error"
-msgstr "Error"
+msgstr ""
 
 #: viewer.strexists
 #, object-pascal-format
 msgctxt "viewer.strexists"
 msgid "File %s already exists. Overwrite?"
-msgstr "File %s already exists. Overwrite?"
+msgstr ""
 
 #: viewer.strexport
 #, object-pascal-format
 msgctxt "viewer.strexport"
 msgid "Data exported successfully to directory %s."
-msgstr "Data exported successfully to directory %s."
+msgstr ""
 
 #: viewer.strexportfile
 #, object-pascal-format
@@ -7327,32 +6896,32 @@ msgstr ""
 #: viewer.strfindcharactercaption
 msgctxt "viewer.strfindcharactercaption"
 msgid "Find Character"
-msgstr "Find Character"
+msgstr ""
 
 #: viewer.strfindcharacterprompt
 msgctxt "viewer.strfindcharacterprompt"
 msgid "Enter character description:"
-msgstr "Enter character description:"
+msgstr ""
 
 #: viewer.strfinditemcaption
 msgctxt "viewer.strfinditemcaption"
 msgid "Find Item"
-msgstr "Find Item"
+msgstr ""
 
 #: viewer.strfinditemprompt
 msgctxt "viewer.strfinditemprompt"
 msgid "Enter item name:"
-msgstr "Enter item name:"
+msgstr ""
 
 #: viewer.strfindtextcaption
 msgctxt "viewer.strfindtextcaption"
 msgid "Find Text"
-msgstr "Find Text"
+msgstr ""
 
 #: viewer.strfindtextprompt
 msgctxt "viewer.strfindtextprompt"
 msgid "Enter search text:"
-msgstr "Enter search text:"
+msgstr ""
 
 #: viewer.strfrequency
 msgctxt "viewer.strfrequency"
@@ -7383,12 +6952,12 @@ msgstr ""
 #, object-pascal-format
 msgctxt "viewer.strimport"
 msgid "Data imported successfully to file %s."
-msgstr "Data imported successfully to file %s."
+msgstr ""
 
 #: viewer.strinformation
 msgctxt "viewer.strinformation"
 msgid "Information"
-msgstr "Information"
+msgstr ""
 
 #: viewer.strinputinteger
 #, object-pascal-format
@@ -7409,12 +6978,12 @@ msgstr ""
 #: viewer.stritemlistempty
 msgctxt "viewer.stritemlistempty"
 msgid "Item list empty. Enter at least one item name."
-msgstr "Item list empty. Enter at least one item name."
+msgstr ""
 
 #: viewer.stritems
 msgctxt "viewer.stritems"
 msgid "items"
-msgstr "items"
+msgstr ""
 
 #: viewer.stritemstatus
 msgctxt "viewer.stritemstatus"
@@ -7434,7 +7003,7 @@ msgstr ""
 #: viewer.strmedian
 msgctxt "viewer.strmedian"
 msgid "Median (WPGMC)"
-msgstr "Median (WPGMC)"
+msgstr ""
 
 #: viewer.strmerge
 msgctxt "viewer.strmerge"
@@ -7449,12 +7018,12 @@ msgstr ""
 #: viewer.strnewcaption
 msgctxt "viewer.strnewcaption"
 msgid "New Database"
-msgstr "New Database"
+msgstr ""
 
 #: viewer.strnewprompt
 msgctxt "viewer.strnewprompt"
 msgid "Enter database title:"
-msgstr "Enter database title:"
+msgstr ""
 
 #: viewer.strnexusfilter
 msgctxt "viewer.strnexusfilter"
@@ -7470,24 +7039,24 @@ msgstr ""
 #, object-pascal-format
 msgctxt "viewer.strnotexecute"
 msgid "Couldn't start %s program."
-msgstr "Couldn't start %s program."
+msgstr ""
 
 #: viewer.strnotfound
 #, object-pascal-format
 msgctxt "viewer.strnotfound"
 msgid "File %s not found."
-msgstr "File %s not found."
+msgstr ""
 
 #: viewer.strnotfounddir
 #, object-pascal-format
 msgctxt "viewer.strnotfounddir"
 msgid "File %s not found in %s."
-msgstr "File %s not found in %s."
+msgstr ""
 
 #: viewer.stropenfile
 msgctxt "viewer.stropenfile"
 msgid "Open file"
-msgstr "Open file"
+msgstr ""
 
 #: viewer.stroutofrange
 msgctxt "viewer.stroutofrange"
@@ -7507,7 +7076,7 @@ msgstr ""
 #: viewer.strquit
 msgctxt "viewer.strquit"
 msgid "Do you want to exit the program?"
-msgstr "Do you want to exit the program?"
+msgstr ""
 
 #: viewer.strrdirectory
 msgctxt "viewer.strrdirectory"
@@ -7533,7 +7102,7 @@ msgstr ""
 #: viewer.strsave
 msgctxt "viewer.strsave"
 msgid "Dataset has been modified. Save?"
-msgstr "Dataset has been modified. Save?"
+msgstr ""
 
 #: viewer.strsavechanges
 msgctxt "viewer.strsavechanges"
@@ -7544,45 +7113,42 @@ msgstr ""
 #, object-pascal-format
 msgctxt "viewer.strsaveerror"
 msgid "Failed to save file %s."
-msgstr "Failed to save file %s."
+msgstr ""
 
 #: viewer.strsavefile
 msgctxt "viewer.strsavefile"
 msgid "Save file as"
-msgstr "Save file as"
+msgstr ""
 
 #: viewer.strscatterplot
 msgctxt "viewer.strscatterplot"
 msgid "Scatterplot"
-msgstr "Scatterplot"
+msgstr ""
 
 #: viewer.strslm
 msgctxt "viewer.strslm"
 msgid "Single linkage (SLM)"
-msgstr "Single linkage (SLM)"
+msgstr ""
 
 #: viewer.strstatelistempty
-#, fuzzy
-#| msgid "State list empty. Enter at least one state description."
 msgctxt "viewer.strstatelistempty"
 msgid "State list empty or incomplete. Enter at least two state descriptions."
-msgstr "State list empty. Enter at least one state description."
+msgstr ""
 
 #: viewer.strstates
 msgctxt "viewer.strstates"
 msgid "States:"
-msgstr "States:"
+msgstr ""
 
 #: viewer.strtext
-#, fuzzy
 msgctxt "viewer.strtext"
 msgid "Text"
-msgstr "Text"
+msgstr ""
 
 #: viewer.strtextnotfound
 msgctxt "viewer.strtextnotfound"
 msgid "Text not found!"
-msgstr "Text not found!"
+msgstr ""
 
 #: viewer.strtntdirectory
 msgctxt "viewer.strtntdirectory"
@@ -7602,17 +7168,17 @@ msgstr ""
 #: viewer.strtxtfilter
 msgctxt "viewer.strtxtfilter"
 msgid "Text files|*.txt"
-msgstr "Text files|*.txt"
+msgstr ""
 
 #: viewer.strunit
 msgctxt "viewer.strunit"
 msgid "Unit:"
-msgstr "Unit:"
+msgstr ""
 
 #: viewer.strunitempty
 msgctxt "viewer.strunitempty"
 msgid "Measurement unit not defined for real numeric character."
-msgstr "Measurement unit not defined for real numeric character."
+msgstr ""
 
 #: viewer.struntitled
 msgctxt "viewer.struntitled"
@@ -7622,7 +7188,7 @@ msgstr ""
 #: viewer.strupgma
 msgctxt "viewer.strupgma"
 msgid "Average linkage (UPGMA)"
-msgstr "Average linkage (UPGMA)"
+msgstr ""
 
 #: viewer.strvalidnumber
 #, object-pascal-format
@@ -7633,22 +7199,22 @@ msgstr ""
 #: viewer.strward
 msgctxt "viewer.strward"
 msgid "Ward's Method"
-msgstr "Ward's Method"
+msgstr ""
 
 #: viewer.strwarning
 msgctxt "viewer.strwarning"
 msgid "Warning"
-msgstr "Warning"
+msgstr ""
 
 #: viewer.strwindowsonly
 msgctxt "viewer.strwindowsonly"
 msgid "This option is available only under MS-Windows."
-msgstr "This option is available only under MS-Windows."
+msgstr ""
 
 #: viewer.strwpgma
 msgctxt "viewer.strwpgma"
 msgid "Weighted linkage (WPGMA)"
-msgstr "Weighted linkage (WPGMA)"
+msgstr ""
 
 #: viewer.strwriteerror
 #, object-pascal-format

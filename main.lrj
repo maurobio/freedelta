@@ -5,9 +5,7 @@
 {"hash":174431431,"name":"tmainform.listtab.caption","sourcebytes":[76,105,115,116,32,86,105,101,119],"value":"List View"},
 {"hash":90721265,"name":"tmainform.panel1.caption","sourcebytes":[80,97,110,101,108,49],"value":"Panel1"},
 {"hash":5286979,"name":"tmainform.itemlistview.columns[0].caption","sourcebytes":[73,116,101,109,115],"value":"Items"},
-{"hash":90721267,"name":"tmainform.panel3.caption","sourcebytes":[80,97,110,101,108,51],"value":"Panel3"},
-{"hash":97008522,"name":"tmainform.attrlabel.caption","sourcebytes":[86,97,108,117,101,58],"value":"Value:"},
-{"hash":142488083,"name":"tmainform.headertreeview.sections[0].text","sourcebytes":[67,104,97,114,97,99,116,101,114,115],"value":"Characters"},
+{"hash":132325866,"name":"tmainform.characterlistview.columns[0].caption","sourcebytes":[67,104,97,114,97,99,116,101,114,115,58],"value":"Characters:"},
 {"hash":151582583,"name":"tmainform.matrixtab.caption","sourcebytes":[77,97,116,114,105,120,86,105,101,119],"value":"MatrixView"},
 {"hash":90721268,"name":"tmainform.panel4.caption","sourcebytes":[80,97,110,101,108,52],"value":"Panel4"},
 {"hash":90721269,"name":"tmainform.panel5.caption","sourcebytes":[80,97,110,101,108,53],"value":"Panel5"},
@@ -92,6 +90,8 @@
 {"hash":248058829,"name":"tmainform.editdeleteitem.hint","sourcebytes":[68,101,108,101,116,101,32,115,101,108,101,99,116,101,100,32,105,116,101,109],"value":"Delete selected item"},
 {"hash":178112542,"name":"tmainform.editcloneitem.caption","sourcebytes":[67,108,111,110,101,32,73,116,101,109,46,46,46],"value":"Clone Item..."},
 {"hash":150206253,"name":"tmainform.editcloneitem.hint","sourcebytes":[67,108,111,110,101,32,115,101,108,101,99,116,101,100,32,105,116,101,109],"value":"Clone selected item"},
+{"hash":114660750,"name":"tmainform.editdescriptionitem.caption","sourcebytes":[73,116,101,109,32,68,101,115,99,114,105,112,116,105,111,110,46,46,46],"value":"Item Description..."},
+{"hash":49140126,"name":"tmainform.editdescriptionitem.hint","sourcebytes":[69,100,105,116,32,115,101,108,101,99,116,101,100,32,105,116,101,109,32,100,101,115,99,114,105,112,116,105,111,110],"value":"Edit selected item description"},
 {"hash":238469918,"name":"tmainform.editaddcharacteritem.caption","sourcebytes":[65,100,100,32,67,104,97,114,97,99,116,101,114,46,46,46],"value":"Add Character..."},
 {"hash":104927524,"name":"tmainform.editaddcharacteritem.hint","sourcebytes":[65,112,112,101,110,100,32,110,101,119,32,99,104,97,114,97,99,116,101,114,32,97,116,32,116,104,101,32,101,110,100,32,111,102,32,108,105,115,116],"value":"Append new character at the end of list"},
 {"hash":241898062,"name":"tmainform.editinsertcharacteritem.caption","sourcebytes":[73,110,115,101,114,116,32,67,104,97,114,97,99,116,101,114,46,46,46],"value":"Insert Character..."},
@@ -184,9 +184,5 @@
 {"hash":208053184,"name":"tmainform.movecharacterup.caption","sourcebytes":[77,111,118,101,32,99,104,97,114,97,99,116,101,114,32,117,112],"value":"Move character up"},
 {"hash":208053184,"name":"tmainform.movecharacterup.hint","sourcebytes":[77,111,118,101,32,99,104,97,114,97,99,116,101,114,32,117,112],"value":"Move character up"},
 {"hash":111327934,"name":"tmainform.movecharacterdown.caption","sourcebytes":[77,111,118,101,32,99,104,97,114,97,99,116,101,114,32,100,111,119,110],"value":"Move character down"},
-{"hash":111327934,"name":"tmainform.movecharacterdown.hint","sourcebytes":[77,111,118,101,32,99,104,97,114,97,99,116,101,114,32,100,111,119,110],"value":"Move character down"},
-{"hash":138586444,"name":"tmainform.expandall.caption","sourcebytes":[69,120,112,97,110,100,32,97,108,108],"value":"Expand all"},
-{"hash":105151989,"name":"tmainform.expandall.hint","sourcebytes":[83,104,111,119,32,97,108,108,32,110,111,100,101,115,32,111,102,32,99,104,97,114,97,99,116,101,114,32,116,114,101,101],"value":"Show all nodes of character tree"},
-{"hash":53565100,"name":"tmainform.collapseall.caption","sourcebytes":[67,111,108,108,97,112,115,101,32,97,108,108],"value":"Collapse all"},
-{"hash":101612165,"name":"tmainform.collapseall.hint","sourcebytes":[72,105,100,101,32,97,108,108,32,110,111,100,101,115,32,111,102,32,99,104,97,114,97,99,116,101,114,32,116,114,101,101],"value":"Hide all nodes of character tree"}
+{"hash":111327934,"name":"tmainform.movecharacterdown.hint","sourcebytes":[77,111,118,101,32,99,104,97,114,97,99,116,101,114,32,100,111,119,110],"value":"Move character down"}
 ]}

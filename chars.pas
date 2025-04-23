@@ -65,7 +65,7 @@ type
   public
     CharNumber: integer;
     StateImplicit: integer;
-    DependentChar: TStringList;
+    DependentChar: string; {TStringList;}
   end;
 
 var
@@ -160,8 +160,11 @@ begin
   if FirstIndex <> LastIndex then
     S := S + '-' + IntToStr(LastIndex + 1);
   if S <> '' then
-    DependentChar.Add(Concat(IntToStr(CharIndex), ',',
-      IntToStr(ComboAttributes.ItemIndex + 1) + ':' + S));
+    {DependentChar.Add(Concat(IntToStr(CharIndex), ',',
+      IntToStr(ComboAttributes.ItemIndex + 1) + ':' + S));}
+	DependentChar := IntToStr(ComboAttributes.ItemIndex + 1) + ':' + S
+  else
+	DependentChar := '';	
 end;
 
 procedure TCharacterForm.rbINClick(Sender: TObject);
@@ -212,6 +215,12 @@ begin
 end;
 
 procedure TCharacterForm.ComboAttributesChange(Sender: TObject);
+begin
+  if CharIndex > 0 then
+    DependentChar := IntToStr(ComboAttributes.ItemIndex + 1);
+end;
+
+{procedure TCharacterForm.ComboAttributesChange(Sender: TObject);
 var
   K, C: word;
   First, Last: integer;
@@ -257,7 +266,7 @@ begin
       end;
     end;
   end;
-end;
+end;}
 
 procedure TCharacterForm.CheckImplicitClick(Sender: TObject);
 var
@@ -359,9 +368,9 @@ end;
 
 procedure TCharacterForm.FormCreate(Sender: TObject);
 begin
-  DependentChar := TStringList.Create;
+  {DependentChar := TStringList.Create;
   DependentChar.Sorted := True;
-  DependentChar.Duplicates := dupIgnore;
+  DependentChar.Duplicates := dupIgnore;}
 end;
 
 procedure TCharacterForm.FormShow(Sender: TObject);
@@ -370,6 +379,7 @@ var
   First, Last: integer;
   depState, depChar: string;
 begin
+  DependentChar := '';	
   CharIndex := 0;
   if Length(Dataset.CharacterList) > 0 then
   begin
@@ -385,7 +395,7 @@ begin
       end;
     end;
   end;
-  if ListStates.Count > 0 then
+  {if ListStates.Count > 0 then
   begin
     for I := 0 to ListStates.Count - 1 do
       ComboAttributes.Items.Add(EditChar.Text + ': ' + ListStates.Items.Strings[I]);
@@ -416,6 +426,34 @@ begin
         end;
       end;
       ComboAttributesChange(Sender);
+    end;
+  end;}
+  if ListStates.Count > 0 then
+  begin
+    ComboAttributes.Clear;
+    for I := 0 to ListStates.Count - 1 do
+      ComboAttributes.Items.Add(EditChar.Text + ': ' + ListStates.Items.Strings[I]);
+    //ComboAttributes.ItemIndex := 0;
+    depState := ExtractDelimited(1,
+      Dataset.CharacterList[CharNumber].charDependent, [':']);
+    if Pos('/', depState) > 0 then
+      depState := Copy(depState, 1, Pos('/', depState) - 1);
+    ComboAttributes.ItemIndex := StrToIntDef(depState, 0) - 1;
+    DependentChar := IntToStr(ComboAttributes.ItemIndex + 1);
+    depChar := ExtractDelimited(2,
+      Dataset.CharacterList[CharNumber].charDependent, [':']);
+    if Pos('-', depChar) > 0 then
+    begin
+      First := StrToInt(ExtractDelimited(1, depChar, ['-']));
+      Last := StrToInt(ExtractDelimited(2, depChar, ['-']));
+      for K := First to Last do
+        CheckCharacters.Checked[K - 1] := True;
+    end
+    else
+    begin
+      K := StrToIntDef(depChar, 0);
+      if (K > 0) then
+        CheckCharacters.Checked[K - 1] := True;
     end;
   end;
   PageControl.ActivePage := TabSheetCharacter;
