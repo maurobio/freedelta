@@ -481,6 +481,16 @@
 {                                   editing item descriptions.                  }
 {                                 - Restored the Item Descriptions dialog box   }
 {                                   from previous version 2.4.0                 }
+{                                 - Added support to inner comments in item     }
+{                                   descriptions.                               }
+{ Version 4.07, 25 Apr, 2025      - Fixed a bug in character deletion.          }
+{                                 - Fixed a bug in moving up/down characters.   }
+{                                 - Fixed a bug which caused the description    }
+{                                   field to appear disabled for dependent      }
+{                                   characters.                                 }
+{                                 - Fixed a bug which caused the editing status }
+{                                   indicator in the title bar when a file was  }
+{                                   modified and then saved.                    }
 {===============================================================================}
 unit Main;
 
@@ -1379,6 +1389,7 @@ begin
   tmpRec := Dataset.CharacterList[First];
   Dataset.CharacterList[First] := Dataset.CharacterList[Second];
   Dataset.CharacterList[Second] := tmpRec;
+  CharacterListView.Items.Exchange(First, Second);
 end;
 
 procedure TMainForm.ExchangeItems(First, Second: integer);
@@ -1563,7 +1574,8 @@ procedure TMainForm.UpdateTitleBar(Filename: string);
 begin
   if Filename = '' then
     Filename := strUntitled;
-  if FileIsChanged and (not FileIsSaved) then
+  //if FileIsChanged and (not FileIsSaved) then
+  if FileIsChanged then
     MainForm.Caption := '*' + Application.Title + ' - ' + ExtractFileName(Filename)
   else
     MainForm.Caption := Application.Title + ' - ' + ExtractFileName(Filename);
@@ -3068,21 +3080,22 @@ end;
 
 procedure TMainForm.MoveCharacterDownClick(Sender: TObject);
 var
-  I, J: integer;
-  CharStr: string;
   Selected: TListItem;
+  CharStr: string;
+  I, J: integer;
 begin
   Selected := CharacterListView.Selected;
   if Assigned(Selected) then
-    Exit;
-  if CharacterListView.Selected.Index + 1 < CharacterListView.Items.Count then
-  begin
-    ExchangeCharacters(CharacterListView.Selected.Index,
-      CharacterListView.Selected.Index - 1);
-    for I := 0 to Length(Dataset.ItemList) - 1 do
-      Dataset.ItemList[I].itemAttributes.Exchange(CharacterListView.Selected.Index,
-        CharacterListView.Selected.Index - 1);
-  end;
+    if Selected.Index + 1 < CharacterListView.Items.Count then
+    begin
+      ExchangeCharacters(Selected.Index, Selected.Index + 1);
+      for I := 0 to Length(Dataset.ItemList) - 1 do
+        Dataset.ItemList[I].itemAttributes.Exchange(Selected.Index, Selected.Index + 1);
+    end
+    else
+      Exit;
+  if PageControl.TabIndex = 0 then
+    CharacterListView.SetFocus;
   for J := 0 to CharacterListView.Items.Count - 1 do
   begin
     CharStr := Copy(CharacterListView.Items[J].Caption,
@@ -3098,27 +3111,27 @@ end;
 
 procedure TMainForm.MoveCharacterUpClick(Sender: TObject);
 var
-  I, J: integer;
-  CharStr: string;
   Selected: TListItem;
+  CharStr: string;
+  I, J: integer;
 begin
   Selected := CharacterListView.Selected;
   if Assigned(Selected) then
-    if CharacterListView.Selected.Index - 1 >= 0 then
+    if Selected.Index - 1 >= 0 then
     begin
-      ExchangeCharacters(CharacterListView.Selected.Index,
-        CharacterListView.Selected.Index + 1);
+      ExchangeCharacters(Selected.Index, Selected.Index - 1);
       for I := 0 to Length(Dataset.ItemList) - 1 do
-        Dataset.ItemList[I].itemAttributes.Exchange(CharacterListView.Selected.Index,
-          CharacterListView.Selected.Index + 1);
+        Dataset.ItemList[I].itemAttributes.Exchange(Selected.Index, Selected.Index - 1);
     end
     else
       Exit;
+  if PageControl.TabIndex = 0 then
+    CharacterListView.SetFocus;
   for J := 0 to CharacterListView.Items.Count - 1 do
   begin
-    CharStr := Copy(CharacterListView.Items[I].Caption,
-      Pos('.', CharacterListView.Items[I].Caption) + 1,
-      Length(CharacterListView.Items[I].Caption));
+    CharStr := Copy(CharacterListView.Items[J].Caption,
+      Pos('.', CharacterListView.Items[J].Caption) + 1,
+      Length(CharacterListView.Items[J].Caption));
     CharacterListView.Items[J].Caption := IntToStr(J + 1) + '. ' + CharStr;
   end;
   LoadMatrix;
@@ -4732,7 +4745,11 @@ begin
     CharacterListView.Items.Delete(CharIndex);
     DeleteOneCharacter(Dataset.CharacterList, CharIndex);
     for J := 0 to Length(Dataset.CharacterList) - 1 do
+    try
       Dataset.CharacterList[J].charStates.Delete(CharIndex);
+    except
+      break;
+    end;
     LoadCharacterList;
     DataMatrix.DeleteCol(CharIndex + 1);
     DataMatrix.Refresh;

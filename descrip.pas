@@ -184,7 +184,7 @@ begin
     begin
       LabelDependent.Caption :=
         Format(strDependent, [DependentChar, ExtractDelimited(1, ControlChars, [','])]);
-      EditDesc.Enabled := False;
+      //EditDesc.Enabled := False;
     end
     else
       LabelDependent.Caption :=
@@ -199,7 +199,7 @@ begin
         [':']), ExtractDelimited(1, Dataset.CharacterList[M].charDependent, [':'])])
     else
       LabelDependent.Caption := '';
-    EditDesc.Enabled := True;
+    //EditDesc.Enabled := True;
   end;
 end;
 

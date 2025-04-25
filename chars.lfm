@@ -149,15 +149,15 @@ object CharacterForm: TCharacterForm
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poMainFormCenter
-  LCLVersion = '3.6.0.0'
+  LCLVersion = '3.8.0.0'
   object PageControl: TPageControl
     Left = 12
     Height = 407
     Top = 17
     Width = 336
-    ActivePage = TabSheetCharacter
+    ActivePage = TabSheetDepend
     ParentShowHint = False
-    TabIndex = 0
+    TabIndex = 2
     TabOrder = 0
     object TabSheetCharacter: TTabSheet
       Caption = 'Character'
@@ -173,6 +173,7 @@ object CharacterForm: TCharacterForm
         EditLabel.Caption = 'Character Description:'
         EditLabel.ParentColor = False
         TabOrder = 0
+        OnEditingDone = EditCharEditingDone
       end
       object rbUM: TRadioButton
         Left = 8
@@ -183,6 +184,7 @@ object CharacterForm: TCharacterForm
         Checked = True
         TabOrder = 1
         TabStop = True
+        OnChange = rbUMChange
         OnClick = rbUMClick
       end
       object rbOM: TRadioButton
@@ -193,6 +195,7 @@ object CharacterForm: TCharacterForm
         Caption = 'Ordered'
         TabOrder = 2
         TabStop = True
+        OnChange = rbOMChange
         OnClick = rbOMClick
       end
       object rbIN: TRadioButton
@@ -203,6 +206,7 @@ object CharacterForm: TCharacterForm
         Caption = 'Integer'
         TabOrder = 3
         TabStop = True
+        OnChange = rbINChange
         OnClick = rbINClick
       end
       object rbRN: TRadioButton
@@ -213,6 +217,7 @@ object CharacterForm: TCharacterForm
         Caption = 'Real'
         TabOrder = 4
         TabStop = True
+        OnChange = rbRNChange
         OnClick = rbRNClick
       end
       object rbTE: TRadioButton
@@ -223,6 +228,7 @@ object CharacterForm: TCharacterForm
         Caption = 'Text'
         TabOrder = 5
         TabStop = True
+        OnChange = rbTEChange
         OnClick = rbTEClick
       end
       object LabelStates: TLabel
@@ -540,6 +546,7 @@ object CharacterForm: TCharacterForm
         EditLabel.Caption = 'Unit:'
         EditLabel.ParentColor = False
         TabOrder = 8
+        OnEditingDone = EditUnitEditingDone
       end
     end
     object TabSheetNote: TTabSheet
@@ -554,6 +561,7 @@ object CharacterForm: TCharacterForm
         Align = alClient
         ScrollBars = ssAutoVertical
         TabOrder = 0
+        OnEditingDone = EditNoteEditingDone
       end
     end
     object TabSheetDepend: TTabSheet
@@ -587,6 +595,7 @@ object CharacterForm: TCharacterForm
         ParentShowHint = False
         ShowHint = True
         TabOrder = 1
+        OnClickCheck = CheckCharactersClickCheck
       end
       object Label1: TLabel
         Left = 8

@@ -40,11 +40,15 @@ type
     DownBtn: TSpeedButton;
     TabSheetCharacter: TTabSheet;
     TabSheetNote: TTabSheet;
+    procedure CheckCharactersClickCheck(Sender: TObject);
     procedure CheckImplicitClick(Sender: TObject);
     procedure ClearBtnClick(Sender: TObject);
     procedure ComboAttributesChange(Sender: TObject);
     procedure DownBtnClick(Sender: TObject);
     procedure EditBtnClick(Sender: TObject);
+    procedure EditCharEditingDone(Sender: TObject);
+    procedure EditNoteEditingDone(Sender: TObject);
+    procedure EditUnitEditingDone(Sender: TObject);
     procedure ExcludeBtnClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
@@ -53,10 +57,15 @@ type
     procedure IncludeBtnClick(Sender: TObject);
     procedure ListStatesSelectionChange(Sender: TObject; User: boolean);
     procedure OKButtonClick(Sender: TObject);
+    procedure rbINChange(Sender: TObject);
     procedure rbINClick(Sender: TObject);
+    procedure rbOMChange(Sender: TObject);
     procedure rbOMClick(Sender: TObject);
+    procedure rbRNChange(Sender: TObject);
     procedure rbRNClick(Sender: TObject);
+    procedure rbTEChange(Sender: TObject);
     procedure rbTEClick(Sender: TObject);
+    procedure rbUMChange(Sender: TObject);
     procedure rbUMClick(Sender: TObject);
     procedure UpBtnClick(Sender: TObject);
   private
@@ -113,6 +122,7 @@ begin
     Index := ListStates.Items.IndexOf(StateStr);
     ListStates.Selected[Index] := True;
     EnableControls(Self);
+    MainForm.FileIsChanged := True;
   end;
 end;
 
@@ -167,9 +177,19 @@ begin
 	DependentChar := '';	
 end;
 
+procedure TCharacterForm.rbINChange(Sender: TObject);
+begin
+  MainForm.FileIsChanged := True;
+end;
+
 procedure TCharacterForm.rbINClick(Sender: TObject);
 begin
   EnableControls(Sender);
+end;
+
+procedure TCharacterForm.rbOMChange(Sender: TObject);
+begin
+  MainForm.FileIsChanged := True;
 end;
 
 procedure TCharacterForm.rbOMClick(Sender: TObject);
@@ -177,14 +197,29 @@ begin
   EnableControls(Sender);
 end;
 
+procedure TCharacterForm.rbRNChange(Sender: TObject);
+begin
+  MainForm.FileIsChanged := True;
+end;
+
 procedure TCharacterForm.rbRNClick(Sender: TObject);
 begin
   EnableControls(Sender);
 end;
 
+procedure TCharacterForm.rbTEChange(Sender: TObject);
+begin
+  MainForm.FileIsChanged := True;
+end;
+
 procedure TCharacterForm.rbTEClick(Sender: TObject);
 begin
   EnableControls(Sender);
+end;
+
+procedure TCharacterForm.rbUMChange(Sender: TObject);
+begin
+  MainForm.FileIsChanged := True;
 end;
 
 procedure TCharacterForm.rbUMClick(Sender: TObject);
@@ -205,6 +240,7 @@ begin
     ListStates.Items.Insert(Index - 1, Selected);
     ListStates.Selected[Index - 1];
     ListStates.Selected[Index - 1] := True;
+    MainForm.FileIsChanged := True;
   end;
 end;
 
@@ -212,12 +248,14 @@ procedure TCharacterForm.ClearBtnClick(Sender: TObject);
 begin
   ListStates.Clear;
   EnableControls(Self);
+  MainForm.FileIsChanged := True;
 end;
 
 procedure TCharacterForm.ComboAttributesChange(Sender: TObject);
 begin
   if CharIndex > 0 then
     DependentChar := IntToStr(ComboAttributes.ItemIndex + 1);
+  MainForm.FileIsChanged := True;
 end;
 
 {procedure TCharacterForm.ComboAttributesChange(Sender: TObject);
@@ -226,6 +264,7 @@ var
   First, Last: integer;
   depRule, depChar, depState: string;
 begin
+  MainForm.FileIsChanged := True;
   if CharIndex > 0 then
   begin
     if Dataset.CharacterList[CharIndex - 1].charDependent.Count > 0 then
@@ -275,6 +314,12 @@ begin
   Index := ListStates.ItemIndex + 1;
   if CheckImplicit.Checked then
     StateImplicit := Index;
+  MainForm.FileIsChanged := True;
+end;
+
+procedure TCharacterForm.CheckCharactersClickCheck(Sender: TObject);
+begin
+  MainForm.FileIsChanged := True;
 end;
 
 procedure TCharacterForm.DownBtnClick(Sender: TObject);
@@ -290,6 +335,7 @@ begin
     ListStates.Items.Insert(Index + 1, Selected);
     ListStates.Selected[Index + 1];
     ListStates.Selected[Index + 1] := True;
+    MainForm.FileIsChanged := True;
   end;
 end;
 
@@ -312,8 +358,24 @@ begin
       //  Exit;
       //end;
       ListStates.Items[Index] := Selected;
+      MainForm.FileIsChanged := True;
     //end;
   end;
+end;
+
+procedure TCharacterForm.EditCharEditingDone(Sender: TObject);
+begin
+  MainForm.FileIsChanged := True;
+end;
+
+procedure TCharacterForm.EditNoteEditingDone(Sender: TObject);
+begin
+  MainForm.FileIsChanged := True;
+end;
+
+procedure TCharacterForm.EditUnitEditingDone(Sender: TObject);
+begin
+  MainForm.FileIsChanged := True;
 end;
 
 procedure TCharacterForm.ExcludeBtnClick(Sender: TObject);
@@ -322,6 +384,7 @@ begin
   begin
     ListStates.DeleteSelected;
     EnableControls(Self);
+    MainForm.FileIsChanged := True;
   end;
 end;
 
