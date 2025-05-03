@@ -1,22 +1,22 @@
 {========================================================================}
 {                          D E L T A  Library                            }
-{                                                                        }
+
 {     A General-Purpose Library of Routines for Reading and Writing      }
 {      Text Files in DELTA (DEscription Language for TAxonomy) Format    }
-{                                                                        }
+
 {                      Version 1.0, November 1994                        }
 {              Version 2.1, August 1996, Updated May 1998                }
 {    Version 3.3, June 2016, Updated July 2020, June 2021, December 2023 }
 {                      Version 4.0, March 2025                           }
-{                                                                        }
+
 {          Author: Mauro J. Cavalcanti, Rio de Janeiro, BRASIL           }
 {                    E-mail: <maurobio@gmail.com>                        }
-{                                                                        }
+
 {  This program is free software; you can redistribute it and/or modify  }
 {  it under the terms of the GNU Lesser General Public License as        }
 {  published by the Free Software Foundation; either version 3 of the    }
 {  License, or (at your option) any later version.                       }
-{                                                                        }
+
 {  This program is distributed in the hope that it will be useful,       }
 {  but WITHOUT ANY WARRANTY; without even the implied warranty of        }
 {  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         }
@@ -137,6 +137,9 @@ function OmitInnerComments(const S: string): string;
 function CheckBrackets(const str: string): boolean;
 function ExpandRange(const Range: string): TStringList;
 function CompressRange(const Numbers: string): string;
+function ReplaceAngleBrackets(inString: string;
+  withParentheses: boolean = False): string;
+function ReadBetween(Src, Mark1, Mark2: string): string;
 
 { Helper routines }
 function Frequency(const C: char; const S: string): integer;
@@ -247,7 +250,6 @@ var
   Infile: TextFile;
   Line: string;
   title: string[80];
-
 begin
   title := '';
 
@@ -282,9 +284,9 @@ begin
     if (Pos(':', title) > 0) then
       title := Copy(title, 1, Pos(':', title) - 1);
     title := Trim(title);
-    
+
     break;
-    
+
   end;
   CloseFile(Infile);
 
@@ -389,19 +391,20 @@ begin
           '>': isComment := False;
         end;}
 
-		{ Read item attributes - modified to handle nested brackets }
+        { Read item attributes - modified to handle nested brackets }
         case ch of
           '<': begin
-                 if not isComment then bracketDepth := 1
-                 else Inc(bracketDepth);
-                 isComment := True;
-               end;
+            if not isComment then bracketDepth := 1
+            else
+              Inc(bracketDepth);
+            isComment := True;
+          end;
           '>': if isComment then
-               begin
-                 Dec(bracketDepth);
-                 if bracketDepth = 0 then
-                   isComment := False;
-               end;
+            begin
+              Dec(bracketDepth);
+              if bracketDepth = 0 then
+                isComment := False;
+            end;
         end;
 
         if ((ch = ' ') or (ch = #10) or (ch = #13)) and (not isComment) then
@@ -448,8 +451,8 @@ begin
           if (number > 0) then
           begin
             //if (Pos('<<', Value) > 0) then
-              //Value := ExtractDelimited(1, Value, ['<']);
-              //Value := OmitInnerComments(Value);
+            //Value := ExtractDelimited(1, Value, ['<']);
+            //Value := OmitInnerComments(Value);
             itemAttribute := Value;
             ItemList[itemCount - 1].itemAttributes.Insert(number -
               1, itemAttribute);
@@ -665,7 +668,7 @@ var
             begin
               cdepend := ExtractDelimited(2, aux, [',']);
               //Character.charDependent.Add(cdepend);
-			  Character.charDependent := cdepend;
+              Character.charDependent := cdepend;
             end
             else if (targetDirective = implicitDirective) then
             begin
@@ -707,7 +710,7 @@ var
             begin
               cdepend := ExtractDelimited(2, aux, [',']);
               //Character.charDependent.Add(cdepend);
-			  Character.charDependent := cdepend;
+              Character.charDependent := cdepend;
             end
             else if (targetDirective = implicitDirective) then
             begin
@@ -886,7 +889,6 @@ var
   charStr, stateStr, unitStr: string;
   I, J, numChars: integer;
   Character: TCharacter;
-
 begin
   if (Length(CharacterList) = 0) then
   begin
@@ -960,7 +962,6 @@ var
   I, J, numItems: integer;
   Item: TItem;
   Character: TCharacter;
-
 begin
   if (Length(ItemList) = 0) then
   begin
@@ -1035,7 +1036,6 @@ var
   I, J, numChars, numStates, numItems, maxStates, charNum, RetVal: integer;
   //Size, DataBufferSize: integer;
   Character: TCharacter;
-
 begin
   if (Length(CharacterList) = 0) or (Length(ItemList) = 0) then
   begin
@@ -1100,10 +1100,10 @@ begin
     if (Character.charType <> 'UM') then
       typeStr := Concat(typeStr, IntToStr(I + 1), ',', Character.charType, ' ');
   end;
-  
+
   if Length(typeStr) = 0 then
-	typeStr := '1-' + IntToStr(Length(CharacterList)) + ',UM';
-  
+    typeStr := '1-' + IntToStr(Length(CharacterList)) + ',UM';
+
   WriteLn(Outfile, WrapText(typeStr, #13#10, [' '], 79));
 
   { Write number of states }
@@ -1159,7 +1159,7 @@ begin
       depStr := Concat(depStr, IntToStr(I + 1), ',',
         Character.charDependent[J], ' ');
     end;}
-	if (Length(Character.charDependent) > 0) then
+    if (Length(Character.charDependent) > 0) then
       depStr := Concat(depStr, IntToStr(I + 1), ',',
         Character.charDependent, ' ');
   end;
@@ -1180,7 +1180,6 @@ var
   Ch: char;
   Buffer: string;
   Character: TCharacter;
-
 begin
   if Length(CharacterList) = 0 then
   begin
@@ -1340,7 +1339,6 @@ var
   dirFile: TextFile;
   txtLine: string;
   Value: integer;
-
 begin
   if not FileExists(specsFile) then
   begin
@@ -1553,5 +1551,53 @@ begin
     L.Free;
   end;
 end; { CompressRange }
+
+{==========================================================================}
+{       Replace angle brackets by parentheses or omit them entirely        }
+{==========================================================================}
+function ReplaceAngleBrackets(inString: string;
+  withParentheses: boolean = False): string;
+var
+  outString: string;
+begin
+  if withParentheses then
+  begin
+    outString := StringReplace(inString, '<', '(', [rfReplaceAll]);
+    outString := StringReplace(inString, '>', ')', [rfReplaceAll]);
+  end
+  else
+  begin
+    outString := StringReplace(inString, '<', '', [rfReplaceAll]);
+    outString := StringReplace(inString, '>', '', [rfReplaceAll]);
+  end;
+  Result := outString;
+end; { ReplaceAngleBrackets }
+
+{==========================================================================}
+{          Extract a substring from a string partitioned by delimiters     }
+{==========================================================================}
+function ReadBetween(Src, Mark1, Mark2: string): string;
+var
+  i, j: integer;
+  TmpStr: string;
+
+  function InStr(Start: integer; SubSt, St: string): integer;
+  var
+    Posn: integer;
+  begin
+    Posn := Pos(SubSt, Copy(St, Start, Length(St)));
+    {Posn := Pos (SubSt, Copy (St, Start, 255) );}
+    if Posn > 0 then
+      Posn := Posn + Start - 1;
+    Instr := Posn;
+  end;
+
+begin
+  i := Pos(Mark1, Src);
+  j := InStr(i + Length(Mark1), Src, Mark2);
+  if (i > 0) and (j > 0) then
+    TmpStr := Copy(Src, i + Length(Mark1) + 1, j - 1);
+  Result := TmpStr;
+end; { ReadBetween }
 
 end.

@@ -462,6 +462,11 @@ object MainForm: TMainForm
           Hint = 'Import data from DELTA files'
           OnClick = ImportDeltaItemClick
         end
+        object ImportNexusItem: TMenuItem
+          Caption = 'NEXUS...'
+          Hint = 'Import data from Nexus file'
+          OnClick = ImportNexusItemClick
+        end
         object ImportTextItem: TMenuItem
           Caption = 'Text...'
           Hint = 'Import data from delimited text file'
@@ -475,6 +480,16 @@ object MainForm: TMainForm
           Caption = 'DELTA...'
           Hint = 'Save data in DELTA format'
           OnClick = ExportDELTAItemClick
+        end
+        object ExportNexusItem: TMenuItem
+          Caption = 'NEXUS...'
+          Hint = 'Save data in Nexus format'
+          OnClick = ExportNexusItemClick
+        end
+        object ExportTNTItem: TMenuItem
+          Caption = 'TNT...'
+          Hint = 'Save data in TNT format'
+          OnClick = ExportTNTItemClick
         end
         object ExportXDELTAItem: TMenuItem
           Caption = 'XDELTA...'

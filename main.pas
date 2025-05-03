@@ -491,6 +491,10 @@
 {                                 - Fixed a bug which caused the editing status }
 {                                   indicator in the title bar when a file was  }
 {                                   modified and then saved.                    }
+{ Version 4.10, 2nd May, 2025     - Restored the Nexus and TNT options to the   }
+{                                   Export menu from previous version 2.9.2.    }
+{                                 - Restored the Nexus option to the Import     }
+{                                   menu from previous version 2.9.2.           }
 {===============================================================================}
 unit Main;
 
@@ -502,7 +506,7 @@ uses
   LCLIntf, LCLType, Classes, SysUtils, StrUtils, FileUtil, Forms, Controls,
   Graphics, Dialogs, ComCtrls, Menus, Clipbrd, IniFiles, HistoryFiles,
   CheckLst, LCLTranslator, ExtCtrls, StdCtrls, Grids, Zipper, Process,
-  Math, Delta, Types, GetText;
+  Math, Delta, Types, GetText, Nexus;
 
 const
   Checked = 20;
@@ -529,6 +533,9 @@ type
     LanguageSpanishItem: TMenuItem;
     ExportSLIKSItem: TMenuItem;
     EditDescriptionItem: TMenuItem;
+    ImportNexusItem: TMenuItem;
+    ExportNexusItem: TMenuItem;
+    ExportTNTItem: TMenuItem;
     N20: TMenuItem;
     SearchGotoLine: TMenuItem;
     SearchFindNextItem: TMenuItem;
@@ -675,9 +682,11 @@ type
     procedure EditScriptItemClick(Sender: TObject);
     procedure EditTitleItemClick(Sender: TObject);
     procedure ExportDELTAItemClick(Sender: TObject);
+    procedure ExportNexusItemClick(Sender: TObject);
     procedure ExportSLIKSItemClick(Sender: TObject);
     procedure ExportSpreadsheetItemClick(Sender: TObject);
     procedure ExportTextItemClick(Sender: TObject);
+    procedure ExportTNTItemClick(Sender: TObject);
     procedure ExportXDELTAItemClick(Sender: TObject);
     procedure FileClearMRUItemClick(Sender: TObject);
     procedure FileCloseItemClick(Sender: TObject);
@@ -696,6 +705,7 @@ type
     procedure HistoryFilesClickHistoryItem(Sender: TObject; Item: TMenuItem;
       const Filename: string);
     procedure ImportDeltaItemClick(Sender: TObject);
+    procedure ImportNexusItemClick(Sender: TObject);
     procedure ImportTextItemClick(Sender: TObject);
     procedure ItemListViewDblClick(Sender: TObject);
     procedure ItemListViewKeyDown(Sender: TObject; var Key: word;
@@ -2105,6 +2115,110 @@ begin
       end;
     end;
     //ChDir(CurDir);
+  end;
+end;
+
+procedure TMainForm.ImportNexusItemClick(Sender: TObject);
+var
+  i, j, max, size: integer;
+  title, attribute: string;
+  outfile: TextFile;
+  nstates: TStringList;
+  Zipper: TZipper;
+  NxData: TNexus;
+begin
+  OpenDialog.FileName := '';
+  OpenDialog.Title := strOpenFile;
+  OpenDialog.DefaultExt := '.nex';
+  OpenDialog.Filter := strNEXUSFilter;
+  if OpenDialog.Execute then
+  begin
+    title := InputBox(strNewCaption, strNewPrompt, '');
+    NxData := Nexus.ReadNexus(OpenDialog.FileName);
+    AssignFile(outfile, 'CHARS');
+    Rewrite(outfile);
+    WriteLn(outfile, '*SHOW - ', title, ' - character list.');
+    WriteLn(outfile);
+    WriteLn(outfile, '*CHARACTER LIST');
+    WriteLn(outfile);
+    nstates := TStringList.Create;
+    nstates.Delimiter := ' ';
+    max := 0;
+    for i := 0 to Length(NxData.CharList) - 1 do
+    begin
+      WriteLn(outfile, '#', i + 1, '. ', NxData.CharList[i].charName, '/');
+      if NxData.CharList[i].charStates.Count > max then
+        max := NxData.CharList[i].charStates.Count;
+      if NxData.CharList[i].charStates.Count > 2 then
+        nstates.Add(IntToStr(i + 1) + ',' + IntToStr(
+          NxData.CharList[i].charStates.Count));
+      for j := 0 to NxData.CharList[i].charStates.Count - 1 do
+        WriteLn(outfile, StringOfChar(' ', 8), j + 1, '. ',
+          NxData.CharList[i].charStates[j], '/');
+      WriteLn(outfile);
+    end;
+    CloseFile(outfile);
+    AssignFile(outfile, 'ITEMS');
+    Rewrite(outfile);
+    WriteLn(outfile, '*SHOW - ', title, ' - item descriptions.');
+    WriteLn(outfile);
+    WriteLn(outfile, '*ITEM DESCRIPTIONS');
+    WriteLn(outfile);
+    for i := 0 to Length(NxData.TaxaList) - 1 do
+    begin
+      WriteLn(outfile, '# ', NxData.TaxaList[i].taxonName, '/');
+      for j := 0 to NxData.TaxaList[i].taxonAttributes.Count - 1 do
+      begin
+        attribute := NxData.TaxaList[i].taxonAttributes[j];
+        Write(outfile, IntToStr(j + 1), ',', IfThen(attribute =
+          '?', 'U', attribute), ' ');
+      end;
+      WriteLn(outfile);
+      WriteLn(outfile);
+    end;
+    CloseFile(outfile);
+    AssignFile(outfile, 'SPECS');
+    Rewrite(outfile);
+    WriteLn(outfile, '*SHOW - ', title, ' - specifications.');
+    WriteLn(outfile);
+    WriteLn(outfile, '*NUMBER OF CHARACTERS ', IntToStr(Length(NxData.CharList)));
+    WriteLn(outfile, '*MAXIMUM NUMBER OF STATES ', IntToStr(max));
+    WriteLn(outfile, '*MAXIMUM NUMBER OF ITEMS ', IntToStr(Length(NxData.TaxaList)));
+    size := Length(NxData.CharList) * 20;
+    if size < 2000 then
+      size := 2000;
+    WriteLn(outfile, '*DATA BUFFER SIZE ', IntToStr(size));
+    WriteLn(outfile);
+    Write(outfile, '*CHARACTER TYPES 1-', IntToStr(Length(NxData.CharList)), ',UM');
+    WriteLn(outfile);
+    WriteLn(outfile);
+    WriteLn(outfile, '*NUMBERS OF STATES ', nstates.DelimitedText);
+    CloseFile(outfile);
+    nstates.Free;
+    SaveDialog.FileName := ChangeFileExt(OpenDialog.FileName, '.dtz');
+    SaveDialog.Title := strSaveFile;
+    SaveDialog.DefaultExt := '.dtz';
+    SaveDialog.Filter := strDtzFilter;
+    if SaveDialog.Execute then
+    begin
+      Zipper := TZipper.Create;
+      Zipper.FileName := SaveDialog.FileName;
+      try
+        Zipper.Entries.AddFileEntry('chars');
+        Zipper.Entries.AddFileEntry('items');
+        Zipper.Entries.AddFileEntry('specs');
+        Zipper.ZipAllFiles;
+      finally
+        Zipper.Free;
+      end;
+      MessageDlg(strInformation, Format(strImport,
+        [ExtractFileName(SaveDialog.FileName)]),
+        mtInformation, [mbOK], 0);
+      LoadFile(SaveDialog.FileName);
+      if PageControl.TabIndex = 0 then
+        ItemListView.SetFocus;
+    end;
+    NxData.Free;
   end;
 end;
 
@@ -3893,6 +4007,133 @@ begin
   end;
 end;
 
+procedure TMainForm.ExportNexusItemClick(Sender: TObject);
+var
+  outfile: TextFile;
+  tname, cname, sname, attribute: string;
+  i, j, k, n, nchar, MaxLen: integer;
+  Data: TStringList;
+begin
+  SaveDialog.FileName := ChangeFileExt(OpenDialog.FileName, '.nex');
+  SaveDialog.Title := strSaveFile;
+  SaveDialog.DefaultExt := '.nex';
+  SaveDialog.Filter := strNEXUSFilter;
+  if SaveDialog.Execute then
+  begin
+    AssignFile(outfile, SaveDialog.FileName);
+    Rewrite(outfile);
+    WriteLn(outfile, '#NEXUS');
+    WriteLn(outfile);
+    WriteLn(outfile, '[!', Dataset.Heading, ' ', DateTimeToStr(Now), ']');
+    WriteLn(outfile);
+    WriteLn(outfile, 'BEGIN TAXA;');
+    WriteLn(outfile, StringOfChar(' ', 4), 'DIMENSIONS NTAX=',
+      IntToStr(Length(Dataset.ItemList)), ';');
+    WriteLn(outfile, StringOfChar(' ', 4), 'TAXLABELS');
+    MaxLen := Length(Dataset.ItemList[0].itemName);
+    for i := 0 to Length(Dataset.ItemList) - 1 do
+    begin
+      tname := Trim(OmitTypesettingMarks(RemoveComments(Dataset.ItemList[i].itemName)));
+      tname := '''' + tname + '''';
+      WriteLn(outfile, StringOfChar(' ', 8), tname);
+      if Length(Dataset.ItemList[i].itemName) > MaxLen then
+        MaxLen := Length(Dataset.ItemList[i].itemName);
+    end;
+    WriteLn(outfile, StringOfChar(' ', 8), ';');
+    WriteLn(outfile, 'ENDBLOCK;');
+    WriteLn(outfile);
+    nchar := 0;
+    for j := 0 to Length(Dataset.CharacterList) - 1 do
+      if (Dataset.CharacterList[j].charType = 'UM') or
+        (Dataset.CharacterList[j].charType = 'OM') then
+        Inc(nchar);
+    WriteLn(outfile, 'BEGIN CHARACTERS;');
+    WriteLn(outfile, StringOfChar(' ', 4), 'DIMENSIONS NCHAR=', IntToStr(nchar), ';');
+    WriteLn(outfile, StringOfChar(' ', 4),
+      'FORMAT DATATYPE=STANDARD GAP=- MISSING=? SYMBOLS="0123456789";');
+    WriteLn(outfile, StringOfChar(' ', 4), 'CHARLABELS');
+    n := 1;
+    for j := 0 to Length(Dataset.CharacterList) - 1 do
+    begin
+      if (Dataset.CharacterList[j].charType = 'UM') or
+        (Dataset.CharacterList[j].charType = 'OM') then
+      begin
+        cname := Trim(OmitTypesettingMarks(Dataset.CharacterList[j].charName));
+        if Pos(Chr(39), cname) > 0 then
+          cname := StringReplace(cname, Chr(39), Chr(39) + Chr(39), [rfReplaceAll]);
+        WriteLn(outfile, StringOfChar(' ', 8), '[', IntToStr(n),
+          '] ', '''', cname, '''');
+        Inc(n);
+      end;
+    end;
+    WriteLn(outfile, StringOfChar(' ', 8), ';');
+    WriteLn(outfile, StringOfChar(' ', 4), 'STATELABELS');
+    n := 1;
+    for j := 0 to Length(Dataset.CharacterList) - 1 do
+    begin
+      if (Dataset.CharacterList[j].charType = 'UM') or
+        (Dataset.CharacterList[j].charType = 'OM') then
+      begin
+        Write(outfile, StringOfChar(' ', 8), IntToStr(n), ' ');
+        for k := 0 to Dataset.CharacterList[j].charStates.Count - 1 do
+        begin
+          sname := Trim(OmitTypesettingMarks(Dataset.CharacterList[j].charStates[k]));
+          if Pos(Chr(39), sname) > 0 then
+            sname := StringReplace(sname, Chr(39), Chr(39) + Chr(39), [rfReplaceAll]);
+          Write(outfile, '''', sname, '''', ', ');
+        end;
+        Inc(n);
+        WriteLn(outfile);
+      end;
+    end;
+    WriteLn(outfile, StringOfChar(' ', 4), ';');
+    WriteLn(outfile, StringOfChar(' ', 4), 'MATRIX');
+    for i := 0 to Length(Dataset.ItemList) - 1 do
+    begin
+      tname := Trim(OmitTypesettingMarks(RemoveComments(Dataset.ItemList[i].itemName)));
+      tname := '''' + tname + '''';
+      Write(outfile, StringOfChar(' ', 8), PadRight(tname, MaxLen + 4));
+      for j := 0 to Dataset.ItemList[i].itemAttributes.Count - 1 do
+      begin
+        if (Dataset.CharacterList[j].charType = 'UM') or
+          (Dataset.CharacterList[j].charType = 'OM') then
+        begin
+          attribute := Delta.RemoveComments(Dataset.ItemList[i].itemAttributes[j]);
+          if attribute = 'U' then
+            attribute := '?';
+          if (Pos('-', attribute) > 0) or (Pos('&', attribute) > 0) or
+            (Pos('/', attribute) > 0) then
+          begin
+            Data := TStringList.Create;
+            Split(Data, attribute, ['-', '&', '/']);
+            if Data.Count > 1 then
+            begin
+              Join(Data, attribute, '');
+              attribute := '(' + attribute + ')';
+            end;
+            Data.Free;
+          end;
+          Write(outfile, attribute);
+        end;
+      end;
+      WriteLn(outfile);
+    end;
+    WriteLn(outfile, StringOfChar(' ', 4), ';');
+    WriteLn(outfile, 'ENDBLOCK;');
+    WriteLn(outfile);
+    WriteLn(outfile, 'BEGIN ASSUMPTIONS;');
+    WriteLn(outfile, StringOfChar(' ', 4), 'OPTIONS DEFTYPE=UNORD POLYTCOUNT=MINSTEPS;');
+    WriteLn(outfile, StringOfChar(' ', 4), 'TYPESET * default = UNORD: 1-',
+      IntToStr(nchar), ';');
+    WriteLn(outfile, StringOfChar(' ', 4), 'WTSET * default = 1: 1-',
+      IntToStr(nchar), ';');
+    WriteLn(outfile, 'ENDBLOCK;');
+    CloseFile(outfile);
+    MessageDlg(strInformation, Format(strExport, [SaveDialog.FileName]),
+      mtInformation, [mbOK], 0);
+  end;
+end;
+
 procedure TMainForm.ExportSLIKSItemClick(Sender: TObject);
 var
   NewDataset: TDelta;
@@ -4070,6 +4311,98 @@ begin
   begin
     DataMatrix.SaveToCSVFile(SaveDialog.FileName, #9);
     MessageDlg(strInformation, Format(strExportFile, [SaveDialog.FileName]),
+      mtInformation, [mbOK], 0);
+  end;
+end;
+
+procedure TMainForm.ExportTNTItemClick(Sender: TObject);
+var
+  outfile: TextFile;
+  tname, attribute, states: string;
+  i, j, k, n, nchar, maxlen: integer;
+  Data: TStringList;
+begin
+  SaveDialog.FileName := ChangeFileExt(OpenDialog.FileName, '.tnt');
+  SaveDialog.Title := strSaveFile;
+  SaveDialog.DefaultExt := '.tnt';
+  SaveDialog.Filter := strTNTFilter;
+  if SaveDialog.Execute then
+  begin
+    AssignFile(outfile, SaveDialog.FileName);
+    Rewrite(outfile);
+    WriteLn(outfile, 'xread');
+    WriteLn(outfile, '''', Dataset.Heading, '''');
+    nchar := 0;
+    for j := 0 to Length(Dataset.CharacterList) - 1 do
+      if (Dataset.CharacterList[j].charType = 'UM') or
+        (Dataset.CharacterList[j].charType = 'OM') then
+        Inc(nchar);
+    WriteLn(outfile, IntToStr(nchar), ' ', IntToStr(Length(Dataset.ItemList)));
+    //maxlen := Length(RemoveComments(Dataset.ItemList[0].itemName));
+    //for i := 0 to Length(Dataset.ItemList) - 1 do
+    //begin
+      //tname := OmitTypesettingMarks(RemoveComments(Dataset.ItemList[i].itemName));
+      //if Length(tname) > maxlen then
+      //  maxlen := Length(tname);
+    //end;
+    for i := 0 to Length(Dataset.ItemList) - 1 do
+    begin
+      //Write(outfile, PadRight(Dataset.ItemList[i].itemName, maxlen + 1));
+      tname := OmitTypesettingMarks(RemoveComments(Dataset.ItemList[i].itemName));
+      WriteLn(outfile, StringReplace(tname, ' ', '_', [rfReplaceAll]));
+      for j := 0 to Dataset.ItemList[i].itemAttributes.Count - 1 do
+      begin
+        if (Dataset.CharacterList[j].charType = 'UM') or
+          (Dataset.CharacterList[j].charType = 'OM') then
+        begin
+          attribute := RemoveComments(Dataset.ItemList[i].itemAttributes[j]);
+          if attribute = 'U' then
+            attribute := '?';
+          if (Pos('-', attribute) > 0) or (Pos('&', attribute) > 0) or
+            (Pos('/', attribute) > 0) then
+          begin
+            Data := TStringList.Create;
+            Split(Data, attribute, ['-', '&', '/']);
+            if Data.Count > 1 then
+            begin
+              Join(Data, attribute, '');
+              attribute := '[' + attribute + ']';
+            end;
+            Data.Free;
+          end;
+          Write(outfile, attribute);
+        end;
+      end;
+      WriteLn(outfile);
+    end;
+    WriteLn(outfile, ';');
+    WriteLn(outfile);
+    WriteLn(outfile, 'hold 100;');
+    WriteLn(outfile);
+    WriteLn(outfile, 'cnames');
+    n := 0;
+    for j := 0 to Length(Dataset.CharacterList) - 1 do
+    begin
+      if (Dataset.CharacterList[j].charType = 'UM') or
+        (Dataset.CharacterList[j].charType = 'OM') then
+      begin
+        Write(outfile, '{ ', IntToStr(n), ' ',
+          StringReplace(Trim(Dataset.CharacterList[j].charName), ' ',
+          '_', [rfReplaceAll]), ' ');
+        states := '';
+        for k := 0 to Dataset.CharacterList[j].charStates.Count - 1 do
+          states := states + StringReplace(
+            Trim(Dataset.CharacterList[j].charStates[k]), ' ', '_',
+            [rfReplaceAll]) + ' ';
+        WriteLn(outfile, Trim(states), ';');
+        Inc(n);
+      end;
+    end;
+    WriteLn(outfile, ';');
+    WriteLn(outfile);
+    WriteLn(outfile, 'proc/;');
+    CloseFile(outfile);
+    MessageDlg(strInformation, Format(strExport, [SaveDialog.FileName]),
       mtInformation, [mbOK], 0);
   end;
 end;
