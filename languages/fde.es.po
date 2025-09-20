@@ -4401,6 +4401,15 @@ msgstr "DELTA..."
 msgid "Save data in DELTA format"
 msgstr "Guardar datos en formato DELTA"
 
+#: tmainform.exportnexusitem.caption
+msgctxt "tmainform.exportnexusitem.caption"
+msgid "NEXUS..."
+msgstr "NEXUS..."
+
+#: tmainform.exportnexusitem.hint
+msgid "Save data in Nexus format"
+msgstr "Guardar datos en formato Nexus"
+
 #: tmainform.exportsliksitem.caption
 msgid "SLIKS"
 msgstr "SLIKS"
@@ -4425,6 +4434,14 @@ msgstr "Texto"
 #: tmainform.exporttextitem.hint
 msgid "Export data to delimited text file"
 msgstr "Exportar datos a un archivo de texto delimitado"
+
+#: tmainform.exporttntitem.caption
+msgid "TNT..."
+msgstr "TNT..."
+
+#: tmainform.exporttntitem.hint
+msgid "Save data in TNT format"
+msgstr "Guardar datos en formato TNT"
 
 #: tmainform.exportxdeltaitem.caption
 msgid "XDELTA..."
@@ -4569,6 +4586,15 @@ msgstr "DELTA..."
 #: tmainform.importdeltaitem.hint
 msgid "Import data from DELTA files"
 msgstr "Importar datos de archivos DELTA"
+
+#: tmainform.importnexusitem.caption
+msgctxt "tmainform.importnexusitem.caption"
+msgid "NEXUS..."
+msgstr "NEXUS..."
+
+#: tmainform.importnexusitem.hint
+msgid "Import data from Nexus file"
+msgstr "Importar datos de un archivo Nexus"
 
 #: tmainform.importtextitem.caption
 msgctxt "tmainform.importtextitem.caption"

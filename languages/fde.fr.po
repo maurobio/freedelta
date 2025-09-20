@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Free Delta Editor\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-03-14 10:07-0300\n"
+"PO-Revision-Date: 2025-04-29 18:25-0300\n"
 "Last-Translator: Mauro J. Cavalcanti <maurobio@gmail.com>\n"
 "Language-Team: Free Delta Development Team\n"
 "Language: fr\n"
@@ -4405,6 +4405,15 @@ msgstr "DELTA..."
 msgid "Save data in DELTA format"
 msgstr "Enregistrer les données au format DELTA"
 
+#: tmainform.exportnexusitem.caption
+msgctxt "tmainform.exportnexusitem.caption"
+msgid "NEXUS..."
+msgstr "NEXUS..."
+
+#: tmainform.exportnexusitem.hint
+msgid "Save data in Nexus format"
+msgstr "Enregistrer les données au format Nexus"
+
 #: tmainform.exportsliksitem.caption
 msgid "SLIKS"
 msgstr "SLIKS"
@@ -4429,6 +4438,14 @@ msgstr "Texte..."
 #: tmainform.exporttextitem.hint
 msgid "Export data to delimited text file"
 msgstr "Exporter les données vers un fichier texte délimité"
+
+#: tmainform.exporttntitem.caption
+msgid "TNT..."
+msgstr "TNT..."
+
+#: tmainform.exporttntitem.hint
+msgid "Save data in TNT format"
+msgstr "Enregistrer les données au format TNT"
 
 #: tmainform.exportxdeltaitem.caption
 msgid "XDELTA..."
@@ -4574,6 +4591,15 @@ msgstr "DELTA..."
 msgid "Import data from DELTA files"
 msgstr "Importer des données à partir de fichiers DELTA"
 
+#: tmainform.importnexusitem.caption
+msgctxt "tmainform.importnexusitem.caption"
+msgid "NEXUS..."
+msgstr "NEXUS..."
+
+#: tmainform.importnexusitem.hint
+msgid "Import data from Nexus file"
+msgstr "Importer des données depuis un fichier Nexus"
+
 #: tmainform.importtextitem.caption
 msgctxt "tmainform.importtextitem.caption"
 msgid "Text..."
@@ -4685,7 +4711,7 @@ msgstr "Espagnol"
 
 #: tmainform.languagespanishitem.hint
 msgid "Mostrar la interfaz en español"
-msgstr ""
+msgstr "Afficher l'interface en espagnol"
 
 #: tmainform.listtab.caption
 msgid "List View"

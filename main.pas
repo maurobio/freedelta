@@ -18,7 +18,7 @@
 {   along with this program. If not, see <http://www.gnu.org/licenses/>.        }
 {                                                                               }
 {   Requirements:                                                               }
-{     Lazarus 2.0+ (www.lazarus.freepascal.org)                                 }
+{     Lazarus 3.0+ (www.lazarus.freepascal.org)                                 }
 {     Free Pascal 3.0+ (www.freepascal.org)                                     }
 {     HistoryFiles 1.3+ (wiki.freepascal.org/HistoryFiles)                      }
 {     HtmlViewer 10.2+ (wiki.freepascal.org/THtmlPort)                          }
@@ -495,6 +495,10 @@
 {                                   Export menu from previous version 2.9.2.    }
 {                                 - Restored the Nexus option to the Import     }
 {                                   menu from previous version 2.9.2.           }
+{ Version 4.20, 20 Sep, 2025      - Added numbering to items and characters in  }
+{                                   matrix view.                                }
+{                                 - Removed call to CleanData procedure to keep }
+{                                   inner comments when importing DELTA datasets}
 {===============================================================================}
 unit Main;
 
@@ -1715,9 +1719,11 @@ begin
   DataMatrix.ColCount := NCols + 1;
   for I := 0 to NRows - 1 do
     DataMatrix.Cells[0, I + 1] :=
-      Dataset.ItemList[I].itemName + ' ' + Dataset.ItemList[I].itemComment;
+      IntToStr(I + 1) + '. ' + Dataset.ItemList[I].itemName + ' ' +
+      Dataset.ItemList[I].itemComment;
   for J := 0 to NCols - 1 do
-    DataMatrix.Cells[J + 1, 0] := Dataset.CharacterList[J].charName;
+    DataMatrix.Cells[J + 1, 0] :=
+      IntToStr(J + 1) + '. ' + Dataset.CharacterList[J].charName;
   for J := 0 to NCols - 1 do
   begin
     for I := 0 to NRows - 1 do
@@ -2088,10 +2094,10 @@ begin
       if SaveDialog.Execute then
       begin
         Screen.Cursor := crHourGlass;
-        CleanData('chars');
-        CleanData('items');
-        if FileExists('cnotes') then
-          CleanData('cnotes');
+        //CleanData('chars');
+        //CleanData('items');
+        //if FileExists('cnotes') then
+        //  CleanData('cnotes');
         Zipper := TZipper.Create;
         Zipper.FileName := SaveDialog.FileName;
         try
@@ -4341,9 +4347,9 @@ begin
     //maxlen := Length(RemoveComments(Dataset.ItemList[0].itemName));
     //for i := 0 to Length(Dataset.ItemList) - 1 do
     //begin
-      //tname := OmitTypesettingMarks(RemoveComments(Dataset.ItemList[i].itemName));
-      //if Length(tname) > maxlen then
-      //  maxlen := Length(tname);
+    //tname := OmitTypesettingMarks(RemoveComments(Dataset.ItemList[i].itemName));
+    //if Length(tname) > maxlen then
+    //  maxlen := Length(tname);
     //end;
     for i := 0 to Length(Dataset.ItemList) - 1 do
     begin
