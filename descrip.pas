@@ -34,6 +34,7 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure GoButtonClick(Sender: TObject);
+    procedure ListBoxStatesDblClick(Sender: TObject);
     procedure NextButtonClick(Sender: TObject);
     procedure OKButtonClick(Sender: TObject);
     procedure PrevButtonClick(Sender: TObject);
@@ -331,6 +332,25 @@ begin
   except
     on E: Exception do
       Exit;
+  end;
+end;
+
+procedure TDescriptionForm.ListBoxStatesDblClick(Sender: TObject);
+var
+  SelectedItem: string;
+  NumberPart: string;
+begin
+  // Check if an item is selected
+  if ListBoxStates.ItemIndex >= 0 then
+  begin
+    // Get the selected item text
+    SelectedItem := ListBoxStates.Items[ListBoxStates.ItemIndex];
+
+    // Extract the number part (without the dot and space)
+    NumberPart := ExtractNumberFromItem(SelectedItem);
+
+    // Display the number in the edit control
+    EditDesc.Text := NumberPart;
   end;
 end;
 

@@ -1,7 +1,7 @@
 {===============================================================================}
 {                          Free Delta Editor                                    }
 {         A software package for building taxonomic databases                   }
-{                   (c) 2000-2025 by Mauro J. Cavalcanti                        }
+{                   (c) 2000-2026 by Mauro J. Cavalcanti                        }
 {                         <maurobio@gmail.com>                                  }
 {                                                                               }
 {   This program is free software: you can redistribute it and/or modify        }
@@ -502,6 +502,26 @@
 { Version 4.30, 10 Dec, 2025      - Fixed a bug which sometimes caused the      }
 {                                   export to SLIKS format procedure to truncate}
 {                                   the list of character states.               }
+{ Version 4.40, 2nd Apr, 2026     - Added Tab navigstion between the items and  }
+{                                   characters views.                           }
+{                                 - Added an event to the states list in the    }
+{                                   Describe form to extract the state number   }
+{                                   and display it in the state description     }
+{                                   field when the user double-clicks on it.    }
+{                                 - Added a check to verify if the file to be   }
+{                                   saved in the compressed the DELTA dtaset    }
+{                                   is not in ELF (Executable and Linkable      }
+{                                   Format) *Linux only*.                       }
+{                                 - Fixed a bug which caused the Import option  }
+{                                   to be permanently disabled.                 }
+{                                 - Fixed a bug which caused the *DATA BUFFER   }
+{                                   SIZE directive to be written with a value   }
+{                                   of 0 when saving the SPECS file.            }
+{                                 - Fixed a bug which caused the dataset heading}
+{                                   not being written when creating a new       }
+{                                   dataset or saving an existing one.          }
+{                                 - Fixed a bug which caused a new dataset not  }
+{                                   being included to the recent files list.    }
 {===============================================================================}
 unit Main;
 
@@ -707,6 +727,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormDropFiles(Sender: TObject; const FileNames: array of string);
+    procedure FormShow(Sender: TObject);
     procedure HelpAboutItemClick(Sender: TObject);
     procedure HelpMenuItemClick(Sender: TObject);
     procedure HistoryFilesClickHistoryItem(Sender: TObject; Item: TMenuItem;
@@ -780,6 +801,7 @@ type
     procedure ReadSettings(Sender: TObject);
     procedure WriteSettings(Sender: TObject);
     procedure ShowErrorLog(S: ansistring);
+    procedure SelectFirstItem(ListView: TListView);
   public
     { public declarations }
     sLang: string;
@@ -804,6 +826,7 @@ function GetFileNameWithoutExt(Filenametouse: string): string;
 function Capitalize(s: string): string;
 function ExistWordInString(const AString: PChar; const ASearchString: string;
   ASearchOptions: TStringSearchOptions): boolean;
+function ExtractNumberFromItem(ItemText: string): string;
 function ContainsChars(const Str: string; const Chars: TSysCharSet): boolean;
 procedure Join(const Values: TStrings; var S: string; const sep: string);
 procedure Split(const Values: TStrings; const S: string; const Delimiters: TSysCharSet);
@@ -842,6 +865,43 @@ end;
 function IsDigit(Ch: char): boolean;
 begin
   IsDigit := Ch in ['0'..'9'];
+end;
+
+function IsElfFile(const FileName: string): boolean;
+var
+  ElfFile: file;
+  Header: array[0..15] of byte;
+  BytesRead: integer;
+begin
+  Result := False;
+
+  // Check if file exists
+  if not FileExists(FileName) then
+    Exit;
+
+  // Assign file and open for binary read
+  Assign(ElfFile, FileName);
+  {$I-}  // Disable I/O checking
+  Reset(ElfFile, 1);  // Record size = 1 byte
+  {$I+}
+
+  // Check if file opened successfully
+  if IOResult <> 0 then
+    Exit;
+
+  // Read first 16 bytes (enough for ELF magic number)
+  BlockRead(ElfFile, Header, 16, BytesRead);
+  Close(ElfFile);
+
+  // Check if we read enough bytes
+  if BytesRead < 4 then
+    Exit;
+
+  // Check ELF magic number: 0x7F 'E' 'L' 'F'
+  Result := (Header[0] = $7F) and
+            (Header[1] = Ord('E')) and
+            (Header[2] = Ord('L')) and
+            (Header[3] = Ord('F'));
 end;
 
 function GetFileNameWithoutExt(Filenametouse: string): string;
@@ -900,6 +960,16 @@ var
 begin
   Size := StrLen(aString);
   Result := SearchBuf(AString, Size, 0, 0, ASearchString, ASearchOptions) <> nil;
+end;
+
+function ExtractNumberFromItem(ItemText: string): string;
+var
+  DotPos: Integer;
+begin
+  Result := '';
+  DotPos := Pos('.', ItemText);
+  if DotPos > 0 then
+    Result := Trim(Copy(ItemText, 1, DotPos - 1));
 end;
 
 procedure Join(const Values: TStrings; var S: string; const sep: string);
@@ -1003,8 +1073,8 @@ begin
 end;
 
 procedure ToNex(Inputfile: string);
-const
-  missDefault = '?';
+//const
+  //missDefault = '?';
 var
   title, Outputfile: string;
   infile, outfile: TextFile;
@@ -1057,8 +1127,8 @@ var
   end;
 
   procedure ReadHennig; { input the names and character state data for species }
-  const
-    ValidChars = ['0'..'9', '?', '-', ' '];
+  //const
+    //ValidChars = ['0'..'9', '?', '-', ' '];
   var
     i, j: integer;
     charstate: char;  { possible states are '0..9', '-', and '?' }
@@ -1187,6 +1257,16 @@ begin
 end;
 
 { TMainForm }
+
+procedure TMainForm.SelectFirstItem(ListView: TListView);
+begin
+  if ListView.Items.Count > 0 then
+  begin
+    ListView.ItemIndex := 0;
+    ListView.Selected := ListView.Items[0];
+    ListView.SetFocus;
+  end;
+end;
 
 function TMainForm.LocateR: boolean;
 begin
@@ -1487,7 +1567,7 @@ var
   S, Aux: string;
   I, J, CharNo, First, Last: integer;
   Values: TStringList;
-  LParent: TTreeNode;
+  //LParent: TTreeNode;
 begin
   for J := 0 to Length(Dataset.CharacterList) - 1 do
   begin
@@ -1537,7 +1617,7 @@ begin
   FileSaveAsItem.Enabled := FileIsOpen;
   FilePrintItem.Enabled := FileIsOpen;
   FileExportItem.Enabled := FileIsOpen;
-  FileImportItem.Enabled := not FileIsOpen;
+  //FileImportItem.Enabled := not FileIsOpen;
   FileClearMRUItem.Visible := HistoryFiles.Count > 0;
   EditAddItem.Enabled := FileIsOpen;
   EditInsertItem.Enabled := FileIsOpen;
@@ -1841,7 +1921,10 @@ begin
       for I := 1 to Length(FileList) do
       begin
         if FileExists(FileList[I]) then
-          OutZipper.Entries.AddFileEntry(FileList[i]);
+        begin
+          if not IsElfFile(FileList[I]) then
+             OutZipper.Entries.AddFileEntry(FileList[i]);
+        end;
       end;
       OutZipper.ZipAllFiles;
     finally
@@ -1854,6 +1937,7 @@ begin
     end;
     FileIsSaved := True;
     FileIsChanged := False;
+    HistoryFiles.UpdateList(Filename);
   except
     MessageDlg(strError, Format(strSaveError, [Filename]), mtError, [mbOK], 0);
   end;
@@ -2008,6 +2092,13 @@ begin
     if PageControl.TabIndex = 0 then
       ItemListView.SetFocus;
   end;
+end;
+
+procedure TMainForm.FormShow(Sender: TObject);
+begin
+  SelectFirstItem(ItemListView);
+  SelectFirstItem(CharacterListView);
+  //ItemListView.SetFocus;
 end;
 
 procedure TMainForm.HelpAboutItemClick(Sender: TObject);
@@ -2343,8 +2434,21 @@ end;
 procedure TMainForm.ItemListViewKeyDown(Sender: TObject; var Key: word;
   Shift: TShiftState);
 begin
-  if Key = VK_RETURN then
+  {if Key = VK_RETURN then
+    EditChangeItemClick(Self);}
+  if Key = VK_TAB then
+  begin
+    CharacterListView.SetFocus;
+    // Ensure an item is selected in ListView2
+    if CharacterListView.ItemIndex = -1 then
+      SelectFirstItem(CharacterListView);
+    Key := 0; // Consume the key press
+  end
+  else if Key = VK_RETURN then
+  begin
     EditChangeItemClick(Self);
+    Key := 0; // Consume the key press to prevent default behavior
+  end;
 end;
 
 procedure TMainForm.KeyConventionalItemClick(Sender: TObject);
@@ -2358,7 +2462,7 @@ var
   PrintWidth: integer;
   Extension: string;
   S: ansistring;
-  FS: TFileStream;
+  //FS: TFileStream;
 begin
   sPath := ExtractFilePath(Application.ExeName);
   DefaultFormatSettings.DecimalSeparator := '.';
@@ -2550,7 +2654,7 @@ end;
 procedure TMainForm.KeyInteractiveItemClick(Sender: TObject);
 var
   CharacterReliabilities, IncludeItems, IncludeCharacters: string;
-  sPath, ConforPath, ImagePath, HlpFile, Lang
+  sPath, ConforPath, ImagePath{, Lang}
   {$IFDEF VER3}
   , DefaultLang
   {$ENDIF}
@@ -3103,7 +3207,7 @@ end;
 procedure TMainForm.MatrixParsimonyItemTNTClick(Sender: TObject);
 var
   KeyStates, ExcludeItems, ExcludeCharacters: string;
-  S, sPath, ConforPath, CmdLine, Datafile: ansistring;
+  S, sPath, ConforPath, Datafile: ansistring;
   {$IFDEF LINUX}
   ShellProg: ansistring;
   {$ENDIF}
@@ -3815,8 +3919,11 @@ begin
   title := InputBox(strNewCaption, strNewPrompt, strUntitled);
   Dataset.Free;
   Dataset := TDelta.Create;
-  if (title = '') then
+  if not IsEmptyStr(title, [' ']) then
+    Dataset.Heading := title
+  else
     Dataset.Heading := strUntitled;
+  ShowMessage('Heading = ' + Dataset.Heading);
   OpenDialog.FileName := strUntitled; //'';
   SaveDialog.FileName := strUntitled; //'';
   PageControl.Visible := True;
@@ -3883,8 +3990,21 @@ end;
 procedure TMainForm.CharacterListViewKeyDown(Sender: TObject;
   var Key: word; Shift: TShiftState);
 begin
-  if Key = VK_RETURN then
+  {if Key = VK_RETURN then
+    EditChangeCharacterItemClick(Self);}
+  if Key = VK_TAB then
+  begin
+    ItemListView.SetFocus;
+    // Ensure an item is selected in ItemListView
+    if ItemListView.ItemIndex = -1 then
+      SelectFirstItem(ItemListView);
+    Key := 0; // Consume the key press
+  end
+  else if Key = VK_RETURN then
+  begin
     EditChangeCharacterItemClick(Self);
+    Key := 0; // Consume the key press to prevent default behavior
+  end;
 end;
 
 procedure TMainForm.CharacterListViewMouseMove(Sender: TObject;
@@ -4322,7 +4442,7 @@ procedure TMainForm.ExportTNTItemClick(Sender: TObject);
 var
   outfile: TextFile;
   tname, attribute, states: string;
-  i, j, k, n, nchar, maxlen: integer;
+  i, j, k, n, nchar: integer;
   Data: TStringList;
 begin
   SaveDialog.FileName := ChangeFileExt(OpenDialog.FileName, '.tnt');
@@ -4711,11 +4831,11 @@ end;
 
 procedure TMainForm.EditAddCharacterItemClick(Sender: TObject);
 var
-  CharName, CharType, CharUnit, CharNote, Rule: string;
-  CharCount, CharImplicit, I, N, J, K, M: integer;
+  CharName, CharType, CharUnit, CharNote: string;
+  CharCount, CharImplicit, J: integer;
   StatesList: TStringList;
   CharNode: TListItem;
-  Character: Delta.TCharacter;
+  //Character: Delta.TCharacter;
 begin
   with CharacterForm do
   begin
@@ -4871,10 +4991,10 @@ end;
 
 procedure TMainForm.EditChangeCharacterItemClick(Sender: TObject);
 var
-  CharName, CharType, CharUnit, CharNote, Rule: string;
-  CharIndex, CharImplicit, I, N: integer;
+  CharName, CharType, CharUnit, CharNote: string;
+  CharIndex, CharImplicit: integer;
   StatesList: TStringList;
-  Character: TCharacter;
+  //Character: TCharacter;
 begin
   CharIndex := CharacterListView.ItemIndex;
   if CharIndex >= 0 then
@@ -5017,7 +5137,7 @@ end;
 procedure TMainForm.EditCloneItemClick(Sender: TObject);
 var
   ItemCaption, ItemStr, ItemName, ItemComment: string;
-  ItemIndex, ItemCount, I, J: integer;
+  ItemIndex, ItemCount, I: integer;
   Item: Delta.TItem;
   Sel: TListItem;
   Ok: boolean;
@@ -5138,8 +5258,8 @@ end;
 procedure TMainForm.EditInsertCharacterItemClick(Sender: TObject);
 var
   Character: Delta.TCharacter;
-  CharName, CharType, CharUnit, CharNote, Rule: string;
-  CharImplicit, I, J, N: integer;
+  CharName, CharType, CharUnit, CharNote: string;
+  CharImplicit, J: integer;
   StatesList: TStringList;
   Selected: TListItem;
 begin

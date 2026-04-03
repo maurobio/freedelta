@@ -65,6 +65,7 @@ object DescriptionForm: TDescriptionForm
     ParentShowHint = False
     ScrollWidth = 569
     TabOrder = 0
+    OnDblClick = ListBoxStatesDblClick
   end
   object LabelType: TLabel
     Left = 13

@@ -13,6 +13,7 @@ object MainForm: TMainForm
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnDropFiles = FormDropFiles
+  OnShow = FormShow
   Position = poDesktopCenter
   ShowHint = True
   LCLVersion = '3.8.0.0'

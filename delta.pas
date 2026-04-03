@@ -1,22 +1,22 @@
 {========================================================================}
 {                          D E L T A  Library                            }
-
+{                                                                        }
 {     A General-Purpose Library of Routines for Reading and Writing      }
 {      Text Files in DELTA (DEscription Language for TAxonomy) Format    }
-
+{                                                                        }
 {                      Version 1.0, November 1994                        }
 {              Version 2.1, August 1996, Updated May 1998                }
 {    Version 3.3, June 2016, Updated July 2020, June 2021, December 2023 }
 {                      Version 4.0, March 2025                           }
-
+{                                                                        }
 {          Author: Mauro J. Cavalcanti, Rio de Janeiro, BRASIL           }
 {                    E-mail: <maurobio@gmail.com>                        }
-
+{                                                                        }
 {  This program is free software; you can redistribute it and/or modify  }
 {  it under the terms of the GNU Lesser General Public License as        }
 {  published by the Free Software Foundation; either version 3 of the    }
 {  License, or (at your option) any later version.                       }
-
+{                                                                        }
 {  This program is distributed in the hope that it will be useful,       }
 {  but WITHOUT ANY WARRANTY; without even the implied warranty of        }
 {  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         }
@@ -284,6 +284,7 @@ begin
     if (Pos(':', title) > 0) then
       title := Copy(title, 1, Pos(':', title) - 1);
     title := Trim(title);
+    Heading := title;
 
     break;
 
@@ -1034,7 +1035,7 @@ var
   Outfile: TextFile;
   typeStr, numStr, valueStr, depStr: string;
   I, J, numChars, numStates, numItems, maxStates, charNum, RetVal: integer;
-  //Size, DataBufferSize: integer;
+  Size, DataBufferSize: integer;
   Character: TCharacter;
 begin
   if (Length(CharacterList) = 0) or (Length(ItemList) = 0) then
@@ -1081,13 +1082,13 @@ begin
   WriteLn(Outfile);
 
   { Compute data buffer size }
-  //Size := Length(CharacterList) * 20;
-  //if Size > 2000 then
-  //  DataBufferSize := Size
-  //else
-  //  DataBufferSize := 2000;
-  //if DataBufferSize = 0 then
-  //  DataBufferSize := 2000;
+  Size := Length(CharacterList) * 20;
+  if Size > 2000 then
+    DataBufferSize := Size
+  else
+    DataBufferSize := 2000;
+  if DataBufferSize = 0 then
+    DataBufferSize := 2000;
   WriteLn(Outfile, dataBufferSizeDirective, ' ', IntToStr(DataBufferSize));
   WriteLn(Outfile);
 
