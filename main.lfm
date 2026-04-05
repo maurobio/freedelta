@@ -1,12 +1,12 @@
 object MainForm: TMainForm
-  Left = 283
-  Height = 510
+  Left = 220
+  Height = 486
   Hint = '|Ready'
-  Top = 129
+  Top = 19
   Width = 800
   AllowDropFiles = True
   Caption = 'Free Delta Editor'
-  ClientHeight = 510
+  ClientHeight = 486
   ClientWidth = 800
   Menu = MainMenu
   OnCloseQuery = FormCloseQuery
@@ -19,8 +19,8 @@ object MainForm: TMainForm
   LCLVersion = '3.8.0.0'
   object StatusLine: TStatusBar
     Left = 0
-    Height = 23
-    Top = 487
+    Height = 17
+    Top = 469
     Width = 800
     AutoHint = True
     Panels = <>
@@ -30,7 +30,7 @@ object MainForm: TMainForm
   end
   object PageControl: TPageControl
     Left = 0
-    Height = 463
+    Height = 445
     Top = 24
     Width = 800
     ActivePage = ListTab
@@ -41,21 +41,21 @@ object MainForm: TMainForm
     OnChange = PageControlChange
     object ListTab: TTabSheet
       Caption = 'List View'
-      ClientHeight = 435
-      ClientWidth = 792
+      ClientHeight = 415
+      ClientWidth = 790
       object Panel1: TPanel
         Left = 0
-        Height = 435
+        Height = 415
         Top = 0
         Width = 280
         Align = alLeft
         Caption = 'Panel1'
-        ClientHeight = 435
+        ClientHeight = 415
         ClientWidth = 280
         TabOrder = 0
         object ItemListView: TListView
           Left = 1
-          Height = 433
+          Height = 413
           Top = 1
           Width = 278
           Align = alClient
@@ -64,7 +64,7 @@ object MainForm: TMainForm
           Columns = <          
             item
               Caption = 'Items'
-              Width = 274
+              Width = 276
             end>
           ColumnClick = False
           HideSelection = False
@@ -80,16 +80,16 @@ object MainForm: TMainForm
       end
       object CharacterListView: TListView
         Left = 280
-        Height = 435
+        Height = 415
         Top = 0
-        Width = 512
+        Width = 510
         Align = alClient
         AutoSort = False
         Columns = <        
           item
             AutoSize = True
             Caption = 'Characters:'
-            Width = 74
+            Width = 508
           end>
         ColumnClick = False
         HideSelection = False
@@ -107,24 +107,24 @@ object MainForm: TMainForm
     end
     object MatrixTab: TTabSheet
       Caption = 'MatrixView'
-      ClientHeight = 435
-      ClientWidth = 792
+      ClientHeight = 415
+      ClientWidth = 790
       object Panel4: TPanel
         Left = 0
-        Height = 344
+        Height = 324
         Top = 0
-        Width = 792
+        Width = 790
         Align = alTop
         Anchors = [akTop, akLeft, akRight, akBottom]
         Caption = 'Panel4'
-        ClientHeight = 344
-        ClientWidth = 792
+        ClientHeight = 324
+        ClientWidth = 790
         TabOrder = 0
         object DataMatrix: TStringGrid
           Left = 1
-          Height = 342
+          Height = 322
           Top = 1
-          Width = 790
+          Width = 788
           Align = alClient
           AutoEdit = False
           Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goDrawFocusSelected, goSmoothScroll, goCellEllipsis]
@@ -137,29 +137,30 @@ object MainForm: TMainForm
       object Panel5: TPanel
         Left = 0
         Height = 71
-        Top = 364
-        Width = 792
+        Top = 344
+        Width = 790
         Align = alBottom
         Caption = 'Panel5'
         ClientHeight = 71
-        ClientWidth = 792
+        ClientWidth = 790
         TabOrder = 1
         object StatesListBox: TCheckListBox
           Left = 1
           Height = 69
           Top = -68
-          Width = 790
+          Width = 788
           Align = alBottom
           ItemHeight = 0
           MultiSelect = True
           TabOrder = 0
+          TopIndex = -1
           OnItemClick = StatesListBoxItemClick
         end
         object StatesMemo: TMemo
           Left = 1
           Height = 69
           Top = 1
-          Width = 790
+          Width = 788
           Align = alBottom
           ReadOnly = True
           ScrollBars = ssAutoBoth
@@ -168,9 +169,9 @@ object MainForm: TMainForm
       end
       object FeatureLabel: TLabel
         Left = 0
-        Height = 15
-        Top = 344
-        Width = 792
+        Height = 16
+        Top = 324
+        Width = 790
         Align = alTop
         Caption = 'FeatureLabel'
         ParentColor = False

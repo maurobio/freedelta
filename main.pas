@@ -522,6 +522,10 @@
 {                                   dataset or saving an existing one.          }
 {                                 - Fixed a bug which caused a new dataset not  }
 {                                   being included to the recent files list.    }
+{ Version 4.5, 4 Apr 2026         - Fixed a bug which caused the Nexus import   }
+{                                   function to interpret spaces in item/taxon  }
+{                                   labels as delimiters, even when the labels  }
+{                                   are enclosed in single quotes.              }
 {===============================================================================}
 unit Main;
 
@@ -3207,7 +3211,7 @@ end;
 procedure TMainForm.MatrixParsimonyItemTNTClick(Sender: TObject);
 var
   KeyStates, ExcludeItems, ExcludeCharacters: string;
-  S, sPath, ConforPath, Datafile: ansistring;
+  S, sPath, ConforPath, CmdLine, Datafile: ansistring;
   {$IFDEF LINUX}
   ShellProg: ansistring;
   {$ENDIF}
