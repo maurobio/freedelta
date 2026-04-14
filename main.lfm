@@ -9,18 +9,18 @@ object MainForm: TMainForm
   ClientHeight = 486
   ClientWidth = 800
   Menu = MainMenu
+  Position = poDesktopCenter
+  ShowHint = True
+  LCLVersion = '4.6.0.0'
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnDropFiles = FormDropFiles
   OnShow = FormShow
-  Position = poDesktopCenter
-  ShowHint = True
-  LCLVersion = '3.8.0.0'
   object StatusLine: TStatusBar
     Left = 0
-    Height = 17
-    Top = 469
+    Height = 23
+    Top = 463
     Width = 800
     AutoHint = True
     Panels = <>
@@ -30,7 +30,7 @@ object MainForm: TMainForm
   end
   object PageControl: TPageControl
     Left = 0
-    Height = 445
+    Height = 439
     Top = 24
     Width = 800
     ActivePage = ListTab
@@ -41,21 +41,21 @@ object MainForm: TMainForm
     OnChange = PageControlChange
     object ListTab: TTabSheet
       Caption = 'List View'
-      ClientHeight = 415
-      ClientWidth = 790
+      ClientHeight = 411
+      ClientWidth = 792
       object Panel1: TPanel
         Left = 0
-        Height = 415
+        Height = 411
         Top = 0
         Width = 280
         Align = alLeft
         Caption = 'Panel1'
-        ClientHeight = 415
+        ClientHeight = 411
         ClientWidth = 280
         TabOrder = 0
         object ItemListView: TListView
           Left = 1
-          Height = 413
+          Height = 409
           Top = 1
           Width = 278
           Align = alClient
@@ -64,7 +64,7 @@ object MainForm: TMainForm
           Columns = <          
             item
               Caption = 'Items'
-              Width = 276
+              Width = 274
             end>
           ColumnClick = False
           HideSelection = False
@@ -80,16 +80,16 @@ object MainForm: TMainForm
       end
       object CharacterListView: TListView
         Left = 280
-        Height = 415
+        Height = 411
         Top = 0
-        Width = 510
+        Width = 512
         Align = alClient
         AutoSort = False
         Columns = <        
           item
             AutoSize = True
             Caption = 'Characters:'
-            Width = 508
+            Width = 74
           end>
         ColumnClick = False
         HideSelection = False
@@ -107,24 +107,24 @@ object MainForm: TMainForm
     end
     object MatrixTab: TTabSheet
       Caption = 'MatrixView'
-      ClientHeight = 415
-      ClientWidth = 790
+      ClientHeight = 411
+      ClientWidth = 792
       object Panel4: TPanel
         Left = 0
-        Height = 324
+        Height = 320
         Top = 0
-        Width = 790
+        Width = 792
         Align = alTop
         Anchors = [akTop, akLeft, akRight, akBottom]
         Caption = 'Panel4'
-        ClientHeight = 324
-        ClientWidth = 790
+        ClientHeight = 320
+        ClientWidth = 792
         TabOrder = 0
         object DataMatrix: TStringGrid
           Left = 1
-          Height = 322
+          Height = 318
           Top = 1
-          Width = 788
+          Width = 790
           Align = alClient
           AutoEdit = False
           Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goDrawFocusSelected, goSmoothScroll, goCellEllipsis]
@@ -137,30 +137,29 @@ object MainForm: TMainForm
       object Panel5: TPanel
         Left = 0
         Height = 71
-        Top = 344
-        Width = 790
+        Top = 340
+        Width = 792
         Align = alBottom
         Caption = 'Panel5'
         ClientHeight = 71
-        ClientWidth = 790
+        ClientWidth = 792
         TabOrder = 1
         object StatesListBox: TCheckListBox
           Left = 1
           Height = 69
           Top = -68
-          Width = 788
+          Width = 790
           Align = alBottom
           ItemHeight = 0
           MultiSelect = True
           TabOrder = 0
-          TopIndex = -1
           OnItemClick = StatesListBoxItemClick
         end
         object StatesMemo: TMemo
           Left = 1
           Height = 69
           Top = 1
-          Width = 788
+          Width = 790
           Align = alBottom
           ReadOnly = True
           ScrollBars = ssAutoBoth
@@ -169,9 +168,9 @@ object MainForm: TMainForm
       end
       object FeatureLabel: TLabel
         Left = 0
-        Height = 16
-        Top = 324
-        Width = 790
+        Height = 15
+        Top = 320
+        Width = 792
         Align = alTop
         Caption = 'FeatureLabel'
         ParentColor = False
@@ -193,9 +192,9 @@ object MainForm: TMainForm
       Caption = '&New'
       ImageIndex = 0
       MenuItem = FileNewItem
-      OnClick = FileNewItemClick
       ParentShowHint = False
       ShowHint = True
+      OnClick = FileNewItemClick
     end
     object OpenBtn: TToolButton
       Left = 24
@@ -204,10 +203,10 @@ object MainForm: TMainForm
       Caption = '&Open...'
       ImageIndex = 1
       MenuItem = FileOpenItem
-      OnClick = FileOpenItemClick
       ParentShowHint = False
       ShowCaption = False
       ShowHint = True
+      OnClick = FileOpenItemClick
     end
     object SaveBtn: TToolButton
       Left = 47
@@ -216,10 +215,10 @@ object MainForm: TMainForm
       Caption = '&Save'
       ImageIndex = 3
       MenuItem = FileSaveItem
-      OnClick = FileSaveItemClick
       ParentShowHint = False
       ShowCaption = False
       ShowHint = True
+      OnClick = FileSaveItemClick
     end
     object S1: TToolButton
       Left = 70
@@ -234,10 +233,10 @@ object MainForm: TMainForm
       Caption = '&Find...'
       ImageIndex = 5
       MenuItem = SearchFindItem
-      OnClick = SearchFindItemClick
       ParentShowHint = False
       ShowCaption = False
       ShowHint = True
+      OnClick = SearchFindItemClick
     end
     object S2: TToolButton
       Left = 101
@@ -252,10 +251,10 @@ object MainForm: TMainForm
       Caption = 'Natural Language'
       ImageIndex = 7
       MenuItem = PrepareTonatItem
-      OnClick = PrepareTonatItemClick
       ParentShowHint = False
       ShowCaption = False
       ShowHint = True
+      OnClick = PrepareTonatItemClick
     end
     object SummaryBtn: TToolButton
       Left = 163
@@ -264,10 +263,10 @@ object MainForm: TMainForm
       Caption = 'Character Summary'
       ImageIndex = 8
       MenuItem = PrepareSummaryItem
-      OnClick = PrepareSummaryItemClick
       ParentShowHint = False
       ShowCaption = False
       ShowHint = True
+      OnClick = PrepareSummaryItemClick
     end
     object UncodedBtn: TToolButton
       Left = 186
@@ -276,10 +275,10 @@ object MainForm: TMainForm
       Caption = 'Uncoded Characters'
       ImageIndex = 9
       MenuItem = PrepareUncodedItem
-      OnClick = PrepareUncodedItemClick
       ParentShowHint = False
       ShowCaption = False
       ShowHint = True
+      OnClick = PrepareUncodedItemClick
     end
     object S3: TToolButton
       Left = 209
@@ -294,10 +293,10 @@ object MainForm: TMainForm
       Caption = 'Conventional Key'
       ImageIndex = 10
       MenuItem = KeyConventionalItem
-      OnClick = KeyConventionalItemClick
       ParentShowHint = False
       ShowCaption = False
       ShowHint = True
+      OnClick = KeyConventionalItemClick
     end
     object IntkeyBtn: TToolButton
       Left = 240
@@ -306,10 +305,10 @@ object MainForm: TMainForm
       Caption = 'Interactive Key'
       ImageIndex = 11
       MenuItem = KeyInteractiveItem
-      OnClick = KeyInteractiveItemClick
       ParentShowHint = False
       ShowCaption = False
       ShowHint = True
+      OnClick = KeyInteractiveItemClick
     end
     object S4: TToolButton
       Left = 263
@@ -324,10 +323,10 @@ object MainForm: TMainForm
       Caption = 'Distance Matrix'
       ImageIndex = 12
       MenuItem = MatrixDistanceItem
-      OnClick = MatrixDistanceItemClick
       ParentShowHint = False
       ShowCaption = False
       ShowHint = True
+      OnClick = MatrixDistanceItemClick
     end
     object ClusterBtn: TToolButton
       Left = 294
@@ -336,10 +335,10 @@ object MainForm: TMainForm
       Caption = 'Cluster Analysis'
       ImageIndex = 13
       MenuItem = MatrixClusterItem
-      OnClick = MatrixClusterItemClick
       ParentShowHint = False
       ShowCaption = False
       ShowHint = True
+      OnClick = MatrixClusterItemClick
     end
     object OrdinationBtn: TToolButton
       Left = 317
@@ -348,10 +347,10 @@ object MainForm: TMainForm
       Caption = 'Principal Coordinates Analysis'
       ImageIndex = 14
       MenuItem = MatrixOrdinationItem
-      OnClick = MatrixOrdinationItemClick
       ParentShowHint = False
       ShowCaption = False
       ShowHint = True
+      OnClick = MatrixOrdinationItemClick
     end
     object S5: TToolButton
       Left = 340
@@ -366,10 +365,10 @@ object MainForm: TMainForm
       Caption = '&Quit'
       ImageIndex = 4
       MenuItem = FileExitItem
-      OnClick = FileExitItemClick
       ParentShowHint = False
       ShowCaption = False
       ShowHint = True
+      OnClick = FileExitItemClick
     end
     object ScriptBtn: TToolButton
       Left = 109
@@ -378,10 +377,10 @@ object MainForm: TMainForm
       Caption = 'Script'
       ImageIndex = 34
       MenuItem = EditScriptItem
-      OnClick = EditScriptItemClick
       ParentShowHint = False
       ShowCaption = False
       ShowHint = True
+      OnClick = EditScriptItemClick
     end
     object S6: TToolButton
       Left = 132

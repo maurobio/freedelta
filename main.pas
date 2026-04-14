@@ -522,10 +522,14 @@
 {                                   dataset or saving an existing one.          }
 {                                 - Fixed a bug which caused a new dataset not  }
 {                                   being included to the recent files list.    }
-{ Version 4.5, 4 Apr 2026         - Fixed a bug which caused the Nexus import   }
+{ Version 4.50, 4 Apr 2026        - Fixed a bug which caused the Nexus import   }
 {                                   function to interpret spaces in item/taxon  }
 {                                   labels as delimiters, even when the labels  }
 {                                   are enclosed in single quotes.              }
+{ Version 4.60, 14 Apr 2026       - Added automatic saving of the dataset       }
+{                                   before generating descriptions, keys, and   }
+{                                   data analysis to avoid error messages when  }
+{                                   creating new datasets.                      }
 {===============================================================================}
 unit Main;
 
@@ -1982,7 +1986,6 @@ begin
   end;
   if SaveBtn.Enabled = True then
     SaveBtn.Enabled := False;
-  ;
 end;
 
 procedure TMainForm.FindDialogFind(Sender: TObject);
@@ -2577,6 +2580,7 @@ begin
     if FileExists('key.' + Extension) then
       DeleteFile('key.' + Extension);
     Screen.Cursor := crHourGlass;
+    if FileIsChanged and (not FileIsSaved) then FileSaveAsItemClick(Self);
     if RunCommand(ConforPath, ['tokey'], S, [poNoConsole]) then
     begin
       CreateKEY('key', Dataset.Heading, AddCharacterNumbers, NoBrackettedKey,
@@ -2738,6 +2742,7 @@ begin
     ConforPath := sPath + 'confor';
     {$ENDIF}
     Screen.Cursor := crHourGlass;
+    if FileIsChanged and (not FileIsSaved) then FileSaveAsItemClick(Self);
     if RunCommand(ConforPath, ['toint'], s, [poNoConsole]) then
     begin
       if not FileExists('intkey.ink') then
@@ -2987,6 +2992,7 @@ begin
     if FileExists('dist.dis') then
       DeleteFile('dist.dis');
     Screen.Cursor := crHourGlass;
+    if FileIsChanged and (not FileIsSaved) then FileSaveAsItemClick(Self);
     if RunCommand(ConforPath, ['todis'], S, [poNoConsole]) then
     begin
       CreateDIST('dist', MatchOverlap, MinimumComparisons, PhylipFormat,
@@ -3169,6 +3175,7 @@ begin
     {$ENDIF}
     Screen.Cursor := crHourGlass;
     //if RunCommand(ConforPath, ['tonex'], S, [poNoConsole]) then
+    if FileIsChanged and (not FileIsSaved) then FileSaveAsItemClick(Self);
     if RunCommand(ConforPath, ['tohen'], S, [poNoConsole]) then
     begin
       FileIsChanged := True;
@@ -3269,6 +3276,7 @@ begin
     ConforPath := sPath + 'confor';
     {$ENDIF}
     Screen.Cursor := crHourGlass;
+    if FileIsChanged and (not FileIsSaved) then FileSaveAsItemClick(Self);
     if RunCommand(ConforPath, ['tohen'], S, [poNoConsole]) then
     begin
       FileIsChanged := True;
@@ -3469,6 +3477,7 @@ begin
   if FileExists('summary.txt') then
     DeleteFile('summary.txt');
   Screen.Cursor := crHourGlass;
+  if FileIsChanged and (not FileIsSaved) then FileSaveAsItemClick(Self);
   if RunCommand(ConforPath, ['summary'], S, [poNoConsole]) then
   begin
     FileIsChanged := True;
@@ -3664,6 +3673,7 @@ begin
     if FileExists('description.' + Extension) then
       DeleteFile('description.' + Extension);
     Screen.Cursor := crHourGlass;
+    if FileIsChanged and (not FileIsSaved) then FileSaveAsItemClick(Self);
     if RunCommand(ConforPath, ['tonat'], S, [poNoConsole]) then
     begin
       FileIsChanged := True;
@@ -3729,6 +3739,7 @@ begin
   if FileExists('uncoded.txt') then
     DeleteFile('uncoded.txt');
   Screen.Cursor := crHourGlass;
+  if FileIsChanged and (not FileIsSaved) then FileSaveAsItemClick(Self);
   if RunCommand(ConforPath, ['uncoded'], S, [poNoConsole]) then
   begin
     FileIsChanged := True;
