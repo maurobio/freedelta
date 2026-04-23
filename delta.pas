@@ -8,6 +8,7 @@
 {              Version 2.1, August 1996, Updated May 1998                }
 {    Version 3.3, June 2016, Updated July 2020, June 2021, December 2023 }
 {                      Version 4.0, March 2025                           }
+{                      Version 5.0, April 2026                           }
 {                                                                        }
 {          Author: Mauro J. Cavalcanti, Rio de Janeiro, BRASIL           }
 {                    E-mail: <maurobio@gmail.com>                        }
@@ -992,8 +993,8 @@ begin
     for J := 0 to Item.itemAttributes.Count - 1 do
     begin
       Character := CharacterList[J];
-      if (Item.itemAttributes[J] <> 'U') then
-      begin
+      //if (Item.itemAttributes[J] <> 'U') then
+      //begin
         if (Character.charType = 'TE') then
           descStr := Concat(descStr, IntToStr(J + 1), '', Item.itemAttributes[J], ' ')
         else
@@ -1014,7 +1015,7 @@ begin
             descStr := Concat(descStr, IntToStr(J + 1), ',',
               Item.itemAttributes[J], ' ');
         end;
-      end;
+      //end;
     end;
     WriteLn(Outfile, WrapText(descStr, #13#10, [' '], 79));
     descStr := '';

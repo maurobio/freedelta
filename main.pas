@@ -530,6 +530,13 @@
 {                                   before generating descriptions, keys, and   }
 {                                   data analysis to avoid error messages when  }
 {                                   creating new datasets.                      }
+{ Version 4.70, 22 Apr 2026       - Fixed a bug which caused items with state   }
+{                                   'Unknown' (U) not being written to the      }
+{                                   ITEMS file.                                 }
+{                                 - Fixed a bug which caused the number of a new}
+{                                   item not being added to item in Matrix view.}
+{                                 - Added selection of character state using the}
+{                                   keyboard in the Describe dialog.            }
 {===============================================================================}
 unit Main;
 
@@ -832,7 +839,7 @@ function Is32bit: boolean;
 function IsDigit(Ch: char): boolean;
 function GetFileNameWithoutExt(Filenametouse: string): string;
 function Capitalize(s: string): string;
-function ExistWordInString(const AString: PChar; const ASearchString: string;
+function ExistWordInString(const AString: pchar; const ASearchString: string;
   ASearchOptions: TStringSearchOptions): boolean;
 function ExtractNumberFromItem(ItemText: string): string;
 function ContainsChars(const Str: string; const Chars: TSysCharSet): boolean;
@@ -889,7 +896,7 @@ begin
 
   // Assign file and open for binary read
   Assign(ElfFile, FileName);
-  {$I-}  // Disable I/O checking
+  {$I-}// Disable I/O checking
   Reset(ElfFile, 1);  // Record size = 1 byte
   {$I+}
 
@@ -906,10 +913,8 @@ begin
     Exit;
 
   // Check ELF magic number: 0x7F 'E' 'L' 'F'
-  Result := (Header[0] = $7F) and
-            (Header[1] = Ord('E')) and
-            (Header[2] = Ord('L')) and
-            (Header[3] = Ord('F'));
+  Result := (Header[0] = $7F) and (Header[1] = Ord('E')) and
+    (Header[2] = Ord('L')) and (Header[3] = Ord('F'));
 end;
 
 function GetFileNameWithoutExt(Filenametouse: string): string;
@@ -961,7 +966,7 @@ begin
   Result := t;
 end;
 
-function ExistWordInString(const AString: PChar; const ASearchString: string;
+function ExistWordInString(const AString: pchar; const ASearchString: string;
   ASearchOptions: TStringSearchOptions): boolean;
 var
   Size: integer;
@@ -972,7 +977,7 @@ end;
 
 function ExtractNumberFromItem(ItemText: string): string;
 var
-  DotPos: Integer;
+  DotPos: integer;
 begin
   Result := '';
   DotPos := Pos('.', ItemText);
@@ -1082,7 +1087,7 @@ end;
 
 procedure ToNex(Inputfile: string);
 //const
-  //missDefault = '?';
+//missDefault = '?';
 var
   title, Outputfile: string;
   infile, outfile: TextFile;
@@ -1136,7 +1141,7 @@ var
 
   procedure ReadHennig; { input the names and character state data for species }
   //const
-    //ValidChars = ['0'..'9', '?', '-', ' '];
+  //ValidChars = ['0'..'9', '?', '-', ' '];
   var
     i, j: integer;
     charstate: char;  { possible states are '0..9', '-', and '?' }
@@ -1931,7 +1936,7 @@ begin
         if FileExists(FileList[I]) then
         begin
           if not IsElfFile(FileList[I]) then
-             OutZipper.Entries.AddFileEntry(FileList[i]);
+            OutZipper.Entries.AddFileEntry(FileList[i]);
         end;
       end;
       OutZipper.ZipAllFiles;
@@ -3938,7 +3943,6 @@ begin
     Dataset.Heading := title
   else
     Dataset.Heading := strUntitled;
-  ShowMessage('Heading = ' + Dataset.Heading);
   OpenDialog.FileName := strUntitled; //'';
   SaveDialog.FileName := strUntitled; //'';
   PageControl.Visible := True;
@@ -4987,7 +4991,8 @@ begin
       Dataset.ItemList[itemCount].itemComment;
     ItemListView.Refresh;
     DataMatrix.InsertColRow(False, ItemCount + 1);
-    DataMatrix.Cells[0, ItemCount + 1] := ItemName + ' ' + ItemComment;
+    DataMatrix.Cells[0, ItemCount + 1] :=
+      IntToStr(itemCount + 1) + '. ' + ItemName + ' ' + ItemComment;
     for J := 1 to DataMatrix.ColCount - 1 do
       DataMatrix.Cells[J, ItemCount + 1] := 'U';
     DataMatrix.Refresh;

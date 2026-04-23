@@ -7,10 +7,10 @@ object DescriptionForm: TDescriptionForm
   ClientHeight = 316
   ClientWidth = 599
   KeyPreview = True
+  Position = poMainFormCenter
+  LCLVersion = '4.6.0.0'
   OnKeyDown = FormKeyDown
   OnShow = FormShow
-  Position = poMainFormCenter
-  LCLVersion = '3.8.0.0'
   object LabelItem: TLabel
     Left = 120
     Height = 15
@@ -66,6 +66,7 @@ object DescriptionForm: TDescriptionForm
     ScrollWidth = 569
     TabOrder = 0
     OnDblClick = ListBoxStatesDblClick
+    OnSelectionChange = ListBoxStatesSelectionChange
   end
   object LabelType: TLabel
     Left = 13
@@ -81,7 +82,7 @@ object DescriptionForm: TDescriptionForm
     Hint = 'State values, separated by ''&''=and, ''/''=or, ''-''=to, comments between ''<>'' brackets'
     Top = 243
     Width = 504
-    EditLabel.Height = 15
+    EditLabel.Height = 23
     EditLabel.Width = 63
     EditLabel.Caption = 'Description:'
     EditLabel.ParentColor = False

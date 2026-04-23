@@ -1,8 +1,8 @@
 object MainForm: TMainForm
-  Left = 220
+  Left = 247
   Height = 486
   Hint = '|Ready'
-  Top = 19
+  Top = 125
   Width = 800
   AllowDropFiles = True
   Caption = 'Free Delta Editor'
