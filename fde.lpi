@@ -43,7 +43,7 @@
         <Mode0 Name="default"/>
       </Modes>
     </RunParams>
-    <RequiredPackages Count="7">
+    <RequiredPackages Count="8">
       <Item1>
         <PackageName Value="richmemopackage"/>
       </Item1>
@@ -65,6 +65,9 @@
       <Item7>
         <PackageName Value="LCL"/>
       </Item7>
+      <Item8>
+        <PackageName Value="synfacilsyn"/>
+      </Item8>
     </RequiredPackages>
     <Units Count="19">
       <Unit0>
@@ -205,7 +208,7 @@
     </Units>
   </ProjectOptions>
   <CompilerOptions>
-    <Version Value="11"/>
+    <Version Value="12"/>
     <PathDelim Value="\"/>
     <Target>
       <Filename Value="fde"/>
@@ -241,20 +244,4 @@
       </Options>
     </Linking>
   </CompilerOptions>
-  <Debugging>
-    <Exceptions Count="4">
-      <Item1>
-        <Name Value="EAbort"/>
-      </Item1>
-      <Item2>
-        <Name Value="ECodetoolError"/>
-      </Item2>
-      <Item3>
-        <Name Value="EFOpenError"/>
-      </Item3>
-      <Item4>
-        <Name Value="EStringListError"/>
-      </Item4>
-    </Exceptions>
-  </Debugging>
 </CONFIG>
