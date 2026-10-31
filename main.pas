@@ -537,6 +537,8 @@
 {                                   item not being added to item in Matrix view.}
 {                                 - Added selection of character state using the}
 {                                   keyboard in the Describe dialog.            }
+{ Version 4.8, 30 Octo 2026       - Fixed a bug which caused the program not to }
+{                                   find R when it is upgraded by the user.     }
 {===============================================================================}
 unit Main;
 
@@ -547,8 +549,8 @@ interface
 uses
   LCLIntf, LCLType, Classes, SysUtils, StrUtils, FileUtil, Forms, Controls,
   Graphics, Dialogs, ComCtrls, Menus, Clipbrd, IniFiles, HistoryFiles,
-  CheckLst, LCLTranslator, ExtCtrls, StdCtrls, Grids, Zipper, Process,
-  Math, Delta, Types, GetText, Nexus;
+  CheckLst, LCLTranslator, ExtCtrls, StdCtrls, Grids, Zipper, Process, Registry,
+  {$IFDEF}Windows,{$ENDIF} Math, Delta, Types, GetText, Nexus;
 
 const
   Checked = 20;
@@ -789,6 +791,7 @@ type
     FLastHintItem: TListItem;
     function LocateR: boolean;
     function FindR: string;
+    function FindRUnix: string;
     function SearchListView(LV: TListView; const S: string; Column: integer;
       P: integer): TListItem;
     function FindCol(SG: TStringGrid; C: integer; sFind: string; P: integer): integer;
@@ -1082,7 +1085,7 @@ var
   BackupFilename: string;
 begin
   BackupFilename := ChangeFileExt(Filename, '.bak');
-  CopyFile(Filename, BackupFilename);
+  FileUtil.CopyFile(Filename, BackupFilename);
 end;
 
 procedure ToNex(Inputfile: string);
@@ -1283,73 +1286,96 @@ end;
 
 function TMainForm.LocateR: boolean;
 begin
-  if not FileExists(RPath) then
-    RPath := '';
+  Result := False;
+
+  Screen.Cursor := crHourGlass;
+  try
+    if Copy(OSVersion, 1, Pos(' ', OSVersion) - 1) <> 'Windows' then
+      RPath := FindRUnix
+    else
+      RPath := FindR;
+  finally
+    Screen.Cursor := crDefault;
+  end;
+
   if RPath = '' then
   begin
-    if Copy(OSVersion, 1, Pos(' ', OSVersion) - 1) <> 'Windows' then
-      RPath := '/usr/bin/Rscript'
-    else
-    begin
-      Screen.Cursor := crHourGlass;
-      RPath := FindR;
-      if RPath <> '' then
-        RPath := Concat(RPath, 'Rscript.exe');
-      Screen.Cursor := crDefault;
-    end;
-    if RPath = '' then
-    begin
-      MessageDlg(strError, Format(strRNotFound, ['R']), mtError, [mbOK], 0);
-      Result := False;
-    end
-    else
-      WriteSettings(Self);
-  end
-  else
-    Result := True;
+    MessageDlg(strError, Format(strRNotFound, ['R']), mtError, [mbOK], 0);
+    Exit;
+  end;
+
+  Result := True;
 end;
 
 function TMainForm.FindR: string;
-const
-  FN = 'bin\RScript.exe';
-  P = 'C:\Program Files\R';
 var
-  I: integer;
-  LSearchResult: TStringList;
-
-  procedure FileSearch(const dirName: string);
-  var
-    searchResult: TSearchRec;
-  begin
-    if FindFirst(dirName + '\*', faAnyFile, searchResult) = 0 then
-    begin
-      try
-        repeat
-          if (searchResult.Attr and faDirectory) = 0 then
-          begin
-            if SameText(ExtractFileExt(searchResult.Name), '.exe') then
-              LSearchResult.Append(IncludeTrailingBackSlash(dirName) +
-                searchResult.Name);
-          end
-          else if (searchResult.Name <> '.') and (searchResult.Name <> '..') then
-            FileSearch(IncludeTrailingBackSlash(dirName) + searchResult.Name);
-        until FindNext(searchResult) <> 0;
-      finally
-        FindClose(searchResult);
-      end;
-    end;
-  end;
-
+  Reg: TRegistry;
+  Keys: array[0..3] of string = (
+    '\SOFTWARE\R-core\R64',
+    '\SOFTWARE\R-core\R32',
+    '\SOFTWARE\R-core\R',
+    '\SOFTWARE\WOW6432Node\R-core\R'
+  );
+  I: Integer;
+  InstallDir, Candidate: string;
 begin
   Result := '';
-  LSearchResult := TStringList.Create;
-  FileSearch(P);
-  for I := 0 to LSearchResult.Count - 1 do
-  begin
-    if Pos(LowerCase(FN), LowerCase(LSearchResult[I])) > 0 then
-      Result := ExtractFilePath(LSearchResult[I]);
+  Reg := TRegistry.Create;
+  try
+    // 1) Current user install
+    Reg.RootKey := HKEY_CURRENT_USER;
+    if Reg.OpenKeyReadOnly('\Software\R-core\R') then
+    begin
+      InstallDir := Reg.ReadString('InstallPath');
+      Reg.CloseKey;
+      if InstallDir <> '' then
+      begin
+        Candidate := IncludeTrailingPathDelimiter(InstallDir) + 'bin\Rscript.exe';
+        if FileExists(Candidate) then Exit(Candidate);
+        Candidate := IncludeTrailingPathDelimiter(InstallDir) + 'bin\x64\Rscript.exe';
+        if FileExists(Candidate) then Exit(Candidate);
+      end;
+    end;
+
+    // 2) System-wide install
+    Reg.RootKey := HKEY_LOCAL_MACHINE;
+    for I := Low(Keys) to High(Keys) do
+    begin
+      if Reg.OpenKeyReadOnly(Keys[I]) then
+      begin
+        InstallDir := Reg.ReadString('InstallPath');
+        Reg.CloseKey;
+        if InstallDir <> '' then
+        begin
+          Candidate := IncludeTrailingPathDelimiter(InstallDir) + 'bin\Rscript.exe';
+          if FileExists(Candidate) then Exit(Candidate);
+          Candidate := IncludeTrailingPathDelimiter(InstallDir) + 'bin\x64\Rscript.exe';
+          if FileExists(Candidate) then Exit(Candidate);
+        end;
+      end;
+    end;
+  finally
+    Reg.Free;
   end;
-  LSearchResult.Free;
+
+  // 3) Fallback: let the system search PATH
+  Result := 'Rscript.exe';
+end;
+
+function TMainForm.FindRUnix: string;
+const
+  Candidates: array[0..2] of string = (
+    '/usr/bin/Rscript',
+    '/usr/local/bin/Rscript',
+    '/opt/homebrew/bin/Rscript'
+  );
+var
+  I: Integer;
+begin
+  for I := Low(Candidates) to High(Candidates) do
+    if FileExists(Candidates[I]) then
+      Exit(Candidates[I]);
+  Result := 'Rscript'; // Let the system search PATH
 end;
 
 function TMainForm.SearchListView(LV: TListView; const S: string;
@@ -1736,7 +1762,7 @@ begin
   end;
   IntKeyPath := IniFile.ReadString('Options', 'IntKeyPath', '');
   IntMatePath := IniFile.ReadString('Options', 'IntMatePath', '');
-  RPath := IniFile.ReadString('Options', 'RPath', '');
+  {RPath := IniFile.ReadString('Options', 'RPath', '');}
   TNTPath := IniFile.ReadString('Options', 'TNTPath', '');
   PAUPPath := IniFile.ReadString('Options', 'PAUPPath', '');
   Left := IniFile.ReadInteger('MainWindow', 'Left', Left);
@@ -1760,7 +1786,7 @@ begin
   IniFile.WriteString('Options', 'Language', sLang);
   IniFile.WriteString('Options', 'IntKeyPath', IntKeyPath);
   IniFile.WriteString('Options', 'IntMatePath', IntMatePath);
-  IniFile.WriteString('Options', 'RPath', RPath);
+  {IniFile.WriteString('Options', 'RPath', RPath);}
   IniFile.WriteString('Options', 'TNTPath', TNTPath);
   IniFile.WriteString('Options', 'PAUPPath', PAUPPath);
   IniFile.WriteInteger('MainWindow', 'Left', Left);
@@ -2583,7 +2609,7 @@ begin
     ConforPath := sPath + 'confor';
     {$ENDIF}
     if FileExists('key.' + Extension) then
-      DeleteFile('key.' + Extension);
+      SysUtils.DeleteFile('key.' + Extension);
     Screen.Cursor := crHourGlass;
     if FileIsChanged and (not FileIsSaved) then FileSaveAsItemClick(Self);
     if RunCommand(ConforPath, ['tokey'], S, [poNoConsole]) then
@@ -2883,20 +2909,31 @@ var
   s: ansistring;
   nex, notu: integer;
 begin
-  {if RPath = '' then
+  // Always re-detect R under the hood. Registry lookup is instantaneous,
+  // so this transparently picks up upgrades between calls.
+  if not LocateR then
   begin
+    // Automatic detection failed — offer a manual escape hatch.
     SelectDirectoryDialog.Title := strRDirectory;
     SelectDirectoryDialog.Filename := '';
     if SelectDirectoryDialog.Execute then
-      RPath := SelectDirectoryDialog.FileName
+    begin
+      RPath := IncludeTrailingPathDelimiter(SelectDirectoryDialog.FileName)
+             + 'bin' + PathDelim + 'Rscript.exe';
+      if not FileExists(RPath) then
+      begin
+        MessageDlg(strError, Format(strRNotFound, ['R']), mtError, [mbOK], 0);
+        RPath := '';
+        Exit;
+      end;
+    end
     else
     begin
       MessageDlg(strError, Format(strRNotFound, ['R']), mtError, [mbOK], 0);
       Exit;
     end;
-  end;}
-  if not LocateR then
-    Exit;
+  end;
+
   if ClusterForm.ShowModal = mrOk then
   begin
     if FileExists('dist') then
@@ -2910,29 +2947,38 @@ begin
     end
     else
       notu := Length(Dataset.ItemList);
+
     CreateCluster('cluster.R', notu, ClusterForm.ComboBoxMethod.ItemIndex);
+
     Screen.Cursor := crHourGlass;
-    //if RunCommand(Concat(RPath, PathDelim, 'Rscript'), ['--vanilla', 'cluster.R'],
-    //  s, [poNoConsole]) then
-    if RunCommand(RPath, ['--vanilla', 'cluster.R'], s, [poNoConsole]) then
-    begin
-      Screen.Cursor := crDefault;
-      with ViewerForm do
+    try
+      if RunCommand(RPath, ['--vanilla', 'cluster.R'], s, [poNoConsole]) then
       begin
-        Caption := 'cluster.png';
-        TextViewer.Visible := False;
-        HtmlViewer.Visible := False;
-        ScrollBox.Visible := True;
-        ImageViewer.Visible := True;
-        ImageViewer.Picture.LoadFromFile('cluster.png');
-        Show;
+        Screen.Cursor := crDefault;
+        with ViewerForm do
+        begin
+          Caption := 'cluster.png';
+          TextViewer.Visible := False;
+          HtmlViewer.Visible := False;
+          ScrollBox.Visible := True;
+          ImageViewer.Visible := True;
+          ImageViewer.Picture.LoadFromFile('cluster.png');
+          Show;
+        end;
+      end
+      else
+      begin
+        Screen.Cursor := crDefault;
+        MessageDlg(strError, Format(strNotExecute, ['R']), mtError, [mbOK], 0);
+        // Do not clear RPath here: it was valid a moment ago. The failure
+        // is a runtime error in Rscript, not a detection problem. Clearing
+        // it would just force a pointless re-detect next time.
       end;
-    end
-    else
-    begin
-      Screen.Cursor := crDefault;
-      MessageDlg(strError, Format(strNotExecute, ['R']), mtError, [mbOK], 0);
-      RPath := '';
+    finally
+      // Safety net in case RunCommand or the viewer raised — never leave
+      // the cursor stuck as an hourglass.
+      if Screen.Cursor = crHourGlass then
+        Screen.Cursor := crDefault;
     end;
   end;
 end;
@@ -3060,20 +3106,31 @@ var
   S: ansistring;
   nex, notu: integer;
 begin
-  {if RPath = '' then
+  // Always re-detect R under the hood. Registry lookup is instantaneous,
+  // so this transparently picks up upgrades between calls.
+  if not LocateR then
   begin
+    // Automatic detection failed — offer a manual escape hatch.
     SelectDirectoryDialog.Title := strRDirectory;
     SelectDirectoryDialog.Filename := '';
     if SelectDirectoryDialog.Execute then
-      RPath := SelectDirectoryDialog.FileName
+    begin
+      RPath := IncludeTrailingPathDelimiter(SelectDirectoryDialog.FileName)
+             + 'bin' + PathDelim + 'Rscript.exe';
+      if not FileExists(RPath) then
+      begin
+        MessageDlg(strError, Format(strRNotFound, ['R']), mtError, [mbOK], 0);
+        RPath := '';
+        Exit;
+      end;
+    end
     else
     begin
       MessageDlg(strError, Format(strRNotFound, ['R']), mtError, [mbOK], 0);
       Exit;
     end;
-  end;}
-  if not LocateR then
-    Exit;
+  end;
+
   if FileExists('dist') then
   begin
     nex := WordCount(Delta.ReadDirective('dist', '*EXCLUDE ITEMS', True),
@@ -3085,29 +3142,37 @@ begin
   end
   else
     notu := Length(Dataset.ItemList);
+
   CreatePCOA('pcoa.R', notu);
+
   Screen.Cursor := crHourGlass;
-  //if RunCommand(Concat(RPath, PathDelim, 'Rscript'), ['--vanilla', 'pcoa.R'],
-  //  S, [poNoConsole]) then
-  if RunCommand(RPath, ['--vanilla', 'pcoa.R'], S, [poNoConsole]) then
-  begin
-    Screen.Cursor := crDefault;
-    with ViewerForm do
+  try
+    if RunCommand(RPath, ['--vanilla', 'pcoa.R'], S, [poNoConsole]) then
     begin
-      Caption := 'pcoa.png';
-      TextViewer.Visible := False;
-      HtmlViewer.Visible := False;
-      ScrollBox.Visible := True;
-      ImageViewer.Visible := True;
-      ImageViewer.Picture.LoadFromFile('pcoa.png');
-      Show;
+      Screen.Cursor := crDefault;
+      with ViewerForm do
+      begin
+        Caption := 'pcoa.png';
+        TextViewer.Visible := False;
+        HtmlViewer.Visible := False;
+        ScrollBox.Visible := True;
+        ImageViewer.Visible := True;
+        ImageViewer.Picture.LoadFromFile('pcoa.png');
+        Show;
+      end;
+    end
+    else
+    begin
+      Screen.Cursor := crDefault;
+      MessageDlg(strError, Format(strNotExecute, ['R']), mtError, [mbOK], 0);
+      // Do not clear RPath here: it was valid a moment ago. The failure
+      // is a runtime error in Rscript, not a detection problem.
     end;
-  end
-  else
-  begin
-    Screen.Cursor := crDefault;
-    MessageDlg(strError, Format(strNotExecute, ['R']), mtError, [mbOK], 0);
-    RPath := '';
+  finally
+    // Safety net in case RunCommand or the viewer raised — never leave
+    // the cursor stuck as an hourglass.
+    if Screen.Cursor = crHourGlass then
+      Screen.Cursor := crDefault;
   end;
 end;
 
@@ -3676,7 +3741,7 @@ begin
     ConforPath := sPath + 'confor';
     {$ENDIF}
     if FileExists('description.' + Extension) then
-      DeleteFile('description.' + Extension);
+      SysUtils.DeleteFile('description.' + Extension);
     Screen.Cursor := crHourGlass;
     if FileIsChanged and (not FileIsSaved) then FileSaveAsItemClick(Self);
     if RunCommand(ConforPath, ['tonat'], S, [poNoConsole]) then
